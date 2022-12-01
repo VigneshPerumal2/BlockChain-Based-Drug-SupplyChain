@@ -133,10 +133,10 @@ public class LoginJPanel extends javax.swing.JPanel {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         MySqlQuery sql= new MySqlQuery();
-        int x =sql.registerPatient();
-        if(x==1){
-            JOptionPane.showMessageDialog(this, "User Created");
-        }
+//        int x =sql.registerPatient();
+//        if(x==1){
+//            JOptionPane.showMessageDialog(this, "User Created");
+//        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
 

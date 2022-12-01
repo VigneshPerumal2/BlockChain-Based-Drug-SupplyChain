@@ -26,11 +26,33 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        imgfactory = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        imgfactory.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgfactory.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgfactory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Doctor.png"))); // NOI18N
+        add(imgfactory, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 80, 60));
+
+        jButton1.setText("DOCTOR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imgfactory;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

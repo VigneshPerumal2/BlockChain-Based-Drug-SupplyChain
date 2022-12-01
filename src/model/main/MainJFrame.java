@@ -4,6 +4,9 @@
  */
 package model.main;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import model.login.LoginJPanel;
 
 /**
@@ -19,6 +22,8 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         LoginJPanel loginJPanel = new LoginJPanel();
         splitPane.setLeftComponent(loginJPanel);
+        
+        
     }
 
     /**
@@ -34,6 +39,8 @@ public class MainJFrame extends javax.swing.JFrame {
         splitLeft = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 0), new java.awt.Dimension(400, 0), new java.awt.Dimension(400, 32767));
         splitRight = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lblWelcomeImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,12 +54,26 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(splitLeft);
 
-        splitRight.setBackground(new java.awt.Color(7, 59, 76));
+        splitRight.setBackground(new java.awt.Color(255, 255, 255));
         splitRight.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel2.setText("to every moment of your health");
+        splitRight.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 61, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel1.setText("Bringing our medicines ");
+        splitRight.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 760, 230));
+
+        lblWelcomeImage.setBackground(new java.awt.Color(204, 204, 204));
         lblWelcomeImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcomeImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Tablets.jpg"))); // NOI18N
-        splitRight.add(lblWelcomeImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, 0, 810, 800));
+        lblWelcomeImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Group of doctors standing at hospital building.jpg"))); // NOI18N
+        lblWelcomeImage.setText("Bringing our heart to every moment of your health");
+        lblWelcomeImage.setToolTipText("");
+        splitRight.add(lblWelcomeImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 810, 800));
 
         splitPane.setRightComponent(splitRight);
 
@@ -89,6 +110,18 @@ public class MainJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+         Connection con=null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/AVS","root","!1qaz@2wsx");
+            
+            System.out.print(con);
+        } catch (ClassNotFoundException ex) {
+           
+        } catch (SQLException ex) {
+//            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame().setVisible(true);
@@ -98,6 +131,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblWelcomeImage;
     private javax.swing.JPanel splitLeft;
     private javax.swing.JSplitPane splitPane;

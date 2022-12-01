@@ -4,8 +4,10 @@
  */
 package model.login;
 
+import javax.swing.JOptionPane;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
+import util.sql.MySqlQuery;
 
 /**
  *
@@ -78,6 +80,11 @@ public class LoginJPanel extends javax.swing.JPanel {
         btnRegister.setText("REGISTER");
         btnRegister.setBorder(null);
         btnRegister.setBorderPainted(false);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 650, 130, 50));
 
         btnSignIn.setBackground(new java.awt.Color(255, 61, 0));
@@ -120,6 +127,15 @@ public class LoginJPanel extends javax.swing.JPanel {
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignInActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        MySqlQuery sql= new MySqlQuery();
+        int x =sql.registerPatient();
+        if(x==1){
+            JOptionPane.showMessageDialog(this, "User Created");
+        }
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

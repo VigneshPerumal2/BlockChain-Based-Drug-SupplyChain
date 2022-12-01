@@ -46,7 +46,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogoBig.png"))); // NOI18N
         add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 140));
 
         lblEnterCredentials.setForeground(new java.awt.Color(204, 204, 204));
@@ -78,6 +78,11 @@ public class LoginJPanel extends javax.swing.JPanel {
         btnRegister.setText("REGISTER");
         btnRegister.setBorder(null);
         btnRegister.setBorderPainted(false);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
         add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 650, 130, 50));
 
         btnSignIn.setBackground(new java.awt.Color(255, 61, 0));
@@ -122,6 +127,11 @@ public class LoginJPanel extends javax.swing.JPanel {
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignInActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnRegisterActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

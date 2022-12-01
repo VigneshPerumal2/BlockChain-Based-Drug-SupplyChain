@@ -27,32 +27,134 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         imgfactory = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lblPatient = new javax.swing.JLabel();
+        btnPatient = new javax.swing.JButton();
+        lblRoleHeading = new javax.swing.JLabel();
+        imgDoctor = new javax.swing.JLabel();
+        lblPatient1 = new javax.swing.JLabel();
+        btnDoctor = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
+        lblBack = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        imgfactory2 = new javax.swing.JLabel();
+        lblPatient3 = new javax.swing.JLabel();
+        btnPatient2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgfactory.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         imgfactory.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgfactory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Doctor.png"))); // NOI18N
-        add(imgfactory, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 80, 60));
+        imgfactory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Account.png"))); // NOI18N
+        add(imgfactory, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 80, 60));
 
-        jButton1.setText("DOCTOR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lblPatient.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblPatient.setForeground(new java.awt.Color(255, 255, 255));
+        lblPatient.setText("Patient");
+        add(lblPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+
+        btnPatient.setBackground(new java.awt.Color(0, 0, 153));
+        btnPatient.setForeground(new java.awt.Color(255, 0, 153));
+        btnPatient.setBorder(null);
+        btnPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPatientActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        add(btnPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 120, 130));
+
+        lblRoleHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        lblRoleHeading.setForeground(new java.awt.Color(102, 102, 102));
+        lblRoleHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRoleHeading.setText("Choose Role");
+        add(lblRoleHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 230, 50));
+
+        imgDoctor.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgDoctor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Doctor.png"))); // NOI18N
+        add(imgDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 80, 60));
+
+        lblPatient1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblPatient1.setForeground(new java.awt.Color(255, 255, 255));
+        lblPatient1.setText("Doctor");
+        add(lblPatient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
+
+        btnDoctor.setBackground(new java.awt.Color(255, 102, 0));
+        btnDoctor.setForeground(new java.awt.Color(255, 0, 153));
+        btnDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoctorActionPerformed(evt);
+            }
+        });
+        add(btnDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 120, 130));
+        add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 710, -1, 90));
+        add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 70, -1));
+
+        lblBack.setFont(new java.awt.Font("Helvetica Neue", 0, 12)); // NOI18N
+        lblBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Double Left.png"))); // NOI18N
+        lblBack.setText("BACK");
+        add(lblBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 30));
+
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 70, 30));
+
+        imgfactory2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgfactory2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgfactory2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Account.png"))); // NOI18N
+        add(imgfactory2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 80, 60));
+
+        lblPatient3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblPatient3.setForeground(new java.awt.Color(255, 255, 255));
+        lblPatient3.setText("Patient");
+        add(lblPatient3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+
+        btnPatient2.setBackground(new java.awt.Color(0, 0, 153));
+        btnPatient2.setForeground(new java.awt.Color(255, 0, 153));
+        btnPatient2.setBorder(null);
+        btnPatient2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatient2ActionPerformed(evt);
+            }
+        });
+        add(btnPatient2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, 130));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnPatientActionPerformed
+
+    private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDoctorActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnPatient2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatient2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPatient2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDoctor;
+    private javax.swing.JButton btnPatient;
+    private javax.swing.JButton btnPatient2;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.JLabel imgDoctor;
     private javax.swing.JLabel imgfactory;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel imgfactory2;
+    private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblPatient;
+    private javax.swing.JLabel lblPatient1;
+    private javax.swing.JLabel lblPatient3;
+    private javax.swing.JLabel lblRoleHeading;
     // End of variables declaration//GEN-END:variables
 }

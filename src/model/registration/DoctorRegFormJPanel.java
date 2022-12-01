@@ -26,7 +26,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         lblHeading = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
@@ -40,191 +40,228 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         lblPhoneNumber = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         valPhoneNumber = new javax.swing.JLabel();
-        lblName1 = new javax.swing.JLabel();
-        valName1 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        lblName2 = new javax.swing.JLabel();
-        valName2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        lblName3 = new javax.swing.JLabel();
-        valName3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        lblPhoneNumber1 = new javax.swing.JLabel();
-        txtPhoneNumber1 = new javax.swing.JTextField();
-        valPhoneNumber1 = new javax.swing.JLabel();
-        lblPhoneNumber2 = new javax.swing.JLabel();
-        txtPhoneNumber2 = new javax.swing.JTextField();
-        valPhoneNumber2 = new javax.swing.JLabel();
-        lblPhoneNumber3 = new javax.swing.JLabel();
-        txtPhoneNumber3 = new javax.swing.JTextField();
-        valPhoneNumber3 = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
+        spinnerAge = new javax.swing.JSpinner();
+        lblRace = new javax.swing.JLabel();
+        comboboxRace = new javax.swing.JComboBox<>();
+        lblSex = new javax.swing.JLabel();
+        radiobtnOthers = new javax.swing.JRadioButton();
+        radiobtnMale = new javax.swing.JRadioButton();
+        radiobtnFemale = new javax.swing.JRadioButton();
+        lblLocation = new javax.swing.JLabel();
+        txtLocation = new javax.swing.JTextField();
+        valLocation = new javax.swing.JLabel();
+        lblAilments = new javax.swing.JLabel();
+        txtAilments = new javax.swing.JTextField();
+        valAilments = new javax.swing.JLabel();
+        lbladdWallet = new javax.swing.JLabel();
+        txtWallet = new javax.swing.JTextField();
+        valAmount = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
+        btnReset = new javax.swing.JButton();
+        btnsubmit = new javax.swing.JButton();
+        lbllogo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
         lblHeading.setForeground(new java.awt.Color(0, 51, 153));
-        lblHeading.setText("Enter Doctor Details");
-        jPanel1.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 470, 90));
+        lblHeading.setText("Enter Patient Details");
+        jPanel2.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 470, 90));
 
         lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(102, 102, 102));
         lblName.setText("Name");
-        jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 70, 30));
+        jPanel2.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 70, 30));
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 290, 30));
+        jPanel2.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 290, 30));
 
         valName.setForeground(new java.awt.Color(255, 61, 0));
         valName.setText("Please enter valid Name");
-        jPanel1.add(valName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 290, 20));
+        jPanel2.add(valName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 290, 20));
 
         lblEmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmailId.setForeground(new java.awt.Color(102, 102, 102));
         lblEmailId.setText("Email Id");
-        jPanel1.add(lblEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 70, 30));
+        jPanel2.add(lblEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 70, 30));
 
         txtEmailId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailIdActionPerformed(evt);
             }
         });
-        jPanel1.add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 30));
+        jPanel2.add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 30));
 
         valEmailId.setForeground(new java.awt.Color(255, 61, 0));
         valEmailId.setText("Please enter valid Email Id");
-        jPanel1.add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
+        jPanel2.add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
 
         lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblPassword.setText("Password");
-        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 110, 30));
+        jPanel2.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 110, 30));
 
         valPassword.setForeground(new java.awt.Color(255, 61, 0));
         valPassword.setText("Please enter valid Password");
-        jPanel1.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 290, 20));
+        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 290, 20));
 
         txtPassword.setText("jPasswordField1");
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
 
         lblPhoneNumber.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblPhoneNumber.setForeground(new java.awt.Color(102, 102, 102));
         lblPhoneNumber.setText("Phone Number");
-        jPanel1.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 140, 30));
+        jPanel2.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 140, 30));
 
         txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPhoneNumberActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 290, 30));
+        jPanel2.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 290, 30));
 
         valPhoneNumber.setForeground(new java.awt.Color(255, 61, 0));
         valPhoneNumber.setText("Please enter valid Phone Number");
-        jPanel1.add(valPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 290, 20));
+        jPanel2.add(valPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 290, 20));
 
-        lblName1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblName1.setForeground(new java.awt.Color(102, 102, 102));
-        lblName1.setText("Age");
-        jPanel1.add(lblName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 70, 30));
+        lblAge.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblAge.setForeground(new java.awt.Color(102, 102, 102));
+        lblAge.setText("Age");
+        jPanel2.add(lblAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 70, 30));
+        jPanel2.add(spinnerAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, 30));
 
-        valName1.setForeground(new java.awt.Color(255, 61, 0));
-        valName1.setText("Please enter valid Name");
-        jPanel1.add(valName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 290, 20));
-        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, 30));
+        lblRace.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblRace.setForeground(new java.awt.Color(102, 102, 102));
+        lblRace.setText("Race");
+        jPanel2.add(lblRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 70, 30));
 
-        lblName2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblName2.setForeground(new java.awt.Color(102, 102, 102));
-        lblName2.setText("Race");
-        jPanel1.add(lblName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 70, 30));
+        comboboxRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(comboboxRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 200, 30));
 
-        valName2.setForeground(new java.awt.Color(255, 61, 0));
-        valName2.setText("Please enter valid Name");
-        jPanel1.add(valName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 290, 20));
+        lblSex.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblSex.setForeground(new java.awt.Color(102, 102, 102));
+        lblSex.setText("Sex");
+        jPanel2.add(lblSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 70, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 200, 30));
-
-        lblName3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblName3.setForeground(new java.awt.Color(102, 102, 102));
-        lblName3.setText("Sex");
-        jPanel1.add(lblName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 70, 30));
-
-        valName3.setForeground(new java.awt.Color(255, 61, 0));
-        valName3.setText("Please enter valid Name");
-        jPanel1.add(valName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 290, 20));
-
-        jRadioButton1.setText("jRadioButton1");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, -1, -1));
-
-        jRadioButton2.setText("jRadioButton1");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        radiobtnOthers.setText("Others");
+        radiobtnOthers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                radiobtnOthersActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
+        jPanel2.add(radiobtnOthers, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, -1, -1));
 
-        jRadioButton3.setText("jRadioButton1");
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, -1));
-
-        lblPhoneNumber1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblPhoneNumber1.setForeground(new java.awt.Color(102, 102, 102));
-        lblPhoneNumber1.setText("Location");
-        jPanel1.add(lblPhoneNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 140, 30));
-
-        txtPhoneNumber1.addActionListener(new java.awt.event.ActionListener() {
+        radiobtnMale.setText("Male");
+        radiobtnMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneNumber1ActionPerformed(evt);
+                radiobtnMaleActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPhoneNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 290, 30));
+        jPanel2.add(radiobtnMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
 
-        valPhoneNumber1.setForeground(new java.awt.Color(255, 61, 0));
-        valPhoneNumber1.setText("Please enter valid Phone Number");
-        jPanel1.add(valPhoneNumber1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 290, 20));
-
-        lblPhoneNumber2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblPhoneNumber2.setForeground(new java.awt.Color(102, 102, 102));
-        lblPhoneNumber2.setText("Ailments");
-        jPanel1.add(lblPhoneNumber2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 630, 140, 30));
-
-        txtPhoneNumber2.addActionListener(new java.awt.event.ActionListener() {
+        radiobtnFemale.setText("Female");
+        radiobtnFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneNumber2ActionPerformed(evt);
+                radiobtnFemaleActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPhoneNumber2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 660, 290, 30));
+        jPanel2.add(radiobtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, -1));
 
-        valPhoneNumber2.setForeground(new java.awt.Color(255, 61, 0));
-        valPhoneNumber2.setText("Please enter valid Phone Number");
-        jPanel1.add(valPhoneNumber2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 690, 290, 20));
+        lblLocation.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblLocation.setForeground(new java.awt.Color(102, 102, 102));
+        lblLocation.setText("Location");
+        jPanel2.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 140, 30));
 
-        lblPhoneNumber3.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblPhoneNumber3.setForeground(new java.awt.Color(102, 102, 102));
-        lblPhoneNumber3.setText("Add Wallet");
-        jPanel1.add(lblPhoneNumber3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 140, 30));
-
-        txtPhoneNumber3.addActionListener(new java.awt.event.ActionListener() {
+        txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneNumber3ActionPerformed(evt);
+                txtLocationActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPhoneNumber3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 200, 30));
+        jPanel2.add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 290, 30));
 
-        valPhoneNumber3.setForeground(new java.awt.Color(255, 61, 0));
-        valPhoneNumber3.setText("Please enter valid Phone Number");
-        jPanel1.add(valPhoneNumber3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 290, 20));
+        valLocation.setForeground(new java.awt.Color(255, 61, 0));
+        valLocation.setText("Please enter valid Location");
+        jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 290, 20));
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        lblAilments.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblAilments.setForeground(new java.awt.Color(102, 102, 102));
+        lblAilments.setText("Ailments");
+        jPanel2.add(lblAilments, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 140, 30));
+
+        txtAilments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAilmentsActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtAilments, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 290, 30));
+
+        valAilments.setForeground(new java.awt.Color(255, 61, 0));
+        valAilments.setText("Please enter valid Ailments");
+        jPanel2.add(valAilments, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 290, 20));
+
+        lbladdWallet.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lbladdWallet.setForeground(new java.awt.Color(102, 102, 102));
+        lbladdWallet.setText("Add Wallet");
+        jPanel2.add(lbladdWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, 140, 30));
+
+        txtWallet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWalletActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 560, 200, 30));
+
+        valAmount.setForeground(new java.awt.Color(255, 61, 0));
+        valAmount.setText("Please enter valid Amount");
+        jPanel2.add(valAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 590, 290, 20));
+        jPanel2.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
+        jPanel2.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
+
+        btnReset.setBackground(new java.awt.Color(255, 51, 0));
+        btnReset.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnReset.setForeground(new java.awt.Color(255, 255, 255));
+        btnReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Reverse.png"))); // NOI18N
+        btnReset.setText("RESET");
+        btnReset.setIconTextGap(10);
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 660, 160, 40));
+
+        btnsubmit.setBackground(new java.awt.Color(0, 153, 0));
+        btnsubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnsubmit.setForeground(new java.awt.Color(255, 255, 255));
+        btnsubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Double Tick.png"))); // NOI18N
+        btnsubmit.setText("SUBMIT");
+        btnsubmit.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        btnsubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsubmitActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 660, 160, 40));
+
+        lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Doctor and patient.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 250, 190));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -239,57 +276,76 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPhoneNumberActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void radiobtnOthersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobtnOthersActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_radiobtnOthersActionPerformed
 
-    private void txtPhoneNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneNumber1ActionPerformed
+    private void radiobtnMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobtnMaleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneNumber1ActionPerformed
+    }//GEN-LAST:event_radiobtnMaleActionPerformed
 
-    private void txtPhoneNumber2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneNumber2ActionPerformed
+    private void radiobtnFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobtnFemaleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneNumber2ActionPerformed
+    }//GEN-LAST:event_radiobtnFemaleActionPerformed
 
-    private void txtPhoneNumber3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneNumber3ActionPerformed
+    private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneNumber3ActionPerformed
+    }//GEN-LAST:event_txtLocationActionPerformed
+
+    private void txtAilmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAilmentsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAilmentsActionPerformed
+
+    private void txtWalletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWalletActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWalletActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnsubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnsubmit;
+    private javax.swing.JComboBox<String> comboboxRace;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblAilments;
     private javax.swing.JLabel lblEmailId;
     private javax.swing.JLabel lblHeading;
+    private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblName1;
-    private javax.swing.JLabel lblName2;
-    private javax.swing.JLabel lblName3;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhoneNumber;
-    private javax.swing.JLabel lblPhoneNumber1;
-    private javax.swing.JLabel lblPhoneNumber2;
-    private javax.swing.JLabel lblPhoneNumber3;
+    private javax.swing.JLabel lblRace;
+    private javax.swing.JLabel lblSex;
+    private javax.swing.JLabel lbladdWallet;
+    private javax.swing.JLabel lbllogo;
+    private javax.swing.JRadioButton radiobtnFemale;
+    private javax.swing.JRadioButton radiobtnMale;
+    private javax.swing.JRadioButton radiobtnOthers;
+    private javax.swing.JSpinner spinnerAge;
+    private javax.swing.JTextField txtAilments;
     private javax.swing.JTextField txtEmailId;
+    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtPhoneNumber1;
-    private javax.swing.JTextField txtPhoneNumber2;
-    private javax.swing.JTextField txtPhoneNumber3;
+    private javax.swing.JTextField txtWallet;
+    private javax.swing.JLabel valAilments;
+    private javax.swing.JLabel valAmount;
     private javax.swing.JLabel valEmailId;
+    private javax.swing.JLabel valLocation;
     private javax.swing.JLabel valName;
-    private javax.swing.JLabel valName1;
-    private javax.swing.JLabel valName2;
-    private javax.swing.JLabel valName3;
     private javax.swing.JLabel valPassword;
     private javax.swing.JLabel valPhoneNumber;
-    private javax.swing.JLabel valPhoneNumber1;
-    private javax.swing.JLabel valPhoneNumber2;
-    private javax.swing.JLabel valPhoneNumber3;
     // End of variables declaration//GEN-END:variables
 }

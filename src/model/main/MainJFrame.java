@@ -4,6 +4,9 @@
  */
 package model.main;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import model.login.LoginJPanel;
 
 /**
@@ -19,6 +22,8 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         LoginJPanel loginJPanel = new LoginJPanel();
         splitPane.setLeftComponent(loginJPanel);
+        
+        
     }
 
     /**
@@ -105,6 +110,18 @@ public class MainJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+         Connection con=null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/AVS","root","!1qaz@2wsx");
+            
+            System.out.print(con);
+        } catch (ClassNotFoundException ex) {
+           
+        } catch (SQLException ex) {
+//            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame().setVisible(true);

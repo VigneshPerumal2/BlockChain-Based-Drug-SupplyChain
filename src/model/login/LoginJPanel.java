@@ -103,11 +103,13 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         EmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         EmailId.setForeground(new java.awt.Color(153, 153, 153));
+        EmailId.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Mail Account.png"))); // NOI18N
         EmailId.setText("Email ID");
         add(EmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 340, 270, 40));
 
         Password.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         Password.setForeground(new java.awt.Color(153, 153, 153));
+        Password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Lock.png"))); // NOI18N
         Password.setText("Password");
         add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 350, 30));
 

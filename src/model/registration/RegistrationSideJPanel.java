@@ -37,9 +37,16 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         lblBack = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        imgfactory2 = new javax.swing.JLabel();
-        lblPatient3 = new javax.swing.JLabel();
-        btnPatient2 = new javax.swing.JButton();
+        imgingsupplier = new javax.swing.JLabel();
+        lblSupplier = new javax.swing.JLabel();
+        lblIngredient = new javax.swing.JLabel();
+        btnIngSupplier = new javax.swing.JButton();
+        imgManufacturer = new javax.swing.JLabel();
+        lblManufacturer = new javax.swing.JLabel();
+        btnManufacturer = new javax.swing.JButton();
+        imgManufacturer1 = new javax.swing.JLabel();
+        lblManufacturer1 = new javax.swing.JLabel();
+        btnFDA = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,7 +87,7 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         lblPatient1.setText("Doctor");
         add(lblPatient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
 
-        btnDoctor.setBackground(new java.awt.Color(255, 102, 0));
+        btnDoctor.setBackground(new java.awt.Color(0, 153, 153));
         btnDoctor.setForeground(new java.awt.Color(255, 0, 153));
         btnDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,25 +110,72 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 70, 30));
 
-        imgfactory2.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        imgfactory2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgfactory2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Account.png"))); // NOI18N
-        add(imgfactory2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 80, 60));
+        imgingsupplier.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgingsupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgingsupplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Lab Items.png"))); // NOI18N
+        add(imgingsupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 80, 60));
 
-        lblPatient3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblPatient3.setForeground(new java.awt.Color(255, 255, 255));
-        lblPatient3.setText("Patient");
-        add(lblPatient3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+        lblSupplier.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblSupplier.setForeground(new java.awt.Color(255, 255, 255));
+        lblSupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSupplier.setText("Supplier");
+        add(lblSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 370, 110, -1));
 
-        btnPatient2.setBackground(new java.awt.Color(0, 0, 153));
-        btnPatient2.setForeground(new java.awt.Color(255, 0, 153));
-        btnPatient2.setBorder(null);
-        btnPatient2.addActionListener(new java.awt.event.ActionListener() {
+        lblIngredient.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblIngredient.setForeground(new java.awt.Color(255, 255, 255));
+        lblIngredient.setText("Ingredient");
+        add(lblIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, -1));
+
+        btnIngSupplier.setBackground(new java.awt.Color(255, 204, 51));
+        btnIngSupplier.setForeground(new java.awt.Color(255, 0, 153));
+        btnIngSupplier.setBorder(null);
+        btnIngSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatient2ActionPerformed(evt);
+                btnIngSupplierActionPerformed(evt);
             }
         });
-        add(btnPatient2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, 130));
+        add(btnIngSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, 130));
+
+        imgManufacturer.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgManufacturer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgManufacturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Factory.png"))); // NOI18N
+        add(imgManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 80, 60));
+
+        lblManufacturer.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblManufacturer.setForeground(new java.awt.Color(255, 255, 255));
+        lblManufacturer.setText("Manufacturer");
+        add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
+
+        btnManufacturer.setBackground(new java.awt.Color(204, 102, 0));
+        btnManufacturer.setForeground(new java.awt.Color(255, 0, 153));
+        btnManufacturer.setBorder(null);
+        btnManufacturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManufacturerActionPerformed(evt);
+            }
+        });
+        add(btnManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 120, 130));
+
+        imgManufacturer1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgManufacturer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgManufacturer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Licence.png"))); // NOI18N
+        add(imgManufacturer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 80, 60));
+
+        lblManufacturer1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblManufacturer1.setForeground(new java.awt.Color(255, 255, 255));
+        lblManufacturer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblManufacturer1.setText("FDA");
+        add(lblManufacturer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 120, -1));
+
+        btnFDA.setBackground(new java.awt.Color(0, 153, 51));
+        btnFDA.setForeground(new java.awt.Color(255, 0, 153));
+        btnFDA.setBorder(null);
+        btnFDA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFDAActionPerformed(evt);
+            }
+        });
+        add(btnFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 120, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
@@ -136,25 +190,40 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnPatient2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatient2ActionPerformed
+    private void btnIngSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngSupplierActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatient2ActionPerformed
+    }//GEN-LAST:event_btnIngSupplierActionPerformed
+
+    private void btnManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManufacturerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManufacturerActionPerformed
+
+    private void btnFDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFDAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFDAActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDoctor;
+    private javax.swing.JButton btnFDA;
+    private javax.swing.JButton btnIngSupplier;
+    private javax.swing.JButton btnManufacturer;
     private javax.swing.JButton btnPatient;
-    private javax.swing.JButton btnPatient2;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel imgDoctor;
+    private javax.swing.JLabel imgManufacturer;
+    private javax.swing.JLabel imgManufacturer1;
     private javax.swing.JLabel imgfactory;
-    private javax.swing.JLabel imgfactory2;
+    private javax.swing.JLabel imgingsupplier;
     private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblIngredient;
+    private javax.swing.JLabel lblManufacturer;
+    private javax.swing.JLabel lblManufacturer1;
     private javax.swing.JLabel lblPatient;
     private javax.swing.JLabel lblPatient1;
-    private javax.swing.JLabel lblPatient3;
     private javax.swing.JLabel lblRoleHeading;
+    private javax.swing.JLabel lblSupplier;
     // End of variables declaration//GEN-END:variables
 }

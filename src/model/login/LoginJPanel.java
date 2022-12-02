@@ -4,10 +4,8 @@
  */
 package model.login;
 
-import javax.swing.JOptionPane;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
-import util.sql.MySqlQuery;
 
 /**
  *
@@ -48,7 +46,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogoBig.png"))); // NOI18N
         add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 140));
 
         lblEnterCredentials.setForeground(new java.awt.Color(204, 204, 204));
@@ -105,11 +103,13 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         EmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         EmailId.setForeground(new java.awt.Color(153, 153, 153));
+        EmailId.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Mail Account.png"))); // NOI18N
         EmailId.setText("Email ID");
         add(EmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 340, 270, 40));
 
         Password.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         Password.setForeground(new java.awt.Color(153, 153, 153));
+        Password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Lock.png"))); // NOI18N
         Password.setText("Password");
         add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 350, 30));
 
@@ -132,11 +132,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        MySqlQuery sql= new MySqlQuery();
-//        int x =sql.registerPatient();
-//        if(x==1){
-//            JOptionPane.showMessageDialog(this, "User Created");
-//        }
+        
     }//GEN-LAST:event_btnRegisterActionPerformed
 
 

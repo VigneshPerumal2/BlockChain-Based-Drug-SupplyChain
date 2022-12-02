@@ -147,7 +147,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
 
         lblSex.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblSex.setForeground(new java.awt.Color(102, 102, 102));
-        lblSex.setText("Sex");
+        lblSex.setText("Gender");
         add(lblSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 70, 30));
 
         radiobtnOthers.setText("Others");
@@ -283,10 +283,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAilmentsActionPerformed
 
-    private void txtWalletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWalletActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWalletActionPerformed
-
     private void radiobtnFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobtnFemaleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radiobtnFemaleActionPerformed
@@ -302,6 +298,10 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void txtWalletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWalletActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWalletActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

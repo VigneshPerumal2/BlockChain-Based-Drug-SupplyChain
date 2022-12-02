@@ -4,8 +4,6 @@
  */
 package model.registration;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import util.sql.MySqlQuery;
@@ -19,6 +17,8 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PatientRegFormJPanel
      */
+    private boolean validation;
+
     public PatientRegFormJPanel() {
         initComponents();
         ButtonGroup bg1 = new ButtonGroup();
@@ -26,7 +26,11 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         bg1.add(radiobtnMale);
         bg1.add(radiobtnFemale);
         bg1.add(radiobtnOthers);
-        imgVerified.setVisible(false);
+
+        radiobtnMale.setEnabled(true);
+
+        formReset();
+//        imgVerified.setVisible(false);
     }
 
     /**
@@ -38,7 +42,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        imgVerified = new javax.swing.JLabel();
         lblHeading = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
@@ -78,9 +81,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        imgVerified.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/92074-added-successfully.gif"))); // NOI18N
-        add(imgVerified, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 147, 640, 460));
 
         lblHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
         lblHeading.setForeground(new java.awt.Color(0, 51, 153));
@@ -310,59 +310,147 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
         String Patient_Name = txtName.getText();
-        int Patient_Age = (int)spinnerAge.getValue();
+        int Patient_Age = (int) spinnerAge.getValue();
         String Patient_Race = String.valueOf(drpRace.getSelectedItem());
-        if(radiobtnFemale.isSelected()){
+        if (radiobtnFemale.isSelected()) {
             String Race = radiobtnFemale.getText();
-        }
-        else if(radiobtnMale.isSelected()){
+        } else if (radiobtnMale.isSelected()) {
             String Race = radiobtnMale.getText();
-        }
-        else if(radiobtnOthers.isSelected()){
+        } else if (radiobtnOthers.isSelected()) {
             String Race = radiobtnOthers.getText();
         }
-        String Patient_Location =  txtLocation.getText();
+        String Patient_Location = txtLocation.getText();
         String Ailments = txtAilments.getText();
         String Email_Id = txtEmailId.getText();
         String Phone_No = txtPhoneNumber.getText();
         String Password = txtPassword.getText();
         MySqlQuery mySqlQuery = new MySqlQuery();
-        int result = mySqlQuery.createPatient(Patient_Name, Patient_Age, Patient_Race, Patient_Race, Patient_Location, Ailments, Email_Id, Phone_No, Password);
-        if(result==1){
+        int result = 0;
+        if (validation()) {
+            result = mySqlQuery.createPatient(Patient_Name, Patient_Age, Patient_Race, Patient_Race, Patient_Location, Ailments, Email_Id, Phone_No, Password);
+        }
+        if (result == 1) {
+            formReset();
+            JOptionPane.showMessageDialog(this, "Patient Created !");
             System.out.println("Show GIF");
-            imgVerified.setVisible(true);
-            imgVerified.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/92074-added-successfully.gif"))); // NOI18N
-            add(imgVerified, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 147, 640, 460));
-            try {
-                Thread.sleep( 5000 );
-            } catch (InterruptedException ex) {
-                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            imgVerified.setVisible(false);
-            
+//            imgVerified.setVisible(true);
+//            imgVerified.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/92074-added-successfully.gif"))); // NOI18N
+//            add(imgVerified, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 147, 640, 460));
+//            try {
+//                Thread.sleep(5000);
+//            } catch (InterruptedException ex) {
+//                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            imgVerified.setVisible(false);
+
+        } else {
+            validation();
+            JOptionPane.showMessageDialog(this, "Patient not created !");
+
         }
-        else{
-            JOptionPane.showMessageDialog(this, "Patient Already Exists !");
-        }
-        
+
     }//GEN-LAST:event_btnsubmitActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
+        formReset();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void txtWalletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWalletActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtWalletActionPerformed
+    /**
+     * Form reset implementation
+     */
+    private void formReset() {
 
+        txtName.setText("");
+        txtAilments.setText("");
+        txtEmailId.setText("");
+        txtLocation.setText("");
+        txtPassword.setText("");
+        txtPhoneNumber.setText("");
+        txtWallet.setText("");
 
+        valName.setText("");
+        valPassword.setText("");
+        valAilments.setText("");
+        valEmailId.setText("");
+        valLocation.setText("");
+        valPhoneNumber.setText("");
+        valAmount.setText("");
+
+    }
+
+    /**
+     * Validation implementation
+     *
+     * @return
+     */
+    private boolean validation() {
+        boolean validation = true;
+        valName.setText("");
+        valPassword.setText("");
+        valAilments.setText("");
+        valEmailId.setText("");
+        valLocation.setText("");
+        valPhoneNumber.setText("");
+        valAmount.setText("");
+        String Patient_Name = txtName.getText();
+        String Patient_Location = txtLocation.getText();
+        String Email_Id = txtEmailId.getText();
+        String Phone_No = txtPhoneNumber.getText();
+        String Password = txtPassword.getText();
+        String Ailments = txtAilments.getText();
+        String Wallet = txtWallet.getText();
+        String location = txtLocation.getText();
+
+        System.out.println("Patient Name->" + Patient_Name);
+
+        //Name Validation
+        if (Patient_Name.length() <= 0) {
+            valName.setText("Please Enter Name");
+            validation = false;
+        }
+        //Email_Id Validation
+        if (Email_Id.length() <= 0) {
+            valEmailId.setText("Please Enter EmailId");
+            validation = false;
+        }
+        //Phone_No Validation
+        if (Phone_No.length() <= 0) {
+            valPhoneNumber.setText("Please Enter Phone_No");
+            validation = false;
+        }
+        //Password Validation
+        if (Password.length() <= 0) {
+            valPassword.setText("Please Enter Password");
+            validation = false;
+        }
+        //Ailments Validation
+        if (Ailments.length() <= 0) {
+            valAilments.setText("Please Enter Ailments");
+            validation = false;
+        }
+        //Wallet Validation
+        if (Wallet.length() <= 0) {
+            valAmount.setText("Please Enter Wallet");
+            validation = false;
+        }
+        //Location Validation
+        if (location.length() <= 0) {
+            valLocation.setText("Please Enter Location");
+            validation = false;
+        }
+
+        return validation;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
     private javax.swing.JComboBox<String> drpRace;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
-    private javax.swing.JLabel imgVerified;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblAilments;

@@ -5,45 +5,48 @@
 package util.sql;
 
 import classes.Patient;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-
-
-//package com.mkyong.jdbc.preparestatement.row;
-
-import java.math.BigDecimal;
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
  *
  * @author Amulya
  */
-
 public class MySqlQuery {
-    
-     private ArrayList<Patient> record;
-    
-     private final String URL = "jdbc:mysql://localhost:3306/AVS";
-     private final String USER="root";
-     private final String PASSWORD="!1qaz@2wsx";
 
-//  PATIENT TABLE QUERIES
+    private ArrayList<Patient> record;
+    /**
+     * DataBase Connection Details
+     */
+    private final String URL = "jdbc:mysql://localhost:3306/AVS";
+    private final String USER = "root";
+    private final String PASSWORD = "!1qaz@2wsx";
+
+    /**
+     * Patient Queries
+     */
     private static final String SQL_INSERT_PATIENT = "INSERT INTO PATIENT (Patient_Name, Patient_Age, Patient_Race,Patient_Gender,Patient_Location,Ailments,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_READ_PATIENT = "SELECT * FROM PATIENT";
-    
-//    THIS FUNCTIONS CREATES NEW PATIENT
-    public int registerPatient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password) {
-        int result=0;
-        try (Connection conn = DriverManager.getConnection(
-                URL,USER,PASSWORD);
-             PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_PATIENT)) {
 
-            preparedStatement.setString(1,Patient_Name);
+    /**
+     *
+     * @param Patient_Name
+     * @param Patient_Age
+     * @param Patient_Race
+     * @param Patient_Gender
+     * @param Patient_Location
+     * @param Ailments
+     * @param Email_Id
+     * @param Phone_No
+     * @param Password
+     * @return int Create Patient Function
+     */
+    public int createPatient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_PATIENT)) {
+
+            preparedStatement.setString(1, Patient_Name);
             preparedStatement.setInt(2, Patient_Age);
             preparedStatement.setString(3, Patient_Race);
             preparedStatement.setString(4, Patient_Gender);
@@ -53,9 +56,10 @@ public class MySqlQuery {
             preparedStatement.setString(8, Phone_No);
             preparedStatement.setString(9, Password);
             
+            System.out.println("Prepared Statement ->"+preparedStatement);
 
             int row = preparedStatement.executeUpdate();
-            result=row;
+            result = row;
 
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
@@ -63,15 +67,24 @@ public class MySqlQuery {
         }
         return result;
     }
-    
-    
-    
-// THIS FUNCTION READS THE PATIENT
-    public void readPatient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password){
-        int result =0;
-        try (Connection conn = DriverManager.getConnection(
-                URL,USER,PASSWORD);
-             PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_PATIENT)) {
+
+/**
+ * 
+ * @param Patient_Name
+ * @param Patient_Age
+ * @param Patient_Race
+ * @param Patient_Gender
+ * @param Patient_Location
+ * @param Ailments
+ * @param Email_Id
+ * @param Phone_No
+ * @param Password 
+ * Select all patient function
+ */
+    public void readPatient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_PATIENT)) {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -86,8 +99,7 @@ public class MySqlQuery {
                 String emailID = resultSet.getString(Email_Id);
                 String phoneNo = resultSet.getString(Phone_No);
                 String password = resultSet.getString(Password);
-                
-                
+
                 Patient obj = new Patient();
 //                obj.setId(name);
 //                obj.setName(age);
@@ -99,23 +111,19 @@ public class MySqlQuery {
 //                obj.setPhoneNo(phoneNo);
 //                obj.setPassword(password);
 //                
-                
+
                 System.out.println(obj);
             }
-            
+
             int row = preparedStatement.executeUpdate();
-            result=row;
+            result = row;
 
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
         } catch (Exception e) {
-            
+
         }
-    
+
     }
-    
 
 }
-
-
-    

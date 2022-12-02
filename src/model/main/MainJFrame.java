@@ -5,9 +5,6 @@
 package model.main;
 
 import model.login.LoginJPanel;
-import model.registration.RegistrationSideJPanel;
-import util.extras.JHintPasswordTextField;
-import util.extras.JHintTextField;
 
 /**
  *
@@ -20,6 +17,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
+        splitPane.setLeftComponent(new LoginJPanel(splitPane));
         
     }
 
@@ -35,19 +33,6 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPane = new javax.swing.JSplitPane();
         splitLeft = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(400, 0), new java.awt.Dimension(400, 0), new java.awt.Dimension(400, 32767));
-        jPanel2 = new javax.swing.JPanel();
-        imgLogo = new javax.swing.JLabel();
-        lblEnterCredentials = new javax.swing.JLabel();
-        lblWelcome = new javax.swing.JLabel();
-        txtEmailId = new JHintTextField("Enter Email ID");
-        txtPassword = new JHintPasswordTextField("Enter Password");
-        btnRegister = new javax.swing.JButton();
-        btnSignIn = new javax.swing.JButton();
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 200), new java.awt.Dimension(0, 200), new java.awt.Dimension(32767, 200));
-        EmailId = new javax.swing.JLabel();
-        Password = new javax.swing.JLabel();
-        valPassword = new javax.swing.JLabel();
-        valEmailId = new javax.swing.JLabel();
         splitRight = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -56,92 +41,11 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        splitPane.setBackground(new java.awt.Color(7, 59, 76));
+        splitPane.setBackground(new java.awt.Color(255, 255, 255));
 
         splitLeft.setBackground(new java.awt.Color(255, 255, 255));
         splitLeft.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         splitLeft.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 504, -1, -1));
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        imgLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogoBig.png"))); // NOI18N
-        jPanel2.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 140));
-
-        lblEnterCredentials.setForeground(new java.awt.Color(204, 204, 204));
-        lblEnterCredentials.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEnterCredentials.setText("Please enter your credentials");
-        jPanel2.add(lblEnterCredentials, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 400, 30));
-
-        lblWelcome.setFont(new java.awt.Font("Zapfino", 1, 24)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(0, 51, 153));
-        lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Welcome !");
-        jPanel2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 400, 80));
-
-        txtEmailId.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        txtEmailId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailIdActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 360, 60));
-
-        txtPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 360, 60));
-
-        btnRegister.setBackground(new java.awt.Color(0, 51, 153));
-        btnRegister.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Add User Male.png"))); // NOI18N
-        btnRegister.setText("REGISTER");
-        btnRegister.setBorder(null);
-        btnRegister.setBorderPainted(false);
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 650, 130, 50));
-
-        btnSignIn.setBackground(new java.awt.Color(255, 61, 0));
-        btnSignIn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
-        btnSignIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Forward.png"))); // NOI18N
-        btnSignIn.setText("SIGN IN");
-        btnSignIn.setBorderPainted(false);
-        btnSignIn.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        btnSignIn.setMixingCutoutShape(null);
-        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignInActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 650, 120, 50));
-        jPanel2.add(filler3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, -1, 270));
-
-        EmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        EmailId.setForeground(new java.awt.Color(153, 153, 153));
-        EmailId.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Mail Account.png"))); // NOI18N
-        EmailId.setText("Email ID");
-        jPanel2.add(EmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 340, 270, 40));
-
-        Password.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        Password.setForeground(new java.awt.Color(153, 153, 153));
-        Password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Lock.png"))); // NOI18N
-        Password.setText("Password");
-        jPanel2.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 350, 30));
-
-        valPassword.setForeground(new java.awt.Color(255, 61, 0));
-        valPassword.setText("Please enter valid Password");
-        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, -1, -1));
-
-        valEmailId.setForeground(new java.awt.Color(255, 61, 0));
-        valEmailId.setText("Please enter valid Email Id");
-        jPanel2.add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
-
-        splitLeft.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         splitPane.setLeftComponent(splitLeft);
 
@@ -172,19 +76,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtEmailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailIdActionPerformed
-
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSignInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,25 +113,12 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel EmailId;
-    private javax.swing.JLabel Password;
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JButton btnSignIn;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler3;
-    private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblEnterCredentials;
-    private javax.swing.JLabel lblWelcome;
     private javax.swing.JLabel lblWelcomeImage;
     private javax.swing.JPanel splitLeft;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel splitRight;
-    private javax.swing.JTextField txtEmailId;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JLabel valEmailId;
-    private javax.swing.JLabel valPassword;
     // End of variables declaration//GEN-END:variables
 }

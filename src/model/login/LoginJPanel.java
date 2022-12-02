@@ -4,6 +4,7 @@
  */
 package model.login;
 
+import model.registration.RegistrationSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
 
@@ -16,8 +17,10 @@ public class LoginJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LoginJPanel
      */
-    public LoginJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public LoginJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
     }
 
     /**
@@ -132,7 +135,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        
+        splitPane.setLeftComponent(new RegistrationSideJPanel(splitPane));
     }//GEN-LAST:event_btnRegisterActionPerformed
 
 

@@ -4,6 +4,12 @@
  */
 package model.registration;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import util.sql.MySqlQuery;
+
 /**
  *
  * @author sunayanashivanagi
@@ -15,6 +21,12 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
      */
     public PatientRegFormJPanel() {
         initComponents();
+        ButtonGroup bg1 = new ButtonGroup();
+
+        bg1.add(radiobtnMale);
+        bg1.add(radiobtnFemale);
+        bg1.add(radiobtnOthers);
+        imgVerified.setVisible(false);
     }
 
     /**
@@ -26,6 +38,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        imgVerified = new javax.swing.JLabel();
         lblHeading = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
@@ -42,7 +55,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         lblAge = new javax.swing.JLabel();
         spinnerAge = new javax.swing.JSpinner();
         lblRace = new javax.swing.JLabel();
-        comboboxRace = new javax.swing.JComboBox<>();
+        drpRace = new javax.swing.JComboBox<>();
         lblSex = new javax.swing.JLabel();
         radiobtnOthers = new javax.swing.JRadioButton();
         radiobtnMale = new javax.swing.JRadioButton();
@@ -65,6 +78,9 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        imgVerified.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/92074-added-successfully.gif"))); // NOI18N
+        add(imgVerified, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 147, 640, 460));
 
         lblHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
         lblHeading.setForeground(new java.awt.Color(0, 51, 153));
@@ -111,8 +127,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         valPassword.setForeground(new java.awt.Color(255, 61, 0));
         valPassword.setText("Please enter valid Password");
         add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 290, 20));
-
-        txtPassword.setText("jPasswordField1");
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
 
         lblPhoneNumber.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -135,6 +149,8 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         lblAge.setForeground(new java.awt.Color(102, 102, 102));
         lblAge.setText("Age");
         add(lblAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 70, 30));
+
+        spinnerAge.setModel(new javax.swing.SpinnerNumberModel(18, 18, 80, 1));
         add(spinnerAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, 30));
 
         lblRace.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -142,8 +158,8 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         lblRace.setText("Race");
         add(lblRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 70, 30));
 
-        comboboxRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(comboboxRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 200, 30));
+        drpRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asian", "American", "Hispanic", "African" }));
+        add(drpRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 200, 30));
 
         lblSex.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblSex.setForeground(new java.awt.Color(102, 102, 102));
@@ -156,7 +172,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
                 radiobtnOthersActionPerformed(evt);
             }
         });
-        add(radiobtnOthers, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, -1, -1));
+        add(radiobtnOthers, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, -1, -1));
 
         radiobtnMale.setText("Male");
         radiobtnMale.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +188,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
                 radiobtnFemaleActionPerformed(evt);
             }
         });
-        add(radiobtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, -1));
+        add(radiobtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
         lblLocation.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblLocation.setForeground(new java.awt.Color(102, 102, 102));
@@ -293,6 +309,42 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
+        String Patient_Name = txtName.getText();
+        int Patient_Age = (int)spinnerAge.getValue();
+        String Patient_Race = String.valueOf(drpRace.getSelectedItem());
+        if(radiobtnFemale.isSelected()){
+            String Race = radiobtnFemale.getText();
+        }
+        else if(radiobtnMale.isSelected()){
+            String Race = radiobtnMale.getText();
+        }
+        else if(radiobtnOthers.isSelected()){
+            String Race = radiobtnOthers.getText();
+        }
+        String Patient_Location =  txtLocation.getText();
+        String Ailments = txtAilments.getText();
+        String Email_Id = txtEmailId.getText();
+        String Phone_No = txtPhoneNumber.getText();
+        String Password = txtPassword.getText();
+        MySqlQuery mySqlQuery = new MySqlQuery();
+        int result = mySqlQuery.createPatient(Patient_Name, Patient_Age, Patient_Race, Patient_Race, Patient_Location, Ailments, Email_Id, Phone_No, Password);
+        if(result==1){
+            System.out.println("Show GIF");
+            imgVerified.setVisible(true);
+            imgVerified.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/92074-added-successfully.gif"))); // NOI18N
+            add(imgVerified, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 147, 640, 460));
+            try {
+                Thread.sleep( 5000 );
+            } catch (InterruptedException ex) {
+                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            imgVerified.setVisible(false);
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Patient Already Exists !");
+        }
+        
     }//GEN-LAST:event_btnsubmitActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -307,9 +359,10 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
-    private javax.swing.JComboBox<String> comboboxRace;
+    private javax.swing.JComboBox<String> drpRace;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
+    private javax.swing.JLabel imgVerified;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblAilments;

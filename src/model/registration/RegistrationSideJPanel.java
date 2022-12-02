@@ -100,7 +100,7 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         lblPatient1.setText("Doctor");
         add(lblPatient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
 
-        btnDoctor.setBackground(new java.awt.Color(204, 204, 204));
+        btnDoctor.setBackground(new java.awt.Color(0, 153, 153));
         btnDoctor.setForeground(new java.awt.Color(255, 0, 153));
         btnDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

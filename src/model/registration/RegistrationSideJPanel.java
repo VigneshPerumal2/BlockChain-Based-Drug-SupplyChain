@@ -48,9 +48,18 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         imgManufacturer = new javax.swing.JLabel();
         lblManufacturer = new javax.swing.JLabel();
         btnManufacturer = new javax.swing.JButton();
-        imgManufacturer1 = new javax.swing.JLabel();
-        lblManufacturer1 = new javax.swing.JLabel();
+        imgFDA = new javax.swing.JLabel();
+        lblFDA = new javax.swing.JLabel();
         btnFDA = new javax.swing.JButton();
+        imgDistributor = new javax.swing.JLabel();
+        lblDistributor = new javax.swing.JLabel();
+        btnDistributor = new javax.swing.JButton();
+        imgPharmacy = new javax.swing.JLabel();
+        lblPharmacy = new javax.swing.JLabel();
+        btnPharmacy = new javax.swing.JButton();
+        imgHospital = new javax.swing.JLabel();
+        lblHospital = new javax.swing.JLabel();
+        btnHospital = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -91,7 +100,7 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         lblPatient1.setText("Doctor");
         add(lblPatient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
 
-        btnDoctor.setBackground(new java.awt.Color(0, 153, 153));
+        btnDoctor.setBackground(new java.awt.Color(204, 204, 204));
         btnDoctor.setForeground(new java.awt.Color(255, 0, 153));
         btnDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,16 +169,16 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         });
         add(btnManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 120, 130));
 
-        imgManufacturer1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        imgManufacturer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgManufacturer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Licence.png"))); // NOI18N
-        add(imgManufacturer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 80, 60));
+        imgFDA.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgFDA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgFDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Licence.png"))); // NOI18N
+        add(imgFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 80, 60));
 
-        lblManufacturer1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblManufacturer1.setForeground(new java.awt.Color(255, 255, 255));
-        lblManufacturer1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblManufacturer1.setText("FDA");
-        add(lblManufacturer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 120, -1));
+        lblFDA.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblFDA.setForeground(new java.awt.Color(255, 255, 255));
+        lblFDA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFDA.setText("FDA");
+        add(lblFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 120, -1));
 
         btnFDA.setBackground(new java.awt.Color(0, 153, 51));
         btnFDA.setForeground(new java.awt.Color(255, 0, 153));
@@ -180,6 +189,68 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
             }
         });
         add(btnFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 120, 130));
+
+        imgDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgDistributor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgDistributor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Truck.png"))); // NOI18N
+        add(imgDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 80, 60));
+
+        lblDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblDistributor.setForeground(new java.awt.Color(255, 255, 255));
+        lblDistributor.setText("Distributor");
+        add(lblDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
+
+        btnDistributor.setBackground(new java.awt.Color(255, 102, 51));
+        btnDistributor.setForeground(new java.awt.Color(255, 0, 153));
+        btnDistributor.setBorder(null);
+        btnDistributor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDistributorActionPerformed(evt);
+            }
+        });
+        add(btnDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 120, 130));
+
+        imgPharmacy.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgPharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgPharmacy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Pharmacy Shop.png"))); // NOI18N
+        add(imgPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 640, 80, 60));
+
+        lblPharmacy.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblPharmacy.setForeground(new java.awt.Color(255, 255, 255));
+        lblPharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPharmacy.setText("Pharmacy");
+        add(lblPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 700, 110, -1));
+
+        btnPharmacy.setBackground(new java.awt.Color(153, 204, 255));
+        btnPharmacy.setForeground(new java.awt.Color(255, 0, 153));
+        btnPharmacy.setBorder(null);
+        btnPharmacy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPharmacyActionPerformed(evt);
+            }
+        });
+        add(btnPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, 120, 130));
+
+        imgHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        imgHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Hospital 3.png"))); // NOI18N
+        add(imgHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 80, 60));
+
+        lblHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblHospital.setForeground(new java.awt.Color(255, 255, 255));
+        lblHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHospital.setText("Hospital");
+        add(lblHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 700, 120, -1));
+
+        btnHospital.setBackground(new java.awt.Color(255, 51, 102));
+        btnHospital.setForeground(new java.awt.Color(255, 0, 153));
+        btnHospital.setBorder(null);
+        btnHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHospitalActionPerformed(evt);
+            }
+        });
+        add(btnHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 620, 120, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
@@ -209,27 +280,48 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFDAActionPerformed
 
+    private void btnDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDistributorActionPerformed
+
+    private void btnPharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPharmacyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPharmacyActionPerformed
+
+    private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHospitalActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnDistributor;
     private javax.swing.JButton btnDoctor;
     private javax.swing.JButton btnFDA;
+    private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnIngSupplier;
     private javax.swing.JButton btnManufacturer;
     private javax.swing.JButton btnPatient;
+    private javax.swing.JButton btnPharmacy;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
+    private javax.swing.JLabel imgDistributor;
     private javax.swing.JLabel imgDoctor;
+    private javax.swing.JLabel imgFDA;
+    private javax.swing.JLabel imgHospital;
     private javax.swing.JLabel imgManufacturer;
-    private javax.swing.JLabel imgManufacturer1;
+    private javax.swing.JLabel imgPharmacy;
     private javax.swing.JLabel imgfactory;
     private javax.swing.JLabel imgingsupplier;
     private javax.swing.JLabel lblBack;
+    private javax.swing.JLabel lblDistributor;
+    private javax.swing.JLabel lblFDA;
+    private javax.swing.JLabel lblHospital;
     private javax.swing.JLabel lblIngredient;
     private javax.swing.JLabel lblManufacturer;
-    private javax.swing.JLabel lblManufacturer1;
     private javax.swing.JLabel lblPatient;
     private javax.swing.JLabel lblPatient1;
+    private javax.swing.JLabel lblPharmacy;
     private javax.swing.JLabel lblRoleHeading;
     private javax.swing.JLabel lblSupplier;
     // End of variables declaration//GEN-END:variables

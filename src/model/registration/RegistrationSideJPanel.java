@@ -4,6 +4,8 @@
  */
 package model.registration;
 
+import model.main.MainJFrame;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +15,10 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RegistrationSideJPanel
      */
-    public RegistrationSideJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public RegistrationSideJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane = splitPane;
     }
 
     /**
@@ -251,14 +255,17 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
 
     private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
         // TODO add your handling code here:
+        splitPane.setRightComponent(new PatientRegFormJPanel());
     }//GEN-LAST:event_btnPatientActionPerformed
 
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
         // TODO add your handling code here:
+        splitPane.setRightComponent(new DoctorRegFormJPanel());
     }//GEN-LAST:event_btnDoctorActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        new MainJFrame().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnIngSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngSupplierActionPerformed

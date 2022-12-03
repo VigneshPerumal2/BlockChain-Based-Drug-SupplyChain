@@ -30,15 +30,6 @@ public class MySqlQuery {
 
     /**
      *
-     * @param Patient_Name
-     * @param Patient_Age
-     * @param Patient_Race
-     * @param Patient_Gender
-     * @param Patient_Location
-     * @param Ailments
-     * @param Email_Id
-     * @param Phone_No
-     * @param Password
      * @return int Create Patient Function
      */
     public int createPatient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password) {
@@ -55,8 +46,8 @@ public class MySqlQuery {
             preparedStatement.setString(7, Email_Id);
             preparedStatement.setString(8, Phone_No);
             preparedStatement.setString(9, Password);
-            
-            System.out.println("Prepared Statement ->"+preparedStatement);
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
 
             int row = preparedStatement.executeUpdate();
             result = row;
@@ -68,19 +59,10 @@ public class MySqlQuery {
         return result;
     }
 
-/**
- * 
- * @param Patient_Name
- * @param Patient_Age
- * @param Patient_Race
- * @param Patient_Gender
- * @param Patient_Location
- * @param Ailments
- * @param Email_Id
- * @param Phone_No
- * @param Password 
- * Select all patient function
- */
+    /**
+     *
+     * Select all patient function
+     */
     public void readPatient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password) {
         int result = 0;
         try ( Connection conn = DriverManager.getConnection(

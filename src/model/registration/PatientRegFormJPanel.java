@@ -18,17 +18,17 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
      * Creates new form PatientRegFormJPanel
      */
     private boolean validation;
-
-    public PatientRegFormJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public PatientRegFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         ButtonGroup bg1 = new ButtonGroup();
-
+        this.splitPane=splitPane;
         bg1.add(radiobtnMale);
         bg1.add(radiobtnFemale);
         bg1.add(radiobtnOthers);
 
         radiobtnMale.setEnabled(true);
-
+        
         formReset();
 //        imgVerified.setVisible(false);
     }
@@ -330,18 +330,11 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
             result = mySqlQuery.createPatient(Patient_Name, Patient_Age, Patient_Race, Patient_Race, Patient_Location, Ailments, Email_Id, Phone_No, Password);
         }
         if (result == 1) {
-            formReset();
-            JOptionPane.showMessageDialog(this, "Patient Created !");
-            System.out.println("Show GIF");
-//            imgVerified.setVisible(true);
-//            imgVerified.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/92074-added-successfully.gif"))); // NOI18N
-//            add(imgVerified, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 147, 640, 460));
-//            try {
-//                Thread.sleep(5000);
-//            } catch (InterruptedException ex) {
-//                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            imgVerified.setVisible(false);
+            formReset();        
+            splitPane.setRightComponent(new SuccessGifJPanel());
+
+            
+           
 
         } else {
             validation();

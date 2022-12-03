@@ -44,12 +44,12 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
-        datechooserDateofEst = new com.toedter.calendar.JDateChooser();
         comboboxModeOfTransport = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         lblLocation = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         valLocation = new javax.swing.JLabel();
+        date = new com.toedter.calendar.JDateChooser();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -150,7 +150,6 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
-        jPanel2.add(datechooserDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 30));
 
         comboboxModeOfTransport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboboxModeOfTransport.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +178,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         valLocation.setForeground(new java.awt.Color(255, 61, 0));
         valLocation.setText("Please enter valid Location");
         jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
+        jPanel2.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 30));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -216,7 +216,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
     private javax.swing.JComboBox<String> comboboxModeOfTransport;
-    private com.toedter.calendar.JDateChooser datechooserDateofEst;
+    private com.toedter.calendar.JDateChooser date;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;

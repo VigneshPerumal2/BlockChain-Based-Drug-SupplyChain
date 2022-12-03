@@ -27,10 +27,9 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         bg1.add(radiobtnFemale);
         bg1.add(radiobtnOthers);
 
-        radiobtnMale.setEnabled(true);
+        radiobtnMale.setSelected(true);
         
         formReset();
-//        imgVerified.setVisible(false);
     }
 
     /**
@@ -332,10 +331,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         if (result == 1) {
             formReset();        
             splitPane.setRightComponent(new SuccessGifJPanel());
-
-            
-           
-
         } else {
             validation();
             JOptionPane.showMessageDialog(this, "Patient not created !");

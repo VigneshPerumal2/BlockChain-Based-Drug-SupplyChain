@@ -60,7 +60,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblWelcome.setFont(new java.awt.Font("Zapfino", 1, 24)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(0, 51, 153));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Welcome !");
+        lblWelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/welcome.gif"))); // NOI18N
         add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 400, 80));
 
         txtEmailId.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N

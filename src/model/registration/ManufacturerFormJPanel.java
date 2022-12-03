@@ -8,12 +8,12 @@ package model.registration;
  *
  * @author sunayanashivanagi
  */
-public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
+public class ManufacturerFormJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form IngredientSupplierFormJPanel
+     * Creates new form ManufacturerFormJPanel
      */
-    public IngredientSupplierFormJPanel() {
+    public ManufacturerFormJPanel() {
         initComponents();
     }
 
@@ -34,7 +34,7 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         lblLocation = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         valLocation = new javax.swing.JLabel();
-        lblCategory = new javax.swing.JLabel();
+        lblTypeOfMedicine = new javax.swing.JLabel();
         lblDateofEst = new javax.swing.JLabel();
         lblAddWallet = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
@@ -45,7 +45,7 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         btnsubmit = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
         datechooserDateofEst = new com.toedter.calendar.JDateChooser();
-        comboboxCategory = new javax.swing.JComboBox<>();
+        comboboxMedicine = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,8 +55,8 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
 
         lblHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblHeading.setForeground(new java.awt.Color(0, 51, 153));
-        lblHeading.setText("Enter Ingredient Supplier Details");
-        jPanel2.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 590, 90));
+        lblHeading.setText("Enter Manufacturer Details");
+        jPanel2.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 540, 90));
 
         lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(102, 102, 102));
@@ -90,15 +90,15 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         valLocation.setText("Please enter valid Location");
         jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
 
-        lblCategory.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblCategory.setForeground(new java.awt.Color(102, 102, 102));
-        lblCategory.setText("Category");
-        jPanel2.add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 110, 30));
+        lblTypeOfMedicine.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblTypeOfMedicine.setForeground(new java.awt.Color(102, 102, 102));
+        lblTypeOfMedicine.setText("Type of Medicine");
+        jPanel2.add(lblTypeOfMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 170, 30));
 
         lblDateofEst.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblDateofEst.setForeground(new java.awt.Color(102, 102, 102));
         lblDateofEst.setText("Date of Establishment");
-        jPanel2.add(lblDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 200, 30));
+        jPanel2.add(lblDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 200, 30));
 
         lblAddWallet.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblAddWallet.setForeground(new java.awt.Color(102, 102, 102));
@@ -147,19 +147,19 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
-        jPanel2.add(datechooserDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 290, 30));
+        jPanel2.add(datechooserDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 30));
 
-        comboboxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboboxCategory.addActionListener(new java.awt.event.ActionListener() {
+        comboboxMedicine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxMedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboboxCategoryActionPerformed(evt);
+                comboboxMedicineActionPerformed(evt);
             }
         });
-        jPanel2.add(comboboxCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
+        jPanel2.add(comboboxMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 290, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/IngredientSupplier.jpg"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 390, 440));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Manufacturer.jpg"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 390, 440));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -184,26 +184,26 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsubmitActionPerformed
 
-    private void comboboxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxCategoryActionPerformed
+    private void comboboxMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxMedicineActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboboxCategoryActionPerformed
+    }//GEN-LAST:event_comboboxMedicineActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
-    private javax.swing.JComboBox<String> comboboxCategory;
+    private javax.swing.JComboBox<String> comboboxMedicine;
     private com.toedter.calendar.JDateChooser datechooserDateofEst;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddWallet;
-    private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblDateofEst;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JLabel lblLocation;
     private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblTypeOfMedicine;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtLocation;

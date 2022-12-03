@@ -8,12 +8,12 @@ package model.registration;
  *
  * @author sunayanashivanagi
  */
-public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
+public class FDAFormJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form IngredientSupplierFormJPanel
+     * Creates new form FDAFormJPanel
      */
-    public IngredientSupplierFormJPanel() {
+    public FDAFormJPanel() {
         initComponents();
     }
 
@@ -27,15 +27,11 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        lblHeading = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
+        lblFDA = new javax.swing.JLabel();
+        lblBoardName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        valName = new javax.swing.JLabel();
-        lblLocation = new javax.swing.JLabel();
-        txtLocation = new javax.swing.JTextField();
-        valLocation = new javax.swing.JLabel();
-        lblCategory = new javax.swing.JLabel();
-        lblDateofEst = new javax.swing.JLabel();
+        valBoardName = new javax.swing.JLabel();
+        lblCountry = new javax.swing.JLabel();
         lblAddWallet = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
         valAmount = new javax.swing.JLabel();
@@ -44,24 +40,26 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
-        datechooserDateofEst = new com.toedter.calendar.JDateChooser();
-        comboboxCategory = new javax.swing.JComboBox<>();
+        comboboxCountry = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        lblCity = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        valCity = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
-        lblHeading.setForeground(new java.awt.Color(0, 51, 153));
-        lblHeading.setText("Enter Ingredient Supplier Details");
-        jPanel2.add(lblHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 590, 90));
+        lblFDA.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        lblFDA.setForeground(new java.awt.Color(0, 51, 153));
+        lblFDA.setText("Enter FDA Details");
+        jPanel2.add(lblFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 540, 90));
 
-        lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblName.setForeground(new java.awt.Color(102, 102, 102));
-        lblName.setText("Name");
-        jPanel2.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 70, 30));
+        lblBoardName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblBoardName.setForeground(new java.awt.Color(102, 102, 102));
+        lblBoardName.setText("Board Name");
+        jPanel2.add(lblBoardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, 30));
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,51 +68,30 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         });
         jPanel2.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 290, 30));
 
-        valName.setForeground(new java.awt.Color(255, 61, 0));
-        valName.setText("Please enter valid Name");
-        jPanel2.add(valName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 290, 20));
+        valBoardName.setForeground(new java.awt.Color(255, 61, 0));
+        valBoardName.setText("Please enter valid Board Name");
+        jPanel2.add(valBoardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 290, 20));
 
-        lblLocation.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblLocation.setForeground(new java.awt.Color(102, 102, 102));
-        lblLocation.setText("Location");
-        jPanel2.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 120, 30));
-
-        txtLocation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocationActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 30));
-
-        valLocation.setForeground(new java.awt.Color(255, 61, 0));
-        valLocation.setText("Please enter valid Location");
-        jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
-
-        lblCategory.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblCategory.setForeground(new java.awt.Color(102, 102, 102));
-        lblCategory.setText("Category");
-        jPanel2.add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 110, 30));
-
-        lblDateofEst.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblDateofEst.setForeground(new java.awt.Color(102, 102, 102));
-        lblDateofEst.setText("Date of Establishment");
-        jPanel2.add(lblDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 200, 30));
+        lblCountry.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblCountry.setForeground(new java.awt.Color(102, 102, 102));
+        lblCountry.setText("Country");
+        jPanel2.add(lblCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 170, 30));
 
         lblAddWallet.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblAddWallet.setForeground(new java.awt.Color(102, 102, 102));
         lblAddWallet.setText("Add Wallet");
-        jPanel2.add(lblAddWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 140, 30));
+        jPanel2.add(lblAddWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 140, 30));
 
         txtAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAmountActionPerformed(evt);
             }
         });
-        jPanel2.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 290, 30));
+        jPanel2.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 30));
 
         valAmount.setForeground(new java.awt.Color(255, 61, 0));
         valAmount.setText("Please enter valid Amount");
-        jPanel2.add(valAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, 290, 20));
+        jPanel2.add(valAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 290, 20));
         jPanel2.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
         jPanel2.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
 
@@ -129,7 +106,7 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
                 btnResetActionPerformed(evt);
             }
         });
-        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 660, 160, 40));
+        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, 160, 40));
 
         btnsubmit.setBackground(new java.awt.Color(0, 153, 0));
         btnsubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -142,24 +119,39 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
                 btnsubmitActionPerformed(evt);
             }
         });
-        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 660, 160, 40));
+        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 160, 40));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
-        jPanel2.add(datechooserDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 290, 30));
 
-        comboboxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboboxCategory.addActionListener(new java.awt.event.ActionListener() {
+        comboboxCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxCountry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboboxCategoryActionPerformed(evt);
+                comboboxCountryActionPerformed(evt);
             }
         });
-        jPanel2.add(comboboxCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
+        jPanel2.add(comboboxCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/IngredientSupplier.jpg"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 390, 440));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/FDA.jpg"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 390, 580));
+
+        lblCity.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblCity.setForeground(new java.awt.Color(102, 102, 102));
+        lblCity.setText("City");
+        jPanel2.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 120, 30));
+
+        txtCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCityActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 30));
+
+        valCity.setForeground(new java.awt.Color(255, 61, 0));
+        valCity.setText("Please enter valid City");
+        jPanel2.add(valCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -167,10 +159,6 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
-
-    private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocationActionPerformed
 
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
         // TODO add your handling code here:
@@ -184,32 +172,34 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsubmitActionPerformed
 
-    private void comboboxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxCategoryActionPerformed
+    private void comboboxCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxCountryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboboxCategoryActionPerformed
+    }//GEN-LAST:event_comboboxCountryActionPerformed
+
+    private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCityActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
-    private javax.swing.JComboBox<String> comboboxCategory;
-    private com.toedter.calendar.JDateChooser datechooserDateofEst;
+    private javax.swing.JComboBox<String> comboboxCountry;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddWallet;
-    private javax.swing.JLabel lblCategory;
-    private javax.swing.JLabel lblDateofEst;
-    private javax.swing.JLabel lblHeading;
-    private javax.swing.JLabel lblLocation;
-    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblBoardName;
+    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblCountry;
+    private javax.swing.JLabel lblFDA;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JTextField txtAmount;
-    private javax.swing.JTextField txtLocation;
+    private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtName;
     private javax.swing.JLabel valAmount;
-    private javax.swing.JLabel valLocation;
-    private javax.swing.JLabel valName;
+    private javax.swing.JLabel valBoardName;
+    private javax.swing.JLabel valCity;
     // End of variables declaration//GEN-END:variables
 }

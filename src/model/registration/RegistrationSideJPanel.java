@@ -270,26 +270,32 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
 
     private void btnIngSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngSupplierActionPerformed
         // TODO add your handling code here:
+        splitPane.setRightComponent(new IngredientSupplierFormJPanel());
     }//GEN-LAST:event_btnIngSupplierActionPerformed
 
     private void btnManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManufacturerActionPerformed
         // TODO add your handling code here:
+        splitPane.setRightComponent(new ManufacturerFormJPanel());
     }//GEN-LAST:event_btnManufacturerActionPerformed
 
     private void btnFDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFDAActionPerformed
         // TODO add your handling code here:
+       splitPane.setRightComponent(new FDAFormJPanel()); 
     }//GEN-LAST:event_btnFDAActionPerformed
 
     private void btnDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributorActionPerformed
         // TODO add your handling code here:
+       splitPane.setRightComponent(new DistributorFormJPanel());
     }//GEN-LAST:event_btnDistributorActionPerformed
 
     private void btnPharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPharmacyActionPerformed
         // TODO add your handling code here:
+       splitPane.setRightComponent(new PharmacyFormJPanel());
     }//GEN-LAST:event_btnPharmacyActionPerformed
 
     private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
         // TODO add your handling code here:
+       splitPane.setRightComponent(new HospitalFormJPanel());
     }//GEN-LAST:event_btnHospitalActionPerformed
 
 

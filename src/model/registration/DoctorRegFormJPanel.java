@@ -4,6 +4,8 @@
  */
 package model.registration;
 
+import javax.swing.ButtonGroup;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +15,18 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorRegFormJPanel
      */
-    public DoctorRegFormJPanel() {
+    private boolean validation;
+    javax.swing.JSplitPane splitPane;
+    public DoctorRegFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        ButtonGroup bg1 = new ButtonGroup();
+        this.splitPane=splitPane;
+        bg1.add(radiobtnMale);
+        bg1.add(radiobtnFemale);
+        bg1.add(radiobtnOthers);
+        radiobtnMale.setSelected(true);
+//        formReset();
+        
     }
 
     /**
@@ -135,6 +147,8 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         lblAge.setForeground(new java.awt.Color(102, 102, 102));
         lblAge.setText("Age");
         jPanel2.add(lblAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 70, 30));
+
+        spinnerAge.setModel(new javax.swing.SpinnerNumberModel(24, 24, 80, 1));
         jPanel2.add(spinnerAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, 30));
 
         lblRace.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -142,7 +156,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         lblRace.setText("Race");
         jPanel2.add(lblRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 70, 30));
 
-        comboboxRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asian", "African", "American", "European", "Hispanic" }));
         jPanel2.add(comboboxRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 200, 30));
 
         lblGender.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -156,7 +170,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
                 radiobtnOthersActionPerformed(evt);
             }
         });
-        jPanel2.add(radiobtnOthers, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, -1, -1));
+        jPanel2.add(radiobtnOthers, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, -1));
 
         radiobtnMale.setText("Male");
         radiobtnMale.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +186,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
                 radiobtnFemaleActionPerformed(evt);
             }
         });
-        jPanel2.add(radiobtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, -1, -1));
+        jPanel2.add(radiobtnFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
         lblLocation.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblLocation.setForeground(new java.awt.Color(102, 102, 102));
@@ -283,6 +297,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_btnsubmitActionPerformed
 
 

@@ -27,6 +27,11 @@ public class MySqlQuery {
      */
     private static final String SQL_INSERT_PATIENT = "INSERT INTO PATIENT (Patient_Name, Patient_Age, Patient_Race,Patient_Gender,Patient_Location,Ailments,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_READ_PATIENT = "SELECT * FROM PATIENT";
+    
+    /**
+     * Doctor Queries
+     */
+    private static final String SQL_INSERT_DOCTOR = "INSERT INTO DOCTOR (Doctor_Name, Doctor_Age, Doctor_Race,Doctor_Gender,Doctor_Location,Speciality,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?,?,?)";
 
     /**
      *
@@ -43,6 +48,36 @@ public class MySqlQuery {
             preparedStatement.setString(4, Patient_Gender);
             preparedStatement.setString(5, Patient_Location);
             preparedStatement.setString(6, Ailments);
+            preparedStatement.setString(7, Email_Id);
+            preparedStatement.setString(8, Phone_No);
+            preparedStatement.setString(9, Password);
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    /**
+     *
+     * @return int Create Doctor Function
+     */
+    public int createDoctor(String Doctor_Name, int  Doctor_Age, String  Doctor_Race, String Doctor_Gender, String  Doctor_Location, String Speciality , String Email_Id, String Phone_No, String Password) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_DOCTOR)) {
+
+            preparedStatement.setString(1, Doctor_Name);
+            preparedStatement.setInt(2, Doctor_Age);
+            preparedStatement.setString(3, Doctor_Race);
+            preparedStatement.setString(4, Doctor_Gender);
+            preparedStatement.setString(5, Doctor_Location);
+            preparedStatement.setString(6, Speciality);
             preparedStatement.setString(7, Email_Id);
             preparedStatement.setString(8, Phone_No);
             preparedStatement.setString(9, Password);

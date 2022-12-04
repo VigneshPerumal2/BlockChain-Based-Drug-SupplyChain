@@ -27,12 +27,49 @@ public class MySqlQuery {
      */
     private static final String SQL_INSERT_PATIENT = "INSERT INTO PATIENT (Patient_Name, Patient_Age, Patient_Race,Patient_Gender,Patient_Location,Ailments,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?,?,?)";
     private static final String SQL_READ_PATIENT = "SELECT * FROM PATIENT";
-    
+ 
     /**
      * Doctor Queries
      */
     private static final String SQL_INSERT_DOCTOR = "INSERT INTO DOCTOR (Doctor_Name, Doctor_Age, Doctor_Race,Doctor_Gender,Doctor_Location,Speciality,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?,?,?)";
-
+    private static final String SQL_READ_DOCTOR = "SELECT * FROM DOCTOR";
+    
+    /**
+     * Ingredient_Supplier Queries
+     */
+    private static final String SQL_INSERT_INGREDIENT_SUPPLIER = "INSERT INTO INGREDIENT_SUPPLIER (Supplier_Name, Supplier_Category, Supplier_Location, Supplier_Date_Of_Establishment) VALUES (?,?,?,?)";
+    private static final String SQL_READ_INGREDIENT_SUPPLIER = "SELECT * FROM INGREDIENT_SUPPLIER";
+    
+    /**
+     * Manufacturer Queries
+     */
+    private static final String SQL_INSERT_MANUFACTURER = "INSERT INTO MANUFACTURER (Manufacturer_Name, Type_Of_Medicine, Manufacturer_Location, Manufacturer_Date_Of_Establishment) VALUES (?,?,?,?)";
+    private static final String SQL_READ_MANUFACTURER = "SELECT * FROM MANUFACTURER";
+    
+    /**
+     * FDA Queries
+     */
+    private static final String SQL_INSERT_FDA = "INSERT INTO FDA (FDA_Board_Name, FDA_City, FDA_Country) VALUES (?,?,?)";
+    private static final String SQL_READ_FDA= "SELECT * FROM FDA";
+    
+    /**
+     * Distributor Queries
+     */
+    private static final String SQL_INSERT_DISTRIBUTOR = "INSERT INTO DISTRIBUTOR (Distributor_Name, Distributor_Location, Distributor_Date_Of_Establishment, Distributor_Mode_Of_Transportation, Distributor_Price) VALUES (?,?,?,?,?)";
+    private static final String SQL_READ_DISTRIBUTOR = "SELECT * FROM DISTRIBUTOR";
+    
+    /**
+     * Pharmacy Queries
+     */
+    private static final String SQL_INSERT_PHARMACY = "INSERT INTO PHARMACY (Pharmacy_Name, Pharmacy_Location, Pharmacy_Inventory_Size ) VALUES (?,?,?)";
+    private static final String SQL_READ_PHARMACY = "SELECT * FROM PHARMACY";
+    
+    /**
+     * Hospital Queries
+     */
+    private static final String SQL_INSERT_HOSPITAL = "INSERT INTO HOSPITAL (Hospital_Name, Hospital_Location, Hospital_Speciality ) VALUES (?,?,?)";
+    private static final String SQL_READ_HOSPITAL = "SELECT * FROM HOSPITAL";
+    
     /**
      *
      * @return int Create Patient Function
@@ -93,7 +130,156 @@ public class MySqlQuery {
         }
         return result;
     }
+    /**
+     *
+     * @return int Create Ingredient_Supplier Function
+     */
+    public int createIngredientSupplier(String Supplier_Name, String  Supplier_Category, String Supplier_Location, String  Supplier_Date_Of_Establishment) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_INGREDIENT_SUPPLIER)) {
 
+            preparedStatement.setString(1, Supplier_Name);
+            preparedStatement.setString(2, Supplier_Category);
+            preparedStatement.setString(3, Supplier_Location);
+            preparedStatement.setString(4, Supplier_Date_Of_Establishment);
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    /**
+     *
+     * @return int Create Manufacturer Function
+     */
+    public int createManufacturer(String Manufacturer_Name, String  Type_Of_Medicine, String Manufacturer_Location, String  Manufacturer_Date_Of_Establishment) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_MANUFACTURER)) {
+
+            preparedStatement.setString(1, Manufacturer_Name);
+            preparedStatement.setString(2, Type_Of_Medicine);
+            preparedStatement.setString(3, Manufacturer_Location);
+            preparedStatement.setString(4, Manufacturer_Date_Of_Establishment);
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    /**
+     *
+     * @return int Create FDA Function
+     */
+    public int createFDA(String FDA_Board_Name, String  FDA_City, String FDA_Country) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_FDA)) {
+
+            preparedStatement.setString(1, FDA_Board_Name);
+            preparedStatement.setString(2, FDA_City);
+            preparedStatement.setString(3, FDA_Country);
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    /**
+     *
+     * @return int Create Distributor Function
+     */
+    public int createDistributor(String Distributor_Name, String  Distributor_Location, Date Distributor_Date_Of_Establishment, String Distributor_Mode_Of_Transportation, int Distributor_Price) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_DISTRIBUTOR)) {
+
+            preparedStatement.setString(1, Distributor_Name);
+            preparedStatement.setString(2, Distributor_Location);
+            preparedStatement.setDate(3, Distributor_Date_Of_Establishment);
+            preparedStatement.setString(4, Distributor_Mode_Of_Transportation);
+            preparedStatement.setInt(5, Distributor_Price);
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    /**
+     *
+     * @return int Create Pharmacy Function
+     */
+    public int createPharmacy(String Pharmacy_Name, String  Pharmacy_Location, String Pharmacy_Inventory_Size ) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_PHARMACY)) {
+
+            preparedStatement.setString(1, Pharmacy_Name);
+            preparedStatement.setString(2, Pharmacy_Location);
+            preparedStatement.setString(3, Pharmacy_Inventory_Size);
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    /**
+     *
+     * @return int Create Hospital Function
+     */
+    public int createHospital(String Hospital_Name, String  Hospital_Location, String Hospital_Speciality ) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_HOSPITAL)) {
+
+            preparedStatement.setString(1, Hospital_Name);
+            preparedStatement.setString(2, Hospital_Location);
+            preparedStatement.setString(3, Hospital_Speciality);
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+     
+    
     /**
      *
      * Select all patient function
@@ -143,4 +329,154 @@ public class MySqlQuery {
 
     }
 
+    
+   public boolean validatePatient(String Email_Id) {
+        String query = "SELECT Password FROM PATIENT WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+   
+   
+   public boolean validateDoctor(String Email_Id) {
+        String query = "SELECT Password FROM DOCTOR WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+   
+   public boolean validateIngredientSupplier(String Email_Id) {
+        String query = "SELECT Password FROM INGREDIENT_SUPPLIER WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+   
+   public boolean validateManufacturer(String Email_Id) {
+        String query = "SELECT Password FROM MANUFACTURER WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+   
+   public boolean validateFDA(String Email_Id) {
+        String query = "SELECT Password FROM FDA WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+   
+   public boolean validateDistributor(String Email_Id) {
+        String query = "SELECT Password FROM DISTRIBUTOR WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+   
+   public boolean validatePharmacy(String Email_Id) {
+        String query = "SELECT Password FROM PHARMACY WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+   
+   public boolean validateHospital(String Email_Id) {
+        String query = "SELECT Password FROM HOSPITAL WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        try {
+            Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);
+             Statement stmt = conn.prepareStatement(query);
+             ResultSet resultSet = stmt.executeQuery(query) ;
+             if(resultSet!= null) {
+                      return true ;
+             }else {
+                      return false ;
+            }
+           } catch (SQLException e) {
+                       e.printStackTrace();
+                      return true ;
+           }
+ } 
+      
+    
 }
+
+    
+ 

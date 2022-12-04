@@ -4,9 +4,11 @@
  */
 package model.login;
 
+import javax.swing.JOptionPane;
 import model.registration.RegistrationSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
+import util.sql.MySqlQuery;
 
 /**
  *
@@ -131,6 +133,16 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
+        MySqlQuery mySqlQuery = new MySqlQuery();
+        
+        String emailId = txtEmailId.getText();
+        String password  =txtPassword.getText();
+        
+        if(mySqlQuery.validatePatient(emailId)){
+            JOptionPane.showMessageDialog(this, "Patient Logged In!");
+        }else{
+            JOptionPane.showMessageDialog(this, "Not Logged In");
+        }
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

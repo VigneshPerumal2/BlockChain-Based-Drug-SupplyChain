@@ -4,11 +4,10 @@
  */
 package model.login;
 
-import javax.swing.JOptionPane;
+import model.ingredientsupplier.IngredientSupplierSideJPanel;
 import model.registration.RegistrationSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
-import util.sql.MySqlQuery;
 
 /**
  *
@@ -46,6 +45,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         Password = new javax.swing.JLabel();
         valPassword = new javax.swing.JLabel();
         valEmailId = new javax.swing.JLabel();
+        Password1 = new javax.swing.JLabel();
+        drpRole = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,13 +58,13 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblEnterCredentials.setForeground(new java.awt.Color(204, 204, 204));
         lblEnterCredentials.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEnterCredentials.setText("Please enter your credentials");
-        add(lblEnterCredentials, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 400, 30));
+        add(lblEnterCredentials, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 400, 30));
 
         lblWelcome.setFont(new java.awt.Font("Zapfino", 1, 24)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(0, 51, 153));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWelcome.setText("Welcome !");
-        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 400, 80));
+        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 400, 60));
 
         txtEmailId.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         txtEmailId.addActionListener(new java.awt.event.ActionListener() {
@@ -71,10 +72,15 @@ public class LoginJPanel extends javax.swing.JPanel {
                 txtEmailIdActionPerformed(evt);
             }
         });
-        add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 360, 60));
+        add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 360, 50));
 
         txtPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 360, 60));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 360, 50));
 
         btnRegister.setBackground(new java.awt.Color(0, 51, 153));
         btnRegister.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -110,21 +116,35 @@ public class LoginJPanel extends javax.swing.JPanel {
         EmailId.setForeground(new java.awt.Color(153, 153, 153));
         EmailId.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Mail Account.png"))); // NOI18N
         EmailId.setText("Email ID");
-        add(EmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 340, 270, 40));
+        add(EmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 270, 40));
 
         Password.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         Password.setForeground(new java.awt.Color(153, 153, 153));
-        Password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Lock.png"))); // NOI18N
-        Password.setText("Password");
-        add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 350, 30));
+        Password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Collaborator Male.png"))); // NOI18N
+        Password.setText("Select a Role");
+        add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 350, 30));
 
         valPassword.setForeground(new java.awt.Color(255, 61, 0));
         valPassword.setText("Please enter valid Password");
-        add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, -1, -1));
+        add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
 
         valEmailId.setForeground(new java.awt.Color(255, 61, 0));
         valEmailId.setText("Please enter valid Email Id");
-        add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
+        add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
+
+        Password1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        Password1.setForeground(new java.awt.Color(153, 153, 153));
+        Password1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Lock.png"))); // NOI18N
+        Password1.setText("Password");
+        add(Password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 350, 30));
+
+        drpRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Ingredient Supplier", "Manufacturer", "FDA", "Distributor", "Pharmacy", "Hospital", "Super Admin" }));
+        drpRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drpRoleActionPerformed(evt);
+            }
+        });
+        add(drpRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 360, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtEmailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIdActionPerformed
@@ -133,15 +153,8 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
-        MySqlQuery mySqlQuery = new MySqlQuery();
-        
-        String emailId = txtEmailId.getText();
-        String password  =txtPassword.getText();
-        
-        if(mySqlQuery.validatePatient(emailId)){
-            JOptionPane.showMessageDialog(this, "Patient Logged In!");
-        }else{
-            JOptionPane.showMessageDialog(this, "Not Logged In");
+        if(drpRole.getSelectedItem().equals("Ingredient Supplier")){
+         splitPane.setLeftComponent(new IngredientSupplierSideJPanel());
         }
     }//GEN-LAST:event_btnSignInActionPerformed
 
@@ -150,12 +163,22 @@ public class LoginJPanel extends javax.swing.JPanel {
         splitPane.setLeftComponent(new RegistrationSideJPanel(splitPane));
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void drpRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drpRoleActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EmailId;
     private javax.swing.JLabel Password;
+    private javax.swing.JLabel Password1;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnSignIn;
+    private javax.swing.JComboBox<String> drpRole;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel lblEnterCredentials;

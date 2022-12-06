@@ -5,6 +5,8 @@
 package model.registration;
 
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import util.sql.MySqlQuery;
 
 /**
  *
@@ -25,7 +27,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         bg1.add(radiobtnFemale);
         bg1.add(radiobtnOthers);
         radiobtnMale.setSelected(true);
-//        formReset();
+        formReset();
         
     }
 
@@ -55,7 +57,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         lblAge = new javax.swing.JLabel();
         spinnerAge = new javax.swing.JSpinner();
         lblRace = new javax.swing.JLabel();
-        comboboxRace = new javax.swing.JComboBox<>();
+        drpRace = new javax.swing.JComboBox<>();
         lblGender = new javax.swing.JLabel();
         radiobtnOthers = new javax.swing.JRadioButton();
         radiobtnMale = new javax.swing.JRadioButton();
@@ -156,8 +158,8 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         lblRace.setText("Race");
         jPanel2.add(lblRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 70, 30));
 
-        comboboxRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asian", "African", "American", "European", "Hispanic" }));
-        jPanel2.add(comboboxRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 200, 30));
+        drpRace.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Asian", "African", "American", "European", "Hispanic" }));
+        jPanel2.add(drpRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 200, 30));
 
         lblGender.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblGender.setForeground(new java.awt.Color(102, 102, 102));
@@ -297,14 +299,124 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
+      String Doctor_Name = txtName.getText();
+        int Doctor_Age = (int) spinnerAge.getValue();
+        String Doctor_Race = String.valueOf(drpRace.getSelectedItem());
+        String gender="";
+        if (radiobtnFemale.isSelected()) {
+             gender = radiobtnFemale.getText();
+        } else if (radiobtnMale.isSelected()) {
+             gender = radiobtnMale.getText();
+        } else if (radiobtnOthers.isSelected()) {
+             gender = radiobtnOthers.getText();
+        }
+        String Doctor_Location = txtLocation.getText();
+        String Speciality = txtSpeciality.getText();
+        String Email_Id = txtEmailId.getText();
+        String Phone_No = txtPhoneNumber.getText();
+        String Password = txtPassword.getText(); 
+        
+        MySqlQuery mySqlQuery = new MySqlQuery();
+        int result = 0;
+        if (validation()) {
+            result = mySqlQuery.createDoctor(Doctor_Name, Doctor_Age, Doctor_Race, gender, Doctor_Location, Speciality, Email_Id, Phone_No, Password);
+        }
+        if (result == 1) {
+            formReset();        
+            splitPane.setRightComponent(new SuccessGifJPanel());
+        } else {
+            validation();
+            JOptionPane.showMessageDialog(this, "Doctor not created !");
+
+        }
+        
+        
+        
        
     }//GEN-LAST:event_btnsubmitActionPerformed
+ private void formReset() {
 
+        txtName.setText("");
+        txtSpeciality.setText("");
+        txtEmailId.setText("");
+        txtLocation.setText("");
+        txtPassword.setText("");
+        txtPhoneNumber.setText("");
+        
+
+        valName.setText("");
+        valPassword.setText("");
+        valAilments.setText("");
+        valEmailId.setText("");
+        valLocation.setText("");
+        valPhoneNumber.setText("");
+        
+
+    }
+
+    /**
+     * Validation implementation
+     *
+     * @return
+     */
+    private boolean validation() {
+        boolean validation = true;
+        valName.setText("");
+        valPassword.setText("");
+        valAilments.setText("");
+        valEmailId.setText("");
+        valLocation.setText("");
+        valPhoneNumber.setText("");
+       
+        String Patient_Name = txtName.getText();
+        String Patient_Location = txtLocation.getText();
+        String Email_Id = txtEmailId.getText();
+        String Phone_No = txtPhoneNumber.getText();
+        String Password = txtPassword.getText();
+        String Speciality = txtSpeciality.getText();
+        String location = txtLocation.getText();
+
+        System.out.println("Patient Name->" + Patient_Name);
+
+        //Name Validation
+        if (Patient_Name.length() <= 0) {
+            valName.setText("Please Enter Name");
+            validation = false;
+        }
+        //Email_Id Validation
+        if (Email_Id.length() <= 0) {
+            valEmailId.setText("Please Enter EmailId");
+            validation = false;
+        }
+        //Phone_No Validation
+        if (Phone_No.length() <= 0) {
+            valPhoneNumber.setText("Please Enter Phone_No");
+            validation = false;
+        }
+        //Password Validation
+        if (Password.length() <= 0) {
+            valPassword.setText("Please Enter Password");
+            validation = false;
+        }
+        //Ailments Validation
+        if (Speciality.length() <= 0) {
+            valAilments.setText("Please Enter Speciality");
+            validation = false;
+        }
+       
+        //Location Validation
+        if (location.length() <= 0) {
+            valLocation.setText("Please Enter Location");
+            validation = false;
+        }
+
+        return validation;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
-    private javax.swing.JComboBox<String> comboboxRace;
+    private javax.swing.JComboBox<String> drpRace;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;

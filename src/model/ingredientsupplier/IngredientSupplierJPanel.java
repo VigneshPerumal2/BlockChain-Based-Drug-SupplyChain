@@ -56,7 +56,10 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lblOrderManagement.setBackground(new java.awt.Color(255, 255, 255));
         lblOrderManagement.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblOrderManagement.setForeground(new java.awt.Color(153, 153, 153));
+        lblOrderManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Full Shopping Basket.png"))); // NOI18N
         lblOrderManagement.setText("Order Table");
+        lblOrderManagement.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblOrderManagement.setIconTextGap(10);
 
         btnNew.setBackground(new java.awt.Color(0, 153, 51));
         btnNew.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -103,6 +106,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         btnUpdate.setBackground(new java.awt.Color(255, 204, 0));
         btnUpdate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Available Updates.png"))); // NOI18N
         btnUpdate.setText("UPDATE");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +116,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
 
         btnDelete.setBackground(new java.awt.Color(255, 0, 51));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
         btnDelete.setText("DELETE");
 
         javax.swing.GroupLayout panOrderManagementLayout = new javax.swing.GroupLayout(panOrderManagement);
@@ -171,7 +176,10 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lblInventoryManagement.setBackground(new java.awt.Color(255, 255, 255));
         lblInventoryManagement.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblInventoryManagement.setForeground(new java.awt.Color(153, 153, 153));
+        lblInventoryManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Warehouse(2).png"))); // NOI18N
         lblInventoryManagement.setText("Inventory Table");
+        lblInventoryManagement.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        lblInventoryManagement.setIconTextGap(10);
 
         btnIMNew.setBackground(new java.awt.Color(0, 153, 0));
         btnIMNew.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -204,6 +212,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         btnUpdate1.setBackground(new java.awt.Color(255, 204, 0));
         btnUpdate1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnUpdate1.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Available Updates.png"))); // NOI18N
         btnUpdate1.setText("UPDATE");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +222,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
 
         btnDelete1.setBackground(new java.awt.Color(255, 0, 51));
         btnDelete1.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
         btnDelete1.setText("DELETE");
 
         javax.swing.GroupLayout panInventoryManagementLayout = new javax.swing.GroupLayout(panInventoryManagement);
@@ -220,9 +230,9 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         panInventoryManagementLayout.setHorizontalGroup(
             panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInventoryManagementLayout.createSequentialGroup()
-                .addGap(216, 216, 216)
+                .addGap(267, 267, 267)
                 .addComponent(btnUpdate1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(41, 41, 41)
                 .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbllogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -231,8 +241,8 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
                 .addGroup(panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panInventoryManagementLayout.createSequentialGroup()
-                        .addComponent(lblInventoryManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(298, 298, 298)
+                        .addComponent(lblInventoryManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(230, 230, 230)
                         .addComponent(btnIMNew)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );

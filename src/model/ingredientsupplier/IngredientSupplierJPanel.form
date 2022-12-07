@@ -18,7 +18,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="PanelInventoryM">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -62,19 +62,19 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                              <Component id="lblOrderManagement" min="-2" pref="499" max="-2" attributes="0"/>
+                              <Component id="lblOrderTable" min="-2" pref="499" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
-                              <Component id="btnUpdate" min="-2" pref="126" max="-2" attributes="0"/>
+                              <Component id="btnOrderUpdate" min="-2" pref="126" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Component id="btnDelete" min="-2" pref="118" max="-2" attributes="0"/>
+                              <Component id="btnOrderDelete" min="-2" pref="118" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="118" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbllogo" min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="btnNew" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNewOrder" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -92,11 +92,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="btnNew" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="btnNewOrder" min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="lblOrderManagement" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="lblOrderTable" min="-2" pref="56" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="597" max="32767" attributes="0"/>
@@ -104,8 +104,8 @@
                           <Component id="lbllogo" alignment="1" min="-2" pref="70" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnUpdate" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                  <Component id="btnDelete" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="btnOrderUpdate" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="btnOrderDelete" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
@@ -122,7 +122,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblOrderManagement">
+            <Component class="javax.swing.JLabel" name="lblOrderTable">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -141,7 +141,7 @@
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnNew">
+            <Component class="javax.swing.JButton" name="btnNewOrder">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="99" red="0" type="rgb"/>
@@ -158,7 +158,7 @@
                 <Property name="text" type="java.lang.String" value="New"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewOrderActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbllogo">
@@ -223,7 +223,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnUpdate">
+            <Component class="javax.swing.JButton" name="btnOrderUpdate">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="cc" red="ff" type="rgb"/>
@@ -240,10 +240,10 @@
                 <Property name="text" type="java.lang.String" value="UPDATE"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrderUpdateActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnDelete">
+            <Component class="javax.swing.JButton" name="btnOrderDelete">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="ff" type="rgb"/>
@@ -281,9 +281,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
-                      <Component id="btnUpdate1" min="-2" pref="126" max="-2" attributes="0"/>
+                      <Component id="btnInventoryUpdate" min="-2" pref="126" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="btnDelete1" min="-2" pref="118" max="-2" attributes="0"/>
+                      <Component id="btnInventoryDelete" min="-2" pref="118" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lbllogo1" min="-2" pref="110" max="-2" attributes="0"/>
                   </Group>
@@ -292,9 +292,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="770" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="lblInventoryManagement" min="-2" pref="450" max="-2" attributes="0"/>
+                              <Component id="lblInventoryTable" min="-2" pref="450" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
-                              <Component id="btnIMNew" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNewInventory" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -307,11 +307,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                              <Component id="btnIMNew" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="btnNewInventory" min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="lblInventoryManagement" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="lblInventoryTable" min="-2" pref="56" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -320,8 +320,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbllogo1" min="-2" pref="70" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnUpdate1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="btnDelete1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="btnInventoryUpdate" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="btnInventoryDelete" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -329,7 +329,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblInventoryManagement">
+            <Component class="javax.swing.JLabel" name="lblInventoryTable">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -348,7 +348,7 @@
                 <Property name="iconTextGap" type="int" value="10"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnIMNew">
+            <Component class="javax.swing.JButton" name="btnNewInventory">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="99" red="0" type="rgb"/>
@@ -365,7 +365,7 @@
                 <Property name="text" type="java.lang.String" value="New"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIMNewActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewInventoryActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbllogo1">
@@ -400,7 +400,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnUpdate1">
+            <Component class="javax.swing.JButton" name="btnInventoryUpdate">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="cc" red="ff" type="rgb"/>
@@ -417,10 +417,10 @@
                 <Property name="text" type="java.lang.String" value="UPDATE"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdate1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInventoryUpdateActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnDelete1">
+            <Component class="javax.swing.JButton" name="btnInventoryDelete">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="0" red="ff" type="rgb"/>

@@ -5,6 +5,7 @@
 package model.login;
 
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
+import model.manufacturer.ManufacturerSideJPanel;
 import model.registration.RegistrationSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
@@ -155,6 +156,9 @@ public class LoginJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(drpRole.getSelectedItem().equals("Ingredient Supplier")){
          splitPane.setLeftComponent(new IngredientSupplierSideJPanel());
+        }
+        if(drpRole.getSelectedItem().equals("Manufacturer")){
+         splitPane.setLeftComponent(new ManufacturerSideJPanel());
         }
     }//GEN-LAST:event_btnSignInActionPerformed
 

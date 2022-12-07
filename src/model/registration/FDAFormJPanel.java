@@ -4,6 +4,9 @@
  */
 package model.registration;
 
+import javax.swing.JOptionPane;
+import util.sql.MySqlQuery;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +16,12 @@ public class FDAFormJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FDAFormJPanel
      */
-    public FDAFormJPanel() {
+    private boolean validation;
+    javax.swing.JSplitPane splitPane;
+    public FDAFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
+        formReset();
     }
 
     /**
@@ -166,10 +173,29 @@ public class FDAFormJPanel extends javax.swing.JPanel {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
+        formReset();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
+         String amount = txtAmount.getText();
+         String city = txtCity.getText();
+         String name = txtName.getText();
+         String Country = String.valueOf(comboboxCountry.getSelectedItem());
+         MySqlQuery mySqlQuery = new MySqlQuery();
+         int result=0;
+          if (validation()) {
+            result = mySqlQuery.createFDA(name, city, Country);
+        }
+        if (result == 1) {
+            formReset();        
+            splitPane.setRightComponent(new SuccessGifJPanel());
+        } else {
+            validation();
+            JOptionPane.showMessageDialog(this, "Patient not created !");
+
+        }
+        
     }//GEN-LAST:event_btnsubmitActionPerformed
 
     private void comboboxCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxCountryActionPerformed
@@ -179,7 +205,56 @@ public class FDAFormJPanel extends javax.swing.JPanel {
     private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCityActionPerformed
+    private void formReset() {
 
+        txtName.setText("");
+        txtCity.setText("");
+        txtAmount.setText("");
+        comboboxCountry.setSelectedIndex(1);
+        
+
+        valBoardName.setText("");
+        valAmount.setText("");
+        valCity.setText("");
+        
+
+    }
+    private boolean validation() {
+        boolean validation = true;
+        txtName.setText("");
+        txtCity.setText("");
+        txtAmount.setText("");
+        comboboxCountry.setSelectedIndex(1);
+      
+        valBoardName.setText("");
+        valAmount.setText("");
+        valCity.setText("");
+        String amount = txtAmount.getText();
+         String city = txtCity.getText();
+         String name = txtName.getText();
+        
+
+        System.out.println("FDA Name->" + name);
+
+        //Name Validation
+        if (name.length() <= 0) {
+            valBoardName.setText("Please Enter Board Name");
+            validation = false;
+        }
+        //Wallet Amount Validation
+        if (amount.length() <= 0) {
+            valAmount.setText("Please Enter valid Amount");
+            validation = false;
+        }
+        //City Amount Validation
+        if (amount.length() <= 0) {
+            valAmount.setText("Please Enter valid City");
+            validation = false;
+        }
+        
+
+        return validation;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;

@@ -2,21 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package model.ingredientsupplier;
+package model.manufacturer;
 
 /**
  *
- * @author sunayanashivanagi
+ * @author vigy
  */
-public class IngredientSupplierJPanel extends javax.swing.JPanel {
+public class ManufacturerJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form IngredientSupplierJPanel
+     * Creates new form ManufacturerJPanel
      */
-    javax.swing.JSplitPane splitPane;
-    public IngredientSupplierJPanel(javax.swing.JSplitPane splitPane) {
+    public ManufacturerJPanel() {
         initComponents();
-        this.splitPane=splitPane;
     }
 
     /**
@@ -178,7 +176,6 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lblInventoryTable.setBackground(new java.awt.Color(255, 255, 255));
         lblInventoryTable.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblInventoryTable.setForeground(new java.awt.Color(153, 153, 153));
-        lblInventoryTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Warehouse(2).png"))); // NOI18N
         lblInventoryTable.setText("Inventory Table");
         lblInventoryTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblInventoryTable.setIconTextGap(10);
@@ -277,13 +274,13 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
-    private void btnNewInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNewInventoryActionPerformed
-
     private void btnOrderUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOrderUpdateActionPerformed
+
+    private void btnNewInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNewInventoryActionPerformed
 
     private void btnInventoryUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryUpdateActionPerformed
         // TODO add your handling code here:

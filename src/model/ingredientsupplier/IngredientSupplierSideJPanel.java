@@ -4,6 +4,8 @@
  */
 package model.ingredientsupplier;
 
+import model.main.MainJFrame;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +15,10 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form IngredientSupplierSideJPanel
      */
-    public IngredientSupplierSideJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public IngredientSupplierSideJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
     }
 
     /**
@@ -29,7 +33,7 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
         lblRoleHeadingIS = new javax.swing.JLabel();
         lblavslogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -53,16 +57,16 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
         jLabel1.setText("SUNAINA");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Shutdown.png"))); // NOI18N
-        jButton1.setText("LOG OUT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setBackground(new java.awt.Color(255, 51, 51));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Shutdown.png"))); // NOI18N
+        btnLogout.setText("LOG OUT");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 140, 40));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 140, 40));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/TabIngredients.jpg"))); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 400, 240));
@@ -72,13 +76,14 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new MainJFrame().setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

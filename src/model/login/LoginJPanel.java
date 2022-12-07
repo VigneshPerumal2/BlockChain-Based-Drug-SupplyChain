@@ -4,6 +4,7 @@
  */
 package model.login;
 
+import model.ingredientsupplier.IngredientSupplierJPanel;
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
 import model.manufacturer.ManufacturerSideJPanel;
 import model.registration.RegistrationSideJPanel;
@@ -155,7 +156,8 @@ public class LoginJPanel extends javax.swing.JPanel {
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
         if(drpRole.getSelectedItem().equals("Ingredient Supplier")){
-         splitPane.setLeftComponent(new IngredientSupplierSideJPanel());
+         splitPane.setLeftComponent(new IngredientSupplierSideJPanel(splitPane));
+         splitPane.setRightComponent(new IngredientSupplierJPanel(splitPane));
         }
         if(drpRole.getSelectedItem().equals("Manufacturer")){
          splitPane.setLeftComponent(new ManufacturerSideJPanel());

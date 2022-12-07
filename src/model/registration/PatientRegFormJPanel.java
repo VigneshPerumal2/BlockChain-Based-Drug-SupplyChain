@@ -311,12 +311,13 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         String Patient_Name = txtName.getText();
         int Patient_Age = (int) spinnerAge.getValue();
         String Patient_Race = String.valueOf(drpRace.getSelectedItem());
+        String Race="";
         if (radiobtnFemale.isSelected()) {
-            String Race = radiobtnFemale.getText();
+             Race = radiobtnFemale.getText();
         } else if (radiobtnMale.isSelected()) {
-            String Race = radiobtnMale.getText();
+             Race = radiobtnMale.getText();
         } else if (radiobtnOthers.isSelected()) {
-            String Race = radiobtnOthers.getText();
+              Race = radiobtnOthers.getText();
         }
         String Patient_Location = txtLocation.getText();
         String Ailments = txtAilments.getText();
@@ -326,7 +327,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         MySqlQuery mySqlQuery = new MySqlQuery();
         int result = 0;
         if (validation()) {
-            result = mySqlQuery.createPatient(Patient_Name, Patient_Age, Patient_Race, Patient_Race, Patient_Location, Ailments, Email_Id, Phone_No, Password);
+            result = mySqlQuery.createPatient(Patient_Name, Patient_Age, Patient_Race, Race, Patient_Location, Ailments, Email_Id, Phone_No, Password);
         }
         if (result == 1) {
             formReset();        

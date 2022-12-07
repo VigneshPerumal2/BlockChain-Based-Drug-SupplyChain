@@ -280,7 +280,7 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
 
     private void btnFDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFDAActionPerformed
         // TODO add your handling code here:
-       splitPane.setRightComponent(new FDAFormJPanel()); 
+       splitPane.setRightComponent(new FDAFormJPanel(splitPane)); 
     }//GEN-LAST:event_btnFDAActionPerformed
 
     private void btnDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributorActionPerformed

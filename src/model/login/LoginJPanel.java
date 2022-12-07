@@ -6,6 +6,7 @@ package model.login;
 
 import model.ingredientsupplier.IngredientSupplierJPanel;
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
+import model.manufacturer.ResearchAndDevelopmentJPanel;
 import model.manufacturer.ManufacturerSideJPanel;
 import model.registration.RegistrationSideJPanel;
 import util.extras.JHintPasswordTextField;
@@ -66,7 +67,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblWelcome.setForeground(new java.awt.Color(0, 51, 153));
         lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblWelcome.setText("Welcome !");
-        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 400, 60));
+        add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 400, 80));
 
         txtEmailId.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         txtEmailId.addActionListener(new java.awt.event.ActionListener() {
@@ -159,9 +160,10 @@ public class LoginJPanel extends javax.swing.JPanel {
          splitPane.setLeftComponent(new IngredientSupplierSideJPanel(splitPane));
          splitPane.setRightComponent(new IngredientSupplierJPanel(splitPane));
         }
-        if(drpRole.getSelectedItem().equals("Manufacturer")){
-         splitPane.setLeftComponent(new ManufacturerSideJPanel());
+        else if(drpRole.getSelectedItem().equals("Manufacturer")){
+         splitPane.setLeftComponent(new ManufacturerSideJPanel(splitPane));
         }
+        
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

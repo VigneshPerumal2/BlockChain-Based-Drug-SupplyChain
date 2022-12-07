@@ -4,6 +4,8 @@
  */
 package model.manufacturer;
 
+import model.main.MainJFrame;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +15,10 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManufacturerSideJPanel
      */
-    public ManufacturerSideJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public ManufacturerSideJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
     }
 
     /**
@@ -29,10 +33,10 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         lblManufacturerDashboard = new javax.swing.JLabel();
         lblavslogomd = new javax.swing.JLabel();
         lbldepartment = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         lblManufacturerimage = new javax.swing.JLabel();
         lblavsManufacturer = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        drpDepartment = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -54,16 +58,16 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         lbldepartment.setText("Choose a Department");
         add(lbldepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
 
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Shutdown.png"))); // NOI18N
-        jButton1.setText("LOG OUT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogout.setBackground(new java.awt.Color(255, 51, 51));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Shutdown.png"))); // NOI18N
+        btnLogout.setText("LOG OUT");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLogoutActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 140, 40));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 140, 40));
 
         lblManufacturerimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/ManufacturerP.jpg"))); // NOI18N
         add(lblManufacturerimage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 570, 430, 240));
@@ -72,19 +76,32 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         lblavsManufacturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N
         add(lblavsManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
 
-        jComboBox1.setForeground(new java.awt.Color(102, 102, 102));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an Option...", "R & D", "FDA", "Packaging", " " }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 410, 290, 50));
+        drpDepartment.setForeground(new java.awt.Color(102, 102, 102));
+        drpDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an Option...", "R & D", "FDA", "Packaging" }));
+        drpDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drpDepartmentActionPerformed(evt);
+            }
+        });
+        add(drpDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 410, 290, 50));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        new MainJFrame().setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void drpDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpDepartmentActionPerformed
+        // TODO add your handling code here:
+        if(drpDepartment.getSelectedItem().equals("R & D")){
+            splitPane.setRightComponent(new ResearchAndDevelopmentJPanel());
+        }
+    }//GEN-LAST:event_drpDepartmentActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JComboBox<String> drpDepartment;
     private javax.swing.JLabel lblManufacturerDashboard;
     private javax.swing.JLabel lblManufacturerimage;
     private javax.swing.JLabel lblavsManufacturer;

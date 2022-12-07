@@ -49,7 +49,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         lblLocation = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         valLocation = new javax.swing.JLabel();
-        date = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -178,7 +178,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         valLocation.setForeground(new java.awt.Color(255, 61, 0));
         valLocation.setText("Please enter valid Location");
         jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
-        jPanel2.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 30));
+        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 290, -1));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -216,9 +216,9 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
     private javax.swing.JComboBox<String> comboboxModeOfTransport;
-    private com.toedter.calendar.JDateChooser date;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAddWallet;

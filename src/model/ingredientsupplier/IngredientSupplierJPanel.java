@@ -17,6 +17,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
     public IngredientSupplierJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane=splitPane;
+        System.out.println("Inside IS Right");
     }
 
     /**
@@ -178,7 +179,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lblInventoryTable.setBackground(new java.awt.Color(255, 255, 255));
         lblInventoryTable.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblInventoryTable.setForeground(new java.awt.Color(153, 153, 153));
-        lblInventoryTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Warehouse(2).png"))); // NOI18N
+        lblInventoryTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Warehouse.png"))); // NOI18N
         lblInventoryTable.setText("Inventory Table");
         lblInventoryTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblInventoryTable.setIconTextGap(10);

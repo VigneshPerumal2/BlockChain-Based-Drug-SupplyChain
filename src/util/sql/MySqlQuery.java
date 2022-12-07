@@ -10,10 +10,13 @@ import classes.FDA;
 import classes.Hospital;
 import classes.IngredientSupplier;
 import classes.Manufacturer;
+import classes.Medicine;
 import classes.Patient;
 import classes.Pharmacy;
 import java.sql.*;
 import java.util.ArrayList;
+import java.sql.Date;
+//import java.util.Date;
 
 /**
  *
@@ -77,6 +80,14 @@ public class MySqlQuery {
     private static final String SQL_INSERT_HOSPITAL = "INSERT INTO HOSPITAL (Hospital_Name, Hospital_Location, Hospital_Speciality,Email_Id,Phone_No,Password ) VALUES (?,?,?,?,?,?)";
     private static final String SQL_READ_HOSPITAL = "SELECT * FROM HOSPITAL";
     
+    /**
+     * Medicine Queries
+     */
+    private static final String SQL_INSERT_MEDICINE = "INSERT INTO MEDICINE (Medicine_Name, Medicine_Status, Medicine_Category, Date_Of_Manufacture, Shell_Life ) VALUES (?,?,?,?,?)";
+    private static final String SQL_READ_MEDICINE = "SELECT * FROM MEDICINE";
+    
+    
+   
     /**
      *
      * @return int Create Patient Function
@@ -176,7 +187,7 @@ public class MySqlQuery {
             preparedStatement.setString(1, manufacturer.getManufacturer_Name());
             preparedStatement.setString(2, manufacturer.getType_Of_Medicine());
             preparedStatement.setString(3, manufacturer.getManufacturer_Location());
-            preparedStatement.setString(4, manufacturer.getManufacturer_Date_Of_Establishment());
+            preparedStatement.setDate(4, manufacturer.getManufacturer_Date_Of_Establishment());
             preparedStatement.setString(5, manufacturer.getEmail_Id());
             preparedStatement.setString(6, manufacturer.getPhone_No());
             preparedStatement.setString(7, manufacturer.getPassword());
@@ -305,6 +316,72 @@ public class MySqlQuery {
         }
         return result;
     }   
+    /**
+     *
+     * @return int Create Medicine Function
+     */
+    public int createMedicine(Medicine medicine) {
+        int result = 0;
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_MEDICINE)) {
+
+            preparedStatement.setString(1, medicine.getMedicine_Name());
+            preparedStatement.setString(2, medicine.getMedicine_Status());
+            preparedStatement.setString(3, medicine.getMedicine_Category());
+            preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
+            preparedStatement.setInt(5, medicine.getShell_Life());
+            
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }   
+    
+    /**
+     *
+     * Select all medicine function
+     */
+    public ArrayList<Medicine> readAllMedicine() {
+        
+        ArrayList<Medicine> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_MEDICINE)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                String status = resultSet.getString(2);
+                String category = resultSet.getString(3);
+                Date doe = resultSet.getDate(4);
+
+                Medicine obj = new Medicine();
+                obj.setMedicine_Name(name);
+                obj.setMedicine_Status(status);
+                obj.setMedicine_Category(category);
+                obj.setDate_Of_Manufacture(doe);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
     
     /**
      *
@@ -341,9 +418,7 @@ public class MySqlQuery {
                 obj.setPhone_No(phoneNo);
                 obj.setPassword(password);
                 
-                record.add(obj);
-//                
-
+                record.add(obj);            
                 System.out.println(obj);
             }      
 
@@ -355,6 +430,315 @@ public class MySqlQuery {
         return record;
 
     }
+    
+    /**
+     *
+     * Select all doctor function
+     */
+    public ArrayList<Doctor> readAllDoctor() {
+        
+        ArrayList<Doctor> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_DOCTOR)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                int age = resultSet.getInt(2);
+                String race = resultSet.getString(3);
+                String gender = resultSet.getString(4);
+                String location = resultSet.getString(5);
+                String speciality = resultSet.getString(6);
+                String emailID = resultSet.getString(7);
+                String phoneNo = resultSet.getString(8);
+                String password = resultSet.getString(9);
+
+                Doctor obj = new Doctor();
+                obj.setDoctor_Name(name);
+                obj.setDoctor_Age(age);
+                obj.setDoctor_Race(race);
+                obj.setDoctor_Gender(gender);
+                obj.setDoctor_Location(location);
+                obj.setSpeciality(speciality);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
+    /**
+     *
+     * Select all ingredient supplier function
+     */
+    public ArrayList<IngredientSupplier> readAllIngredientSupplier() {
+        
+        ArrayList<IngredientSupplier> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_INGREDIENT_SUPPLIER)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                String category = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+
+                IngredientSupplier obj = new IngredientSupplier();
+                obj.setSupplier_Name(name);
+                obj.setSupplier_Category(category);
+                obj.setSupplier_Location(location);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
+    /**
+     *
+     * Select all manufacturer function
+     */
+    public ArrayList<Manufacturer> readAllManufacturer() {
+        
+        ArrayList<Manufacturer> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_INGREDIENT_SUPPLIER)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                String medicine_type = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                Date doe = resultSet.getDate(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
+
+                Manufacturer obj = new Manufacturer();
+                obj.setManufacturer_Name(name);
+                obj.setType_Of_Medicine(medicine_type);
+                obj.setManufacturer_Location(location);
+                obj.setManufacturer_Date_Of_Establishment(doe);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
+    
+    /**
+     *
+     * Select all distributor function
+     */
+    public ArrayList<Distributor> readAllDistributor() {
+        
+        ArrayList<Distributor> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_DISTRIBUTOR)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                Date doe = resultSet.getDate(3);
+                String transportation = resultSet.getString(4);
+                int price = resultSet.getInt(5);
+                String emailID = resultSet.getString(6);
+                String phoneNo = resultSet.getString(7);
+                String password = resultSet.getString(8);
+
+                Distributor obj = new Distributor();
+                obj.setDistributor_Name(name);
+                obj.setDistributor_Location(location);
+                obj.setDistributor_Date_Of_Establishment(doe);
+                obj.setDistributor_Mode_Of_Transportation(transportation);
+                obj.setDistributor_Price(price);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
+    /**
+     *
+     * Select all FDA function
+     */
+    public ArrayList<FDA> readAllFDA() {
+        
+        ArrayList<FDA> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_INGREDIENT_SUPPLIER)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                String city = resultSet.getString(2);
+                String country = resultSet.getString(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+
+                FDA obj = new FDA();
+                obj.setFDA_Board_Name(name);
+                obj.setFDA_City(city);
+                obj.setFDA_Country(country);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
+    
+    /**
+     *
+     * Select all Pharmacy function
+     */
+    public ArrayList<Pharmacy> readAllPharmacy() {
+        
+        ArrayList<Pharmacy> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_INGREDIENT_SUPPLIER)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                int inventory_size = resultSet.getInt(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+
+                Pharmacy obj = new Pharmacy();
+                obj.setPharmacy_Name(name);
+                obj.setPharmacy_Location(location);
+                obj.setPharmacy_Inventory_Size(inventory_size);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
+    /**
+     *
+     * Select all Hospital function
+     */
+    public ArrayList<Hospital> readAllHospital() {
+        
+        ArrayList<Hospital> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_INGREDIENT_SUPPLIER)) {
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                String speciality = resultSet.getString(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+
+                Hospital obj = new Hospital();
+                obj.setHospital_Name(name);
+                obj.setHospital_Location(location);
+                obj.setHospital_Speciality(speciality);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                record.add(obj);            
+                System.out.println(obj);
+            }      
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
     
    /**
      *
@@ -634,7 +1018,7 @@ public class MySqlQuery {
             preparedStatement.setString(1, manufacturer.getManufacturer_Name());
             preparedStatement.setString(2, manufacturer.getType_Of_Medicine());
             preparedStatement.setString(3, manufacturer.getManufacturer_Location());
-            preparedStatement.setString(4, manufacturer.getManufacturer_Date_Of_Establishment());
+            preparedStatement.setDate(4, manufacturer.getManufacturer_Date_Of_Establishment());
             preparedStatement.setString(5, manufacturer.getEmail_Id());
             preparedStatement.setString(6, manufacturer.getPhone_No());
             preparedStatement.setString(7, manufacturer.getPassword());
@@ -764,7 +1148,35 @@ public class MySqlQuery {
         }
         return result;
     }
-  
+  /**
+     *
+     * @return int Update Medicine Function
+     */
+    public int updateMedicine(Medicine medicine) {
+        int result = 0;
+        String SQL_UPDATE_MEDICINE = "UPDATE MEDICINE SET Medicine_Name = ? ,Medicine_Status = ? ,Medicine_Category = ? , Date_Of_Manufacture = ?,Shell_Life = ? WHERE Medicine_Name = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_MEDICINE)) {
+
+            preparedStatement.setString(1, medicine.getMedicine_Name());
+            preparedStatement.setString(2, medicine.getMedicine_Status());
+            preparedStatement.setString(3, medicine.getMedicine_Category());
+            preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
+            preparedStatement.setInt(5, medicine.getShell_Life());
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    } 
+    
+    
 }
 
     

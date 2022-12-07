@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package classes;
-
+import java.sql.Date;
 /**
  *
  * @author amulyamurahari
@@ -13,7 +13,7 @@ public class Manufacturer {
     private String Manufacturer_Name;
     private String Type_Of_Medicine;
     private String Manufacturer_Location;
-    private String Manufacturer_Date_Of_Establishment;
+    private Date Manufacturer_Date_Of_Establishment;
     private String Email_Id;
     private String Phone_No;
     private String Password;
@@ -67,21 +67,21 @@ public class Manufacturer {
         this.Manufacturer_Location = Manufacturer_Location;
     }
 
-    public String getManufacturer_Date_Of_Establishment() {
+    public Date getManufacturer_Date_Of_Establishment() {
         return Manufacturer_Date_Of_Establishment;
     }
 
-    public void setManufacturer_Date_Of_Establishment(String Manufacturer_Date_Of_Establishment) {
+    public void setManufacturer_Date_Of_Establishment(Date Manufacturer_Date_Of_Establishment) {
         this.Manufacturer_Date_Of_Establishment = Manufacturer_Date_Of_Establishment;
     }
-
+    
     @Override
     public String toString() {
         return "ManufacturerProfile{" + "name=" + Manufacturer_Name + ", type_of_medicine=" + Type_Of_Medicine + ", location=" + Manufacturer_Location + ", date_of_establishment=" + Manufacturer_Date_Of_Establishment +", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
 
     }
 
-    public Manufacturer(String Manufacturer_Name, String Type_Of_Medicine, String Manufacturer_Location, String Manufacturer_Date_Of_Establishment,String Email_Id, String Phone_No, String Password) {
+    public Manufacturer(String Manufacturer_Name, String Type_Of_Medicine, String Manufacturer_Location, Date Manufacturer_Date_Of_Establishment,String Email_Id, String Phone_No, String Password) {
         this.Manufacturer_Name = Manufacturer_Name;
         this.Type_Of_Medicine = Type_Of_Medicine;
         this.Manufacturer_Location = Manufacturer_Location;

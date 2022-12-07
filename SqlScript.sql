@@ -109,14 +109,13 @@ CREATE TABLE IF NOT EXISTS MEDICINE
          ( 
          Medicine_Id INTEGER PRIMARY KEY auto_increment, 
          Medicine_Name TEXT NOT NULL, 
-         Medicine_Category TEXT NOT NULL, 
-		 Medicine_Price TEXT NOT NULL,
-         Medicine_Age INTEGER NOT NULL,
+         Medicine_Status TEXT NOT NULL, 
+		 Medicine_Category TEXT NOT NULL,
+         Date_Of_Manufacture DATE NOT NULL,	
          Medicine_Shell_Life INTEGER NOT NULL,
          FDA_Id INTEGER NOT NULL,
-         Manufacturer_Id INTEGER NOT NULL,
-         FOREIGN KEY(FDA_Id) REFERENCES FDA(FDA_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id)
+         Manufacturer_Name INTEGER NOT NULL,
+         FOREIGN KEY(FDA_Id) REFERENCES FDA(FDA_Id)
          );    
 
 DROP TABLE IF EXISTS TRANSACTION;
@@ -179,17 +178,12 @@ DROP TABLE IF EXISTS INGREDIENT_SUPPLIER_ORDER_BOOK;
 CREATE TABLE IF NOT EXISTS INGREDIENT_SUPPLIER_ORDER_BOOK 
          ( 
          Supplier_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
+         Ingredient_Name TEXT NOT NULL,
          Supplier_OB_Quantity INTEGER NOT NULL,
          Supplier_OB_Price INTEGER NOT NULL,
          Supplier_OB_Status TEXT NOT NULL,
-		 Supplier_Id INTEGER NOT NULL,
-         Transaction_Id INTEGER NOT NULL,
-         Manufacturer_Id INTEGER NOT NULL,
-         Package_Id INTEGER NOT NULL,
-         FOREIGN KEY(Supplier_Id) REFERENCES INGREDIENT_SUPPLIER(Supplier_Id),
-         FOREIGN KEY(Transaction_Id) REFERENCES TRANSACTION(Transaction_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id),
-         FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id)
+         Manufacturer_Id TEXT NOT NULL,
+         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id)
          );
 
 DROP TABLE IF EXISTS FDA_ORDER_BOOK;
@@ -280,4 +274,3 @@ CREATE TABLE IF NOT EXISTS HOSPITAL_ORDER_BOOK
          FOREIGN KEY(Hospital_Id) REFERENCES HOSPITAL(Hospital_Id)
          );
 
-select * from PATIENT;

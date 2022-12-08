@@ -17,6 +17,7 @@ public class Manufacturer {
     private String Email_Id;
     private String Phone_No;
     private String Password;
+   
 
     public String getEmail_Id() {
         return Email_Id;

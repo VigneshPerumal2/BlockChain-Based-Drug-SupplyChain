@@ -17,28 +17,16 @@ public class Pharmacy {
     private String Phone_No;
     private String Password;
 
-    public String getEmail_Id() {
-        return Email_Id;
-    }
-
-    public void setEmail_Id(String Email_Id) {
+    public Pharmacy(String Pharmacy_Name, String Pharmacy_Location, int Pharmacy_Inventory_Size, String Email_Id, String Phone_No, String Password) {
+        this.Pharmacy_Name = Pharmacy_Name;
+        this.Pharmacy_Location = Pharmacy_Location;
+        this.Pharmacy_Inventory_Size = Pharmacy_Inventory_Size;
         this.Email_Id = Email_Id;
-    }
-
-    public String getPhone_No() {
-        return Phone_No;
-    }
-
-    public void setPhone_No(String Phone_No) {
         this.Phone_No = Phone_No;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
         this.Password = Password;
+    }
+
+    public Pharmacy() {
     }
 
     public String getPharmacy_Name() {
@@ -65,24 +53,31 @@ public class Pharmacy {
         this.Pharmacy_Inventory_Size = Pharmacy_Inventory_Size;
     }
 
-    @Override
-    public String toString() {
-        return "PharmacyProfile{" + "name=" + Pharmacy_Name + ", inventory_size=" + Pharmacy_Inventory_Size + ", location=" + Pharmacy_Location +",emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
-
-
+    public String getEmail_Id() {
+        return Email_Id;
     }
 
-    public Pharmacy(String Pharmacy_Name, String Pharmacy_Location, int Pharmacy_Inventory_Size,String Email_Id, String Phone_No, String Password) {
-        this.Pharmacy_Name = Pharmacy_Name;
-        this.Pharmacy_Location = Pharmacy_Location;
-        this.Pharmacy_Inventory_Size = Pharmacy_Inventory_Size;
+    public void setEmail_Id(String Email_Id) {
         this.Email_Id = Email_Id;
+    }
+
+    public String getPhone_No() {
+        return Phone_No;
+    }
+
+    public void setPhone_No(String Phone_No) {
         this.Phone_No = Phone_No;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
         this.Password = Password;
     }
 
-    public Pharmacy() {
-    }
+    
     
     
 }

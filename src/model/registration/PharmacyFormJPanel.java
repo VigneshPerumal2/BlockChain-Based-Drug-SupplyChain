@@ -4,6 +4,11 @@
  */
 package model.registration;
 
+
+import classes.Pharmacy;
+import javax.swing.JOptionPane;
+import util.sql.PharmacySqlQuery;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +18,12 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PharmacyFormJPanel
      */
-    public PharmacyFormJPanel() {
+    private boolean validation;
+    javax.swing.JSplitPane splitPane;
+    public PharmacyFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
+        formReset();
     }
 
     /**
@@ -30,21 +39,27 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
         lblFDA = new javax.swing.JLabel();
         lblPharmacyName = new javax.swing.JLabel();
         txtPharmacyName = new javax.swing.JTextField();
-        valBoardName = new javax.swing.JLabel();
+        valPharmacyName = new javax.swing.JLabel();
         lblInventorySize = new javax.swing.JLabel();
-        lblAddWallet = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
-        valAmount = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         btnReset = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
-        comboboxInventorySize = new javax.swing.JComboBox<>();
+        drpInventorySize = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         lblLocation = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         valLocation = new javax.swing.JLabel();
+        lblEmailId = new javax.swing.JLabel();
+        txtEmailId = new javax.swing.JTextField();
+        valEmailId = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        valPassword = new javax.swing.JLabel();
+        lblPhoneNumber = new javax.swing.JLabel();
+        txtPhoneNumber = new javax.swing.JTextField();
+        valPhoneNumber = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,39 +74,23 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
         lblPharmacyName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblPharmacyName.setForeground(new java.awt.Color(102, 102, 102));
         lblPharmacyName.setText("Pharmacy Name");
-        jPanel2.add(lblPharmacyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, 30));
+        jPanel2.add(lblPharmacyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 150, 30));
 
         txtPharmacyName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPharmacyNameActionPerformed(evt);
             }
         });
-        jPanel2.add(txtPharmacyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 290, 30));
+        jPanel2.add(txtPharmacyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 290, 30));
 
-        valBoardName.setForeground(new java.awt.Color(255, 61, 0));
-        valBoardName.setText("Please enter valid Pharmacy Name");
-        jPanel2.add(valBoardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 290, 20));
+        valPharmacyName.setForeground(new java.awt.Color(255, 61, 0));
+        valPharmacyName.setText("Please enter valid Pharmacy Name");
+        jPanel2.add(valPharmacyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 290, 20));
 
         lblInventorySize.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblInventorySize.setForeground(new java.awt.Color(102, 102, 102));
         lblInventorySize.setText("Inventory Size");
-        jPanel2.add(lblInventorySize, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 170, 30));
-
-        lblAddWallet.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblAddWallet.setForeground(new java.awt.Color(102, 102, 102));
-        lblAddWallet.setText("Add Wallet");
-        jPanel2.add(lblAddWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 140, 30));
-
-        txtAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAmountActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 30));
-
-        valAmount.setForeground(new java.awt.Color(255, 61, 0));
-        valAmount.setText("Please enter valid Amount");
-        jPanel2.add(valAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 290, 20));
+        jPanel2.add(lblInventorySize, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 170, 30));
         jPanel2.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
         jPanel2.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
 
@@ -106,7 +105,7 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
                 btnResetActionPerformed(evt);
             }
         });
-        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, 160, 40));
+        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 750, 160, 40));
 
         btnsubmit.setBackground(new java.awt.Color(0, 153, 0));
         btnsubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -119,19 +118,19 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
                 btnsubmitActionPerformed(evt);
             }
         });
-        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, 160, 40));
+        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 750, 160, 40));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
 
-        comboboxInventorySize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboboxInventorySize.addActionListener(new java.awt.event.ActionListener() {
+        drpInventorySize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "900 sqft", "1200 sqft", "4000 sqft" }));
+        drpInventorySize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboboxInventorySizeActionPerformed(evt);
+                drpInventorySizeActionPerformed(evt);
             }
         });
-        jPanel2.add(comboboxInventorySize, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
+        jPanel2.add(drpInventorySize, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 290, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Pharmacy.jpg"))); // NOI18N
@@ -140,18 +139,60 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
         lblLocation.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblLocation.setForeground(new java.awt.Color(102, 102, 102));
         lblLocation.setText("Location");
-        jPanel2.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 120, 30));
+        jPanel2.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 120, 30));
 
         txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLocationActionPerformed(evt);
             }
         });
-        jPanel2.add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 30));
+        jPanel2.add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 30));
 
         valLocation.setForeground(new java.awt.Color(255, 61, 0));
         valLocation.setText("Please enter valid Location");
-        jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
+        jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 290, 20));
+
+        lblEmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblEmailId.setForeground(new java.awt.Color(102, 102, 102));
+        lblEmailId.setText("Email Id");
+        jPanel2.add(lblEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 400, 70, 30));
+
+        txtEmailId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailIdActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 290, 30));
+
+        valEmailId.setForeground(new java.awt.Color(255, 61, 0));
+        valEmailId.setText("Please enter valid Email Id");
+        jPanel2.add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 290, 20));
+
+        lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(102, 102, 102));
+        lblPassword.setText("Password");
+        jPanel2.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 110, 30));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 290, 30));
+
+        valPassword.setForeground(new java.awt.Color(255, 61, 0));
+        valPassword.setText("Please enter valid Password");
+        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 290, 20));
+
+        lblPhoneNumber.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblPhoneNumber.setForeground(new java.awt.Color(102, 102, 102));
+        lblPhoneNumber.setText("Phone Number");
+        jPanel2.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 140, 30));
+
+        txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneNumberActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 620, 290, 30));
+
+        valPhoneNumber.setForeground(new java.awt.Color(255, 61, 0));
+        valPhoneNumber.setText("Please enter valid Phone Number");
+        jPanel2.add(valPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 650, 290, 20));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -160,46 +201,167 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPharmacyNameActionPerformed
 
-    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAmountActionPerformed
-
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
+        formReset();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
+        String Pharmacy_Name = txtPharmacyName.getText();
+        String Location = txtLocation.getText();
+        int Inventory_Size=0;
+        if(drpInventorySize.getSelectedIndex()==0) Inventory_Size = 900;
+        if(drpInventorySize.getSelectedIndex()==1) Inventory_Size = 1200;
+        if(drpInventorySize.getSelectedIndex()==2) Inventory_Size = 4000;
+        String Email_Id = txtEmailId.getText();
+        String Phone_No = txtPhoneNumber.getText();
+        String Password = txtPassword.getText();
+      
+        //Database Query Object
+        PharmacySqlQuery sql = new PharmacySqlQuery();
+        int result = 0;
+        
+        //Create a patient object
+        Pharmacy obj = new Pharmacy();
+        
+        //Fill he object using setter
+        obj.setEmail_Id(Email_Id);
+        obj.setPassword(Password);
+        obj.setPharmacy_Location(Location);
+        obj.setPharmacy_Name(Pharmacy_Name);
+        obj.setPharmacy_Inventory_Size(Inventory_Size);
+        obj.setPhone_No(Phone_No);
+        
+        
+        if (validation()) {
+            result = sql.createPharmacy(obj);        
+        }
+        if (result == 1) {
+            formReset();        
+            splitPane.setRightComponent(new SuccessGifJPanel());
+        } else {
+            validation();
+            JOptionPane.showMessageDialog(this, "Pharmacy not created !");
+
+        }
+        //
+        
+   
     }//GEN-LAST:event_btnsubmitActionPerformed
 
-    private void comboboxInventorySizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxInventorySizeActionPerformed
+    private void drpInventorySizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpInventorySizeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboboxInventorySizeActionPerformed
+    }//GEN-LAST:event_drpInventorySizeActionPerformed
 
     private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLocationActionPerformed
 
+    private void txtEmailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailIdActionPerformed
+
+    private void txtPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneNumberActionPerformed
+private void formReset() {
+        txtPharmacyName.setText("");
+        txtEmailId.setText("");
+        txtLocation.setText("");
+        txtPassword.setText("");
+        txtPhoneNumber.setText("");
+        
+
+        valPharmacyName.setText("");
+        valPassword.setText("");
+        valEmailId.setText("");
+        valLocation.setText("");
+        valPhoneNumber.setText("");
+}
+/**
+     * Validation implementation
+     *
+     * @return
+     */
+    private boolean validation() {
+        boolean validation = true;
+        
+        
+        valPharmacyName.setText("");
+        valPassword.setText("");
+        valEmailId.setText("");
+        valLocation.setText("");
+        valPhoneNumber.setText("");
+        
+        
+        String Pharmacy_Name = txtPharmacyName.getText();
+        String Location = txtLocation.getText();
+        String Email_Id = txtEmailId.getText();
+        String Phone_No = txtPhoneNumber.getText();
+        String Password = txtPassword.getText();
+       
+        System.out.println("Pharmacy Name->" + Pharmacy_Name);
+
+        //Name Validation
+        if (Pharmacy_Name.length() <= 0) {
+            valPharmacyName.setText("Please Enter Name");
+            validation = false;
+        }
+        //Email_Id Validation
+        if (Email_Id.length() <= 0) {
+            valEmailId.setText("Please Enter EmailId");
+            validation = false;
+        }
+        //Phone_No Validation
+        if (Phone_No.length() <= 0) {
+            valPhoneNumber.setText("Please Enter Phone_No");
+            validation = false;
+        }
+        //Password Validation
+        if (Password.length() <= 0) {
+            valPassword.setText("Please Enter Password");
+            validation = false;
+        }
+        
+        //Location Validation
+        if (Location.length() <= 0) {
+            valLocation.setText("Please Enter Location");
+            validation = false;
+        }
+
+        return validation;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
-    private javax.swing.JComboBox<String> comboboxInventorySize;
+    private javax.swing.JComboBox<String> drpInventorySize;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblAddWallet;
+    private javax.swing.JLabel lblEmailId;
     private javax.swing.JLabel lblFDA;
     private javax.swing.JLabel lblInventorySize;
     private javax.swing.JLabel lblLocation;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPharmacyName;
+    private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lbllogo;
-    private javax.swing.JTextField txtAmount;
+    private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtLocation;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPharmacyName;
-    private javax.swing.JLabel valAmount;
-    private javax.swing.JLabel valBoardName;
+    private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JLabel valEmailId;
     private javax.swing.JLabel valLocation;
+    private javax.swing.JLabel valPassword;
+    private javax.swing.JLabel valPharmacyName;
+    private javax.swing.JLabel valPhoneNumber;
     // End of variables declaration//GEN-END:variables
+
+    
+
+    
 }

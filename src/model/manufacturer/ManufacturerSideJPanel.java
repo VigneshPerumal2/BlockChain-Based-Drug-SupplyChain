@@ -34,9 +34,9 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         lblavslogomd = new javax.swing.JLabel();
         lbldepartment = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
-        lblManufacturerimage = new javax.swing.JLabel();
         lblavsManufacturer = new javax.swing.JLabel();
         drpDepartment = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,11 +52,11 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         lblavslogomd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         add(lblavslogomd, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, 70));
 
-        lbldepartment.setFont(new java.awt.Font("Helvetica Neue", 1, 35)); // NOI18N
-        lbldepartment.setForeground(new java.awt.Color(0, 51, 153));
+        lbldepartment.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lbldepartment.setForeground(new java.awt.Color(102, 102, 102));
         lbldepartment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbldepartment.setText("Choose a Department");
-        add(lbldepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
+        add(lbldepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 450, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -67,23 +67,26 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
                 btnLogoutActionPerformed(evt);
             }
         });
-        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 140, 40));
-
-        lblManufacturerimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/ManufacturerP.jpg"))); // NOI18N
-        add(lblManufacturerimage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 570, 430, 240));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 630, 140, 40));
 
         lblavsManufacturer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblavsManufacturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N
         add(lblavsManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
 
         drpDepartment.setForeground(new java.awt.Color(102, 102, 102));
-        drpDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an Option...", "R & D", "FDA", "Packaging" }));
+        drpDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an Option...", "R & D", "Licensing", "Packaging" }));
         drpDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drpDepartmentActionPerformed(evt);
             }
         });
-        add(drpDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 410, 290, 50));
+        add(drpDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 290, 50));
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 34)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("SUNAINA");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -96,14 +99,20 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         if(drpDepartment.getSelectedItem().equals("R & D")){
             splitPane.setRightComponent(new ResearchAndDevelopmentJPanel());
         }
+        else if(drpDepartment.getSelectedItem().equals("Licensing")){
+            splitPane.setRightComponent(new LicensingJPanel());
+        }
+        else if(drpDepartment.getSelectedItem().equals("Packaging")){
+            splitPane.setRightComponent(new PackagingJPanel());
+        }
     }//GEN-LAST:event_drpDepartmentActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox<String> drpDepartment;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblManufacturerDashboard;
-    private javax.swing.JLabel lblManufacturerimage;
     private javax.swing.JLabel lblavsManufacturer;
     private javax.swing.JLabel lblavslogomd;
     private javax.swing.JLabel lbldepartment;

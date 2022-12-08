@@ -29,7 +29,7 @@ public class HospitalSqlQuery {
     /**
      * Hospital Queries
      */
-    private static final String SQL_INSERT_HOSPITAL = "INSERT INTO HOSPITAL (Hospital_Name, Hospital_Location, Hospital_Speciality,Email_Id,Phone_No,Password ) VALUES (?,?,?,?,?,?)";
+    private static final String SQL_INSERT_HOSPITAL = "INSERT INTO HOSPITAL (Hospital_Name,Hospital_Location,Hospital_Speciality,Email_Id,Phone_no,Password) VALUES (?,?,?,?,?,?)";
     private static final String SQL_READ_HOSPITAL = "SELECT * FROM HOSPITAL";
     
     /**
@@ -129,7 +129,7 @@ public class HospitalSqlQuery {
      */
     public int updateHospital(Hospital hospital) {
         int result = 0;
-        String SQL_UPDATE_HOSPITAL = "UPDATE FDA SET Hospital_Name = ? ,Hospital_Location = ? ,Hospital_Speciality = ? , Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
+        String SQL_UPDATE_HOSPITAL = "UPDATE HOSPITAL SET Hospital_Name = ? ,Hospital_Location = ? ,Hospital_Speciality = ? , Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_HOSPITAL)) {
 

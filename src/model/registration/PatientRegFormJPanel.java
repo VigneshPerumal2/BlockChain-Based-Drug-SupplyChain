@@ -7,7 +7,7 @@ package model.registration;
 import classes.Patient;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import util.sql.MySqlQuery;
+import util.sql.PatientSqlQuery;
 
 /**
  *
@@ -329,7 +329,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         String Password = txtPassword.getText();
         
         //Database Query Object
-        MySqlQuery mySqlQuery = new MySqlQuery();
+        PatientSqlQuery sql = new PatientSqlQuery();
         int result = 0;
         
         
@@ -337,7 +337,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         Patient obj = new Patient();
         
         
-        //
+        //Fill he object using setter
         obj.setAilments(Ailments);
         obj.setEmail_Id(Email_Id);
         obj.setPassword(Password);
@@ -349,7 +349,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         obj.setPhone_No(Phone_No);
         
         if (validation()) {
-            result = mySqlQuery.createPatient(obj);        
+            result = sql.createPatient(obj);        
         }
         if (result == 1) {
             formReset();        

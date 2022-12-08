@@ -4,7 +4,10 @@
  */
 package model.registration;
 
+import classes.FDA;
+import classes.Patient;
 import javax.swing.JOptionPane;
+import util.sql.FDASqlQuery;
 import util.sql.MySqlQuery;
 
 /**
@@ -21,6 +24,7 @@ public class FDAFormJPanel extends javax.swing.JPanel {
     public FDAFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane=splitPane;
+        comboboxCountry.setSelectedIndex(0);
         formReset();
     }
 
@@ -39,9 +43,6 @@ public class FDAFormJPanel extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         valBoardName = new javax.swing.JLabel();
         lblCountry = new javax.swing.JLabel();
-        lblAddWallet = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
-        valAmount = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         btnReset = new javax.swing.JButton();
@@ -52,6 +53,15 @@ public class FDAFormJPanel extends javax.swing.JPanel {
         lblCity = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
         valCity = new javax.swing.JLabel();
+        lblEmailId = new javax.swing.JLabel();
+        txtEmailId = new javax.swing.JTextField();
+        valEmailId = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        valPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        lblPhoneNumber = new javax.swing.JLabel();
+        txtPhoneNumber = new javax.swing.JTextField();
+        valPhoneNumber = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,39 +76,23 @@ public class FDAFormJPanel extends javax.swing.JPanel {
         lblBoardName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblBoardName.setForeground(new java.awt.Color(102, 102, 102));
         lblBoardName.setText("Board Name");
-        jPanel2.add(lblBoardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 150, 30));
+        jPanel2.add(lblBoardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 150, 30));
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
-        jPanel2.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 290, 30));
+        jPanel2.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 290, 30));
 
         valBoardName.setForeground(new java.awt.Color(255, 61, 0));
         valBoardName.setText("Please enter valid Board Name");
-        jPanel2.add(valBoardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 290, 20));
+        jPanel2.add(valBoardName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 290, 20));
 
         lblCountry.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblCountry.setForeground(new java.awt.Color(102, 102, 102));
         lblCountry.setText("Country");
-        jPanel2.add(lblCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 170, 30));
-
-        lblAddWallet.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblAddWallet.setForeground(new java.awt.Color(102, 102, 102));
-        lblAddWallet.setText("Add Wallet");
-        jPanel2.add(lblAddWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 140, 30));
-
-        txtAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAmountActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 30));
-
-        valAmount.setForeground(new java.awt.Color(255, 61, 0));
-        valAmount.setText("Please enter valid Amount");
-        jPanel2.add(valAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 290, 20));
+        jPanel2.add(lblCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 170, 30));
         jPanel2.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
         jPanel2.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
 
@@ -113,7 +107,7 @@ public class FDAFormJPanel extends javax.swing.JPanel {
                 btnResetActionPerformed(evt);
             }
         });
-        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 590, 160, 40));
+        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 700, 160, 40));
 
         btnsubmit.setBackground(new java.awt.Color(0, 153, 0));
         btnsubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -126,19 +120,19 @@ public class FDAFormJPanel extends javax.swing.JPanel {
                 btnsubmitActionPerformed(evt);
             }
         });
-        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 160, 40));
+        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 700, 160, 40));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
 
-        comboboxCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxCountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "India", "United States", "Canada", "China", "Japan", "South Korea", "Germany" }));
         comboboxCountry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboboxCountryActionPerformed(evt);
             }
         });
-        jPanel2.add(comboboxCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 290, 30));
+        jPanel2.add(comboboxCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 290, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/FDA.jpg"))); // NOI18N
@@ -147,18 +141,60 @@ public class FDAFormJPanel extends javax.swing.JPanel {
         lblCity.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblCity.setForeground(new java.awt.Color(102, 102, 102));
         lblCity.setText("City");
-        jPanel2.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 120, 30));
+        jPanel2.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 120, 30));
 
         txtCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCityActionPerformed(evt);
             }
         });
-        jPanel2.add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 30));
+        jPanel2.add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 290, 30));
 
         valCity.setForeground(new java.awt.Color(255, 61, 0));
         valCity.setText("Please enter valid City");
-        jPanel2.add(valCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 290, 20));
+        jPanel2.add(valCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 290, 20));
+
+        lblEmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblEmailId.setForeground(new java.awt.Color(102, 102, 102));
+        lblEmailId.setText("Email Id");
+        jPanel2.add(lblEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 70, 30));
+
+        txtEmailId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailIdActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 290, 30));
+
+        valEmailId.setForeground(new java.awt.Color(255, 61, 0));
+        valEmailId.setText("Please enter valid Email Id");
+        jPanel2.add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 20));
+
+        lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(102, 102, 102));
+        lblPassword.setText("Password");
+        jPanel2.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 110, 30));
+
+        valPassword.setForeground(new java.awt.Color(255, 61, 0));
+        valPassword.setText("Please enter valid Password");
+        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 290, 20));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 290, 30));
+
+        lblPhoneNumber.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblPhoneNumber.setForeground(new java.awt.Color(102, 102, 102));
+        lblPhoneNumber.setText("Phone Number");
+        jPanel2.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 570, 140, 30));
+
+        txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneNumberActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 600, 290, 30));
+
+        valPhoneNumber.setForeground(new java.awt.Color(255, 61, 0));
+        valPhoneNumber.setText("Please enter valid Phone Number");
+        jPanel2.add(valPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 630, 290, 20));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -167,10 +203,6 @@ public class FDAFormJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAmountActionPerformed
-
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         formReset();
@@ -178,21 +210,36 @@ public class FDAFormJPanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
-         String amount = txtAmount.getText();
+         
          String city = txtCity.getText();
          String name = txtName.getText();
          String Country = String.valueOf(comboboxCountry.getSelectedItem());
-         MySqlQuery mySqlQuery = new MySqlQuery();
+         String Email_Id = txtEmailId.getText();
+        String Phone_No = txtPhoneNumber.getText();
+        String Password = txtPassword.getText();
+        
+         FDASqlQuery sql = new FDASqlQuery();
          int result=0;
+         
+         FDA obj = new FDA();
+         
+         obj.setFDA_City(city);
+         obj.setFDA_Board_Name(name);
+         obj.setFDA_Country(Country);
+         obj.setEmail_Id(Email_Id);
+         obj.setPassword(Password);
+         obj.setPhone_No(Phone_No);
+         
+         System.out.println("FDA Object->"+obj);
           if (validation()) {
-//            result = mySqlQuery.createFDA(name, city, Country);
+         result = sql.createFDA(obj);
         }
         if (result == 1) {
             formReset();        
             splitPane.setRightComponent(new SuccessGifJPanel());
         } else {
             validation();
-            JOptionPane.showMessageDialog(this, "Patient not created !");
+            JOptionPane.showMessageDialog(this, "FDA not created !");
 
         }
         
@@ -205,34 +252,47 @@ public class FDAFormJPanel extends javax.swing.JPanel {
     private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCityActionPerformed
+
+    private void txtEmailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailIdActionPerformed
+
+    private void txtPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneNumberActionPerformed
     private void formReset() {
 
         txtName.setText("");
         txtCity.setText("");
-        txtAmount.setText("");
         comboboxCountry.setSelectedIndex(1);
+        txtEmailId.setText("");
+        txtPassword.setText("");
+        txtPhoneNumber.setText("");
         
 
         valBoardName.setText("");
-        valAmount.setText("");
         valCity.setText("");
-        
-
+        valEmailId.setText("");
+        valPhoneNumber.setText("");
+        valPassword.setText("");
     }
+    
     private boolean validation() {
         boolean validation = true;
-        txtName.setText("");
-        txtCity.setText("");
-        txtAmount.setText("");
-        comboboxCountry.setSelectedIndex(1);
+        
+        
       
         valBoardName.setText("");
-        valAmount.setText("");
         valCity.setText("");
-        String amount = txtAmount.getText();
+        valEmailId.setText("");
+        valPassword.setText("");
+        valPhoneNumber.setText("");
+        
          String city = txtCity.getText();
          String name = txtName.getText();
-        
+         String Email_Id = txtEmailId.getText();
+         String Phone_No = txtPhoneNumber.getText();
+         String Password = txtPassword.getText();
 
         System.out.println("FDA Name->" + name);
 
@@ -241,18 +301,31 @@ public class FDAFormJPanel extends javax.swing.JPanel {
             valBoardName.setText("Please Enter Board Name");
             validation = false;
         }
-        //Wallet Amount Validation
-        if (amount.length() <= 0) {
-            valAmount.setText("Please Enter valid Amount");
-            validation = false;
-        }
+        
         //City Amount Validation
-        if (amount.length() <= 0) {
-            valAmount.setText("Please Enter valid City");
+        if (city.length() <= 0) {
+            valCity.setText("Please Enter valid City");
             validation = false;
         }
         
-
+       //Email_Id Validation
+        if (Email_Id.length() <= 0) {
+            valEmailId.setText("Please Enter EmailId");
+            validation = false;
+        }
+        
+        //Password Validation
+        if (Password.length() <= 0) {
+            valPassword.setText("Please Enter Password");
+            validation = false;
+        }
+        
+        //Phone_No Validation
+        if (Phone_No.length() <= 0) {
+            valPhoneNumber.setText("Please Enter Phone_No");
+            validation = false;
+        }
+        
         return validation;
     }
 
@@ -264,17 +337,23 @@ public class FDAFormJPanel extends javax.swing.JPanel {
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblAddWallet;
     private javax.swing.JLabel lblBoardName;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCountry;
+    private javax.swing.JLabel lblEmailId;
     private javax.swing.JLabel lblFDA;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lbllogo;
-    private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtName;
-    private javax.swing.JLabel valAmount;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JLabel valBoardName;
     private javax.swing.JLabel valCity;
+    private javax.swing.JLabel valEmailId;
+    private javax.swing.JLabel valPassword;
+    private javax.swing.JLabel valPhoneNumber;
     // End of variables declaration//GEN-END:variables
 }

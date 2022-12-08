@@ -359,14 +359,13 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         txtPassword.setText("");
         txtPhoneNumber.setText("");
         
-
         valName.setText("");
         valPassword.setText("");
         valAilments.setText("");
         valEmailId.setText("");
         valLocation.setText("");
         valPhoneNumber.setText("");
-       
+        valAmount.setText("");
 
     }
 
@@ -380,11 +379,13 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         
         
         valName.setText("");
+        valPassword.setText("");
         valAilments.setText("");
         valEmailId.setText("");
         valLocation.setText("");
         valPhoneNumber.setText("");
-                
+        
+        
         
         String Patient_Name = txtName.getText();
         String Patient_Location = txtLocation.getText();
@@ -421,7 +422,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
             valAilments.setText("Please Enter Ailments");
             validation = false;
         }
-       
+        
         //Location Validation
         if (location.length() <= 0) {
             valLocation.setText("Please Enter Location");

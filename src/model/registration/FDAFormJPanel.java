@@ -185,7 +185,7 @@ public class FDAFormJPanel extends javax.swing.JPanel {
          MySqlQuery mySqlQuery = new MySqlQuery();
          int result=0;
           if (validation()) {
-            result = mySqlQuery.createFDA(name, city, Country);
+//            result = mySqlQuery.createFDA(name, city, Country);
         }
         if (result == 1) {
             formReset();        

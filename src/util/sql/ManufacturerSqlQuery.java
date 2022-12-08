@@ -30,7 +30,7 @@ public class ManufacturerSqlQuery {
      /**
      * Manufacturer Queries
      */
-    private static final String SQL_INSERT_MANUFACTURER = "INSERT INTO MANUFACTURER (Manufacturer_Name, Type_Of_Medicine, Manufacturer_Location, Manufacturer_Date_Of_Establishment,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT_MANUFACTURER = "INSERT INTO MANUFACTURER (Manufacturer_Name, Manufacturer_Location, Type_Of_Medicine, Manufacturer_Date_Of_Establishment,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_READ_MANUFACTURER = "SELECT * FROM MANUFACTURER";
     
      /**
@@ -43,8 +43,8 @@ public class ManufacturerSqlQuery {
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_MANUFACTURER)) {
 
             preparedStatement.setString(1, manufacturer.getManufacturer_Name());
-            preparedStatement.setString(2, manufacturer.getType_Of_Medicine());
-            preparedStatement.setString(3, manufacturer.getManufacturer_Location());
+            preparedStatement.setString(2, manufacturer.getManufacturer_Location());
+            preparedStatement.setString(3, manufacturer.getType_Of_Medicine());
             preparedStatement.setDate(4, manufacturer.getManufacturer_Date_Of_Establishment());
             preparedStatement.setString(5, manufacturer.getEmail_Id());
             preparedStatement.setString(6, manufacturer.getPhone_No());
@@ -78,8 +78,8 @@ public class ManufacturerSqlQuery {
             while (resultSet.next()) {
 
                 String name = resultSet.getString(1);
-                String medicine_type = resultSet.getString(2);
-                String location = resultSet.getString(3);
+                String location = resultSet.getString(2);
+                String medicine_type = resultSet.getString(3);
                 Date doe = resultSet.getDate(4);
                 String emailID = resultSet.getString(5);
                 String phoneNo = resultSet.getString(6);
@@ -87,8 +87,8 @@ public class ManufacturerSqlQuery {
 
                 Manufacturer obj = new Manufacturer();
                 obj.setManufacturer_Name(name);
-                obj.setType_Of_Medicine(medicine_type);
                 obj.setManufacturer_Location(location);
+                obj.setType_Of_Medicine(medicine_type);
                 obj.setManufacturer_Date_Of_Establishment(doe);
                 obj.setEmail_Id(emailID);
                 obj.setPhone_No(phoneNo);
@@ -135,13 +135,13 @@ public class ManufacturerSqlQuery {
      */
     public int updateManufacturer(Manufacturer manufacturer) {
         int result = 0;
-        String SQL_UPDATE_MANUFACTURER = "UPDATE MANUFACTURER SET Manufacturer_Name = ? ,Type_Of_Medicine = ? ,Manufacturer_Location = ?,Manufacturer_Date_Of_Establishment = ?,Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
+        String SQL_UPDATE_MANUFACTURER = "UPDATE MANUFACTURER SET Manufacturer_Name = ? ,Manufacturer_Location = ?, Type_Of_Medicine = ? ,Manufacturer_Date_Of_Establishment = ?,Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_MANUFACTURER)) {
 
             preparedStatement.setString(1, manufacturer.getManufacturer_Name());
-            preparedStatement.setString(2, manufacturer.getType_Of_Medicine());
-            preparedStatement.setString(3, manufacturer.getManufacturer_Location());
+            preparedStatement.setString(2, manufacturer.getManufacturer_Location());
+            preparedStatement.setString(3, manufacturer.getType_Of_Medicine());
             preparedStatement.setDate(4, manufacturer.getManufacturer_Date_Of_Establishment());
             preparedStatement.setString(5, manufacturer.getEmail_Id());
             preparedStatement.setString(6, manufacturer.getPhone_No());

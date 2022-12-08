@@ -4,6 +4,7 @@
  */
 package model.registration;
 
+import classes.Patient;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import util.sql.MySqlQuery;
@@ -308,26 +309,47 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
+        
+        //collecting values
         String Patient_Name = txtName.getText();
         int Patient_Age = (int) spinnerAge.getValue();
         String Patient_Race = String.valueOf(drpRace.getSelectedItem());
-        String Race="";
+        String gender="";
         if (radiobtnFemale.isSelected()) {
-             Race = radiobtnFemale.getText();
+             gender = radiobtnFemale.getText();
         } else if (radiobtnMale.isSelected()) {
-             Race = radiobtnMale.getText();
+             gender = radiobtnMale.getText();
         } else if (radiobtnOthers.isSelected()) {
-              Race = radiobtnOthers.getText();
+              gender = radiobtnOthers.getText();
         }
         String Patient_Location = txtLocation.getText();
         String Ailments = txtAilments.getText();
         String Email_Id = txtEmailId.getText();
         String Phone_No = txtPhoneNumber.getText();
         String Password = txtPassword.getText();
+        
+        //Database Query Object
         MySqlQuery mySqlQuery = new MySqlQuery();
         int result = 0;
+        
+        
+        //Create a patient object
+        Patient obj = new Patient();
+        
+        
+        //
+        obj.setAilments(Ailments);
+        obj.setEmail_Id(Email_Id);
+        obj.setPassword(Password);
+        obj.setPatient_Age(Patient_Age);
+        obj.setPatient_Gender(gender);
+        obj.setPatient_Location(Patient_Location);
+        obj.setPatient_Name(Patient_Name);
+        obj.setPatient_Race(Patient_Race);
+        obj.setPhone_No(Phone_No);
+        
         if (validation()) {
-            result = mySqlQuery.createPatient(Patient_Name, Patient_Age, Patient_Race, Race, Patient_Location, Ailments, Email_Id, Phone_No, Password);
+            result = mySqlQuery.createPatient(obj);        
         }
         if (result == 1) {
             formReset();        
@@ -378,6 +400,8 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
      */
     private boolean validation() {
         boolean validation = true;
+        
+        
         valName.setText("");
         valPassword.setText("");
         valAilments.setText("");
@@ -385,6 +409,8 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         valLocation.setText("");
         valPhoneNumber.setText("");
         valAmount.setText("");
+        
+        
         String Patient_Name = txtName.getText();
         String Patient_Location = txtLocation.getText();
         String Email_Id = txtEmailId.getText();

@@ -4,6 +4,7 @@
  */
 package model.registration;
 
+
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import util.sql.MySqlQuery;
@@ -319,7 +320,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         MySqlQuery mySqlQuery = new MySqlQuery();
         int result = 0;
         if (validation()) {
-            result = mySqlQuery.createDoctor(Doctor_Name, Doctor_Age, Doctor_Race, gender, Doctor_Location, Speciality, Email_Id, Phone_No, Password);
+//            result = mySqlQuery.createDoctor(Doctor_Name, Doctor_Age, Doctor_Race, gender, Doctor_Location, Speciality, Email_Id, Phone_No, Password);
         }
         if (result == 1) {
             formReset();        

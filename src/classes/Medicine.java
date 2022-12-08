@@ -18,6 +18,15 @@ public class Medicine {
     private String Medicine_Category;
     private Date Date_Of_Manufacture;
     private int Shell_Life;
+    private String Manufacturer_Name;
+
+    public String getManufacturer_Name() {
+        return Manufacturer_Name;
+    }
+
+    public void setManufacturer_Name(String Manufacturer_Name) {
+        this.Manufacturer_Name = Manufacturer_Name;
+    }
 
     public String getMedicine_Name() {
         return Medicine_Name;
@@ -61,20 +70,22 @@ public class Medicine {
 
     @Override
     public String toString() {
-        return "DistributorProfile{" + "name=" + Medicine_Name + ", status=" + Medicine_Status + ", category=" + Medicine_Category + ", date_of_manufacture=" + Date_Of_Manufacture + ", shell_life=" + Shell_Life +'}';
+        return "Medicine{" + "Medicine_Name=" + Medicine_Name + ", Medicine_Status=" + Medicine_Status + ", Medicine_Category=" + Medicine_Category + ", Date_Of_Manufacture=" + Date_Of_Manufacture + ", Shell_Life=" + Shell_Life + ", Manufacturer_Name=" + Manufacturer_Name + '}';
     }
+    
 
-    public Medicine(String Medicine_Name, String Medicine_Status, String Medicine_Category, Date Date_Of_Manufacture, int Shell_Life) {
+    public Medicine(String Medicine_Name, String Medicine_Status, String Medicine_Category, Date Date_Of_Manufacture, int Shell_Life, String Manufacturer_Name) {
         this.Medicine_Name = Medicine_Name;
         this.Medicine_Status = Medicine_Status;
         this.Medicine_Category = Medicine_Category;
         this.Date_Of_Manufacture = Date_Of_Manufacture;
         this.Shell_Life = Shell_Life;
+        this.Manufacturer_Name = Manufacturer_Name;
     }
 
     public Medicine() {
     }
-    
+
     
     
 }

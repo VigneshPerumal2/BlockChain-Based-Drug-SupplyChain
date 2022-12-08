@@ -28,13 +28,13 @@ public class MedicineSqlQuery {
     private final String USER = "root";
     private final String PASSWORD = "!1qaz@2wsx";
     
-     /**
+    /**
      * Medicine Queries
      */
-    private static final String SQL_INSERT_MEDICINE = "INSERT INTO MEDICINE (Medicine_Name, Medicine_Status, Medicine_Category, Date_Of_Manufacture, Shell_Life ) VALUES (?,?,?,?,?)";
+    private static final String SQL_INSERT_MEDICINE = "INSERT INTO MEDICINE (Medicine_Name, Medicine_Status, Medicine_Category, Date_Of_Manufacture, Shell_Life, Manufacturer_Name ) VALUES (?,?,?,?,?,?)";
     private static final String SQL_READ_MEDICINE = "SELECT * FROM MEDICINE";
     
-    /**
+   /**
      *
      * @return int Create Medicine Function
      */
@@ -48,6 +48,7 @@ public class MedicineSqlQuery {
             preparedStatement.setString(3, medicine.getMedicine_Category());
             preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
             preparedStatement.setInt(5, medicine.getShell_Life());
+            preparedStatement.setString(6, medicine.getManufacturer_Name());
             
         
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -79,13 +80,17 @@ public class MedicineSqlQuery {
                 String name = resultSet.getString(1);
                 String status = resultSet.getString(2);
                 String category = resultSet.getString(3);
-                Date doe = resultSet.getDate(4);
+                Date dom = resultSet.getDate(4);
+                int shell_life = resultSet.getInt(5);
+                String manufacturer_name = resultSet.getString(6);
 
                 Medicine obj = new Medicine();
                 obj.setMedicine_Name(name);
                 obj.setMedicine_Status(status);
                 obj.setMedicine_Category(category);
-                obj.setDate_Of_Manufacture(doe);
+                obj.setDate_Of_Manufacture(dom);
+                obj.setShell_Life(shell_life);
+                obj.setManufacturer_Name(manufacturer_name);
                 
                 record.add(obj);            
                 System.out.println(obj);
@@ -100,13 +105,13 @@ public class MedicineSqlQuery {
 
     }
     
-    /**
+   /**
      *
      * @return int Update Medicine Function
      */
     public int updateMedicine(Medicine medicine) {
         int result = 0;
-        String SQL_UPDATE_MEDICINE = "UPDATE MEDICINE SET Medicine_Name = ? ,Medicine_Status = ? ,Medicine_Category = ? , Date_Of_Manufacture = ?,Shell_Life = ? WHERE Medicine_Name = ? ";
+        String SQL_UPDATE_MEDICINE = "UPDATE MEDICINE SET Medicine_Name = ? ,Medicine_Status = ? ,Medicine_Category = ? , Date_Of_Manufacture = ?,Shell_Life = ?, Manufacturer_Name = ? WHERE Medicine_Name = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_MEDICINE)) {
 
@@ -115,6 +120,7 @@ public class MedicineSqlQuery {
             preparedStatement.setString(3, medicine.getMedicine_Category());
             preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
             preparedStatement.setInt(5, medicine.getShell_Life());
+            preparedStatement.setString(6, medicine.getManufacturer_Name());
         
             System.out.println("Prepared Statement ->" + preparedStatement);
 

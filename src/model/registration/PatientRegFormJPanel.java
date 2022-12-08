@@ -69,9 +69,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         lblAilments = new javax.swing.JLabel();
         txtAilments = new javax.swing.JTextField();
         valAilments = new javax.swing.JLabel();
-        lbladdWallet = new javax.swing.JLabel();
-        txtWallet = new javax.swing.JTextField();
-        valAmount = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         btnReset = new javax.swing.JButton();
@@ -221,22 +218,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         valAilments.setForeground(new java.awt.Color(255, 61, 0));
         valAilments.setText("Please enter valid Ailments");
         add(valAilments, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 490, 290, 20));
-
-        lbladdWallet.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lbladdWallet.setForeground(new java.awt.Color(102, 102, 102));
-        lbladdWallet.setText("Add Wallet");
-        add(lbladdWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, 140, 30));
-
-        txtWallet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtWalletActionPerformed(evt);
-            }
-        });
-        add(txtWallet, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 560, 200, 30));
-
-        valAmount.setForeground(new java.awt.Color(255, 61, 0));
-        valAmount.setText("Please enter valid Amount");
-        add(valAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 590, 290, 20));
         add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
         add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
 
@@ -366,10 +347,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         formReset();
     }//GEN-LAST:event_btnResetActionPerformed
-
-    private void txtWalletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWalletActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWalletActionPerformed
     /**
      * Form reset implementation
      */
@@ -381,7 +358,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         txtLocation.setText("");
         txtPassword.setText("");
         txtPhoneNumber.setText("");
-        txtWallet.setText("");
+        
 
         valName.setText("");
         valPassword.setText("");
@@ -389,7 +366,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         valEmailId.setText("");
         valLocation.setText("");
         valPhoneNumber.setText("");
-        valAmount.setText("");
+       
 
     }
 
@@ -403,13 +380,11 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         
         
         valName.setText("");
-        valPassword.setText("");
         valAilments.setText("");
         valEmailId.setText("");
         valLocation.setText("");
         valPhoneNumber.setText("");
-        valAmount.setText("");
-        
+                
         
         String Patient_Name = txtName.getText();
         String Patient_Location = txtLocation.getText();
@@ -417,7 +392,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         String Phone_No = txtPhoneNumber.getText();
         String Password = txtPassword.getText();
         String Ailments = txtAilments.getText();
-        String Wallet = txtWallet.getText();
         String location = txtLocation.getText();
 
         System.out.println("Patient Name->" + Patient_Name);
@@ -447,11 +421,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
             valAilments.setText("Please Enter Ailments");
             validation = false;
         }
-        //Wallet Validation
-        if (Wallet.length() <= 0) {
-            valAmount.setText("Please Enter Wallet");
-            validation = false;
-        }
+       
         //Location Validation
         if (location.length() <= 0) {
             valLocation.setText("Please Enter Location");
@@ -477,7 +447,6 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblRace;
     private javax.swing.JLabel lblSex;
-    private javax.swing.JLabel lbladdWallet;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JRadioButton radiobtnFemale;
     private javax.swing.JRadioButton radiobtnMale;
@@ -489,9 +458,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtWallet;
     private javax.swing.JLabel valAilments;
-    private javax.swing.JLabel valAmount;
     private javax.swing.JLabel valEmailId;
     private javax.swing.JLabel valLocation;
     private javax.swing.JLabel valName;

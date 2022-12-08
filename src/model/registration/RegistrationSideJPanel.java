@@ -295,7 +295,7 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
 
     private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
         // TODO add your handling code here:
-       splitPane.setRightComponent(new HospitalFormJPanel());
+       splitPane.setRightComponent(new HospitalFormJPanel(splitPane));
     }//GEN-LAST:event_btnHospitalActionPerformed
 
 

@@ -6,14 +6,14 @@ package model.manufacturer;
 
 /**
  *
- * @author vigy
+ * @author sunayanashivanagi
  */
-public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
+public class PackagingJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManufacturerJPanel
+     * Creates new form PackagingJPanel
      */
-    public ResearchAndDevelopmentJPanel() {
+    public PackagingJPanel() {
         initComponents();
     }
 
@@ -30,7 +30,6 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         PanelInventoryM = new javax.swing.JTabbedPane();
         panOrderManagement = new javax.swing.JPanel();
         lblOrderTable = new javax.swing.JLabel();
-        btnNewOrder = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrder = new javax.swing.JTable();
@@ -62,15 +61,12 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         btnsubmitMed = new javax.swing.JButton();
         dateDOM = new com.toedter.calendar.JDateChooser();
 
-        setBackground(new java.awt.Color(51, 153, 255));
-        setForeground(new java.awt.Color(255, 255, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(0, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Research and Development Department");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 90));
+        jLabel1.setText("Packaging");
 
         PanelInventoryM.setBackground(new java.awt.Color(255, 255, 255));
         PanelInventoryM.setForeground(new java.awt.Color(0, 51, 153));
@@ -83,23 +79,11 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         lblOrderTable.setBackground(new java.awt.Color(255, 255, 255));
         lblOrderTable.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblOrderTable.setForeground(new java.awt.Color(153, 153, 153));
-        lblOrderTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Pill.png"))); // NOI18N
-        lblOrderTable.setText("Manage Medicine");
+        lblOrderTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Full Shopping Basket.png"))); // NOI18N
+        lblOrderTable.setText("Manage Package");
         lblOrderTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblOrderTable.setIconTextGap(10);
         panOrderManagement.add(lblOrderTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 24, 499, 56));
-
-        btnNewOrder.setBackground(new java.awt.Color(0, 153, 51));
-        btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Plus(2).png"))); // NOI18N
-        btnNewOrder.setText("New");
-        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewOrderActionPerformed(evt);
-            }
-        });
-        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 67, -1, 29));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
@@ -153,7 +137,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         btnOrderDelete.setText("DELETE");
         panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 120, 40));
 
-        PanelInventoryM.addTab("Manage Medicine", panOrderManagement);
+        PanelInventoryM.addTab("Manage Package", panOrderManagement);
 
         panInventoryManagement.setBackground(new java.awt.Color(255, 255, 255));
         panInventoryManagement.setForeground(new java.awt.Color(255, 255, 255));
@@ -289,14 +273,33 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         panInventoryManagement.add(btnsubmitMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 140, 40));
         panInventoryManagement.add(dateDOM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 290, 30));
 
-        PanelInventoryM.addTab("Create Medicine", panInventoryManagement);
+        PanelInventoryM.addTab("Create Package", panInventoryManagement);
 
-        add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 710));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PanelInventoryM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(PanelInventoryM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNewOrderActionPerformed
 
     private void btnOrderUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderUpdateActionPerformed
         // TODO add your handling code here:
@@ -310,13 +313,13 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtManufacturerNameActionPerformed
 
-    private void drpStatusofMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpStatusofMedicineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_drpStatusofMedicineActionPerformed
-
     private void txtMedicineName6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicineName6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMedicineName6ActionPerformed
+
+    private void drpStatusofMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpStatusofMedicineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drpStatusofMedicineActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
@@ -334,7 +337,6 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnNewOrder;
     private javax.swing.JButton btnOrderDelete;
     private javax.swing.JButton btnOrderUpdate;
     private javax.swing.JButton btnResetMed;

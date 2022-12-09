@@ -365,8 +365,7 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         valEmailId.setText("");
         valLocation.setText("");
         valPhoneNumber.setText("");
-        valAmount.setText("");
-
+        
     }
 
     /**

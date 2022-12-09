@@ -48,8 +48,8 @@ public class DistributorSqlQuery {
             preparedStatement.setDate(3, distributor.getDistributor_Date_Of_Establishment());
             preparedStatement.setString(4, distributor.getDistributor_Mode_Of_Transportation());
             preparedStatement.setInt(5, distributor.getDistributor_Price());
-            preparedStatement.setString(6, distributor.getPhone_No());
-            preparedStatement.setString(7, distributor.getPassword());
+            preparedStatement.setString(6, distributor.getEmail_Id());
+            preparedStatement.setString(7, distributor.getPhone_No());
             preparedStatement.setString(8, distributor.getPassword());
             
 
@@ -148,8 +148,8 @@ public class DistributorSqlQuery {
             preparedStatement.setDate(3, distributor.getDistributor_Date_Of_Establishment());
             preparedStatement.setString(4, distributor.getDistributor_Mode_Of_Transportation());
             preparedStatement.setInt(5, distributor.getDistributor_Price());
-            preparedStatement.setString(6, distributor.getPhone_No());
-            preparedStatement.setString(7, distributor.getPassword());
+            preparedStatement.setString(6, distributor.getEmail_Id());
+            preparedStatement.setString(7, distributor.getPhone_No());
             preparedStatement.setString(8, distributor.getPassword());
 
             System.out.println("Prepared Statement ->" + preparedStatement);

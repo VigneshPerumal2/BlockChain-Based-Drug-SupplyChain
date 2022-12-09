@@ -5,9 +5,10 @@
 package model.registration;
 
 
+import classes.Doctor;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import util.sql.MySqlQuery;
+import util.sql.DoctorSqlQuery;
 
 /**
  *
@@ -317,10 +318,29 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         String Phone_No = txtPhoneNumber.getText();
         String Password = txtPassword.getText(); 
         
-        MySqlQuery mySqlQuery = new MySqlQuery();
+        
+        //Database Query Object
+        DoctorSqlQuery sql = new DoctorSqlQuery();
         int result = 0;
+        
+        
+        //create a doctor object
+        Doctor obj = new Doctor();
+        
+        
+        //Fill he object using setter
+        obj.setDoctor_Name(Doctor_Name);
+        obj.setDoctor_Age(Doctor_Age);
+        obj.setDoctor_Race(Doctor_Race);
+        obj.setDoctor_Gender(Doctor_Race);
+        obj.setDoctor_Location(Doctor_Location);
+        obj.setSpeciality(Speciality);
+        obj.setEmail_Id(Email_Id);
+        obj.setPhone_No(Phone_No);
+        obj.setPassword(Password);
+        
         if (validation()) {
-//            result = mySqlQuery.createDoctor(Doctor_Name, Doctor_Age, Doctor_Race, gender, Doctor_Location, Speciality, Email_Id, Phone_No, Password);
+            result = sql.createDoctor(obj);    
         }
         if (result == 1) {
             formReset();        
@@ -346,10 +366,10 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         
 
         valName.setText("");
-        valPassword.setText("");
         valAilments.setText("");
         valEmailId.setText("");
         valLocation.setText("");
+        valPassword.setText("");
         valPhoneNumber.setText("");
         
 
@@ -362,25 +382,27 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
      */
     private boolean validation() {
         boolean validation = true;
+        
+        
         valName.setText("");
-        valPassword.setText("");
         valAilments.setText("");
         valEmailId.setText("");
         valLocation.setText("");
+        valPassword.setText("");
         valPhoneNumber.setText("");
        
-        String Patient_Name = txtName.getText();
-        String Patient_Location = txtLocation.getText();
+        String Doctor_Name = txtName.getText();
+        String Doctor_Location = txtLocation.getText();
         String Email_Id = txtEmailId.getText();
         String Phone_No = txtPhoneNumber.getText();
         String Password = txtPassword.getText();
         String Speciality = txtSpeciality.getText();
         String location = txtLocation.getText();
 
-        System.out.println("Patient Name->" + Patient_Name);
+        System.out.println("Doctor Name->" + Doctor_Name);
 
         //Name Validation
-        if (Patient_Name.length() <= 0) {
+        if (Doctor_Name.length() <= 0) {
             valName.setText("Please Enter Name");
             validation = false;
         }

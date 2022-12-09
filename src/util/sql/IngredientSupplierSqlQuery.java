@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Date;
 
 /**
  *
@@ -44,9 +45,10 @@ public class IngredientSupplierSqlQuery {
             preparedStatement.setString(1, ingredientSupplier.getSupplier_Name());
             preparedStatement.setString(2, ingredientSupplier.getSupplier_Category());
             preparedStatement.setString(3, ingredientSupplier.getSupplier_Location());
-            preparedStatement.setString(4, ingredientSupplier.getEmail_Id());
-            preparedStatement.setString(5, ingredientSupplier.getPhone_No());
-            preparedStatement.setString(6, ingredientSupplier.getPassword());
+            preparedStatement.setDate(4, ingredientSupplier.getSupplier_Date_Of_Establishment());
+            preparedStatement.setString(5, ingredientSupplier.getEmail_Id());
+            preparedStatement.setString(6, ingredientSupplier.getPhone_No());
+            preparedStatement.setString(7, ingredientSupplier.getPassword());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -77,14 +79,16 @@ public class IngredientSupplierSqlQuery {
                 String name = resultSet.getString(1);
                 String category = resultSet.getString(2);
                 String location = resultSet.getString(3);
-                String emailID = resultSet.getString(4);
-                String phoneNo = resultSet.getString(5);
-                String password = resultSet.getString(6);
+                Date date = resultSet.getDate(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
 
                 IngredientSupplier obj = new IngredientSupplier();
                 obj.setSupplier_Name(name);
                 obj.setSupplier_Category(category);
                 obj.setSupplier_Location(location);
+                obj.setSupplier_Date_Of_Establishment(date);
                 obj.setEmail_Id(emailID);
                 obj.setPhone_No(phoneNo);
                 obj.setPassword(password);
@@ -137,7 +141,7 @@ public class IngredientSupplierSqlQuery {
             preparedStatement.setString(1, ingredientSupplier.getSupplier_Name());
             preparedStatement.setString(2, ingredientSupplier.getSupplier_Category());
             preparedStatement.setString(3, ingredientSupplier.getSupplier_Location());
-            preparedStatement.setString(4, ingredientSupplier.getSupplier_Date_Of_Establishment());
+            preparedStatement.setDate(4,ingredientSupplier.getSupplier_Date_Of_Establishment());
             preparedStatement.setString(5, ingredientSupplier.getEmail_Id());
             preparedStatement.setString(6, ingredientSupplier.getPhone_No());
             preparedStatement.setString(7, ingredientSupplier.getPassword());

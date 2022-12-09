@@ -277,11 +277,14 @@
         <Component class="javax.swing.JComboBox" name="comboboxMedicine">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="7">
+                <StringItem index="0" value="Tablets"/>
+                <StringItem index="1" value="Capsules"/>
+                <StringItem index="2" value="Syrups"/>
+                <StringItem index="3" value="Injections"/>
+                <StringItem index="4" value="Implants"/>
+                <StringItem index="5" value="Ointments"/>
+                <StringItem index="6" value="Vitamins"/>
               </StringArray>
             </Property>
           </Properties>
@@ -306,7 +309,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="410" y="70" width="390" height="440"/>
+              <AbsoluteConstraints x="410" y="80" width="390" height="400"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -361,14 +364,14 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="430" y="480" width="110" height="30"/>
+              <AbsoluteConstraints x="420" y="480" width="110" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtPassword">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="430" y="510" width="290" height="30"/>
+              <AbsoluteConstraints x="420" y="510" width="290" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -381,7 +384,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="430" y="540" width="290" height="20"/>
+              <AbsoluteConstraints x="420" y="540" width="290" height="20"/>
             </Constraint>
           </Constraints>
         </Component>

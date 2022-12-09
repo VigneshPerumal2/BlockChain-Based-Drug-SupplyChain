@@ -270,7 +270,7 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
 
     private void btnIngSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngSupplierActionPerformed
         // TODO add your handling code here:
-        splitPane.setRightComponent(new IngredientSupplierFormJPanel());
+        splitPane.setRightComponent(new IngredientSupplierFormJPanel(splitPane));
     }//GEN-LAST:event_btnIngSupplierActionPerformed
 
     private void btnManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManufacturerActionPerformed

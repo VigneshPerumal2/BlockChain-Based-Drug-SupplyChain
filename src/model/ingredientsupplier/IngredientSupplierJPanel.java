@@ -38,14 +38,6 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         tblOrder = new javax.swing.JTable();
         btnOrderUpdate = new javax.swing.JButton();
         btnOrderDelete = new javax.swing.JButton();
-        panInventoryManagement = new javax.swing.JPanel();
-        lblInventoryTable = new javax.swing.JLabel();
-        btnNewInventory = new javax.swing.JButton();
-        lbllogo1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblInventory = new javax.swing.JTable();
-        btnInventoryUpdate = new javax.swing.JButton();
-        btnInventoryDelete = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -68,7 +60,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
         btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Plus(2).png"))); // NOI18N
-        btnNewOrder.setText("New");
+        btnNewOrder.setText("View");
         btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewOrderActionPerformed(evt);
@@ -173,104 +165,6 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
 
         PanelInventoryM.addTab("Order Management", panOrderManagement);
 
-        panInventoryManagement.setBackground(new java.awt.Color(255, 255, 255));
-        panInventoryManagement.setForeground(new java.awt.Color(255, 255, 255));
-
-        lblInventoryTable.setBackground(new java.awt.Color(255, 255, 255));
-        lblInventoryTable.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
-        lblInventoryTable.setForeground(new java.awt.Color(153, 153, 153));
-        lblInventoryTable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Warehouse.png"))); // NOI18N
-        lblInventoryTable.setText("Inventory Table");
-        lblInventoryTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        lblInventoryTable.setIconTextGap(10);
-
-        btnNewInventory.setBackground(new java.awt.Color(0, 153, 0));
-        btnNewInventory.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnNewInventory.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewInventory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Plus(2).png"))); // NOI18N
-        btnNewInventory.setText("New");
-        btnNewInventory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewInventoryActionPerformed(evt);
-            }
-        });
-
-        lbllogo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbllogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
-
-        tblInventory.setForeground(new java.awt.Color(255, 255, 255));
-        tblInventory.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblInventory);
-
-        btnInventoryUpdate.setBackground(new java.awt.Color(255, 204, 0));
-        btnInventoryUpdate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnInventoryUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventoryUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Available Updates.png"))); // NOI18N
-        btnInventoryUpdate.setText("UPDATE");
-        btnInventoryUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInventoryUpdateActionPerformed(evt);
-            }
-        });
-
-        btnInventoryDelete.setBackground(new java.awt.Color(255, 0, 51));
-        btnInventoryDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventoryDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
-        btnInventoryDelete.setText("DELETE");
-
-        javax.swing.GroupLayout panInventoryManagementLayout = new javax.swing.GroupLayout(panInventoryManagement);
-        panInventoryManagement.setLayout(panInventoryManagementLayout);
-        panInventoryManagementLayout.setHorizontalGroup(
-            panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panInventoryManagementLayout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(btnInventoryUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnInventoryDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbllogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panInventoryManagementLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panInventoryManagementLayout.createSequentialGroup()
-                        .addComponent(lblInventoryTable, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(230, 230, 230)
-                        .addComponent(btnNewInventory)))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        panInventoryManagementLayout.setVerticalGroup(
-            panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panInventoryManagementLayout.createSequentialGroup()
-                .addGroup(panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panInventoryManagementLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(btnNewInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panInventoryManagementLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(lblInventoryTable, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addGroup(panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbllogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panInventoryManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnInventoryUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnInventoryDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        PanelInventoryM.addTab("Inventory Management", panInventoryManagement);
-
         add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 800));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -278,36 +172,20 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
-    private void btnNewInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewInventoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNewInventoryActionPerformed
-
     private void btnOrderUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderUpdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOrderUpdateActionPerformed
 
-    private void btnInventoryUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryUpdateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnInventoryUpdateActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
-    private javax.swing.JButton btnInventoryDelete;
-    private javax.swing.JButton btnInventoryUpdate;
-    private javax.swing.JButton btnNewInventory;
     private javax.swing.JButton btnNewOrder;
     private javax.swing.JButton btnOrderDelete;
     private javax.swing.JButton btnOrderUpdate;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblInventoryTable;
     private javax.swing.JLabel lblOrderTable;
     private javax.swing.JLabel lbllogo;
-    private javax.swing.JLabel lbllogo1;
-    private javax.swing.JPanel panInventoryManagement;
     private javax.swing.JPanel panOrderManagement;
-    private javax.swing.JTable tblInventory;
     private javax.swing.JTable tblOrder;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,7 +8,6 @@ import classes.FDA;
 import classes.Patient;
 import javax.swing.JOptionPane;
 import util.sql.FDASqlQuery;
-import util.sql.MySqlQuery;
 
 /**
  *

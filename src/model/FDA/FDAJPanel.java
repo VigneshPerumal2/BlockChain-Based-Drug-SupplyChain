@@ -13,8 +13,10 @@ public class FDAJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FDAJPanel
      */
-    public FDAJPanel() {
+     javax.swing.JSplitPane splitPane;
+    public FDAJPanel( javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane = splitPane;
     }
 
     /**
@@ -74,7 +76,7 @@ public class FDAJPanel extends javax.swing.JPanel {
                 btnNewOrderActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 600, 150, 29));
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 590, 120, 30));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
@@ -119,7 +121,7 @@ public class FDAJPanel extends javax.swing.JPanel {
                 btnOrderDeleteActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 120, 40));
+        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 590, 120, 30));
 
         PanelInventoryM.addTab("Manage License", panOrderManagement);
 

@@ -4,6 +4,8 @@
  */
 package model.login;
 
+import model.FDA.FDAJPanel;
+import model.FDA.FDASideJPanel;
 import model.ingredientsupplier.IngredientSupplierJPanel;
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
 import model.manufacturer.ResearchAndDevelopmentJPanel;
@@ -22,9 +24,10 @@ public class LoginJPanel extends javax.swing.JPanel {
      * Creates new form LoginJPanel
      */
     javax.swing.JSplitPane splitPane;
+
     public LoginJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
-        this.splitPane=splitPane;
+        this.splitPane = splitPane;
     }
 
     /**
@@ -156,14 +159,18 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
-        if(drpRole.getSelectedItem().equals("Ingredient Supplier")){
-         splitPane.setLeftComponent(new IngredientSupplierSideJPanel(splitPane));
-         splitPane.setRightComponent(new IngredientSupplierJPanel(splitPane));
+        if (drpRole.getSelectedItem().equals("Ingredient Supplier")) {
+            splitPane.setLeftComponent(new IngredientSupplierSideJPanel(splitPane));
+            splitPane.setRightComponent(new IngredientSupplierJPanel(splitPane));
+        } else if (drpRole.getSelectedItem().equals("Manufacturer")) {
+            splitPane.setLeftComponent(new ManufacturerSideJPanel(splitPane));
+        } else if (drpRole.getSelectedItem().equals("FDA")) {
+            splitPane.setLeftComponent(new FDASideJPanel(splitPane));
+            splitPane.setRightComponent(new FDAJPanel(splitPane));
+
         }
-        else if(drpRole.getSelectedItem().equals("Manufacturer")){
-         splitPane.setLeftComponent(new ManufacturerSideJPanel(splitPane));
-        }
-        
+
+
     }//GEN-LAST:event_btnSignInActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

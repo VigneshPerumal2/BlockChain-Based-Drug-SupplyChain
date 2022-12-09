@@ -26,7 +26,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
     public DistributorFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane = splitPane;
-
+        formReset();
     }
 
     /**

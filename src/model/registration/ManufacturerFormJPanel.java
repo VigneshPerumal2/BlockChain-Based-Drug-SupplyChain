@@ -149,7 +149,7 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
         jPanel2.add(datechooserDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 290, 30));
 
-        comboboxMedicine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboboxMedicine.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tablets", "Capsules", "Syrups", "Injections", "Implants", "Ointments", "Vitamins" }));
         comboboxMedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboboxMedicineActionPerformed(evt);
@@ -159,7 +159,7 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Manufacturer.jpg"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 390, 440));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 390, 400));
 
         lblEmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmailId.setForeground(new java.awt.Color(102, 102, 102));
@@ -180,12 +180,12 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblPassword.setText("Password");
-        jPanel2.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 110, 30));
-        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 290, 30));
+        jPanel2.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, 110, 30));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 290, 30));
 
         valPassword.setForeground(new java.awt.Color(255, 61, 0));
         valPassword.setText("Please enter valid Password");
-        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, 290, 20));
+        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 290, 20));
 
         txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,11 +302,13 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         String Manufacturer_Name = txtName.getText();
         String Manufacturer_Location = txtLocation.getText();
         String Manufacturer_Medicine_Type= " ";
-        if(comboboxMedicine.getSelectedIndex()==0) Manufacturer_Medicine_Type = "Item 1";
-        if(comboboxMedicine.getSelectedIndex()==1) Manufacturer_Medicine_Type = "Item 2";
-        if(comboboxMedicine.getSelectedIndex()==2) Manufacturer_Medicine_Type = "Item 3";
-        if(comboboxMedicine.getSelectedIndex()==3) Manufacturer_Medicine_Type = "Item 4";
-        System.out.println("Date from system ->"+datechooserDateofEst.getDate());
+        if(comboboxMedicine.getSelectedIndex()==0) Manufacturer_Medicine_Type = "Tablets";
+        if(comboboxMedicine.getSelectedIndex()==1) Manufacturer_Medicine_Type = "Capsules";
+        if(comboboxMedicine.getSelectedIndex()==2) Manufacturer_Medicine_Type = "Syrups";
+        if(comboboxMedicine.getSelectedIndex()==3) Manufacturer_Medicine_Type = "Injections";
+        if(comboboxMedicine.getSelectedIndex()==4) Manufacturer_Medicine_Type = "Implants";
+        if(comboboxMedicine.getSelectedIndex()==5) Manufacturer_Medicine_Type = "Ointments";
+        if(comboboxMedicine.getSelectedIndex()==6) Manufacturer_Medicine_Type = "Vitamins";
         Date Manufacturer_date = new java.sql.Date(datechooserDateofEst.getDate().getTime());
         String Email_Id = txtEmailId.getText();
         String Phone_No = txtPhoneNumber.getText();
@@ -317,7 +319,7 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         int result = 0;
         
         
-        //Create a patient object
+        //Create a manufacturer object
         Manufacturer obj = new Manufacturer();
         
         

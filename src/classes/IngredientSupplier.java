@@ -4,6 +4,8 @@
  */
 package classes;
 
+import java.sql.Date;
+
 /**
  *
  * @author amulyamurahari
@@ -13,7 +15,7 @@ public class IngredientSupplier {
     private String Supplier_Name;
     private String Supplier_Category;
     private String Supplier_Location;
-    private String Supplier_Date_Of_Establishment;
+    private Date Supplier_Date_Of_Establishment;
     private String Email_Id;
     private String Phone_No;
     private String Password;
@@ -67,11 +69,11 @@ public class IngredientSupplier {
         this.Supplier_Location = Supplier_Location;
     }
 
-    public String getSupplier_Date_Of_Establishment() {
+    public Date getSupplier_Date_Of_Establishment() {
         return Supplier_Date_Of_Establishment;
     }
 
-    public void setSupplier_Date_Of_Establishment(String Supplier_Date_Of_Establishment) {
+    public void setSupplier_Date_Of_Establishment(Date Supplier_Date_Of_Establishment) {
         this.Supplier_Date_Of_Establishment = Supplier_Date_Of_Establishment;
     }
 
@@ -81,7 +83,7 @@ public class IngredientSupplier {
 
     }
 
-    public IngredientSupplier(String Supplier_Name, String Supplier_Category, String Supplier_Location, String Supplier_Date_Of_Establishment,String Email_Id, String Phone_No, String Password) {
+    public IngredientSupplier(String Supplier_Name, String Supplier_Category, String Supplier_Location, Date Supplier_Date_Of_Establishment,String Email_Id, String Phone_No, String Password) {
         this.Supplier_Name = Supplier_Name;
         this.Supplier_Category = Supplier_Category;
         this.Supplier_Location = Supplier_Location;

@@ -37,8 +37,8 @@ CREATE TABLE IF NOT EXISTS INGREDIENT_SUPPLIER
          ( 
          Supplier_Id INTEGER PRIMARY KEY auto_increment, 
          Supplier_Name     TEXT   NOT NULL, 
-         Supplier_Category TEXT NOT NULL, 
          Supplier_Location TEXT  NOT NULL, 
+         Supplier_Category TEXT NOT NULL, 
          Supplier_Date_Of_Establishment TEXT  NOT NULL,
          Email_Id TEXT  NOT NULL, 
 		 Phone_No TEXT  NOT NULL ,
@@ -260,3 +260,4 @@ CREATE TABLE IF NOT EXISTS HOSPITAL_ORDER_BOOK
          FOREIGN KEY(Hospital_Id) REFERENCES HOSPITAL(Hospital_Id)
          );
 
+SELECT * FROM HOSPITAL;

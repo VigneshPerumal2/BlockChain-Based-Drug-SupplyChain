@@ -15,8 +15,10 @@ public class FDASideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form FDASideJPanel
      */
-    public FDASideJPanel() {
+     javax.swing.JSplitPane splitPane;
+    public FDASideJPanel( javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane = splitPane;
     }
 
     /**

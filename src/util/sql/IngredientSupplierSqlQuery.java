@@ -181,4 +181,35 @@ public class IngredientSupplierSqlQuery {
         return result;
     }
     
+    /**
+     *
+     * @return int Delete Ingredient_Supplier Function
+     */
+    public int deleteIngredientSupplier(IngredientSupplier ingredientSupplier) {
+        int result = 0;
+        String SQL_DELETE_INGREDIENT_SUPPLIER = "DELETE FROM IngredientSupplier WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_INGREDIENT_SUPPLIER)) {
+
+            preparedStatement.setString(1, ingredientSupplier.getSupplier_Name());
+            preparedStatement.setString(2, ingredientSupplier.getSupplier_Category());
+            preparedStatement.setString(3, ingredientSupplier.getSupplier_Location());
+            preparedStatement.setDate(4,ingredientSupplier.getSupplier_Date_Of_Establishment());
+            preparedStatement.setString(5, ingredientSupplier.getEmail_Id());
+            preparedStatement.setString(6, ingredientSupplier.getPhone_No());
+            preparedStatement.setString(7, ingredientSupplier.getPassword());
+
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    
 }

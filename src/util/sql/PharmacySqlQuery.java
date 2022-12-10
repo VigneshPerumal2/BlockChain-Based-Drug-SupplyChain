@@ -174,4 +174,34 @@ public class PharmacySqlQuery {
         return result;
     }    
     
+    
+    /**
+     *
+     * @return int Delete Pharmacy Function
+     */
+    public int deletePharmacy(Pharmacy pharmacy) {
+        int result = 0;
+        String SQL_DELETE_PHARMACY = "DELETE FROM Pharmacy WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_PHARMACY)) {
+
+            preparedStatement.setString(1, pharmacy.getPharmacy_Name());
+            preparedStatement.setString(2, pharmacy.getPharmacy_Location());
+            preparedStatement.setInt(3, pharmacy.getPharmacy_Inventory_Size());
+            preparedStatement.setString(4, pharmacy.getEmail_Id());
+            preparedStatement.setString(5, pharmacy.getPhone_No());
+            preparedStatement.setString(6, pharmacy.getPassword());
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }    
+    
 }

@@ -180,4 +180,35 @@ public class ManufacturerSqlQuery {
     }
     
     
+    /**
+     *
+     * @return int Delete Manufacturer Function
+     */
+    public int deleteManufacturer(Manufacturer manufacturer) {
+        int result = 0;
+        String SQL_DELETE_MANUFACTURER = "DELETE FROM Manufacturer WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_MANUFACTURER)) {
+
+            preparedStatement.setString(1, manufacturer.getManufacturer_Name());
+            preparedStatement.setString(2, manufacturer.getManufacturer_Location());
+            preparedStatement.setString(3, manufacturer.getType_Of_Medicine());
+            preparedStatement.setDate(4, manufacturer.getManufacturer_Date_Of_Establishment());
+            preparedStatement.setString(5, manufacturer.getEmail_Id());
+            preparedStatement.setString(6, manufacturer.getPhone_No());
+            preparedStatement.setString(7, manufacturer.getPassword());
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    
+    
 }

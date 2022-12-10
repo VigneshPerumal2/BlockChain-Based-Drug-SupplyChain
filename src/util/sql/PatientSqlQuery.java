@@ -194,5 +194,37 @@ public class PatientSqlQuery {
         return result;
     }
    
+    /**
+     *
+     * @return int Delete Patient Function
+     */
+   public int deletePatient(Patient patient) {
+   int result = 0;
+        String SQL_DELETE_PATIENT = "DELETE FROM Patient WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_PATIENT)) {
+
+            preparedStatement.setString(1, patient.getPatient_Name());
+            preparedStatement.setInt(2, patient.getPatient_Age());
+            preparedStatement.setString(3, patient.getPatient_Race());
+            preparedStatement.setString(4, patient.getPatient_Gender());
+            preparedStatement.setString(5, patient.getPatient_Location());
+            preparedStatement.setString(6, patient.getAilments());
+            preparedStatement.setString(7, patient.getEmail_Id());
+            preparedStatement.setString(8, patient.getPhone_No());
+            preparedStatement.setString(9, patient.getPassword());
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+   
     
 }

@@ -8,7 +8,7 @@ package classes;
  *
  * @author amulyamurahari
  */
-public class Doctor {
+public class Doctor extends Credentials {
     
     
     private int Doctor_Id;
@@ -18,9 +18,6 @@ public class Doctor {
     private String Doctor_Gender;
     private String Doctor_Location;
     private String Speciality;
-    private String Email_Id;
-    private String Phone_No;
-    private String Password;
 
     public int getDoctor_Id() {
         return Doctor_Id;
@@ -29,7 +26,7 @@ public class Doctor {
     public void setDoctor_Id(int Doctor_Id) {
         this.Doctor_Id = Doctor_Id;
     }
-    
+
     public String getDoctor_Name() {
         return Doctor_Name;
     }
@@ -78,36 +75,13 @@ public class Doctor {
         this.Speciality = Speciality;
     }
 
-    public String getEmail_Id() {
-        return Email_Id;
-    }
-
-    public void setEmail_Id(String Email_Id) {
-        this.Email_Id = Email_Id;
-    }
-
-    public String getPhone_No() {
-        return Phone_No;
-    }
-
-    public void setPhone_No(String Phone_No) {
-        this.Phone_No = Phone_No;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-
     @Override
     public String toString() {
-        return "Doctor{" + "Doctor_Id=" + Doctor_Id + ", Doctor_Name=" + Doctor_Name + ", Doctor_Age=" + Doctor_Age + ", Doctor_Race=" + Doctor_Race + ", Doctor_Gender=" + Doctor_Gender + ", Doctor_Location=" + Doctor_Location + ", Speciality=" + Speciality + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + '}';
+        return "Doctor{" + "Doctor_Id=" + Doctor_Id + ", Doctor_Name=" + Doctor_Name + ", Doctor_Age=" + Doctor_Age + ", Doctor_Race=" + Doctor_Race + ", Doctor_Gender=" + Doctor_Gender + ", Doctor_Location=" + Doctor_Location + ", Speciality=" + Speciality + '}';
     }
 
     public Doctor(int Doctor_Id, String Doctor_Name, int Doctor_Age, String Doctor_Race, String Doctor_Gender, String Doctor_Location, String Speciality, String Email_Id, String Phone_No, String Password) {
+        super(Email_Id, Phone_No, Password);
         this.Doctor_Id = Doctor_Id;
         this.Doctor_Name = Doctor_Name;
         this.Doctor_Age = Doctor_Age;
@@ -115,13 +89,9 @@ public class Doctor {
         this.Doctor_Gender = Doctor_Gender;
         this.Doctor_Location = Doctor_Location;
         this.Speciality = Speciality;
-        this.Email_Id = Email_Id;
-        this.Phone_No = Phone_No;
-        this.Password = Password;
     }
-    
-    public Doctor(){
-        
+
+    public Doctor() {
     }
     
 }

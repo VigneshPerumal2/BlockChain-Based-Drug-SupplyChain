@@ -10,7 +10,7 @@ import java.sql.Date;
  *
  * @author amulyamurahari
  */
-public class Distributor {
+public class Distributor extends Credentials{
     
     private int Distributor_Id;
     private String Distributor_Name;
@@ -18,9 +18,6 @@ public class Distributor {
     private String Distributor_Mode_Of_Transportation;
     private Date Distributor_Date_Of_Establishment;
     private int Distributor_Price;
-    private String Email_Id;
-    private String Phone_No;
-    private String Password;
 
     public int getDistributor_Id() {
         return Distributor_Id;
@@ -28,30 +25,6 @@ public class Distributor {
 
     public void setDistributor_Id(int Distributor_Id) {
         this.Distributor_Id = Distributor_Id;
-    }
-   
-    public String getEmail_Id() {
-        return Email_Id;
-    }
-
-    public void setEmail_Id(String Email_Id) {
-        this.Email_Id = Email_Id;
-    }
-
-    public String getPhone_No() {
-        return Phone_No;
-    }
-
-    public void setPhone_No(String Phone_No) {
-        this.Phone_No = Phone_No;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
     }
 
     public String getDistributor_Name() {
@@ -94,28 +67,20 @@ public class Distributor {
         this.Distributor_Price = Distributor_Price;
     }
 
-    @Override
-    public String toString() {
-        return "DistributorProfile{" + "id="+ Distributor_Id + ", name=" + Distributor_Name + ", mode_of_transportation=" + Distributor_Mode_Of_Transportation + ", date_of_establishment=" + Distributor_Date_Of_Establishment + ", price=" + Distributor_Price + ", location=" + Distributor_Location + ", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
-    }
-
-    public Distributor(int Distributor_Id,String Distributor_Name, String Distributor_Location, String Distributor_Mode_Of_Transportation, Date Distributor_Date_Of_Establishment, int Distributor_Price, String Email_Id, String Phone_No, String Password) {
-        
+    public Distributor(int Distributor_Id, String Distributor_Name, String Distributor_Location, String Distributor_Mode_Of_Transportation, Date Distributor_Date_Of_Establishment, int Distributor_Price, String Email_Id, String Phone_No, String Password) {
+        super(Email_Id, Phone_No, Password);
         this.Distributor_Id = Distributor_Id;
         this.Distributor_Name = Distributor_Name;
         this.Distributor_Location = Distributor_Location;
         this.Distributor_Mode_Of_Transportation = Distributor_Mode_Of_Transportation;
         this.Distributor_Date_Of_Establishment = Distributor_Date_Of_Establishment;
         this.Distributor_Price = Distributor_Price;
-        this.Email_Id = Email_Id;
-        this.Phone_No = Phone_No;
-        this.Password = Password;
     }
 
     public Distributor() {
     }
-
-   
+ 
+    
 }
    
     

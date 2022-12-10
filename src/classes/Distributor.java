@@ -12,6 +12,7 @@ import java.sql.Date;
  */
 public class Distributor {
     
+    private int Distributor_Id;
     private String Distributor_Name;
     private String Distributor_Location;
     private String Distributor_Mode_Of_Transportation;
@@ -21,7 +22,14 @@ public class Distributor {
     private String Phone_No;
     private String Password;
 
+    public int getDistributor_Id() {
+        return Distributor_Id;
+    }
 
+    public void setDistributor_Id(int Distributor_Id) {
+        this.Distributor_Id = Distributor_Id;
+    }
+   
     public String getEmail_Id() {
         return Email_Id;
     }
@@ -88,10 +96,12 @@ public class Distributor {
 
     @Override
     public String toString() {
-        return "DistributorProfile{" + "name=" + Distributor_Name + ", mode_of_transportation=" + Distributor_Mode_Of_Transportation + ", date_of_establishment=" + Distributor_Date_Of_Establishment + ", price=" + Distributor_Price + ", location=" + Distributor_Location + ", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
+        return "DistributorProfile{" + "id="+ Distributor_Id + ", name=" + Distributor_Name + ", mode_of_transportation=" + Distributor_Mode_Of_Transportation + ", date_of_establishment=" + Distributor_Date_Of_Establishment + ", price=" + Distributor_Price + ", location=" + Distributor_Location + ", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
     }
 
-    public Distributor(String Distributor_Name, String Distributor_Location, String Distributor_Mode_Of_Transportation, Date Distributor_Date_Of_Establishment, int Distributor_Price, String Email_Id, String Phone_No, String Password) {
+    public Distributor(int Distributor_Id,String Distributor_Name, String Distributor_Location, String Distributor_Mode_Of_Transportation, Date Distributor_Date_Of_Establishment, int Distributor_Price, String Email_Id, String Phone_No, String Password) {
+        
+        this.Distributor_Id = Distributor_Id;
         this.Distributor_Name = Distributor_Name;
         this.Distributor_Location = Distributor_Location;
         this.Distributor_Mode_Of_Transportation = Distributor_Mode_Of_Transportation;

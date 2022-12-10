@@ -16,6 +16,15 @@ public class FDA {
     private String Email_Id;
     private String Phone_No;
     private String Password;
+    private int FDA_Id;
+
+    public int getFDA_Id() {
+        return FDA_Id;
+    }
+
+    public void setFDA_Id(int FDA_Id) {
+        this.FDA_Id = FDA_Id;
+    }
 
 
     public String getEmail_Id() {
@@ -68,16 +77,17 @@ public class FDA {
 
     @Override
     public String toString() {
-        return "FDAProfile{" + "name=" + FDA_Board_Name + ", city=" + FDA_City + ", country=" + FDA_Country +", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
+        return "FDA{" + "FDA_Board_Name=" + FDA_Board_Name + ", FDA_City=" + FDA_City + ", FDA_Country=" + FDA_Country + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + ", FDA_Id=" + FDA_Id + '}';
     }
 
-    public FDA(String FDA_Board_Name, String FDA_City, String FDA_Country, String Email_Id, String Phone_No, String Password) {
+    public FDA(String FDA_Board_Name, String FDA_City, String FDA_Country, String Email_Id, String Phone_No, String Password, int FDA_Id) {
         this.FDA_Board_Name = FDA_Board_Name;
         this.FDA_City = FDA_City;
         this.FDA_Country = FDA_Country;
         this.Email_Id = Email_Id;
         this.Phone_No = Phone_No;
         this.Password = Password;
+        this.FDA_Id = FDA_Id;
     }
 
     public FDA() {

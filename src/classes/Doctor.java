@@ -10,6 +10,8 @@ package classes;
  */
 public class Doctor {
     
+    
+    private int Doctor_Id;
     private String Doctor_Name;
     private int Doctor_Age;
     private String Doctor_Race;
@@ -20,6 +22,14 @@ public class Doctor {
     private String Phone_No;
     private String Password;
 
+    public int getDoctor_Id() {
+        return Doctor_Id;
+    }
+
+    public void setDoctor_Id(int Doctor_Id) {
+        this.Doctor_Id = Doctor_Id;
+    }
+    
     public String getDoctor_Name() {
         return Doctor_Name;
     }
@@ -91,13 +101,14 @@ public class Doctor {
     public void setPassword(String Password) {
         this.Password = Password;
     }
-    
+
     @Override
     public String toString() {
-        return "DoctorProfile{" + "name=" + Doctor_Name + ", age=" + Doctor_Age + ", race=" + Doctor_Race + ", gender=" + Doctor_Gender + ", location=" + Doctor_Location + ", speciality=" + Speciality + ", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
+        return "Doctor{" + "Doctor_Id=" + Doctor_Id + ", Doctor_Name=" + Doctor_Name + ", Doctor_Age=" + Doctor_Age + ", Doctor_Race=" + Doctor_Race + ", Doctor_Gender=" + Doctor_Gender + ", Doctor_Location=" + Doctor_Location + ", Speciality=" + Speciality + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + '}';
     }
 
-    public Doctor(String Doctor_Name, int Doctor_Age, String Doctor_Race, String Doctor_Gender, String Doctor_Location, String Speciality, String Email_Id, String Phone_No, String Password) {
+    public Doctor(int Doctor_Id, String Doctor_Name, int Doctor_Age, String Doctor_Race, String Doctor_Gender, String Doctor_Location, String Speciality, String Email_Id, String Phone_No, String Password) {
+        this.Doctor_Id = Doctor_Id;
         this.Doctor_Name = Doctor_Name;
         this.Doctor_Age = Doctor_Age;
         this.Doctor_Race = Doctor_Race;

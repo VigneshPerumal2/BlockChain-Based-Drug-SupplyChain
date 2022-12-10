@@ -5,9 +5,13 @@
 package model.registration;
 
 import classes.Manufacturer;
-import java.sql.Date;
 import javax.swing.JOptionPane;
 import util.sql.ManufacturerSqlQuery;
+
+import java.sql.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.sendmail.testEmail;
 /**
  *
  * @author sunayanashivanagi
@@ -300,7 +304,7 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         //collecting values
         String Manufacturer_Name = txtName.getText();
         String Manufacturer_Location = txtLocation.getText();
-        String Manufacturer_Medicine_Type= "";
+        String Manufacturer_Medicine_Type= " ";
         if(comboboxMedicine.getSelectedIndex()==0) Manufacturer_Medicine_Type = "Tablets";
         if(comboboxMedicine.getSelectedIndex()==1) Manufacturer_Medicine_Type = "Capsules";
         if(comboboxMedicine.getSelectedIndex()==2) Manufacturer_Medicine_Type = "Syrups";
@@ -332,6 +336,12 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         obj.setPhone_No(Phone_No);
         
         if (validation()) {
+            testEmail a = new testEmail();
+            try {
+                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Manufacturer account created successfully !");
+            } catch (Exception ex) {
+                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
             result = sql.createManufacturer(obj);        
         }
         if (result == 1) {

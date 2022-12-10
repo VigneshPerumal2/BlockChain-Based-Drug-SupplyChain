@@ -21,6 +21,15 @@ public class Patient {
     private String Email_Id;
     private String Phone_No;
     private String Password;
+    private int Patient_Id;
+
+    public int getPatient_Id() {
+        return Patient_Id;
+    }
+
+    public void setPatient_Id(int Patient_Id) {
+        this.Patient_Id = Patient_Id;
+    }
 
     public String getPatient_Name() {
         return Patient_Name;
@@ -93,13 +102,13 @@ public class Patient {
     public void setPassword(String Password) {
         this.Password = Password;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
-        return "PatientProfile{" + "name=" + Patient_Name + ", age=" + Patient_Age + ", race=" + Patient_Race + ", gender=" + Patient_Gender + ", location=" + Patient_Location + ", ailments=" + Ailments + ", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
+        return "Patient{" + "Patient_Name=" + Patient_Name + ", Patient_Age=" + Patient_Age + ", Patient_Race=" + Patient_Race + ", Patient_Gender=" + Patient_Gender + ", Patient_Location=" + Patient_Location + ", Ailments=" + Ailments + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + ", Patient_Id=" + Patient_Id + '}';
     }
-    
-     public Patient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password) {
+
+    public Patient(String Patient_Name, int Patient_Age, String Patient_Race, String Patient_Gender, String Patient_Location, String Ailments, String Email_Id, String Phone_No, String Password, int Patient_Id) {
         this.Patient_Name = Patient_Name;
         this.Patient_Age = Patient_Age;
         this.Patient_Race = Patient_Race;
@@ -109,9 +118,9 @@ public class Patient {
         this.Email_Id = Email_Id;
         this.Phone_No = Phone_No;
         this.Password = Password;
-       
+        this.Patient_Id = Patient_Id;
     }
-
+    
     public Patient() {
     }
     

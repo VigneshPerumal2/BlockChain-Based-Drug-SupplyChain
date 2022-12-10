@@ -120,13 +120,15 @@ public class PharmacySqlQuery {
                  
                  obj = new Pharmacy();
                  
-                String name = resultSet.getString(1);
-                String location = resultSet.getString(2);
-                int inventory_size = resultSet.getInt(3);
-                String emailID = resultSet.getString(4);
-                String phoneNo = resultSet.getString(5);
-                String password = resultSet.getString(6);
+                int id = resultSet.getInt(1); 
+                String name = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                int inventory_size = resultSet.getInt(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
                 
+                obj.setPharmacy_Id(id);
                 obj.setPharmacy_Name(name);
                 obj.setPharmacy_Location(location);
                 obj.setPharmacy_Inventory_Size(inventory_size);

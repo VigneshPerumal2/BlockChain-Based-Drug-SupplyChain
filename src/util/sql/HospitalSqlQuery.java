@@ -119,13 +119,15 @@ public class HospitalSqlQuery {
              while(resultSet.next()){
                  
                  obj = new Hospital();
-                String name = resultSet.getString(1);
-                String location = resultSet.getString(2);
-                String speciality = resultSet.getString(3);
-                String emailID = resultSet.getString(4);
-                String phoneNo = resultSet.getString(5);
-                String password = resultSet.getString(6);
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                String speciality = resultSet.getString(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
 
+                obj.setHospital_Id(id);
                 obj.setHospital_Name(name);
                 obj.setHospital_Location(location);
                 obj.setHospital_Speciality(speciality);

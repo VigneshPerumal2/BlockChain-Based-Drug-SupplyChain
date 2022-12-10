@@ -77,13 +77,15 @@ public class ManufacturerSqlQuery {
 
             while (resultSet.next()) {
 
-                String name = resultSet.getString(1);
-                String location = resultSet.getString(2);
-                String medicine_type = resultSet.getString(3);
-                Date doe = resultSet.getDate(4);
-                String emailID = resultSet.getString(5);
-                String phoneNo = resultSet.getString(6);
-                String password = resultSet.getString(7);
+                
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                String medicine_type = resultSet.getString(4);
+                Date doe = resultSet.getDate(5);
+                String emailID = resultSet.getString(6);
+                String phoneNo = resultSet.getString(7);
+                String password = resultSet.getString(8);
 
                 Manufacturer obj = new Manufacturer();
                 obj.setManufacturer_Name(name);
@@ -131,6 +133,7 @@ public class ManufacturerSqlQuery {
                 String phoneNo = resultSet.getString(7);
                 String password = resultSet.getString(8);
 
+                obj.setManufacturer_Id(id);
                 obj.setManufacturer_Name(name);
                 obj.setManufacturer_Location(location);
                 obj.setType_Of_Medicine(medicine_type);

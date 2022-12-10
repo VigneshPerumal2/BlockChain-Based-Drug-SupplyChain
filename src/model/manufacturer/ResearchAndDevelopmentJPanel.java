@@ -278,7 +278,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
 
     private void btnOrderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewActionPerformed
         // TODO add your handling code here:
-        new MedicineDetailsJDialog(null,true).show();
+        new MedicineDetailsManufacturerJDialog(null,true).show();
     }//GEN-LAST:event_btnOrderViewActionPerformed
 
     private void txtMedicineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicineNameActionPerformed

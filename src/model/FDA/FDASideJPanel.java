@@ -104,15 +104,13 @@ public class FDASideJPanel extends javax.swing.JPanel {
 
     private void drpDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpDepartmentActionPerformed
         // TODO add your handling code here:
-        if(drpDepartment.getSelectedItem().equals("R & D")){
-            splitPane.setRightComponent(new ResearchAndDevelopmentJPanel());
+        if(drpDepartment.getSelectedItem().equals("Quality Control")){
+            splitPane.setRightComponent(new QualityControlJPanel());
         }
-        else if(drpDepartment.getSelectedItem().equals("Licensing")){
-            splitPane.setRightComponent(new LicensingJPanel());
+        else if(drpDepartment.getSelectedItem().equals("Lab Testing")){
+            splitPane.setRightComponent(new LabTestingJPanel());
         }
-        else if(drpDepartment.getSelectedItem().equals("Packaging")){
-            splitPane.setRightComponent(new PackagingJPanel());
-        }
+        
     }//GEN-LAST:event_drpDepartmentActionPerformed
 
 

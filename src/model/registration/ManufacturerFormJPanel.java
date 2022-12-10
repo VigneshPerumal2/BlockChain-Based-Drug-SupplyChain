@@ -5,10 +5,9 @@
 package model.registration;
 
 import classes.Manufacturer;
+import java.sql.Date;
 import javax.swing.JOptionPane;
 import util.sql.ManufacturerSqlQuery;
-
-import java.sql.Date;
 /**
  *
  * @author sunayanashivanagi
@@ -301,7 +300,7 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         //collecting values
         String Manufacturer_Name = txtName.getText();
         String Manufacturer_Location = txtLocation.getText();
-        String Manufacturer_Medicine_Type= " ";
+        String Manufacturer_Medicine_Type= "";
         if(comboboxMedicine.getSelectedIndex()==0) Manufacturer_Medicine_Type = "Tablets";
         if(comboboxMedicine.getSelectedIndex()==1) Manufacturer_Medicine_Type = "Capsules";
         if(comboboxMedicine.getSelectedIndex()==2) Manufacturer_Medicine_Type = "Syrups";

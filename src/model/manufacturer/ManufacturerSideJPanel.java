@@ -4,6 +4,7 @@
  */
 package model.manufacturer;
 
+import classes.Manufacturer;
 import model.main.MainJFrame;
 
 /**
@@ -16,9 +17,12 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
      * Creates new form ManufacturerSideJPanel
      */
     javax.swing.JSplitPane splitPane;
-    public ManufacturerSideJPanel(javax.swing.JSplitPane splitPane) {
+    Manufacturer manufacturer;
+    public ManufacturerSideJPanel(javax.swing.JSplitPane splitPane,Manufacturer manufacturer) {
         initComponents();
         this.splitPane=splitPane;
+        this.manufacturer=manufacturer;
+        lblManuName.setText(manufacturer.getManufacturer_Name());
     }
 
     /**
@@ -36,7 +40,7 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         lblavsManufacturer = new javax.swing.JLabel();
         drpDepartment = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        lblManuName = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,11 +87,11 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         });
         add(drpDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 290, 50));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 34)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SUNAINA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
+        lblManuName.setFont(new java.awt.Font("Helvetica Neue", 1, 34)); // NOI18N
+        lblManuName.setForeground(new java.awt.Color(0, 51, 153));
+        lblManuName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblManuName.setText("SUNAINA");
+        add(lblManuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -98,7 +102,7 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
     private void drpDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpDepartmentActionPerformed
         // TODO add your handling code here:
         if(drpDepartment.getSelectedItem().equals("R & D")){
-            splitPane.setRightComponent(new ResearchAndDevelopmentJPanel());
+            splitPane.setRightComponent(new ResearchAndDevelopmentJPanel(splitPane,manufacturer));
         }
         else if(drpDepartment.getSelectedItem().equals("Licensing")){
             splitPane.setRightComponent(new LicensingJPanel());
@@ -112,7 +116,7 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
     private javax.swing.JComboBox<String> drpDepartment;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblManuName;
     private javax.swing.JLabel lblManufacturerDashboard;
     private javax.swing.JLabel lblavsManufacturer;
     private javax.swing.JLabel lblavslogomd;

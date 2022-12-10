@@ -6,13 +6,13 @@ package util.sql;
 
 import classes.IngredientSupplier;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.sql.Date;
 
 /**
  *
@@ -38,6 +38,14 @@ public class IngredientSupplierSqlQuery {
      * @return int Create Ingredient_Supplier Function
      */
     public int createIngredientSupplier(IngredientSupplier ingredientSupplier) {
+//          Supplier_Id INTEGER PRIMARY KEY auto_increment, 
+//         Supplier_Name     TEXT   NOT NULL, 
+//         Supplier_Category TEXT NOT NULL, 
+//         Supplier_Location TEXT  NOT NULL, 
+//         Supplier_Date_Of_Establishment TEXT  NOT NULL,
+//         Email_Id TEXT  NOT NULL,
+
+//         Password TEXT  NOT NULL
         int result = 0;
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_INGREDIENT_SUPPLIER)) {

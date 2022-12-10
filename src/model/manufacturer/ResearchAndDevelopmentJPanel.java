@@ -4,6 +4,8 @@
  */
 package model.manufacturer;
 
+import util.extras.MedicineDetailsJDialog;
+
 /**
  *
  * @author vigy
@@ -33,8 +35,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrder = new javax.swing.JTable();
-        btnOrderUpdate = new javax.swing.JButton();
-        btnOrderDelete = new javax.swing.JButton();
+        btnOrderView = new javax.swing.JButton();
         panInventoryManagement = new javax.swing.JPanel();
         lbllogo1 = new javax.swing.JLabel();
         lblMedicineName = new javax.swing.JLabel();
@@ -122,23 +123,17 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
 
         panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
 
-        btnOrderUpdate.setBackground(new java.awt.Color(0, 153, 255));
-        btnOrderUpdate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnOrderUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnOrderUpdate.setText("VIEW");
-        btnOrderUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnOrderView.setBackground(new java.awt.Color(0, 153, 255));
+        btnOrderView.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnOrderView.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrderView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnOrderView.setText("VIEW");
+        btnOrderView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderUpdateActionPerformed(evt);
+                btnOrderViewActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnOrderUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 130, 40));
-
-        btnOrderDelete.setBackground(new java.awt.Color(255, 0, 51));
-        btnOrderDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
-        btnOrderDelete.setText("DELETE");
-        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 120, 40));
+        panOrderManagement.add(btnOrderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 130, 40));
 
         PanelInventoryM.addTab("Manage Medicine", panOrderManagement);
 
@@ -281,9 +276,10 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 710));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnOrderUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderUpdateActionPerformed
+    private void btnOrderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderUpdateActionPerformed
+        new MedicineDetailsJDialog(null,true).show();
+    }//GEN-LAST:event_btnOrderViewActionPerformed
 
     private void txtMedicineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicineNameActionPerformed
         // TODO add your handling code here:
@@ -317,8 +313,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnOrderDelete;
-    private javax.swing.JButton btnOrderUpdate;
+    private javax.swing.JButton btnOrderView;
     private javax.swing.JButton btnResetMed;
     private javax.swing.JButton btnsubmitMed;
     private javax.swing.JComboBox<String> comboCategoryMed;

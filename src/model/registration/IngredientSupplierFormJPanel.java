@@ -10,7 +10,7 @@ import util.sql.IngredientSupplierSqlQuery;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.sendmail.testEmail;
+import model.sendmail.EmailUtil;
 
 /**
  *
@@ -250,7 +250,7 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         obj.setPassword(Password);
         
         if (validation()) {
-            testEmail a = new testEmail();
+            EmailUtil a = new EmailUtil();
             try {
                 a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Ingredient Supplier account created successfully !");
             } catch (Exception ex) {

@@ -104,23 +104,45 @@ public class HospitalSqlQuery {
     
     /**
      *
-     * @return boolean Validate Hospital Function
+     * Validate Hospital Function
      */
-   public boolean validateHospital(String Email_Id) {
+   public Hospital validateHospital(String Email_Id) {
         String query = "SELECT Password FROM HOSPITAL WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        Hospital obj = null;
+        
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
-             ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             ResultSet resultSet = stmt.executeQuery(query);
+             
+             while(resultSet.next()){
+                 
+                 obj = new Hospital();
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                String speciality = resultSet.getString(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+
+                obj.setHospital_Name(name);
+                obj.setHospital_Location(location);
+                obj.setHospital_Speciality(speciality);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                                 
+                System.out.println(obj);
+                 
+                 
+             }
+                 
+            return obj;
+            
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj;
            }
  } 
    /**

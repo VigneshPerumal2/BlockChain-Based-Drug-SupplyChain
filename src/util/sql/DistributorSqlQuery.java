@@ -113,23 +113,46 @@ public class DistributorSqlQuery {
     
     /**
      *
-     * @return boolean Validate Distributor Function
+     * Validate Distributor Function
      */
-   public boolean validateDistributor(String Email_Id) {
+   public Distributor validateDistributor(String Email_Id) {
         String query = "SELECT Password FROM DISTRIBUTOR WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        Distributor obj = null;
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             
+             while(resultSet.next()) {
+                 obj = new Distributor();
+                 
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                Date doe = resultSet.getDate(3);
+                String transportation = resultSet.getString(4);
+                int price = resultSet.getInt(5);
+                String emailID = resultSet.getString(6);
+                String phoneNo = resultSet.getString(7);
+                String password = resultSet.getString(8);
+
+                obj.setDistributor_Name(name);
+                obj.setDistributor_Location(location);
+                obj.setDistributor_Date_Of_Establishment(doe);
+                obj.setDistributor_Mode_Of_Transportation(transportation);
+                obj.setDistributor_Price(price);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                          
+                System.out.println(obj);
+                 
+             }
+             return obj;
+             
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj ;
            }
  } 
    

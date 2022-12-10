@@ -104,23 +104,44 @@ public class PharmacySqlQuery {
     
     /**
      *
-     * @return boolean Validate Pharmacy Function
+     * Validate Pharmacy Function
      */
-   public boolean validatePharmacy(String Email_Id) {
+   public Pharmacy validatePharmacy(String Email_Id) {
         String query = "SELECT Password FROM PHARMACY WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        Pharmacy obj = null;
+        
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             
+             while(resultSet.next()){
+                 
+                 obj = new Pharmacy();
+                 
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                int inventory_size = resultSet.getInt(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+                
+                obj.setPharmacy_Name(name);
+                obj.setPharmacy_Location(location);
+                obj.setPharmacy_Inventory_Size(inventory_size);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                System.out.println(obj);
+                 
+             }
+             return obj;
+             
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj ;
            }
  } 
    

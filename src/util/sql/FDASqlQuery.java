@@ -105,23 +105,43 @@ public class FDASqlQuery {
     
     /**
      *
-     * @return boolean Validate FDA Function
+     * Validate FDA Function
      */
-   public boolean validateFDA(String Email_Id) {
+   public FDA validateFDA(String Email_Id) {
         String query = "SELECT Password FROM FDA WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        FDA obj = null;
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             
+             while(resultSet.next()){
+                 
+                 obj = new FDA();
+                String name = resultSet.getString(1);
+                String city = resultSet.getString(2);
+                String country = resultSet.getString(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+
+                obj.setFDA_Board_Name(name);
+                obj.setFDA_City(city);
+                obj.setFDA_Country(country);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                    
+                System.out.println(obj);     
+                 
+             }
+                 
+             return obj;
+             
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj ;
            }
  } 
    

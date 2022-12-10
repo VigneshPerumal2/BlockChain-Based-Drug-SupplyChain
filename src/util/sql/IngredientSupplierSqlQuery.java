@@ -108,23 +108,45 @@ public class IngredientSupplierSqlQuery {
     
     /**
      *
-     * @return boolean Validate Ingredient Supplier Function
+     * Validate Ingredient Supplier Function
      */
-   public boolean validateIngredientSupplier(String Email_Id) {
+   public IngredientSupplier validateIngredientSupplier(String Email_Id) {
         String query = "SELECT Password FROM INGREDIENT_SUPPLIER WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        IngredientSupplier obj = null;
+        
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             
+             while(resultSet.next()){
+                 
+                 obj = new IngredientSupplier();
+                String name = resultSet.getString(1);
+                String category = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                Date date = resultSet.getDate(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
+      
+                obj.setSupplier_Name(name);
+                obj.setSupplier_Category(category);
+                obj.setSupplier_Location(location);
+                obj.setSupplier_Date_Of_Establishment(date);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                     
+                System.out.println(obj);
+                   
+             }
+                 
+              return obj;
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj;
            }
  } 
    

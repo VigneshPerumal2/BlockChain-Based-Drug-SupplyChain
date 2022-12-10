@@ -29,20 +29,20 @@ public class MedicineDetailsFDAJDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblMedicineDetails = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         lclMedicineName = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblCat = new javax.swing.JLabel();
         lblCategory = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblDOM = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblShellL = new javax.swing.JLabel();
         lblShellLife = new javax.swing.JLabel();
         btnReject = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        lblManu = new javax.swing.JLabel();
         lblManufacturer = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lblIng = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
@@ -51,36 +51,36 @@ public class MedicineDetailsFDAJDialog extends javax.swing.JDialog {
         setBackground(new java.awt.Color(255, 255, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Medicine Details");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 45));
+        lblMedicineDetails.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        lblMedicineDetails.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMedicineDetails.setText("Medicine Details");
+        getContentPane().add(lblMedicineDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 45));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel2.setText(" Name - ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        lblName.setBackground(new java.awt.Color(255, 255, 255));
+        lblName.setForeground(new java.awt.Color(0, 51, 153));
+        lblName.setText(" Name - ");
+        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         lclMedicineName.setText("{Medicine Name}");
         getContentPane().add(lclMedicineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel3.setText("Category - ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, -1));
+        lblCat.setForeground(new java.awt.Color(0, 51, 153));
+        lblCat.setText("Category - ");
+        getContentPane().add(lblCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, -1));
 
         lblCategory.setText("{Medicine Name}");
         getContentPane().add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
-        jLabel4.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel4.setText("Date of Manufacturing - ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        lblDOM.setForeground(new java.awt.Color(0, 51, 153));
+        lblDOM.setText("Date of Manufacturing - ");
+        getContentPane().add(lblDOM, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         lblDate.setText("{Medicine Name}");
         getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel5.setText("Shell Life - ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        lblShellL.setForeground(new java.awt.Color(0, 51, 153));
+        lblShellL.setText("Shell Life - ");
+        getContentPane().add(lblShellL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         lblShellLife.setText("{Medicine Name}");
         getContentPane().add(lblShellLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
@@ -109,16 +109,16 @@ public class MedicineDetailsFDAJDialog extends javax.swing.JDialog {
         });
         getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 30));
 
-        jLabel9.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel9.setText("Manufacturer - ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        lblManu.setForeground(new java.awt.Color(0, 51, 153));
+        lblManu.setText("Manufacturer - ");
+        getContentPane().add(lblManu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         lblManufacturer.setText("{Medicine Name}");
         getContentPane().add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
-        jLabel10.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel10.setText("Ingredients - ");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        lblIng.setForeground(new java.awt.Color(0, 51, 153));
+        lblIng.setText("Ingredients - ");
+        getContentPane().add(lblIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -185,18 +185,18 @@ public class MedicineDetailsFDAJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnReject;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lblCat;
     private javax.swing.JLabel lblCategory;
+    private javax.swing.JLabel lblDOM;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblIng;
+    private javax.swing.JLabel lblManu;
     private javax.swing.JLabel lblManufacturer;
+    private javax.swing.JLabel lblMedicineDetails;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblShellL;
     private javax.swing.JLabel lblShellLife;
     private javax.swing.JLabel lclMedicineName;
     // End of variables declaration//GEN-END:variables

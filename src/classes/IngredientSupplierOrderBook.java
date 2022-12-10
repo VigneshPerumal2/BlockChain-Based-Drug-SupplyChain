@@ -14,6 +14,16 @@ public class IngredientSupplierOrderBook {
     private int quantity;
     private int price;
     private String status;
+    private int IS_OrderBook_Id;
+
+    public int getIS_OrderBook_Id() {
+        return IS_OrderBook_Id;
+    }
+
+    public void setIS_OrderBook_Id(int IS_OrderBook_Id) {
+        this.IS_OrderBook_Id = IS_OrderBook_Id;
+    }
+    
 
     public String getIngredient_Name() {
         return Ingredient_Name;
@@ -49,15 +59,17 @@ public class IngredientSupplierOrderBook {
 
     @Override
     public String toString() {
-        return "IngredientSupplierOrderBook{" + "Ingredient_Name=" + Ingredient_Name + ", quantity=" + quantity + ", price=" + price + ", status=" + status + '}';
+        return "IngredientSupplierOrderBook{" + "Ingredient_Name=" + Ingredient_Name + ", quantity=" + quantity + ", price=" + price + ", status=" + status + ", IS_OrderBook_Id=" + IS_OrderBook_Id + '}';
     }
 
-    public IngredientSupplierOrderBook(String Ingredient_Name, int quantity, int price, String status) {
+    public IngredientSupplierOrderBook(String Ingredient_Name, int quantity, int price, String status, int IS_OrderBook_Id) {
         this.Ingredient_Name = Ingredient_Name;
         this.quantity = quantity;
         this.price = price;
         this.status = status;
+        this.IS_OrderBook_Id = IS_OrderBook_Id;
     }
+
 
     public IngredientSupplierOrderBook() {
     }

@@ -19,6 +19,16 @@ public class IngredientSupplier {
     private String Email_Id;
     private String Phone_No;
     private String Password;
+    private int Supplier_Id;
+
+    public int getSupplier_Id() {
+        return Supplier_Id;
+    }
+
+    public void setSupplier_Id(int Supplier_Id) {
+        this.Supplier_Id = Supplier_Id;
+    }
+    
 
     public String getEmail_Id() {
         return Email_Id;
@@ -79,11 +89,10 @@ public class IngredientSupplier {
 
     @Override
     public String toString() {
-        return "IngredientSupplierProfile{" + "name=" + Supplier_Name + ", category=" + Supplier_Category + ", location=" + Supplier_Location + ", date_of_establishment=" + Supplier_Date_Of_Establishment +", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
-
+        return "IngredientSupplier{" + "Supplier_Name=" + Supplier_Name + ", Supplier_Category=" + Supplier_Category + ", Supplier_Location=" + Supplier_Location + ", Supplier_Date_Of_Establishment=" + Supplier_Date_Of_Establishment + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + ", Supplier_Id=" + Supplier_Id + '}';
     }
 
-    public IngredientSupplier(String Supplier_Name, String Supplier_Category, String Supplier_Location, Date Supplier_Date_Of_Establishment,String Email_Id, String Phone_No, String Password) {
+    public IngredientSupplier(String Supplier_Name, String Supplier_Category, String Supplier_Location, Date Supplier_Date_Of_Establishment, String Email_Id, String Phone_No, String Password, int Supplier_Id) {
         this.Supplier_Name = Supplier_Name;
         this.Supplier_Category = Supplier_Category;
         this.Supplier_Location = Supplier_Location;
@@ -91,8 +100,9 @@ public class IngredientSupplier {
         this.Email_Id = Email_Id;
         this.Phone_No = Phone_No;
         this.Password = Password;
+        this.Supplier_Id = Supplier_Id;
     }
-
+    
     public IngredientSupplier() {
     }
 

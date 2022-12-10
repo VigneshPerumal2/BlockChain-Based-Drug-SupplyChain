@@ -127,15 +127,17 @@ public class DistributorSqlQuery {
              while(resultSet.next()) {
                  obj = new Distributor();
                  
-                String name = resultSet.getString(1);
-                String location = resultSet.getString(2);
-                Date doe = resultSet.getDate(3);
-                String transportation = resultSet.getString(4);
-                int price = resultSet.getInt(5);
-                String emailID = resultSet.getString(6);
-                String phoneNo = resultSet.getString(7);
-                String password = resultSet.getString(8);
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                Date doe = resultSet.getDate(4);
+                String transportation = resultSet.getString(5);
+                int price = resultSet.getInt(6);
+                String emailID = resultSet.getString(7);
+                String phoneNo = resultSet.getString(8);
+                String password = resultSet.getString(9);
 
+                obj.setDistributor_Id(id);
                 obj.setDistributor_Name(name);
                 obj.setDistributor_Location(location);
                 obj.setDistributor_Date_Of_Establishment(doe);

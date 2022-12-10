@@ -129,17 +129,19 @@ public class DoctorSqlQuery {
              while(resultSet.next()){
                  obj = new Doctor();
                  
-                String name = resultSet.getString(1);
-                int age = resultSet.getInt(2);
-                String race = resultSet.getString(3);
-                String gender = resultSet.getString(4);
-                String location = resultSet.getString(5);
-                String speciality = resultSet.getString(6);
-                String emailID = resultSet.getString(7);
-                String phoneNo = resultSet.getString(8);
-                String password = resultSet.getString(9);
+                int id = resultSet.getInt(1); 
+                String name = resultSet.getString(2);
+                int age = resultSet.getInt(3);
+                String race = resultSet.getString(4);
+                String gender = resultSet.getString(5);
+                String location = resultSet.getString(6);
+                String speciality = resultSet.getString(7);
+                String emailID = resultSet.getString(8);
+                String phoneNo = resultSet.getString(9);
+                String password = resultSet.getString(10);
 
                 
+                obj.setDoctor_Id(id);
                 obj.setDoctor_Name(name);
                 obj.setDoctor_Age(age);
                 obj.setDoctor_Race(race);

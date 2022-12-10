@@ -119,13 +119,15 @@ public class FDASqlQuery {
              while(resultSet.next()){
                  
                  obj = new FDA();
-                String name = resultSet.getString(1);
-                String city = resultSet.getString(2);
-                String country = resultSet.getString(3);
-                String emailID = resultSet.getString(4);
-                String phoneNo = resultSet.getString(5);
-                String password = resultSet.getString(6);
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String city = resultSet.getString(3);
+                String country = resultSet.getString(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
 
+                obj.setFDA_Id(id);
                 obj.setFDA_Board_Name(name);
                 obj.setFDA_City(city);
                 obj.setFDA_Country(country);

@@ -16,6 +16,15 @@ public class Hospital {
     private String Email_Id;
     private String Phone_No;
     private String Password;
+    private int Hospital_Id;
+
+    public int getHospital_Id() {
+        return Hospital_Id;
+    }
+
+    public void setHospital_Id(int Hospital_Id) {
+        this.Hospital_Id = Hospital_Id;
+    }
 
 
     public String getEmail_Id() {
@@ -68,18 +77,17 @@ public class Hospital {
 
     @Override
     public String toString() {
-        return "HospitalProfile{" + "name=" + Hospital_Name + ", speciality=" + Hospital_Speciality + ", location=" + Hospital_Location + ",emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
+        return "Hospital{" + "Hospital_Name=" + Hospital_Name + ", Hospital_Location=" + Hospital_Location + ", Hospital_Speciality=" + Hospital_Speciality + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + ", Hospital_Id=" + Hospital_Id + '}';
     }
 
-
-    public Hospital(String Hospital_Name, String Hospital_Location, String Hospital_Speciality,String Email_Id, String Phone_No, String Password) {
+    public Hospital(String Hospital_Name, String Hospital_Location, String Hospital_Speciality, String Email_Id, String Phone_No, String Password, int Hospital_Id) {
         this.Hospital_Name = Hospital_Name;
         this.Hospital_Location = Hospital_Location;
         this.Hospital_Speciality = Hospital_Speciality;
         this.Email_Id = Email_Id;
         this.Phone_No = Phone_No;
         this.Password = Password;
-        
+        this.Hospital_Id = Hospital_Id;
     }
 
     public Hospital() {

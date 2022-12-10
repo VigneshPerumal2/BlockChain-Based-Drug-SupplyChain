@@ -131,14 +131,17 @@ public class IngredientSupplierSqlQuery {
              while(resultSet.next()){
                  
                  obj = new IngredientSupplier();
-                String name = resultSet.getString(1);
-                String category = resultSet.getString(2);
-                String location = resultSet.getString(3);
-                Date date = resultSet.getDate(4);
-                String emailID = resultSet.getString(5);
-                String phoneNo = resultSet.getString(6);
-                String password = resultSet.getString(7);
+                 
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String category = resultSet.getString(3);
+                String location = resultSet.getString(4);
+                Date date = resultSet.getDate(5);
+                String emailID = resultSet.getString(6);
+                String phoneNo = resultSet.getString(7);
+                String password = resultSet.getString(8);
       
+                obj.setSupplier_Id(id);
                 obj.setSupplier_Name(name);
                 obj.setSupplier_Category(category);
                 obj.setSupplier_Location(location);

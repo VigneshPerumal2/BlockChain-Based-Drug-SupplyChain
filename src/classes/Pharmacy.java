@@ -16,17 +16,14 @@ public class Pharmacy {
     private String Email_Id;
     private String Phone_No;
     private String Password;
+    private int Pharmacy_Id;
 
-    public Pharmacy(String Pharmacy_Name, String Pharmacy_Location, int Pharmacy_Inventory_Size, String Email_Id, String Phone_No, String Password) {
-        this.Pharmacy_Name = Pharmacy_Name;
-        this.Pharmacy_Location = Pharmacy_Location;
-        this.Pharmacy_Inventory_Size = Pharmacy_Inventory_Size;
-        this.Email_Id = Email_Id;
-        this.Phone_No = Phone_No;
-        this.Password = Password;
+    public int getPharmacy_Id() {
+        return Pharmacy_Id;
     }
 
-    public Pharmacy() {
+    public void setPharmacy_Id(int Pharmacy_Id) {
+        this.Pharmacy_Id = Pharmacy_Id;
     }
 
     public String getPharmacy_Name() {
@@ -77,7 +74,22 @@ public class Pharmacy {
         this.Password = Password;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "Pharmacy{" + "Pharmacy_Name=" + Pharmacy_Name + ", Pharmacy_Location=" + Pharmacy_Location + ", Pharmacy_Inventory_Size=" + Pharmacy_Inventory_Size + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + ", Pharmacy_Id=" + Pharmacy_Id + '}';
+    }
+
+    public Pharmacy(String Pharmacy_Name, String Pharmacy_Location, int Pharmacy_Inventory_Size, String Email_Id, String Phone_No, String Password, int Pharmacy_Id) {
+        this.Pharmacy_Name = Pharmacy_Name;
+        this.Pharmacy_Location = Pharmacy_Location;
+        this.Pharmacy_Inventory_Size = Pharmacy_Inventory_Size;
+        this.Email_Id = Email_Id;
+        this.Phone_No = Phone_No;
+        this.Password = Password;
+        this.Pharmacy_Id = Pharmacy_Id;
+    }
+
+    public Pharmacy() {
+    }    
     
 }

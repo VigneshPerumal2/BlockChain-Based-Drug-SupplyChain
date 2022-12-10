@@ -4,15 +4,17 @@
  */
 package model.login;
 
+import classes.Manufacturer;
+import javax.swing.JOptionPane;
 import model.FDA.FDAJPanel;
 import model.FDA.FDASideJPanel;
 import model.ingredientsupplier.IngredientSupplierJPanel;
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
-import model.manufacturer.ResearchAndDevelopmentJPanel;
 import model.manufacturer.ManufacturerSideJPanel;
 import model.registration.RegistrationSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
+import util.sql.ManufacturerSqlQuery;
 
 /**
  *
@@ -28,6 +30,7 @@ public class LoginJPanel extends javax.swing.JPanel {
     public LoginJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane = splitPane;
+        formReset();
     }
 
     /**
@@ -159,11 +162,26 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
+        
+        //Ingredient Supplier Login
         if (drpRole.getSelectedItem().equals("Ingredient Supplier")) {
             splitPane.setLeftComponent(new IngredientSupplierSideJPanel(splitPane));
             splitPane.setRightComponent(new IngredientSupplierJPanel(splitPane));
-        } else if (drpRole.getSelectedItem().equals("Manufacturer")) {
-            splitPane.setLeftComponent(new ManufacturerSideJPanel(splitPane));
+        } 
+        //Manufacturer Login
+        else if (drpRole.getSelectedItem().equals("Manufacturer")) {
+            ManufacturerSqlQuery msq = new ManufacturerSqlQuery();
+            Manufacturer m = msq.validateManufacturer(txtEmailId.getText());
+            if (m != null) {
+                splitPane.setLeftComponent(new ManufacturerSideJPanel(splitPane, m));
+            } else {
+
+                JOptionPane.showMessageDialog(this, "Invalid credentials, please enter correct details");
+                valEmailId.setText("Enter valid mail id");
+                valPassword.setText("Enter valid password");
+            }
+            
+        //FDA Login    
         } else if (drpRole.getSelectedItem().equals("FDA")) {
             splitPane.setLeftComponent(new FDASideJPanel(splitPane));
             splitPane.setRightComponent(new FDAJPanel(splitPane));
@@ -172,7 +190,12 @@ public class LoginJPanel extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_btnSignInActionPerformed
-
+    public void formReset() {
+        txtEmailId.setText("");
+        txtPassword.setText("");
+        valEmailId.setText("");
+        valPassword.setText("");
+    }
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         splitPane.setLeftComponent(new RegistrationSideJPanel(splitPane));

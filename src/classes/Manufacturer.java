@@ -9,7 +9,7 @@ import java.sql.Date;
  * @author amulyamurahari
  */
 public class Manufacturer {
-    
+    private int Manufacturer_Id;
     private String Manufacturer_Name;
     private String Type_Of_Medicine;
     private String Manufacturer_Location;
@@ -18,7 +18,13 @@ public class Manufacturer {
     private String Phone_No;
     private String Password;
    
+    public int getManufacturer_Id() {
+        return Manufacturer_Id;
+    }
 
+    public void setManufacturer_Id(int Manufacturer_Id) {
+        this.Manufacturer_Id = Manufacturer_Id;
+    }
     public String getEmail_Id() {
         return Email_Id;
     }
@@ -75,14 +81,9 @@ public class Manufacturer {
     public void setManufacturer_Date_Of_Establishment(Date Manufacturer_Date_Of_Establishment) {
         this.Manufacturer_Date_Of_Establishment = Manufacturer_Date_Of_Establishment;
     }
-    
-    @Override
-    public String toString() {
-        return "ManufacturerProfile{" + "name=" + Manufacturer_Name + ", type_of_medicine=" + Type_Of_Medicine + ", location=" + Manufacturer_Location + ", date_of_establishment=" + Manufacturer_Date_Of_Establishment +", emailID=" + Email_Id + ", phoneNo=" + Phone_No + ", password=" + Password +'}';
 
-    }
-
-    public Manufacturer(String Manufacturer_Name, String Type_Of_Medicine, String Manufacturer_Location, Date Manufacturer_Date_Of_Establishment,String Email_Id, String Phone_No, String Password) {
+    public Manufacturer(int Manufacturer_Id, String Manufacturer_Name, String Type_Of_Medicine, String Manufacturer_Location, Date Manufacturer_Date_Of_Establishment, String Email_Id, String Phone_No, String Password) {
+        this.Manufacturer_Id = Manufacturer_Id;
         this.Manufacturer_Name = Manufacturer_Name;
         this.Type_Of_Medicine = Type_Of_Medicine;
         this.Manufacturer_Location = Manufacturer_Location;
@@ -92,8 +93,14 @@ public class Manufacturer {
         this.Password = Password;
     }
 
+    @Override
+    public String toString() {
+        return "Manufacturer{" + "Manufacturer_Id=" + Manufacturer_Id + ", Manufacturer_Name=" + Manufacturer_Name + ", Type_Of_Medicine=" + Type_Of_Medicine + ", Manufacturer_Location=" + Manufacturer_Location + ", Manufacturer_Date_Of_Establishment=" + Manufacturer_Date_Of_Establishment + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + '}';
+    }
+
     public Manufacturer() {
     }
+    
     
     
 }

@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS DOCTOR
          Doctor_Gender TEXT NOT NULL, 
          Doctor_Location TEXT  NOT NULL, 
          Speciality TEXT  NOT NULL, 
-		 Email_Id TEXT  NOT NULL, 
          Phone_No TEXT  NOT NULL ,
+         Email_Id TEXT  NOT NULL, 
          Password TEXT  NOT NULL
          ); 
          
@@ -37,11 +37,11 @@ CREATE TABLE IF NOT EXISTS INGREDIENT_SUPPLIER
          ( 
          Supplier_Id INTEGER PRIMARY KEY auto_increment, 
          Supplier_Name     TEXT   NOT NULL, 
-         Supplier_Location TEXT  NOT NULL, 
          Supplier_Category TEXT NOT NULL, 
+         Supplier_Location TEXT  NOT NULL, 
          Supplier_Date_Of_Establishment TEXT  NOT NULL,
          Email_Id TEXT  NOT NULL, 
-		 Phone_No TEXT  NOT NULL ,
+         Phone_No TEXT  NOT NULL,
          Password TEXT  NOT NULL
          ); 
          
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS MANUFACTURER
          Manufacturer_Location TEXT  NOT NULL, 
          Manufacturer_Date_Of_Establishment TEXT  NOT NULL,
          Email_Id TEXT  NOT NULL, 
-         Phone_No TEXT  NOT NULL ,
+		Phone_No TEXT  NOT NULL,
          Password TEXT  NOT NULL
          ); 
          
@@ -67,7 +67,6 @@ CREATE TABLE IF NOT EXISTS FDA
          FDA_City TEXT NOT NULL, 
          FDA_Country TEXT  NOT NULL,
          Email_Id TEXT  NOT NULL, 
-         Phone_No TEXT  NOT NULL ,
          Password TEXT  NOT NULL
          ); 
 
@@ -82,7 +81,6 @@ CREATE TABLE IF NOT EXISTS DISTRIBUTOR
          Distributor_Mode_Of_Transportation TEXT NOT NULL,
          Distributor_Price INTEGER NOT NULL,
          Email_Id TEXT  NOT NULL, 
-         Phone_No TEXT  NOT NULL ,
          Password TEXT  NOT NULL
          );       
  
@@ -94,8 +92,7 @@ CREATE TABLE IF NOT EXISTS PHARMACY
          Pharmacy_Name TEXT NOT NULL, 
          Pharmacy_Location TEXT NOT NULL, 
 		 Pharmacy_Inventory_Size INTEGER NOT NULL,
-         Email_Id TEXT  NOT NULL,
-         Phone_No TEXT  NOT NULL ,
+         Email_Id TEXT  NOT NULL, 
          Password TEXT  NOT NULL
          );       
       
@@ -107,7 +104,6 @@ CREATE TABLE IF NOT EXISTS HOSPITAL
          Hospital_Location TEXT NOT NULL, 
 		 Hospital_Speciality TEXT NOT NULL,
          Email_Id TEXT  NOT NULL, 
-         Phone_No TEXT  NOT NULL ,
          Password TEXT  NOT NULL
          );       
  
@@ -120,8 +116,10 @@ CREATE TABLE IF NOT EXISTS MEDICINE
 		 Medicine_Category TEXT NOT NULL,
          Date_Of_Manufacture DATE NOT NULL,	
          Medicine_Shell_Life INTEGER NOT NULL,
-         Manufacturer_Name TEXT NOT NULL
+         Manufacturer_Name TEXT NOT NULL,
+         Ingredients TEXT NOT NULL
          );    
+
          
          
 DROP TABLE IF EXISTS PRESCRIPTION;
@@ -151,15 +149,6 @@ CREATE TABLE IF NOT EXISTS PACKAGE
          Package_Receiver TEXT NOT NULL
          );   
 
-DROP TABLE IF EXISTS SMART_TOKENS;
-CREATE TABLE IF NOT EXISTS SMART_TOKENS 
-         ( 
-         Smart_Token_Id INTEGER PRIMARY KEY auto_increment,
-         Smart_Token_Date DATE NOT NULL,
-         Smart_Token_Time TIME NOT NULL,
-         Medicine_Id INTEGER NOT NULL,
-         FOREIGN KEY(Medicine_Id) REFERENCES MEDICINE(Medicine_Id)
-         );  
 
 DROP TABLE IF EXISTS PACKAGING;
 CREATE TABLE IF NOT EXISTS PACKAGING 
@@ -200,9 +189,11 @@ DROP TABLE IF EXISTS MANUFACTURER_ORDER_BOOK;
 CREATE TABLE IF NOT EXISTS MANUFACTURER_ORDER_BOOK 
          ( 
          Manufacturer_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
+		 Transaction_Id INTEGER NOT NULL,
          Manufacturer_Id INTEGER NOT NULL,
          Package_Id INTEGER NOT NULL,
          Supplier_Id INTEGER NOT NULL,
+         FOREIGN KEY(Transaction_Id) REFERENCES TRANSACTION(Transaction_Id),
          FOREIGN KEY(Supplier_Id) REFERENCES INGREDIENT_SUPPLIER(Supplier_Id),
          FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id),
          FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id)
@@ -212,10 +203,12 @@ DROP TABLE IF EXISTS DISTRIBUTOR_ORDER_BOOK;
 CREATE TABLE IF NOT EXISTS DISTRIBUTOR_ORDER_BOOK 
          ( 
          Distributor_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
+		 Transaction_Id INTEGER NOT NULL,
          Distributor_Id INTEGER NOT NULL,
          Package_Id INTEGER NOT NULL,
          Packaging_Id INTEGER NOT NULL,
          Receiver_Token INTEGER NOT NULL,
+         FOREIGN KEY(Transaction_Id) REFERENCES TRANSACTION(Transaction_Id),
          FOREIGN KEY(Distributor_Id) REFERENCES DISTRIBUTOR(Distributor_Id),
          FOREIGN KEY(Packaging_Id) REFERENCES PACKAGING(Packaging_Id),
          FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id),
@@ -226,10 +219,12 @@ DROP TABLE IF EXISTS PHARMACY_ORDER_BOOK;
 CREATE TABLE IF NOT EXISTS PHARMACY_ORDER_BOOK 
          ( 
          Pharmacy_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
+		 Transaction_Id INTEGER NOT NULL,
          Distributor_Id INTEGER NOT NULL,
          Package_Id INTEGER NOT NULL,
          Pharmacy_Id INTEGER NOT NULL,
          Receiver_Token INTEGER NOT NULL,
+         FOREIGN KEY(Transaction_Id) REFERENCES TRANSACTION(Transaction_Id),
          FOREIGN KEY(Distributor_Id) REFERENCES DISTRIBUTOR(Distributor_Id),
          FOREIGN KEY(Pharmacy_Id) REFERENCES PHARMACY(Pharmacy_Id),
          FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id),
@@ -240,9 +235,11 @@ DROP TABLE IF EXISTS PACKAGER_ORDER_BOOK;
 CREATE TABLE IF NOT EXISTS PACKAGER_ORDER_BOOK 
          ( 
          Packager_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
+		 Transaction_Id INTEGER NOT NULL,
          Packaging_Id INTEGER NOT NULL,
          Package_Id INTEGER NOT NULL,
          Manufacturer_Id INTEGER NOT NULL,
+         FOREIGN KEY(Transaction_Id) REFERENCES TRANSACTION(Transaction_Id),
          FOREIGN KEY(Packaging_Id) REFERENCES PACKAGING(Packaging_Id),
          FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id),
          FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id)
@@ -252,12 +249,19 @@ DROP TABLE IF EXISTS HOSPITAL_ORDER_BOOK;
 CREATE TABLE IF NOT EXISTS HOSPITAL_ORDER_BOOK 
          ( 
          Hospital_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
+		 Transaction_Id INTEGER NOT NULL,
          Distributor_Id INTEGER NOT NULL,
          Package_Id INTEGER NOT NULL,
          Hospital_Id INTEGER NOT NULL,
+         FOREIGN KEY(Transaction_Id) REFERENCES TRANSACTION(Transaction_Id),
          FOREIGN KEY(Distributor_Id) REFERENCES DISTRIBUTOR(Distributor_Id),
          FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id),
          FOREIGN KEY(Hospital_Id) REFERENCES HOSPITAL(Hospital_Id)
          );
+         
+use  AVS;
+select * from patient;
+select * from manufacturer;
+select * from INGREDIENT_SUPPLIER;
+select * from medicine;
 
-SELECT * FROM HOSPITAL;

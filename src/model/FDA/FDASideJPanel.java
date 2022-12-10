@@ -5,6 +5,9 @@
 package model.FDA;
 
 import model.main.MainJFrame;
+import model.manufacturer.LicensingJPanel;
+import model.manufacturer.PackagingJPanel;
+import model.manufacturer.ResearchAndDevelopmentJPanel;
 
 /**
  *
@@ -36,6 +39,8 @@ public class FDASideJPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        lbldepartment = new javax.swing.JLabel();
+        drpDepartment = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,11 +56,11 @@ public class FDASideJPanel extends javax.swing.JPanel {
         lblavslogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         add(lblavslogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, 70));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SUNAINA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 340, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));
         btnLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -67,7 +72,7 @@ public class FDASideJPanel extends javax.swing.JPanel {
                 btnLogoutActionPerformed(evt);
             }
         });
-        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 140, 40));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 140, 40));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/FDALogo.jpg"))); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 380, 240));
@@ -75,6 +80,21 @@ public class FDASideJPanel extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
+
+        lbldepartment.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lbldepartment.setForeground(new java.awt.Color(102, 102, 102));
+        lbldepartment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbldepartment.setText("Choose a Department");
+        add(lbldepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 390, 400, 40));
+
+        drpDepartment.setForeground(new java.awt.Color(102, 102, 102));
+        drpDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an Option...", "Quality Control", "Lab Testing" }));
+        drpDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drpDepartmentActionPerformed(evt);
+            }
+        });
+        add(drpDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 290, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -82,13 +102,26 @@ public class FDASideJPanel extends javax.swing.JPanel {
         new MainJFrame().setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void drpDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpDepartmentActionPerformed
+        // TODO add your handling code here:
+        if(drpDepartment.getSelectedItem().equals("Quality Control")){
+            splitPane.setRightComponent(new QualityControlJPanel());
+        }
+        else if(drpDepartment.getSelectedItem().equals("Lab Testing")){
+            splitPane.setRightComponent(new LabTestingJPanel());
+        }
+        
+    }//GEN-LAST:event_drpDepartmentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
+    private javax.swing.JComboBox<String> drpDepartment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblRoleHeadingIS;
     private javax.swing.JLabel lblavslogo;
+    private javax.swing.JLabel lbldepartment;
     // End of variables declaration//GEN-END:variables
 }

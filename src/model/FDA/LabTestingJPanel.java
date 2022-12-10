@@ -2,20 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package model.manufacturer;
+package model.FDA;
 
+import model.manufacturer.*;
 import util.extras.MedicineDetailsJDialog;
 
 /**
  *
  * @author sunayanashivanagi
  */
-public class LicensingJPanel extends javax.swing.JPanel {
+public class LabTestingJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form FDAJPanel
      */
-    public LicensingJPanel() {
+    public LabTestingJPanel() {
         initComponents();
     }
 
@@ -29,13 +30,13 @@ public class LicensingJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        PanelManageLicense = new javax.swing.JTabbedPane();
+        PanelInventoryM = new javax.swing.JTabbedPane();
         panOrderManagement = new javax.swing.JPanel();
         lblOrderTable = new javax.swing.JLabel();
         lbllogo = new javax.swing.JLabel();
+        btnOrderView = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrder = new javax.swing.JTable();
-        btnOrderView = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -43,12 +44,12 @@ public class LicensingJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 32)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Licensing");
+        jLabel1.setText("Lab Testing");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 90));
 
-        PanelManageLicense.setBackground(new java.awt.Color(255, 255, 255));
-        PanelManageLicense.setForeground(new java.awt.Color(0, 51, 153));
-        PanelManageLicense.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        PanelInventoryM.setBackground(new java.awt.Color(255, 255, 255));
+        PanelInventoryM.setForeground(new java.awt.Color(0, 51, 153));
+        PanelInventoryM.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
 
         panOrderManagement.setBackground(new java.awt.Color(255, 255, 255));
         panOrderManagement.setForeground(new java.awt.Color(0, 51, 153));
@@ -67,6 +68,18 @@ public class LicensingJPanel extends javax.swing.JPanel {
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         panOrderManagement.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
 
+        btnOrderView.setBackground(new java.awt.Color(0, 153, 255));
+        btnOrderView.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnOrderView.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrderView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnOrderView.setText("VIEW");
+        btnOrderView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderViewActionPerformed(evt);
+            }
+        });
+        panOrderManagement.add(btnOrderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 130, 40));
+
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -75,11 +88,11 @@ public class LicensingJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Ingredient Id", "Transaction Id", "Manufacturer Id", "Quantity", "Price"
+                "Medicine Name", "Medicine Category", "Date of Manufacturing", "Manufacturer Name", "Medicine Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -95,33 +108,21 @@ public class LicensingJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblOrder);
 
-        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
+        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 764, 440));
 
-        btnOrderView.setBackground(new java.awt.Color(0, 153, 255));
-        btnOrderView.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnOrderView.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnOrderView.setText("VIEW");
-        btnOrderView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderViewActionPerformed(evt);
-            }
-        });
-        panOrderManagement.add(btnOrderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 130, 40));
+        PanelInventoryM.addTab("Manage License", panOrderManagement);
 
-        PanelManageLicense.addTab("Manage License", panOrderManagement);
-
-        add(PanelManageLicense, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 710));
+        add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 710));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOrderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewActionPerformed
         // TODO add your handling code here:
-        new MedicineDetailsManufacturerJDialog(null,true).show();
+       new MedicineDetailsFDAJDialog(null,true).show();
     }//GEN-LAST:event_btnOrderViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane PanelManageLicense;
+    private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JButton btnOrderView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;

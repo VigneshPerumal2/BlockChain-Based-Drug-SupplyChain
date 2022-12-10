@@ -127,5 +127,34 @@ public class IS_OrderBook_SqlQuery {
         return result;
     }
     
+    /**
+     *
+     * @return int Delete Ingredient_Supplier Function
+     */
+    public int deleteIngredientSupplierOrderBook(IngredientSupplierOrderBook ingredientSupplierOrderBook) {
+        int result = 0;
+        String SQL_DELETE_INGREDIENT_SUPPLIER = "DELETE FROM IngredientSupplierOrderBook WHERE Ingredient_Name = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_INGREDIENT_SUPPLIER)) {
+
+            preparedStatement.setString(1, ingredientSupplierOrderBook.getIngredient_Name());
+            preparedStatement.setInt(2, ingredientSupplierOrderBook.getQuantity());
+            preparedStatement.setInt(3, ingredientSupplierOrderBook.getPrice());
+            preparedStatement.setString(4, ingredientSupplierOrderBook.getStatus());
+           
+
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    
     
 }

@@ -113,23 +113,46 @@ public class DistributorSqlQuery {
     
     /**
      *
-     * @return boolean Validate Distributor Function
+     * Validate Distributor Function
      */
-   public boolean validateDistributor(String Email_Id) {
+   public Distributor validateDistributor(String Email_Id) {
         String query = "SELECT Password FROM DISTRIBUTOR WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        Distributor obj = null;
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             
+             while(resultSet.next()) {
+                 obj = new Distributor();
+                 
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                Date doe = resultSet.getDate(3);
+                String transportation = resultSet.getString(4);
+                int price = resultSet.getInt(5);
+                String emailID = resultSet.getString(6);
+                String phoneNo = resultSet.getString(7);
+                String password = resultSet.getString(8);
+
+                obj.setDistributor_Name(name);
+                obj.setDistributor_Location(location);
+                obj.setDistributor_Date_Of_Establishment(doe);
+                obj.setDistributor_Mode_Of_Transportation(transportation);
+                obj.setDistributor_Price(price);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                          
+                System.out.println(obj);
+                 
+             }
+             return obj;
+             
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj ;
            }
  } 
    
@@ -142,6 +165,38 @@ public class DistributorSqlQuery {
         String SQL_UPDATE_DISTRIBUTOR = "UPDATE FDA SET Distributor_Name = ? ,Distributor_Location = ? ,Distributor_Date_Of_Establishment = ? ,Distributor_Mode_Of_Transportation = ?, Distributor_Price = ?, Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_DISTRIBUTOR)) {
+
+            preparedStatement.setString(1, distributor.getDistributor_Name());
+            preparedStatement.setString(2, distributor.getDistributor_Location());
+            preparedStatement.setDate(3, distributor.getDistributor_Date_Of_Establishment());
+            preparedStatement.setString(4, distributor.getDistributor_Mode_Of_Transportation());
+            preparedStatement.setInt(5, distributor.getDistributor_Price());
+            preparedStatement.setString(6, distributor.getEmail_Id());
+            preparedStatement.setString(7, distributor.getPhone_No());
+            preparedStatement.setString(8, distributor.getPassword());
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    
+    
+    /**
+     *
+     * @return int Delete Distributor Function
+     */
+    public int deleteDistributor(Distributor distributor) {
+        int result = 0;
+        String SQL_DELETE_DISTRIBUTOR = "DELETE FROM Distributor WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_DISTRIBUTOR)) {
 
             preparedStatement.setString(1, distributor.getDistributor_Name());
             preparedStatement.setString(2, distributor.getDistributor_Location());

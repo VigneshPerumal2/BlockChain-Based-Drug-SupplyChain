@@ -104,23 +104,45 @@ public class HospitalSqlQuery {
     
     /**
      *
-     * @return boolean Validate Hospital Function
+     * Validate Hospital Function
      */
-   public boolean validateHospital(String Email_Id) {
+   public Hospital validateHospital(String Email_Id) {
         String query = "SELECT Password FROM HOSPITAL WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        Hospital obj = null;
+        
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
-             ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             ResultSet resultSet = stmt.executeQuery(query);
+             
+             while(resultSet.next()){
+                 
+                 obj = new Hospital();
+                String name = resultSet.getString(1);
+                String location = resultSet.getString(2);
+                String speciality = resultSet.getString(3);
+                String emailID = resultSet.getString(4);
+                String phoneNo = resultSet.getString(5);
+                String password = resultSet.getString(6);
+
+                obj.setHospital_Name(name);
+                obj.setHospital_Location(location);
+                obj.setHospital_Speciality(speciality);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                                 
+                System.out.println(obj);
+                 
+                 
+             }
+                 
+            return obj;
+            
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj;
            }
  } 
    /**
@@ -132,6 +154,35 @@ public class HospitalSqlQuery {
         String SQL_UPDATE_HOSPITAL = "UPDATE HOSPITAL SET Hospital_Name = ? ,Hospital_Location = ? ,Hospital_Speciality = ? , Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_HOSPITAL)) {
+
+            preparedStatement.setString(1, hospital.getHospital_Name());
+            preparedStatement.setString(2, hospital.getHospital_Location());
+            preparedStatement.setString(3, hospital.getHospital_Speciality());
+            preparedStatement.setString(4, hospital.getEmail_Id());
+            preparedStatement.setString(5, hospital.getPhone_No());
+            preparedStatement.setString(6, hospital.getPassword());
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    
+    /**
+     *
+     * @return int Delete Hospital Function
+     */
+    public int deleteHospital(Hospital hospital) {
+        int result = 0;
+        String SQL_DELETE_HOSPITAL = "DELETE FROM Hospital WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_HOSPITAL)) {
 
             preparedStatement.setString(1, hospital.getHospital_Name());
             preparedStatement.setString(2, hospital.getHospital_Location());

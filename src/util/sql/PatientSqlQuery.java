@@ -115,23 +115,50 @@ public class PatientSqlQuery {
      
    /**
      *
-     * @return boolean Validate Patient Function
+     * Validate Patient Function
      */
-   public boolean validatePatient(String Email_Id) {
+   public Patient validatePatient(String Email_Id) {
         String query = "SELECT Password FROM PATIENT WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        Patient obj = null;
+        
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             
+             while(resultSet.next()){
+                 
+                 obj = new Patient();
+                String name = resultSet.getString(1);
+                int age = resultSet.getInt(2);
+                String race = resultSet.getString(3);
+                String gender = resultSet.getString(4);
+                String location = resultSet.getString(5);
+                String ailments = resultSet.getString(6);
+                String emailID = resultSet.getString(7);
+                String phoneNo = resultSet.getString(8);
+                String password = resultSet.getString(9);
+
+                obj.setPatient_Name(name);
+                obj.setPatient_Age(age);
+                obj.setPatient_Race(race);
+                obj.setPatient_Gender(gender);
+                obj.setPatient_Location(location);
+                obj.setAilments(ailments);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                     
+                System.out.println(obj);
+           
+             }
+             
+              return obj;
+              
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj;
            }
  } 
    
@@ -144,6 +171,38 @@ public class PatientSqlQuery {
         String SQL_UPDATE_PATIENT = "UPDATE PATIENT SET Patient_Name = ? ,Patient_Age = ? ,Patient_Race = ?,Patient_Gender = ?,Patient_Location = ?,Ailments = ?,Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_PATIENT)) {
+
+            preparedStatement.setString(1, patient.getPatient_Name());
+            preparedStatement.setInt(2, patient.getPatient_Age());
+            preparedStatement.setString(3, patient.getPatient_Race());
+            preparedStatement.setString(4, patient.getPatient_Gender());
+            preparedStatement.setString(5, patient.getPatient_Location());
+            preparedStatement.setString(6, patient.getAilments());
+            preparedStatement.setString(7, patient.getEmail_Id());
+            preparedStatement.setString(8, patient.getPhone_No());
+            preparedStatement.setString(9, patient.getPassword());
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+   
+    /**
+     *
+     * @return int Delete Patient Function
+     */
+   public int deletePatient(Patient patient) {
+   int result = 0;
+        String SQL_DELETE_PATIENT = "DELETE FROM Patient WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_PATIENT)) {
 
             preparedStatement.setString(1, patient.getPatient_Name());
             preparedStatement.setInt(2, patient.getPatient_Age());

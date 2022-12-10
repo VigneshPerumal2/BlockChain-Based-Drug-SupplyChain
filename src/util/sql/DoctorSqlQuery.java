@@ -113,23 +113,51 @@ public class DoctorSqlQuery {
     
     /**
      *
-     * @return boolean Validate Doctor Function
+     * Validate Doctor Function
      */
-   public boolean validateDoctor(String Email_Id) {
+   public Doctor validateDoctor(String Email_Id) {
         String query = "SELECT Password FROM DOCTOR WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        Doctor obj = null;
+        
         try {
             Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);
              Statement stmt = conn.prepareStatement(query);
              ResultSet resultSet = stmt.executeQuery(query) ;
-             if(resultSet!= null) {
-                      return true ;
-             }else {
-                      return false ;
-            }
+             
+             
+             while(resultSet.next()){
+                 obj = new Doctor();
+                 
+                String name = resultSet.getString(1);
+                int age = resultSet.getInt(2);
+                String race = resultSet.getString(3);
+                String gender = resultSet.getString(4);
+                String location = resultSet.getString(5);
+                String speciality = resultSet.getString(6);
+                String emailID = resultSet.getString(7);
+                String phoneNo = resultSet.getString(8);
+                String password = resultSet.getString(9);
+
+                
+                obj.setDoctor_Name(name);
+                obj.setDoctor_Age(age);
+                obj.setDoctor_Race(race);
+                obj.setDoctor_Gender(gender);
+                obj.setDoctor_Location(location);
+                obj.setSpeciality(speciality);
+                obj.setEmail_Id(emailID);
+                obj.setPhone_No(phoneNo);
+                obj.setPassword(password);
+                
+                
+                System.out.println(obj);
+                 
+             }
+                 return obj;
            } catch (SQLException e) {
                        e.printStackTrace();
-                      return true ;
+                      return obj;
            }
  } 
    

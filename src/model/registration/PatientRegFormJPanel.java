@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import model.sendmail.sendemail;
+import model.sendmail.testEmail;
 import util.sql.PatientSqlQuery;
 
 /**
@@ -333,9 +333,9 @@ public class PatientRegFormJPanel extends javax.swing.JPanel {
         obj.setPhone_No(Phone_No);
         
         if (validation()) {
-            sendemail a = new sendemail();
+            testEmail a = new testEmail();
             try {
-                a.mail();
+                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Patient account created successfully !");
             } catch (Exception ex) {
                 Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

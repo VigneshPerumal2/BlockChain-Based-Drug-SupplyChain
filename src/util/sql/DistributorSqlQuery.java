@@ -187,4 +187,36 @@ public class DistributorSqlQuery {
         return result;
     }
     
+    
+    /**
+     *
+     * @return int Delete Distributor Function
+     */
+    public int deleteDistributor(Distributor distributor) {
+        int result = 0;
+        String SQL_DELETE_DISTRIBUTOR = "DELETE FROM Distributor WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_DISTRIBUTOR)) {
+
+            preparedStatement.setString(1, distributor.getDistributor_Name());
+            preparedStatement.setString(2, distributor.getDistributor_Location());
+            preparedStatement.setDate(3, distributor.getDistributor_Date_Of_Establishment());
+            preparedStatement.setString(4, distributor.getDistributor_Mode_Of_Transportation());
+            preparedStatement.setInt(5, distributor.getDistributor_Price());
+            preparedStatement.setString(6, distributor.getEmail_Id());
+            preparedStatement.setString(7, distributor.getPhone_No());
+            preparedStatement.setString(8, distributor.getPassword());
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
+    
 }

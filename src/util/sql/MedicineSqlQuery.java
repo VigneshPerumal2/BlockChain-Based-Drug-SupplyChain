@@ -134,4 +134,33 @@ public class MedicineSqlQuery {
         return result;
     } 
     
+    /**
+     *
+     * @return int Delete Medicine Function
+     */
+    public int deleteMedicine(Medicine medicine) {
+        int result = 0;
+        String SQL_DELETE_MEDICINE = "DELETE FROM Medicine WHERE Medicine_Name = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_MEDICINE)) {
+
+            preparedStatement.setString(1, medicine.getMedicine_Name());
+            preparedStatement.setString(2, medicine.getMedicine_Status());
+            preparedStatement.setString(3, medicine.getMedicine_Category());
+            preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
+            preparedStatement.setInt(5, medicine.getShell_Life());
+            preparedStatement.setString(6, medicine.getManufacturer_Name());
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    } 
+    
 }

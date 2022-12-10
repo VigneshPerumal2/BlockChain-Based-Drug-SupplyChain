@@ -173,6 +173,35 @@ public class FDASqlQuery {
         }
         return result;
     }
+    
+    /**
+     *
+     * @return int Delete FDA Function
+     */
+    public int deleteFDA(FDA fda) {
+        int result = 0;
+        String SQL_DELETE_FDA = "DELETE FROM FDA WHERE Email_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_FDA)) {
+
+            preparedStatement.setString(1, fda.getFDA_Board_Name());
+            preparedStatement.setString(2, fda.getFDA_City());
+            preparedStatement.setString(3, fda.getFDA_Country());
+            preparedStatement.setString(4, fda.getEmail_Id());
+            preparedStatement.setString(5, fda.getPhone_No());
+            preparedStatement.setString(6, fda.getPassword());
+
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }
    
     
 }

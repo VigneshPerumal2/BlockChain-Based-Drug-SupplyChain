@@ -8,49 +8,13 @@ package classes;
  *
  * @author amulyamurahari
  */
-public class FDA {
+public class FDA extends Credentials {
     
     private String FDA_Board_Name;
     private String FDA_City;
     private String FDA_Country;
-    private String Email_Id;
-    private String Phone_No;
-    private String Password;
     private int FDA_Id;
 
-    public int getFDA_Id() {
-        return FDA_Id;
-    }
-
-    public void setFDA_Id(int FDA_Id) {
-        this.FDA_Id = FDA_Id;
-    }
-
-
-    public String getEmail_Id() {
-        return Email_Id;
-    }
-
-    public void setEmail_Id(String Email_Id) {
-        this.Email_Id = Email_Id;
-    }
-
-    public String getPhone_No() {
-        return Phone_No;
-    }
-
-    public void setPhone_No(String Phone_No) {
-        this.Phone_No = Phone_No;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-    
     public String getFDA_Board_Name() {
         return FDA_Board_Name;
     }
@@ -75,23 +39,29 @@ public class FDA {
         this.FDA_Country = FDA_Country;
     }
 
-    @Override
-    public String toString() {
-        return "FDA{" + "FDA_Board_Name=" + FDA_Board_Name + ", FDA_City=" + FDA_City + ", FDA_Country=" + FDA_Country + ", Email_Id=" + Email_Id + ", Phone_No=" + Phone_No + ", Password=" + Password + ", FDA_Id=" + FDA_Id + '}';
+    public int getFDA_Id() {
+        return FDA_Id;
     }
 
-    public FDA(String FDA_Board_Name, String FDA_City, String FDA_Country, String Email_Id, String Phone_No, String Password, int FDA_Id) {
+    public void setFDA_Id(int FDA_Id) {
+        this.FDA_Id = FDA_Id;
+    }
+
+    @Override
+    public String toString() {
+        return "FDA{" + "FDA_Board_Name=" + FDA_Board_Name + ", FDA_City=" + FDA_City + ", FDA_Country=" + FDA_Country + ", FDA_Id=" + FDA_Id + '}';
+    }
+
+    public FDA(String FDA_Board_Name, String FDA_City, String FDA_Country, int FDA_Id, String Email_Id, String Phone_No, String Password) {
+        super(Email_Id, Phone_No, Password);
         this.FDA_Board_Name = FDA_Board_Name;
         this.FDA_City = FDA_City;
         this.FDA_Country = FDA_Country;
-        this.Email_Id = Email_Id;
-        this.Phone_No = Phone_No;
-        this.Password = Password;
         this.FDA_Id = FDA_Id;
     }
 
     public FDA() {
-    }    
-    
+    }
+
     
 }

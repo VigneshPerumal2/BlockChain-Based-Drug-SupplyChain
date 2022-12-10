@@ -27,114 +27,128 @@ public class MedicineDetailsJDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        lclMedicineName = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        lblCategory = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        lblDate = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        lblShellLife = new javax.swing.JLabel();
-        btnReject = new javax.swing.JButton();
-        btnAccept = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        lblManufacturer = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lclMedicineName1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblCategory1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblDate1 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lblShellLife1 = new javax.swing.JLabel();
+        btnReject1 = new javax.swing.JButton();
+        btnAccept1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        lblManufacturer1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Medicine Details");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 45));
+        jLabel6.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Medicine Details");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 45));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel2.setText(" Name - ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setText(" Name - ");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        lclMedicineName.setText("{Medicine Name}");
-        getContentPane().add(lclMedicineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+        lclMedicineName1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lclMedicineName1.setForeground(new java.awt.Color(102, 0, 153));
+        lclMedicineName1.setText("{Medicine Name}");
+        getContentPane().add(lclMedicineName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel3.setText("Category - ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, -1));
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Category - ");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, -1));
 
-        lblCategory.setText("{Medicine Name}");
-        getContentPane().add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+        lblCategory1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblCategory1.setForeground(new java.awt.Color(102, 0, 153));
+        lblCategory1.setText("{Medicine Name}");
+        getContentPane().add(lblCategory1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
-        jLabel4.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel4.setText("Date of Manufacturing - ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setText("Date of Manufacturing - ");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        lblDate.setText("{Medicine Name}");
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
+        lblDate1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblDate1.setForeground(new java.awt.Color(102, 0, 153));
+        lblDate1.setText("{Medicine Name}");
+        getContentPane().add(lblDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel5.setText("Shell Life - ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setText("Shell Life - ");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        lblShellLife.setText("{Medicine Name}");
-        getContentPane().add(lblShellLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        lblShellLife1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblShellLife1.setForeground(new java.awt.Color(102, 0, 153));
+        lblShellLife1.setText("{Medicine Name}");
+        getContentPane().add(lblShellLife1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
-        btnReject.setBackground(new java.awt.Color(255, 51, 0));
-        btnReject.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnReject.setForeground(new java.awt.Color(255, 255, 255));
-        btnReject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Unavailable.png"))); // NOI18N
-        btnReject.setText("REJECT");
-        btnReject.addActionListener(new java.awt.event.ActionListener() {
+        btnReject1.setBackground(new java.awt.Color(255, 51, 0));
+        btnReject1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnReject1.setForeground(new java.awt.Color(255, 255, 255));
+        btnReject1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Unavailable.png"))); // NOI18N
+        btnReject1.setText("REJECT");
+        btnReject1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectActionPerformed(evt);
+                btnReject1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReject, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 110, 30));
+        getContentPane().add(btnReject1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 110, 30));
 
-        btnAccept.setBackground(new java.awt.Color(0, 153, 51));
-        btnAccept.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnAccept.setForeground(new java.awt.Color(255, 255, 255));
-        btnAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Approval.png"))); // NOI18N
-        btnAccept.setText("ACCEPT");
-        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+        btnAccept1.setBackground(new java.awt.Color(0, 153, 51));
+        btnAccept1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnAccept1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAccept1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Approval.png"))); // NOI18N
+        btnAccept1.setText("ACCEPT");
+        btnAccept1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptActionPerformed(evt);
+                btnAccept1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 30));
+        getContentPane().add(btnAccept1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 30));
 
-        jLabel9.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel9.setText("Manufacturer - ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText("Manufacturer - ");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        lblManufacturer.setText("{Medicine Name}");
-        getContentPane().add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
+        lblManufacturer1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblManufacturer1.setForeground(new java.awt.Color(102, 0, 153));
+        lblManufacturer1.setText("{Medicine Name}");
+        getContentPane().add(lblManufacturer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
-        jLabel10.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel10.setText("Ingredients - ");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setText("Ingredients - ");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 260, 110));
-        getContentPane().add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 245, -1, 60));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 260, 110));
+        getContentPane().add(filler3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 245, -1, 60));
+        getContentPane().add(filler4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 20, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+    private void btnReject1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReject1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRejectActionPerformed
+    }//GEN-LAST:event_btnReject1ActionPerformed
 
-    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+    private void btnAccept1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccept1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAcceptActionPerformed
+    }//GEN-LAST:event_btnAccept1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,22 +193,23 @@ public class MedicineDetailsJDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnReject;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lblCategory;
-    private javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblManufacturer;
-    private javax.swing.JLabel lblShellLife;
-    private javax.swing.JLabel lclMedicineName;
+    private javax.swing.JButton btnAccept1;
+    private javax.swing.JButton btnReject1;
+    private javax.swing.Box.Filler filler3;
+    private javax.swing.Box.Filler filler4;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel lblCategory1;
+    private javax.swing.JLabel lblDate1;
+    private javax.swing.JLabel lblManufacturer1;
+    private javax.swing.JLabel lblShellLife1;
+    private javax.swing.JLabel lclMedicineName1;
     // End of variables declaration//GEN-END:variables
 }

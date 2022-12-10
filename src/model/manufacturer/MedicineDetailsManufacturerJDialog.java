@@ -116,13 +116,13 @@ public class MedicineDetailsManufacturerJDialog extends javax.swing.JDialog {
 
         lblIng.setForeground(new java.awt.Color(0, 51, 153));
         lblIng.setText("Ingredients - ");
-        getContentPane().add(lblIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        getContentPane().add(lblIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
 
         lblTextArea.setColumns(20);
         lblTextArea.setRows(5);
         jScrollPane1.setViewportView(lblTextArea);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 260, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 260, 110));
         getContentPane().add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 245, -1, 60));
 
         pack();

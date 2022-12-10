@@ -128,14 +128,14 @@ public class RnDJDialog extends javax.swing.JDialog {
 
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
         jLabel10.setText("Ingredients - ");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
 
         txtAreaIng.setColumns(20);
         txtAreaIng.setRows(5);
         txtAreaIng.setEnabled(false);
         jScrollPane1.setViewportView(txtAreaIng);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 260, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 260, 110));
         getContentPane().add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 245, -1, 60));
 
         pack();

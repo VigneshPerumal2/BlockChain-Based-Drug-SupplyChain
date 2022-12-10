@@ -29,7 +29,7 @@ public class MedicineSqlQuery {
     /**
      * Medicine Queries
      */
-    private static final String SQL_INSERT_MEDICINE = "INSERT INTO MEDICINE (Medicine_Name, Medicine_Status, Medicine_Category, Date_Of_Manufacture, Shell_Life, Manufacturer_Name ) VALUES (?,?,?,?,?,?)";
+    private static final String SQL_INSERT_MEDICINE = "INSERT INTO MEDICINE (Medicine_Name, Medicine_Status, Medicine_Category, Date_Of_Manufacture, Medicine_Shell_Life, Manufacturer_Name,Ingredients) VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_READ_MEDICINE = "SELECT * FROM MEDICINE";
     
    /**
@@ -47,6 +47,7 @@ public class MedicineSqlQuery {
             preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
             preparedStatement.setInt(5, medicine.getShell_Life());
             preparedStatement.setString(6, medicine.getManufacturer_Name());
+            preparedStatement.setString(7, medicine.getIngredients());
             
         
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -74,15 +75,17 @@ public class MedicineSqlQuery {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
-                String name = resultSet.getString(1);
-                String status = resultSet.getString(2);
-                String category = resultSet.getString(3);
-                Date dom = resultSet.getDate(4);
-                int shell_life = resultSet.getInt(5);
-                String manufacturer_name = resultSet.getString(6);
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String status = resultSet.getString(3);
+                String category = resultSet.getString(4);
+                Date dom = resultSet.getDate(5);
+                int shell_life = resultSet.getInt(6);
+                String manufacturer_name = resultSet.getString(7);
+                String Ingredients = resultSet.getString(8);
 
                 Medicine obj = new Medicine();
+                obj.setIngredients(Ingredients);
                 obj.setMedicine_Name(name);
                 obj.setMedicine_Status(status);
                 obj.setMedicine_Category(category);

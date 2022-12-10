@@ -116,20 +116,10 @@ CREATE TABLE IF NOT EXISTS MEDICINE
 		 Medicine_Category TEXT NOT NULL,
          Date_Of_Manufacture DATE NOT NULL,	
          Medicine_Shell_Life INTEGER NOT NULL,
-         FDA_Id INTEGER NOT NULL,
-         Manufacturer_Id INTEGER NOT NULL,
-         FOREIGN KEY(FDA_Id) REFERENCES FDA(FDA_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id)
+         Manufacturer_Name TEXT NOT NULL,
+         Ingredients TEXT NOT NULL
          );    
 
-DROP TABLE IF EXISTS TRANSACTION;
-CREATE TABLE IF NOT EXISTS TRANSACTION 
-         ( 
-         Transaction_Id INTEGER PRIMARY KEY auto_increment,
-         Sender_Token INTEGER NOT NULL,
-         Receiver_Token INTEGER NOT NULL,
-         Transaction_Amount INTEGER NOT NULL
-         );  
          
          
 DROP TABLE IF EXISTS PRESCRIPTION;
@@ -159,15 +149,6 @@ CREATE TABLE IF NOT EXISTS PACKAGE
          Package_Receiver TEXT NOT NULL
          );   
 
-DROP TABLE IF EXISTS SMART_TOKENS;
-CREATE TABLE IF NOT EXISTS SMART_TOKENS 
-         ( 
-         Smart_Token_Id INTEGER PRIMARY KEY auto_increment,
-         Smart_Token_Date DATE NOT NULL,
-         Smart_Token_Time TIME NOT NULL,
-         Medicine_Id INTEGER NOT NULL,
-         FOREIGN KEY(Medicine_Id) REFERENCES MEDICINE(Medicine_Id)
-         );  
 
 DROP TABLE IF EXISTS PACKAGING;
 CREATE TABLE IF NOT EXISTS PACKAGING 
@@ -282,4 +263,5 @@ use  AVS;
 select * from patient;
 select * from manufacturer;
 select * from INGREDIENT_SUPPLIER;
+select * from medicine;
 

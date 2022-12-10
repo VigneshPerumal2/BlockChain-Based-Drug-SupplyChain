@@ -19,6 +19,7 @@ public class Medicine {
     private Date Date_Of_Manufacture;
     private int Shell_Life;
     private String Manufacturer_Name;
+   
 
     public String getManufacturer_Name() {
         return Manufacturer_Name;

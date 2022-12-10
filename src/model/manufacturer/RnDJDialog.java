@@ -62,36 +62,45 @@ public class RnDJDialog extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Medicine Details");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 45));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText(" Name - ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
+        lblMedicineName.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblMedicineName.setForeground(new java.awt.Color(102, 0, 102));
         lblMedicineName.setText("{Medicine Name}");
         getContentPane().add(lblMedicineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("Category - ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 70, -1));
 
+        lblCategory.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblCategory.setForeground(new java.awt.Color(102, 0, 102));
         lblCategory.setText("{Medicine Name}");
         getContentPane().add(lblCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
-        jLabel4.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
         jLabel4.setText("Date of Manufacturing - ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
+        lblDate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(102, 0, 102));
         lblDate.setText("{Medicine Name}");
         getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
 
-        jLabel5.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
         jLabel5.setText("Shell Life - ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
+        lblShellLife.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblShellLife.setForeground(new java.awt.Color(102, 0, 102));
         lblShellLife.setText("{Medicine Name}");
         getContentPane().add(lblShellLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
@@ -119,14 +128,16 @@ public class RnDJDialog extends javax.swing.JDialog {
         });
         getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 30));
 
-        jLabel9.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Manufacturer - ");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
+        lblManufacturer.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblManufacturer.setForeground(new java.awt.Color(102, 0, 102));
         lblManufacturer.setText("{Medicine Name}");
         getContentPane().add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
 
-        jLabel10.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Ingredients - ");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
 

@@ -303,6 +303,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         mList = msq.readAllMedicine();
         Medicine m = mList.get(selectedRow);
         new RnDJDialog(null,true,m).show();
+        populateTable();
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
     private void btnOrderUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderUpdateActionPerformed
@@ -430,6 +431,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
             row[3] = e.getManufacturer_Name();
             row[4] = e.getMedicine_Status();
             
+            if((e.getMedicine_Status().equals("Formulated") && manufacturer.getManufacturer_Name().equals(e.getManufacturer_Name()))|| (e.getMedicine_Status().equals("Ordered Ingredients") && manufacturer.getManufacturer_Name().equals(e.getManufacturer_Name())) )
             model.addRow(row);
             
         }

@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import model.sendmail.testEmail;
+import model.sendmail.EmailUtil;
 import util.sql.DoctorSqlQuery;
 
 /**
@@ -343,7 +343,7 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         obj.setPassword(Password);
         
         if (validation()) {
-            testEmail a = new testEmail();
+            EmailUtil a = new EmailUtil();
             try {
                 a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Doctor account created successfully !");
             } catch (Exception ex) {

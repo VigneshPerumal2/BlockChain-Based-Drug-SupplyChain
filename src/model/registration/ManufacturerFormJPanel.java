@@ -11,7 +11,7 @@ import util.sql.ManufacturerSqlQuery;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.sendmail.testEmail;
+import model.sendmail.EmailUtil;
 /**
  *
  * @author sunayanashivanagi
@@ -336,7 +336,7 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         obj.setPhone_No(Phone_No);
         
         if (validation()) {
-            testEmail a = new testEmail();
+            EmailUtil a = new EmailUtil();
             try {
                 a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Manufacturer account created successfully !");
             } catch (Exception ex) {

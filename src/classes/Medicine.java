@@ -12,7 +12,15 @@ import java.sql.Date;
  * @author amulyamurahari
  */
 public class Medicine {
-    
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     private String Medicine_Name;
     private String Medicine_Status;
     private String Medicine_Category;

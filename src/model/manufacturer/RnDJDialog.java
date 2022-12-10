@@ -5,6 +5,7 @@
 package model.manufacturer;
 
 import classes.Medicine;
+import util.sql.MedicineSqlQuery;
 
 /**
  *
@@ -131,6 +132,7 @@ public class RnDJDialog extends javax.swing.JDialog {
 
         txtAreaIng.setColumns(20);
         txtAreaIng.setRows(5);
+        txtAreaIng.setEnabled(false);
         jScrollPane1.setViewportView(txtAreaIng);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 260, 110));
@@ -141,11 +143,18 @@ public class RnDJDialog extends javax.swing.JDialog {
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
-        
+         MedicineSqlQuery msq = new MedicineSqlQuery();
+         m.setMedicine_Status("Rejected");
+         msq.updateMedicine(m);
+         setVisible(false);
     }//GEN-LAST:event_btnRejectActionPerformed
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        m.setMedicine_Status("Ordered Ingredients");
+        msq.updateMedicine(m);
+        setVisible(false);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     /**

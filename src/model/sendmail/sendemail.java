@@ -18,7 +18,7 @@ public class sendemail {
 
         String to = "avs.pharmacy@yahoo.com";//change accordingly
         String from = "avs.pharmacy@yahoo.com";//change accordingly
-        String password = "brvfuztnvavugaxj";//change accordingly
+        String password = "rmrkibwymdhpcgdl";//change accordingly
 
 //Get the session object
         Properties props = new Properties();

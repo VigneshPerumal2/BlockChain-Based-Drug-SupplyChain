@@ -56,7 +56,7 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
         lbldepartment.setForeground(new java.awt.Color(102, 102, 102));
         lbldepartment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbldepartment.setText("Choose a Department");
-        add(lbldepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 450, 400, 40));
+        add(lbldepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 450, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));
         btnLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N

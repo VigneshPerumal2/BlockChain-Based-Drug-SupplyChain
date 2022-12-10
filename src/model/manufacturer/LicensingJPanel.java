@@ -35,7 +35,6 @@ public class LicensingJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrder = new javax.swing.JTable();
         btnOrderUpdate = new javax.swing.JButton();
-        btnOrderDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -74,7 +73,7 @@ public class LicensingJPanel extends javax.swing.JPanel {
                 btnNewOrderActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 67, 150, 29));
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 589, 130, 40));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
@@ -122,12 +121,6 @@ public class LicensingJPanel extends javax.swing.JPanel {
         });
         panOrderManagement.add(btnOrderUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 130, 40));
 
-        btnOrderDelete.setBackground(new java.awt.Color(255, 0, 51));
-        btnOrderDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
-        btnOrderDelete.setText("DELETE");
-        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 120, 40));
-
         PanelInventoryM.addTab("Manage License", panOrderManagement);
 
         add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 710));
@@ -145,7 +138,6 @@ public class LicensingJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JButton btnNewOrder;
-    private javax.swing.JButton btnOrderDelete;
     private javax.swing.JButton btnOrderUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;

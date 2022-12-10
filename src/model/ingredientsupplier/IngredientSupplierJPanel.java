@@ -38,7 +38,6 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrder = new javax.swing.JTable();
-        btnOrderDelete = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -69,7 +68,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
                 btnNewOrderActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 700, 120, 34));
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 680, 120, 34));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
@@ -105,18 +104,6 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
 
         panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 764, 553));
 
-        btnOrderDelete.setBackground(new java.awt.Color(255, 0, 51));
-        btnOrderDelete.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnOrderDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
-        btnOrderDelete.setText("DELETE");
-        btnOrderDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderDeleteActionPerformed(evt);
-            }
-        });
-        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 700, 118, 34));
-
         PanelInventoryM.addTab("Logistics Department", panOrderManagement);
 
         add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 800));
@@ -127,15 +114,10 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
        new MedicineDetailsJDialog(null,true).show();
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
-    private void btnOrderDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderDeleteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JButton btnNewOrder;
-    private javax.swing.JButton btnOrderDelete;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblOrderTable;
     private javax.swing.JLabel lbllogo;

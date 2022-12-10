@@ -58,6 +58,7 @@ public class FDASideJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));
+        btnLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Shutdown.png"))); // NOI18N
         btnLogout.setText("LOG OUT");
@@ -68,8 +69,8 @@ public class FDASideJPanel extends javax.swing.JPanel {
         });
         add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 140, 40));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/TabIngredients.jpg"))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 400, 240));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/FDALogo.jpg"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 380, 240));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N

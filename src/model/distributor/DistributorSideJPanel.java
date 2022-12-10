@@ -60,6 +60,7 @@ public class DistributorSideJPanel extends javax.swing.JPanel {
         jPanel1.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));
+        btnLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Shutdown.png"))); // NOI18N
         btnLogout.setText("LOG OUT");

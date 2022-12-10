@@ -36,6 +36,7 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,13 +52,14 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
         lblavslogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         add(lblavslogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, 70));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SUNAINA");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));
+        btnLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Shutdown.png"))); // NOI18N
         btnLogout.setText("LOG OUT");
@@ -66,7 +68,7 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
                 btnLogoutActionPerformed(evt);
             }
         });
-        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 140, 40));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 140, 40));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/TabIngredients.jpg"))); // NOI18N
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 400, 240));
@@ -74,6 +76,12 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Logistic Department");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 360, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -85,6 +93,7 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblRoleHeadingIS;

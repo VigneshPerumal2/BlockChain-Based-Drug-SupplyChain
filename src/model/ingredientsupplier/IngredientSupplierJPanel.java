@@ -4,6 +4,8 @@
  */
 package model.ingredientsupplier;
 
+import util.extras.MedicineDetailsJDialog;
+
 /**
  *
  * @author sunayanashivanagi
@@ -36,7 +38,6 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrder = new javax.swing.JTable();
-        btnOrderUpdate = new javax.swing.JButton();
         btnOrderDelete = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,6 +48,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
 
         panOrderManagement.setBackground(new java.awt.Color(255, 255, 255));
         panOrderManagement.setForeground(new java.awt.Color(0, 51, 153));
+        panOrderManagement.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblOrderTable.setBackground(new java.awt.Color(255, 255, 255));
         lblOrderTable.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
@@ -55,20 +57,23 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lblOrderTable.setText("Order Table");
         lblOrderTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblOrderTable.setIconTextGap(10);
+        panOrderManagement.add(lblOrderTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 24, 499, 56));
 
-        btnNewOrder.setBackground(new java.awt.Color(0, 153, 51));
+        btnNewOrder.setBackground(new java.awt.Color(0, 153, 255));
         btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Plus(2).png"))); // NOI18N
-        btnNewOrder.setText("View");
+        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnNewOrder.setText("VIEW");
         btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewOrderActionPerformed(evt);
             }
         });
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 700, 120, 34));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        panOrderManagement.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 698, 110, 70));
 
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,11 +83,11 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Ingredient Id", "Transaction Id", "Manufacturer Id", "Quantity", "Price"
+                "Medicine name", "Category", "Date Of Manufacturing", "Manufacturing Name", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -98,90 +103,39 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblOrder);
 
-        btnOrderUpdate.setBackground(new java.awt.Color(255, 204, 0));
-        btnOrderUpdate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnOrderUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Available Updates.png"))); // NOI18N
-        btnOrderUpdate.setText("UPDATE");
-        btnOrderUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderUpdateActionPerformed(evt);
-            }
-        });
+        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 764, 553));
 
         btnOrderDelete.setBackground(new java.awt.Color(255, 0, 51));
+        btnOrderDelete.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnOrderDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnOrderDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
         btnOrderDelete.setText("DELETE");
+        btnOrderDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderDeleteActionPerformed(evt);
+            }
+        });
+        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 700, 118, 34));
 
-        javax.swing.GroupLayout panOrderManagementLayout = new javax.swing.GroupLayout(panOrderManagement);
-        panOrderManagement.setLayout(panOrderManagementLayout);
-        panOrderManagementLayout.setHorizontalGroup(
-            panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panOrderManagementLayout.createSequentialGroup()
-                .addGroup(panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panOrderManagementLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(lblOrderTable, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panOrderManagementLayout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(btnOrderUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnOrderDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addGroup(panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbllogo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNewOrder)))
-            .addGroup(panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panOrderManagementLayout.createSequentialGroup()
-                    .addGap(19, 19, 19)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 764, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(17, Short.MAX_VALUE)))
-        );
-        panOrderManagementLayout.setVerticalGroup(
-            panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panOrderManagementLayout.createSequentialGroup()
-                .addGroup(panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panOrderManagementLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(btnNewOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panOrderManagementLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(lblOrderTable, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 597, Short.MAX_VALUE)
-                .addGroup(panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbllogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panOrderManagementLayout.createSequentialGroup()
-                        .addGroup(panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnOrderUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnOrderDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41))))
-            .addGroup(panOrderManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panOrderManagementLayout.createSequentialGroup()
-                    .addGap(114, 114, 114)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(101, Short.MAX_VALUE)))
-        );
-
-        PanelInventoryM.addTab("Order Management", panOrderManagement);
+        PanelInventoryM.addTab("Logistics Department", panOrderManagement);
 
         add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 800));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
         // TODO add your handling code here:
+       new MedicineDetailsJDialog(null,true).show();
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
-    private void btnOrderUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderUpdateActionPerformed
+    private void btnOrderDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderUpdateActionPerformed
+    }//GEN-LAST:event_btnOrderDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JButton btnNewOrder;
     private javax.swing.JButton btnOrderDelete;
-    private javax.swing.JButton btnOrderUpdate;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblOrderTable;
     private javax.swing.JLabel lbllogo;

@@ -120,83 +120,6 @@ CREATE TABLE IF NOT EXISTS MEDICINE
          Ingredients TEXT NOT NULL
          );    
 
-         
-         
-DROP TABLE IF EXISTS PRESCRIPTION;
-CREATE TABLE IF NOT EXISTS PRESCRIPTION 
-         ( 
-         Prescription_Id INTEGER PRIMARY KEY auto_increment, 
-         Patient_Id INTEGER NOT NULL, 
-         Doctor_Id INTEGER NOT NULL, 
-		 Prescription TEXT NOT NULL,
-         Date_Of_Prescription DATE NOT NULL,
-         FOREIGN KEY(Patient_Id) REFERENCES PATIENT(Patient_Id),
-         FOREIGN KEY(Doctor_Id) REFERENCES DOCTOR(Doctor_Id)
-         );   
-
-DROP TABLE IF EXISTS PACKAGE;
-CREATE TABLE IF NOT EXISTS PACKAGE 
-         ( 
-         Package_Id INTEGER PRIMARY KEY auto_increment, 
-         Package_Date DATE NOT NULL, 
-         Package_SKU INTEGER NOT NULL, 
-		 Package_Quantity INTEGER NOT NULL,
-         Type_Of_Package TEXT NOT NULL,
-         Type_Of_Storage TEXT NOT NULL,
-         Pickup_Location TEXT NOT NULL,
-         Destination_Location TEXT NOT NULL,
-         Package_Sender TEXT NOT NULL,
-         Package_Receiver TEXT NOT NULL
-         );   
-
-
-DROP TABLE IF EXISTS PACKAGING;
-CREATE TABLE IF NOT EXISTS PACKAGING 
-         ( 
-         Packaging_Id INTEGER PRIMARY KEY auto_increment,
-         Packaging_Name TEXT NOT NULL,
-         Type_Of_Packaging TEXT NOT NULL,
-         Packaging_Location TEXT NOT NULL
-         );
-         
-
-DROP TABLE IF EXISTS FDA_ORDER_BOOK;
-CREATE TABLE IF NOT EXISTS FDA_ORDER_BOOK 
-         ( 
-         FDA_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
-		 Medicine_Id INTEGER NOT NULL,
-         Manufacturer_Id INTEGER NOT NULL,
-         Package_Id INTEGER NOT NULL,
-         FDA_Id INTEGER NOT NULL,
-         FOREIGN KEY(Medicine_Id) REFERENCES MEDICINE(Medicine_Id),
-         FOREIGN KEY(FDA_Id) REFERENCES FDA(FDA_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id),
-         FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id)
-         );
-
-DROP TABLE IF EXISTS MANUFACTURER_ORDER_BOOK;
-CREATE TABLE IF NOT EXISTS MANUFACTURER_ORDER_BOOK 
-         ( 
-         Manufacturer_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
-         Manufacturer_Id INTEGER NOT NULL,
-         Package_Id INTEGER NOT NULL,
-         Supplier_Id INTEGER NOT NULL,
-         FOREIGN KEY(Supplier_Id) REFERENCES INGREDIENT_SUPPLIER(Supplier_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id),
-         FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id)
-         );
-
-DROP TABLE IF EXISTS DISTRIBUTOR_ORDER_BOOK;
-CREATE TABLE IF NOT EXISTS DISTRIBUTOR_ORDER_BOOK 
-         ( 
-         Distributor_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
-         Distributor_Id INTEGER NOT NULL,
-         Package_Id INTEGER NOT NULL,
-         Packaging_Id INTEGER NOT NULL,
-         FOREIGN KEY(Distributor_Id) REFERENCES DISTRIBUTOR(Distributor_Id),
-         FOREIGN KEY(Packaging_Id) REFERENCES PACKAGING(Packaging_Id),
-         FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id)
-         );
 
 DROP TABLE IF EXISTS PHARMACY_ORDER_BOOK;
 CREATE TABLE IF NOT EXISTS PHARMACY_ORDER_BOOK 
@@ -208,18 +131,6 @@ CREATE TABLE IF NOT EXISTS PHARMACY_ORDER_BOOK
          FOREIGN KEY(Medicine_Id) REFERENCES MEDICINE(Medicine_Id),
          FOREIGN KEY(Distributor_Id) REFERENCES DISTRIBUTOR(Distributor_Id),
          FOREIGN KEY(Pharmacy_Id) REFERENCES PHARMACY(Pharmacy_Id)
-         );
-
-DROP TABLE IF EXISTS PACKAGER_ORDER_BOOK;
-CREATE TABLE IF NOT EXISTS PACKAGER_ORDER_BOOK 
-         ( 
-         Packager_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
-         Packaging_Id INTEGER NOT NULL,
-         Package_Id INTEGER NOT NULL,
-         Manufacturer_Id INTEGER NOT NULL,
-         FOREIGN KEY(Packaging_Id) REFERENCES PACKAGING(Packaging_Id),
-         FOREIGN KEY(Package_Id) REFERENCES PACKAGE(Package_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id)
          );
 
 DROP TABLE IF EXISTS HOSPITAL_ORDER_BOOK;
@@ -234,29 +145,13 @@ CREATE TABLE IF NOT EXISTS HOSPITAL_ORDER_BOOK
          FOREIGN KEY(Hospital_Id) REFERENCES HOSPITAL(Hospital_Id)
          );
          
-DROP TABLE IF EXISTS PATIENT_TO_PHARMACY_ORDER_BOOK;
-CREATE TABLE IF NOT EXISTS PATIENT_TO_PHARMACY_ORDER_BOOK 
+DROP TABLE IF EXISTS ADMIN;
+CREATE TABLE IF NOT EXISTS ADMIN 
          ( 
-         Patient_To_Pharmacy_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
-		 Patient_Id INTEGER NOT NULL,
-         Pharmacy_Id INTEGER NOT NULL,
-         Manufacturer_Id INTEGER NOT NULL,
-         FOREIGN KEY(Patient_Id) REFERENCES PATIENT(Patient_Id),
-         FOREIGN KEY(Pharmacy_Id) REFERENCES PHARMACY(Pharmacy_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id)
-         );
-         
-DROP TABLE IF EXISTS PATIENT_TO_HOSPITAL_ORDER_BOOK;
-CREATE TABLE IF NOT EXISTS PATIENT_TO_HOSPITAL_ORDER_BOOK 
-         ( 
-         Patient_To_Hospital_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
-		 Patient_Id INTEGER NOT NULL,
-         Hospital_Id INTEGER NOT NULL,
-         Manufacturer_Id INTEGER NOT NULL,
-         FOREIGN KEY(Patient_Id) REFERENCES PATIENT(Patient_Id),
-         FOREIGN KEY(Hospital_Id) REFERENCES HOSPITAL(Hospital_Id),
-         FOREIGN KEY(Manufacturer_Id) REFERENCES MANUFACTURER(Manufacturer_Id)
-         );
+         Admin_Role INTEGER PRIMARY KEY auto_increment, 
+         Admin_Id INTEGER NOT NULL,
+         Admin_Password INTEGER NOT NULL
+         );       
          
 use  AVS;
 select * from patient;

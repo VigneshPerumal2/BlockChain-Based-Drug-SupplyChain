@@ -4,7 +4,13 @@
  */
 package model.distributor;
 
-import model.main.MainJFrame;
+import classes.Hospital;
+import classes.Medicine;
+import classes.Pharmacy;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import util.sql.MedicineSqlQuery;
 
 /**
  *
@@ -15,8 +21,12 @@ public class DistributorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DistributorJPanel
      */
+    ArrayList<Pharmacy> pList= new ArrayList<>();
+    ArrayList<Hospital> hList= new ArrayList<>();
     public DistributorJPanel() {
         initComponents();
+        populateTable();
+        
     }
 
     /**
@@ -31,31 +41,14 @@ public class DistributorJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         PanelInventoryM = new javax.swing.JTabbedPane();
-        panOrderManagement = new javax.swing.JPanel();
+        Inventory = new javax.swing.JPanel();
         lblOrderTable = new javax.swing.JLabel();
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblOrder = new javax.swing.JTable();
-        btnOrderDelete = new javax.swing.JButton();
-        btnOrderUpdate1 = new javax.swing.JButton();
-        panInventoryManagement = new javax.swing.JPanel();
+        tblMedicine = new javax.swing.JTable();
+        btnNewOrder = new javax.swing.JButton();
+        Pharmacy_Orders = new javax.swing.JPanel();
         lbllogo1 = new javax.swing.JLabel();
-        lblDestination = new javax.swing.JLabel();
-        lblDisDelivery = new javax.swing.JLabel();
-        lblPrice = new javax.swing.JLabel();
-        txtManufacturerName = new javax.swing.JTextField();
-        valManufacturerName = new javax.swing.JLabel();
-        lblDOD = new javax.swing.JLabel();
-        drpChooseHospital = new javax.swing.JComboBox<>();
-        btnResetMed = new javax.swing.JButton();
-        btnsubmitMed = new javax.swing.JButton();
-        dateDOM = new com.toedter.calendar.JDateChooser();
-        comboCategoryMed1 = new javax.swing.JComboBox<>();
-        lblDisHospital = new javax.swing.JLabel();
-        btnPharmacy = new javax.swing.JRadioButton();
-        btnHospital = new javax.swing.JRadioButton();
-        lblDisMedicine = new javax.swing.JLabel();
-        comboCategoryMed2 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,9 +64,9 @@ public class DistributorJPanel extends javax.swing.JPanel {
         PanelInventoryM.setForeground(new java.awt.Color(0, 51, 153));
         PanelInventoryM.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
 
-        panOrderManagement.setBackground(new java.awt.Color(255, 255, 255));
-        panOrderManagement.setForeground(new java.awt.Color(0, 51, 153));
-        panOrderManagement.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Inventory.setBackground(new java.awt.Color(255, 255, 255));
+        Inventory.setForeground(new java.awt.Color(0, 51, 153));
+        Inventory.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblOrderTable.setBackground(new java.awt.Color(255, 255, 255));
         lblOrderTable.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
@@ -82,13 +75,13 @@ public class DistributorJPanel extends javax.swing.JPanel {
         lblOrderTable.setText("Manage Shipment");
         lblOrderTable.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         lblOrderTable.setIconTextGap(10);
-        panOrderManagement.add(lblOrderTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 24, 499, 56));
+        Inventory.add(lblOrderTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 24, 499, 56));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
-        panOrderManagement.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
+        Inventory.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
 
-        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
+        tblMedicine.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -96,11 +89,11 @@ public class DistributorJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Ingredient Id", "Transaction Id", "Manufacturer Id", "Quantity", "Price"
+                "Medicine Name", "Medicine Category", "Date of Manufacturing", "Manufacturer Name", "Medicine Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -114,137 +107,33 @@ public class DistributorJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tblOrder);
+        jScrollPane2.setViewportView(tblMedicine);
 
-        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
+        Inventory.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
 
-        btnOrderDelete.setBackground(new java.awt.Color(255, 0, 51));
-        btnOrderDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
-        btnOrderDelete.setText("DELETE");
-        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 590, 120, 40));
-
-        btnOrderUpdate1.setBackground(new java.awt.Color(255, 204, 0));
-        btnOrderUpdate1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnOrderUpdate1.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderUpdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Available Updates.png"))); // NOI18N
-        btnOrderUpdate1.setText("UPDATE");
-        btnOrderUpdate1.addActionListener(new java.awt.event.ActionListener() {
+        btnNewOrder.setBackground(new java.awt.Color(0, 153, 255));
+        btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnNewOrder.setText("VIEW");
+        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderUpdate1ActionPerformed(evt);
+                btnNewOrderActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnOrderUpdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 590, 130, 40));
+        Inventory.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
 
-        PanelInventoryM.addTab("Manage Shipment", panOrderManagement);
+        PanelInventoryM.addTab("Inventory", Inventory);
 
-        panInventoryManagement.setBackground(new java.awt.Color(255, 255, 255));
-        panInventoryManagement.setForeground(new java.awt.Color(255, 255, 255));
-        panInventoryManagement.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Pharmacy_Orders.setBackground(new java.awt.Color(255, 255, 255));
+        Pharmacy_Orders.setForeground(new java.awt.Color(255, 255, 255));
+        Pharmacy_Orders.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbllogo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
-        panInventoryManagement.add(lbllogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
+        Pharmacy_Orders.add(lbllogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
 
-        lblDestination.setFont(new java.awt.Font("Helvetica Neue", 1, 19)); // NOI18N
-        lblDestination.setForeground(new java.awt.Color(102, 102, 102));
-        lblDestination.setText("Choose a Destination");
-        panInventoryManagement.add(lblDestination, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 290, 30));
-
-        lblDisDelivery.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblDisDelivery.setForeground(new java.awt.Color(102, 102, 102));
-        lblDisDelivery.setText("Mode of Delivery");
-        panInventoryManagement.add(lblDisDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 290, 30));
-
-        lblPrice.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblPrice.setForeground(new java.awt.Color(102, 102, 102));
-        lblPrice.setText("Price");
-        panInventoryManagement.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 290, 30));
-
-        txtManufacturerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtManufacturerNameActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(txtManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 290, 30));
-
-        valManufacturerName.setForeground(new java.awt.Color(255, 61, 0));
-        valManufacturerName.setText("Please enter valid price");
-        panInventoryManagement.add(valManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 290, 20));
-
-        lblDOD.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblDOD.setForeground(new java.awt.Color(102, 102, 102));
-        lblDOD.setText("Date of Delivery");
-        panInventoryManagement.add(lblDOD, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 290, 30));
-
-        drpChooseHospital.setForeground(new java.awt.Color(0, 0, 153));
-        drpChooseHospital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drpChooseHospitalActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(drpChooseHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 290, 30));
-
-        btnResetMed.setBackground(new java.awt.Color(255, 51, 0));
-        btnResetMed.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnResetMed.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetMed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Reverse.png"))); // NOI18N
-        btnResetMed.setText("RESET");
-        btnResetMed.setIconTextGap(10);
-        btnResetMed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetMedActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(btnResetMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 140, 40));
-
-        btnsubmitMed.setBackground(new java.awt.Color(0, 153, 0));
-        btnsubmitMed.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnsubmitMed.setForeground(new java.awt.Color(255, 255, 255));
-        btnsubmitMed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Double Tick.png"))); // NOI18N
-        btnsubmitMed.setText("SUBMIT");
-        btnsubmitMed.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        btnsubmitMed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsubmitMedActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(btnsubmitMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 140, 40));
-        panInventoryManagement.add(dateDOM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 290, 30));
-
-        comboCategoryMed1.setForeground(new java.awt.Color(0, 51, 153));
-        comboCategoryMed1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Air", "Road", "Sea", "Rail" }));
-        panInventoryManagement.add(comboCategoryMed1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 290, 30));
-
-        lblDisHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblDisHospital.setForeground(new java.awt.Color(102, 102, 102));
-        lblDisHospital.setText("Choose Hospital");
-        panInventoryManagement.add(lblDisHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 290, 30));
-
-        btnPharmacy.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnPharmacy.setForeground(new java.awt.Color(102, 102, 102));
-        btnPharmacy.setText("Pharmacy");
-        btnPharmacy.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPharmacyActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(btnPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 120, -1));
-
-        btnHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnHospital.setForeground(new java.awt.Color(102, 102, 102));
-        btnHospital.setText("Hospital");
-        panInventoryManagement.add(btnHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 120, -1));
-
-        lblDisMedicine.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblDisMedicine.setForeground(new java.awt.Color(102, 102, 102));
-        lblDisMedicine.setText("Choose Medicine");
-        panInventoryManagement.add(lblDisMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 290, 30));
-
-        comboCategoryMed2.setForeground(new java.awt.Color(0, 0, 153));
-        panInventoryManagement.add(comboCategoryMed2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 290, 30));
-
-        PanelInventoryM.addTab("Create Shipment", panInventoryManagement);
+        PanelInventoryM.addTab("Pharmacy Orders", Pharmacy_Orders);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -274,59 +163,55 @@ public class DistributorJPanel extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtManufacturerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtManufacturerNameActionPerformed
+    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtManufacturerNameActionPerformed
+        int selectedRow = tblMedicine.getSelectedRow() ;
 
-    private void drpChooseHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpChooseHospitalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_drpChooseHospitalActionPerformed
+        if(selectedRow<0){
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
 
-    private void btnResetMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetMedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetMedActionPerformed
-
-    private void btnsubmitMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitMedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnsubmitMedActionPerformed
-
-    private void btnOrderUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderUpdate1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderUpdate1ActionPerformed
-
-    private void btnPharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPharmacyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPharmacyActionPerformed
-
+        ArrayList<Medicine> mList =  new  ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        Medicine m = mList.get(selectedRow);
+        new DistributorJDialog(null,true,m).show();
+        populateTable();
+    }//GEN-LAST:event_btnNewOrderActionPerformed
+    private void populateTable() {
+        ArrayList<Medicine> mList =  new  ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        
+        DefaultTableModel model =(DefaultTableModel) tblMedicine.getModel();
+        model.setRowCount(0);
+        
+        for(Medicine e: mList){
+            Object row[]=new Object[10];
+            row[0] = e.getMedicine_Name();
+            row[1] = e.getMedicine_Category();
+            row[2] = e.getDate_Of_Manufacture();
+            row[3] = e.getManufacturer_Name();
+            row[4] = e.getMedicine_Status();
+            
+            if((e.getMedicine_Status().equals("Available"))  )
+            model.addRow(row);
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Inventory;
     private javax.swing.JTabbedPane PanelInventoryM;
-    private javax.swing.JRadioButton btnHospital;
-    private javax.swing.JButton btnOrderDelete;
-    private javax.swing.JButton btnOrderUpdate1;
-    private javax.swing.JRadioButton btnPharmacy;
-    private javax.swing.JButton btnResetMed;
-    private javax.swing.JButton btnsubmitMed;
-    private javax.swing.JComboBox<String> comboCategoryMed1;
-    private javax.swing.JComboBox<String> comboCategoryMed2;
-    private com.toedter.calendar.JDateChooser dateDOM;
-    private javax.swing.JComboBox<String> drpChooseHospital;
+    private javax.swing.JPanel Pharmacy_Orders;
+    private javax.swing.JButton btnNewOrder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblDOD;
-    private javax.swing.JLabel lblDestination;
-    private javax.swing.JLabel lblDisDelivery;
-    private javax.swing.JLabel lblDisHospital;
-    private javax.swing.JLabel lblDisMedicine;
     private javax.swing.JLabel lblOrderTable;
-    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JLabel lbllogo1;
-    private javax.swing.JPanel panInventoryManagement;
-    private javax.swing.JPanel panOrderManagement;
-    private javax.swing.JTable tblOrder;
-    private javax.swing.JTextField txtManufacturerName;
-    private javax.swing.JLabel valManufacturerName;
+    private javax.swing.JTable tblMedicine;
     // End of variables declaration//GEN-END:variables
 }

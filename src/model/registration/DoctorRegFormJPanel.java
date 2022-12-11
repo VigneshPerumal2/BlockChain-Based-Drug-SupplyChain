@@ -343,6 +343,12 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
         obj.setPassword(Password);
         
         if (validation()) {
+            testEmail a = new testEmail();
+            try {
+                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Doctor account created successfully !");
+            } catch (Exception ex) {
+                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
             result = sql.createDoctor(obj);    
         }
         if (result == 1) {
@@ -353,6 +359,9 @@ public class DoctorRegFormJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Doctor not created !");
 
         }
+        
+        
+        
        
     }//GEN-LAST:event_btnsubmitActionPerformed
  private void formReset() {

@@ -4,7 +4,6 @@
  */
 package model.FDA;
 
-import model.ingredientsupplier.*;
 import classes.Medicine;
 import util.sql.MedicineSqlQuery;
 
@@ -164,7 +163,7 @@ public class LabTestingJDialog extends javax.swing.JDialog {
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
         MedicineSqlQuery msq = new MedicineSqlQuery();
-        m.setMedicine_Status("Ingredients FullFilled");
+        m.setMedicine_Status("Lab Tested");
         msq.updateMedicine(m);
         setVisible(false);
     }//GEN-LAST:event_btnAcceptActionPerformed

@@ -7,6 +7,7 @@ package model.FDA;
 import classes.Medicine;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import util.sql.MedicineSqlQuery;
 
 /**
@@ -20,6 +21,7 @@ public class LabTestingJPanel extends javax.swing.JPanel {
      */
     public LabTestingJPanel() {
         initComponents();
+        populateTable();
     }
 
     /**
@@ -119,22 +121,46 @@ public class LabTestingJPanel extends javax.swing.JPanel {
 
     private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblMedicine.getSelectedRow() ;
+        int selectedRow = tblMedicine.getSelectedRow();
 
-        if(selectedRow<0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
             return;
         }
 
-        ArrayList<Medicine> mList =  new  ArrayList<>();
+        ArrayList<Medicine> mList = new ArrayList<>();
         MedicineSqlQuery msq = new MedicineSqlQuery();
         mList = msq.readAllMedicine();
         Medicine m = mList.get(selectedRow);
-        new RnDJDialog(null,true,m).show();
+        new LabTestingJDialog(null, true, m).show();
         populateTable();
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
+    private void populateTable() {
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
 
+        DefaultTableModel model = (DefaultTableModel) tblMedicine.getModel();
+        model.setRowCount(0);
+
+        for (Medicine e : mList) {
+            Object row[] = new Object[10];
+            row[0] = e.getMedicine_Name();
+            row[1] = e.getMedicine_Category();
+            row[2] = e.getDate_Of_Manufacture();
+            row[3] = e.getManufacturer_Name();
+            row[4] = e.getMedicine_Status();
+
+            if ((e.getMedicine_Status().equals("Licensing")) || 
+                    (e.getMedicine_Status().equals("Lab Tested")) ||
+                    (e.getMedicine_Status().equals("Rejected"))
+                    ) {
+                model.addRow(row);
+            }
+
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JButton btnNewOrder;

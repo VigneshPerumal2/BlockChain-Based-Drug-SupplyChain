@@ -124,7 +124,11 @@ public class FDAJPanel extends javax.swing.JPanel {
             row[3] = e.getManufacturer_Name();
             row[4] = e.getMedicine_Status();
 
-            if ((e.getMedicine_Status().equals("Licensing")) || (e.getMedicine_Status().equals("Ordered Ingredients"))) {
+            if ((e.getMedicine_Status().equals("Licensing")) ||
+                 (e.getMedicine_Status().equals("Lab Tested")) ||
+                    (e.getMedicine_Status().equals("Quality Control Checked")) ||
+                    (e.getMedicine_Status().equals("Ready for Shipment"))
+                    ) {
                 model.addRow(row);
             }
 

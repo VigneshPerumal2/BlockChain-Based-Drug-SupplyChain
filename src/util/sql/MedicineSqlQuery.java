@@ -18,21 +18,21 @@ import java.util.ArrayList;
  * @author amulyamurahari
  */
 public class MedicineSqlQuery {
-    
+
     /**
      * DataBase Connection Details
      */
     private final String URL = "jdbc:mysql://localhost:3306/AVS";
     private final String USER = "root";
     private final String PASSWORD = "!1qaz@2wsx";
-    
+
     /**
      * Medicine Queries
      */
     private static final String SQL_INSERT_MEDICINE = "INSERT INTO MEDICINE (Medicine_Name, Medicine_Status, Medicine_Category, Date_Of_Manufacture, Medicine_Shell_Life, Manufacturer_Name,Ingredients) VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_READ_MEDICINE = "SELECT * FROM MEDICINE";
-    
-   /**
+
+    /**
      *
      * @return int Create Medicine Function
      */
@@ -48,8 +48,7 @@ public class MedicineSqlQuery {
             preparedStatement.setInt(5, medicine.getShell_Life());
             preparedStatement.setString(6, medicine.getManufacturer_Name());
             preparedStatement.setString(7, medicine.getIngredients());
-            
-        
+
             System.out.println("Prepared Statement ->" + preparedStatement);
 
             int row = preparedStatement.executeUpdate();
@@ -60,14 +59,14 @@ public class MedicineSqlQuery {
         } catch (Exception e) {
         }
         return result;
-    }   
-    
+    }
+
     /**
      *
      * Select all medicine function
      */
     public ArrayList<Medicine> readAllMedicine() {
-        
+
         ArrayList<Medicine> record = new ArrayList<>();
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_MEDICINE)) {
@@ -85,6 +84,7 @@ public class MedicineSqlQuery {
                 String Ingredients = resultSet.getString(8);
 
                 Medicine obj = new Medicine();
+                obj.setId(id);
                 obj.setIngredients(Ingredients);
                 obj.setMedicine_Name(name);
                 obj.setMedicine_Status(status);
@@ -92,10 +92,10 @@ public class MedicineSqlQuery {
                 obj.setDate_Of_Manufacture(dom);
                 obj.setShell_Life(shell_life);
                 obj.setManufacturer_Name(manufacturer_name);
-                
-                record.add(obj);            
+
+                record.add(obj);
                 System.out.println(obj);
-            }      
+            }
 
         } catch (SQLException e) {
             System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
@@ -105,14 +105,14 @@ public class MedicineSqlQuery {
         return record;
 
     }
-    
-   /**
+
+    /**
      *
      * @return int Update Medicine Function
      */
     public int updateMedicine(Medicine medicine) {
         int result = 0;
-        String SQL_UPDATE_MEDICINE = "UPDATE MEDICINE SET Medicine_Name = ? ,Medicine_Status = ? ,Medicine_Category = ? , Date_Of_Manufacture = ?,Shell_Life = ?, Manufacturer_Name = ? WHERE Medicine_Name = ? ";
+        String SQL_UPDATE_MEDICINE = "UPDATE MEDICINE SET Medicine_Name = ? ,Medicine_Status = ? ,Medicine_Category = ? , Date_Of_Manufacture = ?,Medicine_Shell_Life = ?, Manufacturer_Name = ?,Ingredients=? WHERE Medicine_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_MEDICINE)) {
 
@@ -122,7 +122,9 @@ public class MedicineSqlQuery {
             preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
             preparedStatement.setInt(5, medicine.getShell_Life());
             preparedStatement.setString(6, medicine.getManufacturer_Name());
-        
+            preparedStatement.setString(7, medicine.getIngredients());
+            preparedStatement.setInt(8, medicine.getId());
+
             System.out.println("Prepared Statement ->" + preparedStatement);
 
             int row = preparedStatement.executeUpdate();
@@ -133,8 +135,8 @@ public class MedicineSqlQuery {
         } catch (Exception e) {
         }
         return result;
-    } 
-    
+    }
+
     /**
      *
      * @return int Delete Medicine Function
@@ -151,7 +153,7 @@ public class MedicineSqlQuery {
             preparedStatement.setDate(4, medicine.getDate_Of_Manufacture());
             preparedStatement.setInt(5, medicine.getShell_Life());
             preparedStatement.setString(6, medicine.getManufacturer_Name());
-        
+
             System.out.println("Prepared Statement ->" + preparedStatement);
 
             int row = preparedStatement.executeUpdate();
@@ -162,6 +164,6 @@ public class MedicineSqlQuery {
         } catch (Exception e) {
         }
         return result;
-    } 
-    
+    }
+
 }

@@ -4,7 +4,11 @@
  */
 package model.ingredientsupplier;
 
-import util.extras.MedicineDetailsJDialog;
+import classes.Medicine;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import util.sql.MedicineSqlQuery;
 
 /**
  *
@@ -16,10 +20,12 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
      * Creates new form IngredientSupplierJPanel
      */
     javax.swing.JSplitPane splitPane;
+
     public IngredientSupplierJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
-        this.splitPane=splitPane;
+        this.splitPane = splitPane;
         System.out.println("Inside IS Right");
+        populateTable();
     }
 
     /**
@@ -34,10 +40,10 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         PanelInventoryM = new javax.swing.JTabbedPane();
         panOrderManagement = new javax.swing.JPanel();
         lblOrderTable = new javax.swing.JLabel();
-        btnNewOrder = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblOrder = new javax.swing.JTable();
+        tblMedicine = new javax.swing.JTable();
+        btnNewOrder = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -58,23 +64,11 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
         lblOrderTable.setIconTextGap(10);
         panOrderManagement.add(lblOrderTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 24, 499, 56));
 
-        btnNewOrder.setBackground(new java.awt.Color(0, 153, 255));
-        btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnNewOrder.setText("VIEW");
-        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewOrderActionPerformed(evt);
-            }
-        });
-        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 680, 120, 34));
-
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         panOrderManagement.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 698, 110, 70));
 
-        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
+        tblMedicine.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -82,7 +76,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Medicine name", "Category", "Date Of Manufacturing", "Manufacturing Name", "Status"
+                "Medicine Name", "Medicine Category", "Date of Manufacturing", "Manufacturer Name", "Medicine Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -100,9 +94,21 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tblOrder);
+        jScrollPane2.setViewportView(tblMedicine);
 
-        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 764, 553));
+        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
+
+        btnNewOrder.setBackground(new java.awt.Color(0, 153, 255));
+        btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnNewOrder.setText("VIEW");
+        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewOrderActionPerformed(evt);
+            }
+        });
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
 
         PanelInventoryM.addTab("Logistics Department", panOrderManagement);
 
@@ -111,9 +117,42 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
 
     private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
         // TODO add your handling code here:
-       new MedicineDetailsJDialog(null,true).show();
-    }//GEN-LAST:event_btnNewOrderActionPerformed
+        int selectedRow = tblMedicine.getSelectedRow();
 
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
+
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        Medicine m = mList.get(selectedRow);
+        new IndgJDialog(null, true, m).show();
+        populateTable();
+    }//GEN-LAST:event_btnNewOrderActionPerformed
+    private void populateTable() {
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+
+        DefaultTableModel model = (DefaultTableModel) tblMedicine.getModel();
+        model.setRowCount(0);
+
+        for (Medicine e : mList) {
+            Object row[] = new Object[10];
+            row[0] = e.getMedicine_Name();
+            row[1] = e.getMedicine_Category();
+            row[2] = e.getDate_Of_Manufacture();
+            row[3] = e.getManufacturer_Name();
+            row[4] = e.getMedicine_Status();
+
+            if ( (e.getMedicine_Status().equals("Ordered Ingredients")) || e.getMedicine_Status().equals("Ingredients FullFilled") || e.getMedicine_Status().equals("Rejected")) {
+                model.addRow(row);
+            }
+
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
@@ -122,6 +161,6 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblOrderTable;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JPanel panOrderManagement;
-    private javax.swing.JTable tblOrder;
+    private javax.swing.JTable tblMedicine;
     // End of variables declaration//GEN-END:variables
 }

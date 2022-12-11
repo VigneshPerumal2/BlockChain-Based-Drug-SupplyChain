@@ -16,7 +16,7 @@ import java.lang.String;
  *
  * @author amulyamurahari
  */
-public class testEmail {
+public class EmailUtil {
     
     public static void sendMail(String recepient,String subject,String body) throws MessagingException{
     

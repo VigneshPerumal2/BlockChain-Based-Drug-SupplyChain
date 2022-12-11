@@ -4,8 +4,11 @@
  */
 package model.FDA;
 
-import model.manufacturer.*;
-import util.extras.MedicineDetailsJDialog;
+import classes.Medicine;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import util.sql.MedicineSqlQuery;
 
 /**
  *
@@ -18,6 +21,7 @@ public class LabTestingJPanel extends javax.swing.JPanel {
      */
     public LabTestingJPanel() {
         initComponents();
+        populateTable();
     }
 
     /**
@@ -34,9 +38,9 @@ public class LabTestingJPanel extends javax.swing.JPanel {
         panOrderManagement = new javax.swing.JPanel();
         lblOrderTable = new javax.swing.JLabel();
         lbllogo = new javax.swing.JLabel();
-        btnOrderView = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblOrder = new javax.swing.JTable();
+        tblMedicine = new javax.swing.JTable();
+        btnNewOrder = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 153, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,19 +72,7 @@ public class LabTestingJPanel extends javax.swing.JPanel {
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         panOrderManagement.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
 
-        btnOrderView.setBackground(new java.awt.Color(0, 153, 255));
-        btnOrderView.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnOrderView.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnOrderView.setText("VIEW");
-        btnOrderView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderViewActionPerformed(evt);
-            }
-        });
-        panOrderManagement.add(btnOrderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 130, 40));
-
-        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
+        tblMedicine.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -106,29 +98,77 @@ public class LabTestingJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tblOrder);
+        jScrollPane2.setViewportView(tblMedicine);
 
-        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 764, 440));
+        panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
+
+        btnNewOrder.setBackground(new java.awt.Color(0, 153, 255));
+        btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnNewOrder.setText("VIEW");
+        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewOrderActionPerformed(evt);
+            }
+        });
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
 
         PanelInventoryM.addTab("Manage License", panOrderManagement);
 
         add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 710));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnOrderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewActionPerformed
+    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
         // TODO add your handling code here:
-       new MedicineDetailsFDAJDialog(null,true).show();
-    }//GEN-LAST:event_btnOrderViewActionPerformed
+        int selectedRow = tblMedicine.getSelectedRow();
 
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
 
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        Medicine m = mList.get(selectedRow);
+        new LabTestingJDialog(null, true, m).show();
+        populateTable();
+    }//GEN-LAST:event_btnNewOrderActionPerformed
+
+    private void populateTable() {
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+
+        DefaultTableModel model = (DefaultTableModel) tblMedicine.getModel();
+        model.setRowCount(0);
+
+        for (Medicine e : mList) {
+            Object row[] = new Object[10];
+            row[0] = e.getMedicine_Name();
+            row[1] = e.getMedicine_Category();
+            row[2] = e.getDate_Of_Manufacture();
+            row[3] = e.getManufacturer_Name();
+            row[4] = e.getMedicine_Status();
+
+            if ((e.getMedicine_Status().equals("Licensing")) || 
+                    (e.getMedicine_Status().equals("Lab Tested")) ||
+                    (e.getMedicine_Status().equals("Rejected"))
+                    ) {
+                model.addRow(row);
+            }
+
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
-    private javax.swing.JButton btnOrderView;
+    private javax.swing.JButton btnNewOrder;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblOrderTable;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JPanel panOrderManagement;
-    private javax.swing.JTable tblOrder;
+    private javax.swing.JTable tblMedicine;
     // End of variables declaration//GEN-END:variables
 }

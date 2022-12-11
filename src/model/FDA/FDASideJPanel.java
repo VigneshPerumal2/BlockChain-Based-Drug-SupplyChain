@@ -5,9 +5,6 @@
 package model.FDA;
 
 import model.main.MainJFrame;
-import model.manufacturer.LicensingJPanel;
-import model.manufacturer.PackagingJPanel;
-import model.manufacturer.ResearchAndDevelopmentJPanel;
 
 /**
  *
@@ -88,7 +85,7 @@ public class FDASideJPanel extends javax.swing.JPanel {
         add(lbldepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 390, 400, 40));
 
         drpDepartment.setForeground(new java.awt.Color(102, 102, 102));
-        drpDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an Option...", "Quality Control", "Lab Testing" }));
+        drpDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an Option...", "Main Dashboard", "Lab Testing", "Quality Control" }));
         drpDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drpDepartmentActionPerformed(evt);
@@ -109,6 +106,9 @@ public class FDASideJPanel extends javax.swing.JPanel {
         }
         else if(drpDepartment.getSelectedItem().equals("Lab Testing")){
             splitPane.setRightComponent(new LabTestingJPanel());
+        }
+        else if(drpDepartment.getSelectedItem().equals("Main Dashboard")){
+            splitPane.setRightComponent(new FDAJPanel(splitPane));
         }
         
     }//GEN-LAST:event_drpDepartmentActionPerformed

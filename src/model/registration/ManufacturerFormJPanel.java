@@ -11,7 +11,7 @@ import util.sql.ManufacturerSqlQuery;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.sendmail.testEmail;
+//import model.sendmail.testEmail;
 /**
  *
  * @author sunayanashivanagi
@@ -336,12 +336,12 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         obj.setPhone_No(Phone_No);
         
         if (validation()) {
-            testEmail a = new testEmail();
-            try {
-                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Manufacturer account created successfully !");
-            } catch (Exception ex) {
-                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            testEmail a = new testEmail();
+//            try {
+//                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Manufacturer account created successfully !");
+//            } catch (Exception ex) {
+//                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             result = sql.createManufacturer(obj);        
         }
         if (result == 1) {

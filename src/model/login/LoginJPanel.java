@@ -10,6 +10,8 @@ import model.FDA.FDAJPanel;
 import model.FDA.FDASideJPanel;
 import model.distributor.DistributorJPanel;
 import model.distributor.DistributorSideJPanel;
+import model.hospital.HospitalJPanel;
+import model.hospital.HospitalSideJPanel;
 import model.ingredientsupplier.IngredientSupplierJPanel;
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
 import model.manufacturer.ManufacturerSideJPanel;
@@ -195,6 +197,13 @@ public class LoginJPanel extends javax.swing.JPanel {
             splitPane.setLeftComponent(new DistributorSideJPanel(splitPane));
             splitPane.setRightComponent(new DistributorJPanel());
         }
+        
+        //Hospital Login    
+         else if (drpRole.getSelectedItem().equals("Hospital")) {
+            splitPane.setLeftComponent(new HospitalSideJPanel());
+            splitPane.setRightComponent(new HospitalJPanel());
+        }
+
 
     }//GEN-LAST:event_btnSignInActionPerformed
     public void formReset() {

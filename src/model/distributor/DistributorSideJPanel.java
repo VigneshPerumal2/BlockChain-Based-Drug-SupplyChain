@@ -15,8 +15,10 @@ public class DistributorSideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DistributorSideJPanel
      */
-    public DistributorSideJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public DistributorSideJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane= splitPane;
     }
 
     /**

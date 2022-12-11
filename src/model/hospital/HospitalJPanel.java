@@ -4,6 +4,17 @@
  */
 package model.hospital;
 
+import classes.Medicine;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import util.sql.MedicineSqlQuery;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +24,37 @@ public class HospitalJPanel extends javax.swing.JPanel {
     /**
      * Creates new form HospitalJPanel
      */
+    DefaultPieDataset manfDataset;
+    DefaultPieDataset categoryDataset;
+
     public HospitalJPanel() {
         initComponents();
+        populateTable();
+        this.manfDataset = new DefaultPieDataset();
+        this.categoryDataset = new DefaultPieDataset();
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        HashMap<String, Integer> manufacturerMap = new HashMap<>();
+        HashMap<String, Integer> categoryMap = new HashMap<>();
+
+        for (Medicine m : mList) {
+            if (manufacturerMap.containsKey(m.getManufacturer_Name())) {
+                int old = manufacturerMap.get(m.getManufacturer_Name());
+                manufacturerMap.put(m.getManufacturer_Name(), old + 1);
+            } else {
+                manufacturerMap.put(m.getManufacturer_Name(), 0);
+            }
+            if (categoryMap.containsKey(m.getMedicine_Category())) {
+                int old = categoryMap.get(m.getMedicine_Category());
+                categoryMap.put(m.getMedicine_Category(), old + 1);
+            } else {
+                categoryMap.put(m.getMedicine_Category(), 0);
+            }
+        }
+        manufacturerMap.forEach((k, v) -> this.manfDataset.setValue(k, v));
+        categoryMap.forEach((k, v) -> this.categoryDataset.setValue(k, v));
+
     }
 
     /**
@@ -210,18 +250,18 @@ public class HospitalJPanel extends javax.swing.JPanel {
 
     private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblMedicine.getSelectedRow() ;
+        int selectedRow = tblMedicine.getSelectedRow();
 
-        if(selectedRow<0){
+        if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
             return;
         }
 
-        ArrayList<Medicine> mList =  new  ArrayList<>();
+        ArrayList<Medicine> mList = new ArrayList<>();
         MedicineSqlQuery msq = new MedicineSqlQuery();
         mList = msq.readAllMedicine();
         Medicine m = mList.get(selectedRow);
-        new DistributorJDialog(null,true,m).show();
+        new HospitalJDialog(null, true, m).show();
         populateTable();
     }//GEN-LAST:event_btnNewOrderActionPerformed
 
@@ -244,7 +284,28 @@ public class HospitalJPanel extends javax.swing.JPanel {
     private void btnNewOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrder1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNewOrder1ActionPerformed
+    private void populateTable() {
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
 
+        DefaultTableModel model = (DefaultTableModel) tblMedicine.getModel();
+        model.setRowCount(0);
+
+        for (Medicine e : mList) {
+            Object row[] = new Object[10];
+            row[0] = e.getMedicine_Name();
+            row[1] = e.getMedicine_Category();
+            row[2] = e.getDate_Of_Manufacture();
+            row[3] = e.getManufacturer_Name();
+            row[4] = e.getMedicine_Status();
+
+            if ((e.getMedicine_Status().equals("Available"))) {
+                model.addRow(row);
+            }
+
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Inventory;

@@ -61,7 +61,6 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         lblLocation = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         valLocation = new javax.swing.JLabel();
-        datechooserDateOfEst = new com.toedter.calendar.JDateChooser();
         lblEmailId = new javax.swing.JLabel();
         valEmailId = new javax.swing.JLabel();
         txtEmailId = new javax.swing.JTextField();
@@ -71,6 +70,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         txtPhoneNumber = new javax.swing.JTextField();
         lblPhoneNumber = new javax.swing.JLabel();
         valPhoneNumber = new javax.swing.JLabel();
+        datechooserDateOfEst = new com.toedter.calendar.JDateChooser();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -183,7 +183,6 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         valLocation.setForeground(new java.awt.Color(255, 61, 0));
         valLocation.setText("Please enter valid Location");
         jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 20));
-        jPanel2.add(datechooserDateOfEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 290, 40));
 
         lblEmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmailId.setForeground(new java.awt.Color(102, 102, 102));
@@ -226,6 +225,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         valPhoneNumber.setForeground(new java.awt.Color(255, 61, 0));
         valPhoneNumber.setText("Please enter valid Phone Number");
         jPanel2.add(valPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, 290, 20));
+        jPanel2.add(datechooserDateOfEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 290, -1));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -361,12 +361,6 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         obj.setPassword(Password);
 
         if (validation()) {
-            testEmail a = new testEmail();
-            try {
-                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Distributor account created successfully !");
-            } catch (Exception ex) {
-                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
             result = sql.createDistributor(obj);
         }
         if (result == 1) {

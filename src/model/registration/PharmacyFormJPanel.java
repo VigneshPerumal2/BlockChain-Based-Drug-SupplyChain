@@ -238,12 +238,6 @@ public class PharmacyFormJPanel extends javax.swing.JPanel {
         
         
         if (validation()) {
-            testEmail a = new testEmail();
-            try {
-                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Pharmacy account created successfully !");
-            } catch (Exception ex) {
-                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
             result = sql.createPharmacy(obj);        
         }
         if (result == 1) {

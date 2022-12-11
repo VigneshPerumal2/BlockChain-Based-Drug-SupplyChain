@@ -336,12 +336,6 @@ public class ManufacturerFormJPanel extends javax.swing.JPanel {
         obj.setPhone_No(Phone_No);
         
         if (validation()) {
-            testEmail a = new testEmail();
-            try {
-                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Manufacturer account created successfully !");
-            } catch (Exception ex) {
-                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
             result = sql.createManufacturer(obj);        
         }
         if (result == 1) {

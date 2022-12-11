@@ -82,8 +82,8 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnResetMed = new javax.swing.JButton();
         btnsubmitMed = new javax.swing.JButton();
-        dateDOM = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
+        dateDOM = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(51, 153, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -292,7 +292,6 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
             }
         });
         panInventoryManagement.add(btnsubmitMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 140, 40));
-        panInventoryManagement.add(dateDOM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 290, 30));
 
         jButton1.setText("View Proportions");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -301,6 +300,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
             }
         });
         panInventoryManagement.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, -1, -1));
+        panInventoryManagement.add(dateDOM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 290, -1));
 
         PanelInventoryM.addTab("Create Medicine", panInventoryManagement);
 

@@ -169,7 +169,7 @@ public class DistributorJPanel extends javax.swing.JPanel {
                 btnViewManufacturerActionPerformed(evt);
             }
         });
-        Inventory.add(btnViewManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 583, -1, 30));
+        Inventory.add(btnViewManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 590, -1, -1));
 
         btnViewCategory.setText("View Category");
         btnViewCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -177,7 +177,7 @@ public class DistributorJPanel extends javax.swing.JPanel {
                 btnViewCategoryActionPerformed(evt);
             }
         });
-        Inventory.add(btnViewCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 583, 140, 30));
+        Inventory.add(btnViewCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 590, -1, -1));
 
         PanelInventoryM.addTab("Inventory", Inventory);
 

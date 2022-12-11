@@ -149,7 +149,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         Password1.setText("Password");
         add(Password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 350, 30));
 
-        drpRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Super Admin", "Community Admin", "Ingredient Supplier", "Manufacturer", "FDA", "Distributor", "Pharmacy", "Hospital", "Super Admin" }));
+        drpRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Ingredient Supplier", "Manufacturer", "FDA", "Distributor", "Pharmacy", "Hospital", "Super Admin" }));
         drpRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 drpRoleActionPerformed(evt);
@@ -188,12 +188,6 @@ public class LoginJPanel extends javax.swing.JPanel {
             splitPane.setLeftComponent(new FDASideJPanel(splitPane));
             splitPane.setRightComponent(new FDAJPanel(splitPane));
 
-        }
-        
-        //Distributor Login    
-         else if (drpRole.getSelectedItem().equals("Distributor")) {
-            splitPane.setLeftComponent(new DistributorSideJPanel(splitPane));
-            splitPane.setRightComponent(new DistributorJPanel());
         }
         
         //Distributor Login    

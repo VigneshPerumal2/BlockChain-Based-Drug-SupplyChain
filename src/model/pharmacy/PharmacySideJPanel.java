@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package model.hospital;
+package model.pharmacy;
 
 import model.main.MainJFrame;
 
@@ -10,12 +10,12 @@ import model.main.MainJFrame;
  *
  * @author sunayanashivanagi
  */
-public class HospitalSideJPanel extends javax.swing.JPanel {
+public class PharmacySideJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form HospitalSideJPanel
+     * Creates new form PharmacySideJPanel
      */
-    public HospitalSideJPanel() {
+    public PharmacySideJPanel() {
         initComponents();
     }
 
@@ -36,13 +36,14 @@ public class HospitalSideJPanel extends javax.swing.JPanel {
         lblGIF = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblRoleHeadingDistributor.setBackground(new java.awt.Color(204, 204, 255));
         lblRoleHeadingDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 25)); // NOI18N
         lblRoleHeadingDistributor.setForeground(new java.awt.Color(102, 102, 102));
         lblRoleHeadingDistributor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRoleHeadingDistributor.setText("Hospital Dashboard");
+        lblRoleHeadingDistributor.setText("Pharmacy Dashboard");
         add(lblRoleHeadingDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 400, 50));
 
         lblavslogod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,8 +68,8 @@ public class HospitalSideJPanel extends javax.swing.JPanel {
         });
         add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 140, 40));
 
-        imgDistributor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/HospitalL.jpg"))); // NOI18N
-        add(imgDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 400, 240));
+        imgDistributor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/PLogo.jpg"))); // NOI18N
+        add(imgDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 400, 270));
 
         lblGIF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGIF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N

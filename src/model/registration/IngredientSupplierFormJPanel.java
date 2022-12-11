@@ -10,7 +10,7 @@ import util.sql.IngredientSupplierSqlQuery;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.sendmail.testEmail;
+//import model.sendmail.testEmail;
 
 /**
  *
@@ -250,12 +250,12 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         obj.setPassword(Password);
         
         if (validation()) {
-            testEmail a = new testEmail();
-            try {
-                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Ingredient Supplier account created successfully !");
-            } catch (Exception ex) {
-                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            testEmail a = new testEmail();
+//            try {
+//                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Ingredient Supplier account created successfully !");
+//            } catch (Exception ex) {
+//                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             result = sql.createIngredientSupplier(obj);        
         }
         if (result == 1) {

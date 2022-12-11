@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author amulyamurahari
  */
-public class Pharmacy_Order_Book {
+public class Pharmacy_OrderBook_SqlQuery {
     /**
      * DataBase Connection Details
      */
@@ -26,14 +26,14 @@ public class Pharmacy_Order_Book {
     private final String PASSWORD = "!1qaz@2wsx";
 
     /**
-     * Ingredient_Supplier_Order_Book Queries
+     * Pharmacy_Order_Book Queries
      */
-    private static final String SQL_INSERT_PHARMACY_ORDER_BOOK = "INSERT INTO PHARMACY_ORDER_BOOK (Pharmacy_Order_Book_Id, Medicine_Id, Distributor_Id, Pharmacy_Id) VALUES (?,?,?,?)";
+    private static final String SQL_INSERT_PHARMACY_ORDER_BOOK = "INSERT INTO PHARMACY_ORDER_BOOK (Pharmacy_Order_Book_Id, Medicine_Id, Distributor_Id, Pharmacy_Id, Status) VALUES (?,?,?,?,?)";
     private static final String SQL_READ_PHARMACY_ORDER_BOOK = "SELECT * FROM PHARMACY_ORDER_BOOK";
     
     /**
      *
-     * @return int Create Ingredient_Supplier_Order_Book Function
+     * @return int Create Pharmacy_Order_Book Function
      */
     public int createPharmacyOrderBook(PharmacyOrderBook pharmacyOrderBook) {
         int result = 0;
@@ -44,6 +44,7 @@ public class Pharmacy_Order_Book {
             preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
             preparedStatement.setInt(3, pharmacyOrderBook.getDistributor_Id());
             preparedStatement.setInt(4, pharmacyOrderBook.getPharmacy_Id());
+            preparedStatement.setString(5, pharmacyOrderBook.getStatus());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -59,7 +60,7 @@ public class Pharmacy_Order_Book {
   
    /**
      *
-     * Select all ingredient supplier function
+     * Select all pharmacy function
      */
     public ArrayList<PharmacyOrderBook> readAllPharmacyOrderBook() {
         
@@ -75,6 +76,7 @@ public class Pharmacy_Order_Book {
                 int medicine_id = resultSet.getInt(2);
                 int distributor_id = resultSet.getInt(3);
                 int pharm_id = resultSet.getInt(4);
+                String status = resultSet.getString(5);
                
 
                 PharmacyOrderBook obj = new PharmacyOrderBook();
@@ -82,7 +84,7 @@ public class Pharmacy_Order_Book {
                 obj.setMedicine_Id(medicine_id);
                 obj.setDistributor_Id(distributor_id);
                 obj.setPharmacy_Id(pharm_id);
-                
+                obj.setStatus(status);
                 
                 record.add(obj);            
                 System.out.println(obj);
@@ -99,11 +101,11 @@ public class Pharmacy_Order_Book {
 
      /**
      *
-     * @return int Update Ingredient_Supplier Function
+     * @return int Update pharmacy Function
      */
     public int updatePharmacyOrderBook(PharmacyOrderBook pharmacyOrderBook) {
         int result = 0;
-        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "UPDATE PHARMACY SET Pharmacy_Order_Book_Id = ?,Medicine_Id = ?,Distributor_Id = ?, Pharmacy_Id = ? WHERE Pharmacy_Order_Book_Id = ? ";
+        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "UPDATE PHARMACY SET Pharmacy_Order_Book_Id = ?,Medicine_Id = ?,Distributor_Id = ?, Pharmacy_Id = ?, Status = ? WHERE Pharmacy_Order_Book_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_PHARMACY_ORDER_BOOK)) {
 
@@ -111,7 +113,7 @@ public class Pharmacy_Order_Book {
             preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
             preparedStatement.setInt(3, pharmacyOrderBook.getDistributor_Id());
             preparedStatement.setInt(4, pharmacyOrderBook.getPharmacy_Id());
-           
+            preparedStatement.setString(5, pharmacyOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -128,7 +130,7 @@ public class Pharmacy_Order_Book {
     
     /**
      *
-     * @return int Update Ingredient_Supplier Function
+     * @return int Update pharmacy Function
      */
     public int deletePharmacyOrderBook(PharmacyOrderBook pharmacyOrderBook) {
         int result = 0;
@@ -140,7 +142,7 @@ public class Pharmacy_Order_Book {
             preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
             preparedStatement.setInt(3, pharmacyOrderBook.getDistributor_Id());
             preparedStatement.setInt(4, pharmacyOrderBook.getPharmacy_Id());
-           
+            preparedStatement.setString(5, pharmacyOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);

@@ -10,7 +10,7 @@ import util.sql.IngredientSupplierSqlQuery;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.sendmail.EmailUtil;
+import model.sendmail.testEmail;
 
 /**
  *
@@ -54,6 +54,7 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
+        datechooserDateofEst = new com.toedter.calendar.JDateChooser();
         comboboxCategory = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         lblEmailId = new javax.swing.JLabel();
@@ -65,7 +66,6 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         valPassword = new javax.swing.JLabel();
-        datechooserDateofEst = new com.toedter.calendar.JDateChooser();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -150,6 +150,7 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
+        jPanel2.add(datechooserDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 290, 30));
 
         comboboxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicines", "Cosmetics", "Instruments", "Surgical", "Drugs" }));
         comboboxCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +205,6 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         valPassword.setForeground(new java.awt.Color(255, 61, 0));
         valPassword.setText("Please enter valid Password");
         jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 540, 290, 20));
-        jPanel2.add(datechooserDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 290, 30));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -250,7 +250,7 @@ public class IngredientSupplierFormJPanel extends javax.swing.JPanel {
         obj.setPassword(Password);
         
         if (validation()) {
-            EmailUtil a = new EmailUtil();
+            testEmail a = new testEmail();
             try {
                 a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Ingredient Supplier account created successfully !");
             } catch (Exception ex) {

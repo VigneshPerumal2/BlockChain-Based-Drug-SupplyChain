@@ -9,7 +9,7 @@ import classes.Patient;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.sendmail.EmailUtil;
+import model.sendmail.testEmail;
 import util.sql.FDASqlQuery;
 
 /**
@@ -234,7 +234,7 @@ public class FDAFormJPanel extends javax.swing.JPanel {
          
          System.out.println("FDA Object->"+obj);
           if (validation()) {
-              EmailUtil a = new EmailUtil();
+              testEmail a = new testEmail();
             try {
                 a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","FDA account created successfully !");
             } catch (Exception ex) {

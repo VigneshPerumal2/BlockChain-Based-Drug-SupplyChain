@@ -5,12 +5,14 @@
 package model.registration;
 
 import classes.Distributor;
+import classes.Manufacturer;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.sendmail.EmailUtil;
+import model.sendmail.testEmail;
 import util.sql.DistributorSqlQuery;
+import util.sql.ManufacturerSqlQuery;
 
 /**
  *
@@ -23,6 +25,7 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
      */
     private boolean validation;
     javax.swing.JSplitPane splitPane;
+
     public DistributorFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane = splitPane;
@@ -358,9 +361,9 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
         obj.setPassword(Password);
 
         if (validation()) {
-            EmailUtil a = new EmailUtil();
+            testEmail a = new testEmail();
             try {
-                a.sendMail("avs.pharmacy@yahoo.com","AVS Pharmacy -  Account Creation","Distributor account created successfully !");
+                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Distributor account created successfully !");
             } catch (Exception ex) {
                 Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
             }

@@ -11,7 +11,7 @@ import util.sql.HospitalSqlQuery;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.sendmail.EmailUtil;
+import model.sendmail.testEmail;
 
 /**
  *
@@ -331,7 +331,7 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
         obj.setPhone_No(Phone_No);
         
         if (validation()) {
-            EmailUtil a = new EmailUtil();
+            testEmail a = new testEmail();
             try {
                 a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Hospital account created successfully !");
             } catch (Exception ex) {

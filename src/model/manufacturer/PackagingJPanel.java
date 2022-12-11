@@ -4,6 +4,12 @@
  */
 package model.manufacturer;
 
+import classes.Medicine;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import util.sql.MedicineSqlQuery;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +19,18 @@ public class PackagingJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PackagingJPanel
      */
-    public PackagingJPanel() {
+    javax.swing.JSplitPane splitPane;
+    ArrayList<Medicine> mList = new ArrayList<>();
+    public PackagingJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        populateTable();
+        
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        this.mList = msq.readAllMedicine();
+        this.splitPane=splitPane;
+        for(Medicine m:mList){
+            drpMedicineName.addItem(m.getMedicine_Name());
+        }
     }
 
     /**
@@ -32,32 +48,25 @@ public class PackagingJPanel extends javax.swing.JPanel {
         lblOrderTable = new javax.swing.JLabel();
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblOrder = new javax.swing.JTable();
-        btnOrderView = new javax.swing.JButton();
-        btnOrderDelete = new javax.swing.JButton();
+        tblMedicine = new javax.swing.JTable();
+        btnNewOrder = new javax.swing.JButton();
         panInventoryManagement = new javax.swing.JPanel();
         lbllogo1 = new javax.swing.JLabel();
         lblMedicineName = new javax.swing.JLabel();
-        txtMedicineName = new javax.swing.JTextField();
-        valMedName = new javax.swing.JLabel();
         lblMedStatus = new javax.swing.JLabel();
         lblMedCategory = new javax.swing.JLabel();
         lblManufacturerN = new javax.swing.JLabel();
-        txtManufacturerName = new javax.swing.JTextField();
-        valManufacturerName = new javax.swing.JLabel();
-        lblDOM = new javax.swing.JLabel();
         lblShellLife = new javax.swing.JLabel();
-        drpStatusofMedicine = new javax.swing.JComboBox<>();
-        comboCategoryMed = new javax.swing.JComboBox<>();
-        spinShellLife = new javax.swing.JSpinner();
-        btnResetMed = new javax.swing.JButton();
+        drpMedicineName = new javax.swing.JComboBox<>();
+        spinPrice = new javax.swing.JSpinner();
         btnsubmitMed = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         lblMedicineName1 = new javax.swing.JLabel();
-        txtMedicineName1 = new javax.swing.JTextField();
-        valMedName1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        drpLocation = new javax.swing.JComboBox<>();
+        txtQuantity1 = new javax.swing.JSpinner();
+        comboCategoryMed2 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(0, 153, 255));
 
@@ -87,7 +96,7 @@ public class PackagingJPanel extends javax.swing.JPanel {
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         panOrderManagement.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
 
-        tblOrder.setModel(new javax.swing.table.DefaultTableModel(
+        tblMedicine.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -95,11 +104,11 @@ public class PackagingJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Ingredient Id", "Transaction Id", "Manufacturer Id", "Quantity", "Price"
+                "Medicine Name", "Medicine Category", "Date of Manufacturing", "Manufacturer Name", "Medicine Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -113,27 +122,21 @@ public class PackagingJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tblOrder);
+        jScrollPane2.setViewportView(tblMedicine);
 
         panOrderManagement.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
 
-        btnOrderView.setBackground(new java.awt.Color(0, 153, 255));
-        btnOrderView.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        btnOrderView.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnOrderView.setText("VIEW");
-        btnOrderView.addActionListener(new java.awt.event.ActionListener() {
+        btnNewOrder.setBackground(new java.awt.Color(0, 153, 255));
+        btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnNewOrder.setText("VIEW");
+        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderViewActionPerformed(evt);
+                btnNewOrderActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnOrderView, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, 130, 40));
-
-        btnOrderDelete.setBackground(new java.awt.Color(255, 0, 51));
-        btnOrderDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrderDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
-        btnOrderDelete.setText("DELETE");
-        panOrderManagement.add(btnOrderDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 590, 120, 40));
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
 
         PanelInventoryM.addTab("Manage Package", panOrderManagement);
 
@@ -150,21 +153,10 @@ public class PackagingJPanel extends javax.swing.JPanel {
         lblMedicineName.setText("Price");
         panInventoryManagement.add(lblMedicineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 290, 30));
 
-        txtMedicineName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMedicineNameActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(txtMedicineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 250, 30));
-
-        valMedName.setForeground(new java.awt.Color(255, 61, 0));
-        valMedName.setText("Please enter valid price");
-        panInventoryManagement.add(valMedName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 290, 20));
-
         lblMedStatus.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblMedStatus.setForeground(new java.awt.Color(102, 102, 102));
         lblMedStatus.setText(" Status");
-        panInventoryManagement.add(lblMedStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 290, 30));
+        panInventoryManagement.add(lblMedStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 290, 30));
 
         lblMedCategory.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblMedCategory.setForeground(new java.awt.Color(102, 102, 102));
@@ -176,57 +168,21 @@ public class PackagingJPanel extends javax.swing.JPanel {
         lblManufacturerN.setText("Location");
         panInventoryManagement.add(lblManufacturerN, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 290, 30));
 
-        txtManufacturerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtManufacturerNameActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(txtManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 290, 30));
-
-        valManufacturerName.setForeground(new java.awt.Color(255, 61, 0));
-        valManufacturerName.setText("Please enter valid location");
-        panInventoryManagement.add(valManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 290, 20));
-
-        lblDOM.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblDOM.setForeground(new java.awt.Color(102, 102, 102));
-        lblDOM.setText("Distributor");
-        panInventoryManagement.add(lblDOM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 290, 30));
-
         lblShellLife.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblShellLife.setForeground(new java.awt.Color(102, 102, 102));
         lblShellLife.setText("Quantity");
         panInventoryManagement.add(lblShellLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 290, 30));
 
-        drpStatusofMedicine.setForeground(new java.awt.Color(0, 0, 153));
-        drpStatusofMedicine.addActionListener(new java.awt.event.ActionListener() {
+        drpMedicineName.setForeground(new java.awt.Color(0, 0, 153));
+        drpMedicineName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                drpStatusofMedicineActionPerformed(evt);
+                drpMedicineNameActionPerformed(evt);
             }
         });
-        panInventoryManagement.add(drpStatusofMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 290, 30));
+        panInventoryManagement.add(drpMedicineName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, 30));
 
-        comboCategoryMed.setForeground(new java.awt.Color(0, 0, 153));
-        comboCategoryMed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paperboard boxes", "Corrugated boxes", "Plastic boxes", "Rigid boxes", "Chipboard packaging", "Poly bags", "Foil sealed bags" }));
-        comboCategoryMed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboCategoryMedActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(comboCategoryMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 290, 30));
-        panInventoryManagement.add(spinShellLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 80, 30));
-
-        btnResetMed.setBackground(new java.awt.Color(255, 51, 0));
-        btnResetMed.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnResetMed.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetMed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Reverse.png"))); // NOI18N
-        btnResetMed.setText("RESET");
-        btnResetMed.setIconTextGap(10);
-        btnResetMed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetMedActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(btnResetMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 140, 40));
+        spinPrice.setModel(new javax.swing.SpinnerNumberModel(50, 1, 1000, 20));
+        panInventoryManagement.add(spinPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 80, 30));
 
         btnsubmitMed.setBackground(new java.awt.Color(0, 153, 0));
         btnsubmitMed.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -239,41 +195,52 @@ public class PackagingJPanel extends javax.swing.JPanel {
                 btnsubmitMedActionPerformed(evt);
             }
         });
-        panInventoryManagement.add(btnsubmitMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 140, 40));
+        panInventoryManagement.add(btnsubmitMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 350, 40));
 
-        jTextField1.setText("Ready for Distribution");
+        jTextField1.setText("Available");
+        jTextField1.setEnabled(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        panInventoryManagement.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 280, 30));
+        panInventoryManagement.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 280, 30));
 
         lblMedicineName1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblMedicineName1.setForeground(new java.awt.Color(102, 102, 102));
         lblMedicineName1.setText("Medicine Name");
         panInventoryManagement.add(lblMedicineName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 290, 30));
 
-        txtMedicineName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMedicineName1ActionPerformed(evt);
-            }
-        });
-        panInventoryManagement.add(txtMedicineName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, 30));
-
-        valMedName1.setForeground(new java.awt.Color(255, 61, 0));
-        valMedName1.setText("Please enter valid medicine name");
-        panInventoryManagement.add(valMedName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 290, 20));
-
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("USD");
-        panInventoryManagement.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, 30));
+        panInventoryManagement.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
         jLabel3.setText("KG");
         panInventoryManagement.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 30, 30));
+
+        drpLocation.setForeground(new java.awt.Color(0, 0, 153));
+        drpLocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "New york", "California", "Seattle", "Dallas", "New Jersey" }));
+        drpLocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drpLocationActionPerformed(evt);
+            }
+        });
+        panInventoryManagement.add(drpLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 290, 30));
+
+        txtQuantity1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        panInventoryManagement.add(txtQuantity1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 80, 30));
+
+        comboCategoryMed2.setForeground(new java.awt.Color(0, 0, 153));
+        comboCategoryMed2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paperboard boxes", "Corrugated boxes", "Plastic boxes", "Rigid boxes", "Chipboard packaging", "Poly bags", "Foil sealed bags" }));
+        comboCategoryMed2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCategoryMed2ActionPerformed(evt);
+            }
+        });
+        panInventoryManagement.add(comboCategoryMed2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 290, 30));
 
         PanelInventoryM.addTab("Create Package", panInventoryManagement);
 
@@ -303,58 +270,85 @@ public class PackagingJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnOrderViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewActionPerformed
-        // TODO add your handling code here:
-         new MedicineDetailsManufacturerJDialog(null,true).show();
-    }//GEN-LAST:event_btnOrderViewActionPerformed
-
-    private void txtMedicineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicineNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMedicineNameActionPerformed
-
-    private void txtManufacturerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtManufacturerNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtManufacturerNameActionPerformed
-
-    private void drpStatusofMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpStatusofMedicineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_drpStatusofMedicineActionPerformed
-
-    private void btnResetMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetMedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetMedActionPerformed
-
     private void btnsubmitMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitMedActionPerformed
         // TODO add your handling code here:
+         MedicineSqlQuery msq = new MedicineSqlQuery();
+         Medicine m = mList.get(drpMedicineName.getSelectedIndex());
+        m.setMedicine_Status("Available");
+        msq.updateMedicine(m);
+        populateTable();
+        splitPane.setRightComponent(new SubmitGifJPanel());
     }//GEN-LAST:event_btnsubmitMedActionPerformed
 
-    private void txtMedicineName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMedicineName1ActionPerformed
+    private void drpMedicineNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpMedicineNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMedicineName1ActionPerformed
-
-    private void comboCategoryMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryMedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboCategoryMedActionPerformed
+    }//GEN-LAST:event_drpMedicineNameActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblMedicine.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
+
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        Medicine m = mList.get(selectedRow);
+        new PackagingJDialog(null, true, m).show();
+        populateTable();
+    }//GEN-LAST:event_btnNewOrderActionPerformed
+
+    private void drpLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpLocationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_drpLocationActionPerformed
+
+    private void comboCategoryMed2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryMed2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboCategoryMed2ActionPerformed
+    private void populateTable() {
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+
+        DefaultTableModel model = (DefaultTableModel) tblMedicine.getModel();
+        model.setRowCount(0);
+
+        for (Medicine e : mList) {
+            Object row[] = new Object[10];
+            row[0] = e.getMedicine_Name();
+            row[1] = e.getMedicine_Category();
+            row[2] = e.getDate_Of_Manufacture();
+            row[3] = e.getManufacturer_Name();
+            row[4] = e.getMedicine_Status();
+
+            if ((e.getMedicine_Status().equals("Ready for Shipment"))
+                    || (e.getMedicine_Status().equals("Rejected"))||
+                    (e.getMedicine_Status().equals("Available")) ){
+                model.addRow(row);
+            }
+
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PanelInventoryM;
-    private javax.swing.JButton btnOrderDelete;
-    private javax.swing.JButton btnOrderView;
-    private javax.swing.JButton btnResetMed;
+    private javax.swing.JButton btnNewOrder;
     private javax.swing.JButton btnsubmitMed;
-    private javax.swing.JComboBox<String> comboCategoryMed;
-    private javax.swing.JComboBox<String> drpStatusofMedicine;
+    private javax.swing.JComboBox<String> comboCategoryMed2;
+    private javax.swing.JComboBox<String> drpLocation;
+    private javax.swing.JComboBox<String> drpMedicineName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblDOM;
     private javax.swing.JLabel lblManufacturerN;
     private javax.swing.JLabel lblMedCategory;
     private javax.swing.JLabel lblMedStatus;
@@ -366,13 +360,8 @@ public class PackagingJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lbllogo1;
     private javax.swing.JPanel panInventoryManagement;
     private javax.swing.JPanel panOrderManagement;
-    private javax.swing.JSpinner spinShellLife;
-    private javax.swing.JTable tblOrder;
-    private javax.swing.JTextField txtManufacturerName;
-    private javax.swing.JTextField txtMedicineName;
-    private javax.swing.JTextField txtMedicineName1;
-    private javax.swing.JLabel valManufacturerName;
-    private javax.swing.JLabel valMedName;
-    private javax.swing.JLabel valMedName1;
+    private javax.swing.JSpinner spinPrice;
+    private javax.swing.JTable tblMedicine;
+    private javax.swing.JSpinner txtQuantity1;
     // End of variables declaration//GEN-END:variables
 }

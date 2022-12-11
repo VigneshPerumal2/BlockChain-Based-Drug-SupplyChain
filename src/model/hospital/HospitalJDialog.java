@@ -4,11 +4,6 @@
  */
 package model.hospital;
 
-import model.distributor.*;
-import model.manufacturer.*;
-import classes.Medicine;
-import util.sql.MedicineSqlQuery;
-
 /**
  *
  * @author sunayanashivanagi
@@ -16,20 +11,11 @@ import util.sql.MedicineSqlQuery;
 public class HospitalJDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form MedicineDetailsJDialog
+     * Creates new form HospitalJDialog
      */
-    private static Medicine m;
-    public HospitalJDialog(java.awt.Frame parent, boolean modal,Medicine m) {
+    public HospitalJDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.m = m;
-        lblCategory.setText(m.getMedicine_Category());
-        lblDate.setText(String.valueOf(m.getDate_Of_Manufacture()));
-        lblManufacturer.setText(m.getManufacturer_Name());
-        lblMedicineName.setText(m.getMedicine_Name());
-        lblShellLife.setText(String.valueOf(m.getShell_Life()));
-        txtAreaIng.setText(m.getIngredients());
-        
     }
 
     /**
@@ -60,7 +46,6 @@ public class HospitalJDialog extends javax.swing.JDialog {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
@@ -156,10 +141,10 @@ public class HospitalJDialog extends javax.swing.JDialog {
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
-         MedicineSqlQuery msq = new MedicineSqlQuery();
-         m.setMedicine_Status("Rejected");
-         msq.updateMedicine(m);
-         setVisible(false);
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        m.setMedicine_Status("Rejected");
+        msq.updateMedicine(m);
+        setVisible(false);
     }//GEN-LAST:event_btnRejectActionPerformed
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
@@ -196,42 +181,11 @@ public class HospitalJDialog extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(HospitalJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                HospitalJDialog dialog = new HospitalJDialog(new javax.swing.JFrame(), true, m);
+                HospitalJDialog dialog = new HospitalJDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

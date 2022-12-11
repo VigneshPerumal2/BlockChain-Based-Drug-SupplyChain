@@ -75,6 +75,7 @@ public class HospitalJPanel extends javax.swing.JPanel {
         btnNewOrder = new javax.swing.JButton();
         btnViewManufacturer = new javax.swing.JButton();
         btnViewCategory = new javax.swing.JButton();
+        lbllogo2 = new javax.swing.JLabel();
         Pharmacy_Orders = new javax.swing.JPanel();
         lbllogo1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -144,7 +145,7 @@ public class HospitalJPanel extends javax.swing.JPanel {
         btnViewManufacturer.setBackground(new java.awt.Color(255, 102, 102));
         btnViewManufacturer.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnViewManufacturer.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewManufacturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BlockChain-Based-Drug-SupplyChain/src/util/images/Chart.png"))); // NOI18N
+        btnViewManufacturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Chart.png"))); // NOI18N
         btnViewManufacturer.setText("CHART1");
         btnViewManufacturer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +166,10 @@ public class HospitalJPanel extends javax.swing.JPanel {
             }
         });
         Inventory.add(btnViewCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 120, 34));
+
+        lbllogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllogo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        Inventory.add(lbllogo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
 
         PanelInventoryM.addTab("Inventory", Inventory);
 
@@ -320,6 +325,7 @@ public class HospitalJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbllogo1;
+    private javax.swing.JLabel lbllogo2;
     private javax.swing.JTable tblMedicine;
     private javax.swing.JTable tblPharmacyOrder;
     // End of variables declaration//GEN-END:variables

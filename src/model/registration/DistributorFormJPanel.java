@@ -23,7 +23,6 @@ public class DistributorFormJPanel extends javax.swing.JPanel {
      */
     private boolean validation;
     javax.swing.JSplitPane splitPane;
-
     public DistributorFormJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane = splitPane;

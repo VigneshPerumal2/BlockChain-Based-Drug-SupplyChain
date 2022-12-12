@@ -4,6 +4,8 @@
  */
 package model.pharmacy;
 
+import model.main.MainJFrame;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +15,10 @@ public class PharmacySideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PharmacySideJPanel
      */
-    public PharmacySideJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public PharmacySideJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
     }
 
     /**
@@ -26,22 +30,22 @@ public class PharmacySideJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblRoleHeadingDistributor = new javax.swing.JLabel();
+        lblRoleHeadingPharmacy = new javax.swing.JLabel();
         lblavslogod = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
-        imgDistributor = new javax.swing.JLabel();
+        imgPharmacy = new javax.swing.JLabel();
         lblGIF = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblRoleHeadingDistributor.setBackground(new java.awt.Color(204, 204, 255));
-        lblRoleHeadingDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 25)); // NOI18N
-        lblRoleHeadingDistributor.setForeground(new java.awt.Color(102, 102, 102));
-        lblRoleHeadingDistributor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRoleHeadingDistributor.setText("Pharmacy Dashboard");
-        add(lblRoleHeadingDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 400, 50));
+        lblRoleHeadingPharmacy.setBackground(new java.awt.Color(204, 204, 255));
+        lblRoleHeadingPharmacy.setFont(new java.awt.Font("Helvetica Neue", 1, 25)); // NOI18N
+        lblRoleHeadingPharmacy.setForeground(new java.awt.Color(102, 102, 102));
+        lblRoleHeadingPharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRoleHeadingPharmacy.setText("Pharmacy Dashboard");
+        add(lblRoleHeadingPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 400, 50));
 
         lblavslogod.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblavslogod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
@@ -65,8 +69,8 @@ public class PharmacySideJPanel extends javax.swing.JPanel {
         });
         add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 140, 40));
 
-        imgDistributor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/PLogo.jpg"))); // NOI18N
-        add(imgDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 400, 240));
+        imgPharmacy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/PLogo.jpg"))); // NOI18N
+        add(imgPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 400, 240));
 
         lblGIF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGIF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N
@@ -81,9 +85,9 @@ public class PharmacySideJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
-    private javax.swing.JLabel imgDistributor;
+    private javax.swing.JLabel imgPharmacy;
     private javax.swing.JLabel lblGIF;
-    private javax.swing.JLabel lblRoleHeadingDistributor;
+    private javax.swing.JLabel lblRoleHeadingPharmacy;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblavslogod;
     // End of variables declaration//GEN-END:variables

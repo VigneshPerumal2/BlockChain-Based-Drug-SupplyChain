@@ -16,6 +16,7 @@ import model.ingredientsupplier.IngredientSupplierJPanel;
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
 import model.manufacturer.ManufacturerSideJPanel;
 import model.registration.RegistrationSideJPanel;
+import model.superadmin.SuperAdminSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
 import util.sql.ManufacturerSqlQuery;
@@ -202,6 +203,11 @@ public class LoginJPanel extends javax.swing.JPanel {
          else if (drpRole.getSelectedItem().equals("Hospital")) {
             splitPane.setLeftComponent(new HospitalSideJPanel());
             splitPane.setRightComponent(new HospitalJPanel());
+        }
+        //Hospital Login    
+         else if (drpRole.getSelectedItem().equals("Super Admin")) {
+            splitPane.setLeftComponent(new SuperAdminSideJPanel(splitPane));
+            
         }
 
 

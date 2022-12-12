@@ -108,7 +108,7 @@ public class IngredientSupplierJPanel extends javax.swing.JPanel {
                 btnNewOrderActionPerformed(evt);
             }
         });
-        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
+        panOrderManagement.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 590, 120, 34));
 
         PanelInventoryM.addTab("Logistics Department", panOrderManagement);
 

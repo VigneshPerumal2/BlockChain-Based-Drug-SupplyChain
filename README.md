@@ -85,17 +85,39 @@ The FDA, or Food and Drug Administration, is a government agency in the United S
 
 A distributor in a medicine tracking system is a company or organization that is responsible for transporting drugs and other medical products from the manufacturer to pharmacies, hospitals, and other retail outlets. In a medicine tracking system, the distributor may be responsible for providing information about the drugs and medical products they are transporting, such as the batch numbers, expiration dates, and storage conditions of the products. This information can be used by the system to track the movement of the drugs and medical products through the supply chain, and to ensure that they are being transported and stored in a way that maintains their quality and effectiveness. The role of the distributor is critical to the overall functioning of a medicine tracking system.
 
+## **PHARMACY**
+
+A pharmacy in medicine tracking system is a system that is used to track and manage the medications that are dispensed to patients in a pharmacy setting. The system typically includes a database of information about the medications, including their dosages, potential side effects, and interactions with other drugs. This information is used to help pharmacists ensure that patients are receiving the correct medications and dosages, and to alert them to any potential risks or interactions. The system may also include features such as automatic refill reminders and alerts for expired medications. Overall, a pharmacy in medicine tracking system can help to improve the safety and effectiveness of medication management in a pharmacy setting.
+
+## **HOSPITAL**
+
+A hospital in medicine tracking system is a system that is used to track and manage the medications that are administered to patients in a hospital setting. The system typically includes a database of information about the medications, including their dosages, potential side effects, and interactions with other drugs. This information is used to help healthcare providers ensure that patients are receiving the correct medications and dosages, and to alert them to any potential risks or interactions. The system may also include features such as automatic refill reminders and alerts for expired medications. Overall, a hospital in medicine tracking system can help to improve the safety and effectiveness of medication management in a hospital setting.
+
+## **PATIENT**
+
+A patient in medicine tracking system is a system that is used to track and manage the medications that are prescribed to individual patients. The system typically includes a database of information about the patient's medications, including their dosages, potential side effects, and interactions with other drugs. This information is used to help patients and their caregivers ensure that they are taking the correct medications and dosages, and to alert them to any potential risks or interactions. The system may also include features such as automatic refill reminders and alerts for expired medications. Overall, a patient in medicine tracking system can help to improve the safety and effectiveness of medication management for individual patients.
+
+
+# **UML Diagrams**
+
+## **Class Diagram**
+
+![AVS_Class_Diagram](https://user-images.githubusercontent.com/37552813/206938803-b8184bea-e457-44d0-8a79-96304b7c2373.png)
+
+## **Object Diagram**
+
+![AVS Pharmacy_ObjectDiagram](https://user-images.githubusercontent.com/37552813/206938852-17ed777a-6691-429d-a591-b2df3886338a.jpeg)
 
 
 
-
-
-## **Flowcharts**
+# **Flowcharts**
 
   
 ![Flowchart-Manufacturer](https://user-images.githubusercontent.com/37552813/204705936-60337fb8-ae2d-455d-bbc2-95b5cac904e1.jpeg)
 
 
 ![Flowchart-Patient](https://user-images.githubusercontent.com/37552813/204705952-4e3e2310-3e1e-4d5a-a651-da3073aa667e.jpeg)
+
+
 
 

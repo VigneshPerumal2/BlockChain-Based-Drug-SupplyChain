@@ -28,7 +28,7 @@ public class Hospital_OrderBook_SqlQuery {
     /**
      * Hospital_Order_Book Queries
      */
-    private static final String SQL_INSERT_HOSPITAL_ORDER_BOOK = "INSERT INTO HOSPITAL_ORDER_BOOK (Hospital_Order_Book_Id, Medicine_Id, Hospital_Id, Status) VALUES (?,?,?,?)";
+    private static final String SQL_INSERT_HOSPITAL_ORDER_BOOK = "INSERT INTO HOSPITAL_ORDER_BOOK ( Medicine_Id, Hospital_Id, Status) VALUES (?,?,?)";
     private static final String SQL_READ_HOSPITAL_ORDER_BOOK = "SELECT * FROM HOSPITAL_ORDER_BOOK";
     
     /**
@@ -40,10 +40,10 @@ public class Hospital_OrderBook_SqlQuery {
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_INSERT_HOSPITAL_ORDER_BOOK)) {
 
-            preparedStatement.setInt(1, hospitalOrderBook.getHospital_Order_Book_Id());
-            preparedStatement.setInt(2, hospitalOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, hospitalOrderBook.getHospital_Id());
-            preparedStatement.setString(4, hospitalOrderBook.getStatus());
+            
+            preparedStatement.setInt(1, hospitalOrderBook.getMedicine_Id());
+            preparedStatement.setInt(2, hospitalOrderBook.getHospital_Id());
+            preparedStatement.setString(3, hospitalOrderBook.getStatus());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 

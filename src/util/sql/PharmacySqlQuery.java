@@ -29,7 +29,7 @@ public class PharmacySqlQuery {
     /**
      * Pharmacy Queries
      */
-    private static final String SQL_INSERT_PHARMACY = "INSERT INTO PHARMACY (Pharmacy_Name, Pharmacy_Location, Pharmacy_Inventory_Size,Email_Id,Phone_No,Password ) VALUES (?,?,?,?,?,?)";
+    private static final String SQL_INSERT_PHARMACY = "INSERT INTO PHARMACY (Pharmacy_Name, Pharmacy_Location, Pharmacy_Inventory_Size,Email_Id,Phone_no,Password ) VALUES (?,?,?,?,?,?)";
     private static final String SQL_READ_PHARMACY = "SELECT * FROM PHARMACY";
     
     /**
@@ -107,7 +107,7 @@ public class PharmacySqlQuery {
      * Validate Pharmacy Function
      */
    public Pharmacy validatePharmacy(String Email_Id) {
-        String query = "SELECT Password FROM PHARMACY WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        String query = "SELECT * FROM PHARMACY WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
         Pharmacy obj = null;
         
         try {

@@ -63,6 +63,29 @@ Packaging in the pharmaceutical industry refers to the materials and processes u
 It is not uncommon for pharmaceutical companies to have a Quality and Compliance (Q&C) department, which is responsible for ensuring that the company's drugs and other medical products meet all relevant quality and regulatory standards. This department typically works closely with other departments in the company, such as Research and Development (R&D) and Manufacturing, to ensure that all aspects of the company's operations are in compliance with relevant laws and regulations. The Q&C department may also be responsible for conducting internal audits and inspections to identify any areas where the company's processes may be falling short, and for developing and implementing plans to address any issues that are identified. The goal of the Q&C department is to help the company produce safe and effective drugs that meet the highest standards of quality.
 
 
+# **ROLES**
+
+## **SUPER ADMIN**
+
+A super admin in a medicine tracking system is a user with special privileges and responsibilities within the system. The exact role and responsibilities of a super admin may vary depending on the specific medicine tracking system in question, but generally speaking, a super admin is responsible for managing and overseeing the system as a whole. This can involve tasks such as configuring user accounts and permissions, managing system updates and upgrades, and monitoring the overall performance and security of the system. In some cases, a super admin may also have the ability to access and manipulate sensitive data within the system, such as patient records or medication information. The role of a super admin is critical to the proper functioning and security of a medicine tracking system.
+
+## **INGREDIENT SUPPLIER**
+
+An ingredient supplier in a medicine tracking system is a company or organization that supplies raw materials or ingredients that are used in the production of medications. These suppliers may include manufacturers of active pharmaceutical ingredients (APIs) or other components that are used in the production of drugs. In a medicine tracking system, the ingredient supplier may be responsible for providing information about the ingredients they supply, such as the source, quality, and purity of the ingredients. This information can be used by the system to track the ingredients as they move through the supply chain and to ensure that they meet all relevant quality and regulatory standards. In this way, ingredient suppliers play a critical role in the overall functioning of a medicine tracking system.
+
+## **MANUFACTURER**
+
+A manufacturer in a medicine tracking system is a company or organization that produces drugs or other medical products. In a medicine tracking system, the manufacturer may be responsible for providing information about the drugs they produce, such as the ingredients used, the production process, and the batch numbers of the drugs. This information can be used by the system to track the drugs as they move through the supply chain and to ensure that they meet all relevant quality and regulatory standards. In some cases, the manufacturer may also be responsible for providing information about the packaging of the drugs, such as the materials used and the expiration date of the drugs. The role of the manufacturer is critical to the overall functioning of a medicine tracking system.
+
+## **FDA**
+
+The FDA, or Food and Drug Administration, is a government agency in the United States that is responsible for regulating the safety and effectiveness of drugs, medical devices, and other products that are used to maintain the health and wellbeing of the public. In a medicine tracking system, the FDA may be responsible for providing information about the regulatory requirements and standards that must be met by the drugs and medical products that are being tracked. This information can be used by the system to ensure that the drugs and medical products being tracked meet all relevant regulations and standards, and to alert relevant parties if any issues are identified. In this way, the FDA plays a critical role in the overall functioning of a medicine tracking system.
+
+## **DISTRIBUTOR**
+
+A distributor in a medicine tracking system is a company or organization that is responsible for transporting drugs and other medical products from the manufacturer to pharmacies, hospitals, and other retail outlets. In a medicine tracking system, the distributor may be responsible for providing information about the drugs and medical products they are transporting, such as the batch numbers, expiration dates, and storage conditions of the products. This information can be used by the system to track the movement of the drugs and medical products through the supply chain, and to ensure that they are being transported and stored in a way that maintains their quality and effectiveness. The role of the distributor is critical to the overall functioning of a medicine tracking system.
+
+
 
 
 

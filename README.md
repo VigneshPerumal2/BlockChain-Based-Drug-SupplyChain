@@ -134,7 +134,6 @@ A community admin in the medical field is a person who manages and maintains a c
 
 
 
-![Flowchart-Patient](https://user-images.githubusercontent.com/37552813/204705952-4e3e2310-3e1e-4d5a-a651-da3073aa667e.jpeg)
 
 
 

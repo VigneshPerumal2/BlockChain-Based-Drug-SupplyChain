@@ -93,9 +93,11 @@ A pharmacy in medicine tracking system is a system that is used to track and man
 
 A hospital in medicine tracking system is a system that is used to track and manage the medications that are administered to patients in a hospital setting. The system typically includes a database of information about the medications, including their dosages, potential side effects, and interactions with other drugs. This information is used to help healthcare providers ensure that patients are receiving the correct medications and dosages, and to alert them to any potential risks or interactions. The system may also include features such as automatic refill reminders and alerts for expired medications. Overall, a hospital in medicine tracking system can help to improve the safety and effectiveness of medication management in a hospital setting.
 
-## **PATIENT**
+## **COMMUNITY ADMIN**
 
-A patient in medicine tracking system is a system that is used to track and manage the medications that are prescribed to individual patients. The system typically includes a database of information about the patient's medications, including their dosages, potential side effects, and interactions with other drugs. This information is used to help patients and their caregivers ensure that they are taking the correct medications and dosages, and to alert them to any potential risks or interactions. The system may also include features such as automatic refill reminders and alerts for expired medications. Overall, a patient in medicine tracking system can help to improve the safety and effectiveness of medication management for individual patients.
+A community admin in the medical field is a person who manages and maintains a community or forum related to medicine. They may be responsible for moderating discussions, answering questions, and providing information on medical topics. As a system administrator, they may also be responsible for managing and maintaining the technical aspects of the community or forum, such as its website or software.
+
+
 
 
 # **UML Diagrams**

@@ -62,6 +62,14 @@ Packaging in the pharmaceutical industry refers to the materials and processes u
 
 It is not uncommon for pharmaceutical companies to have a Quality and Compliance (Q&C) department, which is responsible for ensuring that the company's drugs and other medical products meet all relevant quality and regulatory standards. This department typically works closely with other departments in the company, such as Research and Development (R&D) and Manufacturing, to ensure that all aspects of the company's operations are in compliance with relevant laws and regulations. The Q&C department may also be responsible for conducting internal audits and inspections to identify any areas where the company's processes may be falling short, and for developing and implementing plans to address any issues that are identified. The goal of the Q&C department is to help the company produce safe and effective drugs that meet the highest standards of quality.
 
+## **LAB TESTING**
+
+Lab testing in medicine typically involves analyzing samples of blood, urine, or other bodily fluids or tissues in a laboratory setting. This may be done to diagnose a medical condition, monitor the effectiveness of treatment, or screen for certain diseases. A tracking system is used to keep track of the samples being tested, the test results, and other relevant information. This can help ensure that the lab testing is accurate and efficient, and that patients receive timely and appropriate care.
+
+## **SHIPPING**
+
+In the medical field, shipping typically refers to the transportation of medical supplies, equipment, and other materials between different locations. This may include shipping items between healthcare facilities, such as hospitals and clinics, or between a healthcare facility and a manufacturer or supplier. A tracking system is used to monitor and manage the shipping process, including the movement of items, their location, and any delays or issues that may arise. This can help ensure that the necessary items are delivered in a timely and efficient manner, and that they are properly accounted for and tracked.
+
 
 # **ROLES**
 

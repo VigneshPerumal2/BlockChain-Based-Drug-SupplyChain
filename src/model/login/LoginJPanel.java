@@ -159,6 +159,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         Password1.setText("Password");
         add(Password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 350, 30));
 
+        drpRole.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         drpRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Super Admin", "Community Admin", "Ingredient Supplier", "Manufacturer", "FDA", "Distributor", "Pharmacy", "Hospital", " " }));
         drpRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

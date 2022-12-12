@@ -56,7 +56,7 @@ public class SuperAdminRegistrationJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblRoleHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        lblRoleHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 28)); // NOI18N
         lblRoleHeading.setForeground(new java.awt.Color(102, 102, 102));
         lblRoleHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRoleHeading.setText("Choose Role");
@@ -114,7 +114,7 @@ public class SuperAdminRegistrationJPanel extends javax.swing.JPanel {
         lblManufacturer.setText("Manufacturer");
         add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 140, -1));
 
-        btnManufacturer.setBackground(new java.awt.Color(204, 102, 0));
+        btnManufacturer.setBackground(new java.awt.Color(0, 51, 153));
         btnManufacturer.setForeground(new java.awt.Color(255, 0, 153));
         btnManufacturer.setBorder(null);
         btnManufacturer.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +156,7 @@ public class SuperAdminRegistrationJPanel extends javax.swing.JPanel {
         lblDistributor.setText("Distributor");
         add(lblDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 520, 140, -1));
 
-        btnDistributor.setBackground(new java.awt.Color(153, 153, 255));
+        btnDistributor.setBackground(new java.awt.Color(255, 153, 0));
         btnDistributor.setForeground(new java.awt.Color(255, 0, 153));
         btnDistributor.setBorder(null);
         btnDistributor.addActionListener(new java.awt.event.ActionListener() {

@@ -28,7 +28,7 @@ public class Hospital_OrderBook_SqlQuery {
     /**
      * Hospital_Order_Book Queries
      */
-    private static final String SQL_INSERT_HOSPITAL_ORDER_BOOK = "INSERT INTO HOSPITAL_ORDER_BOOK (Hospital_Order_Book_Id, Medicine_Id, Distributor_Id, Hospital_Id, Status) VALUES (?,?,?,?,?)";
+    private static final String SQL_INSERT_HOSPITAL_ORDER_BOOK = "INSERT INTO HOSPITAL_ORDER_BOOK (Hospital_Order_Book_Id, Medicine_Id, Hospital_Id, Status) VALUES (?,?,?,?)";
     private static final String SQL_READ_HOSPITAL_ORDER_BOOK = "SELECT * FROM HOSPITAL_ORDER_BOOK";
     
     /**
@@ -42,9 +42,8 @@ public class Hospital_OrderBook_SqlQuery {
 
             preparedStatement.setInt(1, hospitalOrderBook.getHospital_Order_Book_Id());
             preparedStatement.setInt(2, hospitalOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, hospitalOrderBook.getDistributor_Id());
-            preparedStatement.setInt(4, hospitalOrderBook.getHospital_Id());
-            preparedStatement.setString(5, hospitalOrderBook.getStatus());
+            preparedStatement.setInt(3, hospitalOrderBook.getHospital_Id());
+            preparedStatement.setString(4, hospitalOrderBook.getStatus());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -74,15 +73,13 @@ public class Hospital_OrderBook_SqlQuery {
 
                 int hospital_ob_id = resultSet.getInt(1);
                 int medicine_id = resultSet.getInt(2);
-                int distributor_id = resultSet.getInt(3);
-                int hospital_id = resultSet.getInt(4);
-                String status = resultSet.getString(5);
+                int hospital_id = resultSet.getInt(3);
+                String status = resultSet.getString(4);
                
 
                 HospitalOrderBook obj = new HospitalOrderBook();
                 obj.setHospital_Order_Book_Id(hospital_ob_id);
                 obj.setMedicine_Id(medicine_id);
-                obj.setDistributor_Id(distributor_id);
                 obj.setHospital_Id(hospital_id);
                 obj.setStatus(status);
                 
@@ -106,15 +103,14 @@ public class Hospital_OrderBook_SqlQuery {
      */
     public int updateHospitalOrderBook(HospitalOrderBook hospitalOrderBook) {
         int result = 0;
-        String SQL_UPDATE_HOSPITAL_ORDER_BOOK = "UPDATE HOSPITAL SET Hospital_Order_Book_Id = ?,Medicine_Id = ?,Distributor_Id = ?, Hospital_Id = ?, Status = ? WHERE Hospital_Order_Book_Id = ? ";
+        String SQL_UPDATE_HOSPITAL_ORDER_BOOK = "UPDATE HOSPITAL SET Hospital_Order_Book_Id = ?,Medicine_Id = ?, Hospital_Id = ?, Status = ? WHERE Hospital_Order_Book_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_HOSPITAL_ORDER_BOOK)) {
 
             preparedStatement.setInt(1, hospitalOrderBook.getHospital_Order_Book_Id());
             preparedStatement.setInt(2, hospitalOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, hospitalOrderBook.getDistributor_Id());
-            preparedStatement.setInt(4, hospitalOrderBook.getHospital_Id());
-            preparedStatement.setString(5, hospitalOrderBook.getStatus());
+            preparedStatement.setInt(3, hospitalOrderBook.getHospital_Id());
+            preparedStatement.setString(4, hospitalOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -141,9 +137,8 @@ public class Hospital_OrderBook_SqlQuery {
 
             preparedStatement.setInt(1, hospitalOrderBook.getHospital_Order_Book_Id());
             preparedStatement.setInt(2, hospitalOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, hospitalOrderBook.getDistributor_Id());
-            preparedStatement.setInt(4, hospitalOrderBook.getHospital_Id());
-            preparedStatement.setString(5, hospitalOrderBook.getStatus());
+            preparedStatement.setInt(3, hospitalOrderBook.getHospital_Id());
+            preparedStatement.setString(4, hospitalOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);

@@ -112,8 +112,15 @@ A patient in medicine tracking system is a system that is used to track and mana
 
 # **Flowcharts**
 
+### **FLOWCHART FOR MEDICINE TRACKING SYSTEM**
+
+
+![AVS Pharmacy - Flowchart](https://user-images.githubusercontent.com/37552813/206944446-75736d89-79bf-4ae4-a10a-d8b8f11bfc5b.jpeg)
+
+  
   
 ![Flowchart-Manufacturer](https://user-images.githubusercontent.com/37552813/204705936-60337fb8-ae2d-455d-bbc2-95b5cac904e1.jpeg)
+
 
 
 ![Flowchart-Patient](https://user-images.githubusercontent.com/37552813/204705952-4e3e2310-3e1e-4d5a-a651-da3073aa667e.jpeg)

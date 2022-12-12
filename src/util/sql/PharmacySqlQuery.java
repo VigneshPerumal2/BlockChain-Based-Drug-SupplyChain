@@ -73,21 +73,26 @@ public class PharmacySqlQuery {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
-                String name = resultSet.getString(1);
-                String location = resultSet.getString(2);
-                int inventory_size = resultSet.getInt(3);
-                String emailID = resultSet.getString(4);
-                String phoneNo = resultSet.getString(5);
-                String password = resultSet.getString(6);
+                
+                int id  = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                int inventory_size = resultSet.getInt(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
 
                 Pharmacy obj = new Pharmacy();
+                
+                obj.setPharmacy_Id(id);
                 obj.setPharmacy_Name(name);
                 obj.setPharmacy_Location(location);
                 obj.setPharmacy_Inventory_Size(inventory_size);
                 obj.setEmail_Id(emailID);
                 obj.setPhone_No(phoneNo);
                 obj.setPassword(password);
+                
+                System.out.println(obj);
                 
                 record.add(obj);            
                 System.out.println(obj);
@@ -127,7 +132,7 @@ public class PharmacySqlQuery {
                 String emailID = resultSet.getString(5);
                 String phoneNo = resultSet.getString(6);
                 String password = resultSet.getString(7);
-                
+               
                 obj.setPharmacy_Id(id);
                 obj.setPharmacy_Name(name);
                 obj.setPharmacy_Location(location);
@@ -153,7 +158,7 @@ public class PharmacySqlQuery {
      */
     public int updatePharmacy(Pharmacy pharmacy) {
         int result = 0;
-        String SQL_UPDATE_PHARMACY = "UPDATE FDA SET Pharmacy_Name = ? ,Pharmacy_Location = ? ,Pharmacy_Inventory_Size = ? , Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
+        String SQL_UPDATE_PHARMACY = "UPDATE PHARMACY SET Pharmacy_Name = ? ,Pharmacy_Location = ? ,Pharmacy_Inventory_Size = ? , Email_Id = ?,Phone_No = ?,Password = ? WHERE Pharmacy_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_PHARMACY)) {
 
@@ -163,6 +168,7 @@ public class PharmacySqlQuery {
             preparedStatement.setString(4, pharmacy.getEmail_Id());
             preparedStatement.setString(5, pharmacy.getPhone_No());
             preparedStatement.setString(6, pharmacy.getPassword());
+            preparedStatement.setInt(7, pharmacy.getPharmacy_Id());
         
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -183,16 +189,11 @@ public class PharmacySqlQuery {
      */
     public int deletePharmacy(Pharmacy pharmacy) {
         int result = 0;
-        String SQL_DELETE_PHARMACY = "DELETE FROM Pharmacy WHERE Email_Id = ? ";
+        String SQL_DELETE_PHARMACY = "DELETE FROM Pharmacy WHERE Pharmacy_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_PHARMACY)) {
 
-            preparedStatement.setString(1, pharmacy.getPharmacy_Name());
-            preparedStatement.setString(2, pharmacy.getPharmacy_Location());
-            preparedStatement.setInt(3, pharmacy.getPharmacy_Inventory_Size());
-            preparedStatement.setString(4, pharmacy.getEmail_Id());
-            preparedStatement.setString(5, pharmacy.getPhone_No());
-            preparedStatement.setString(6, pharmacy.getPassword());
+            preparedStatement.setInt(1, pharmacy.getPharmacy_Id());
         
             System.out.println("Prepared Statement ->" + preparedStatement);
 

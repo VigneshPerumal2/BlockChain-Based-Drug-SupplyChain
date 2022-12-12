@@ -4,6 +4,8 @@
  */
 package model.superadmin;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sunayanashivanagi
@@ -109,19 +111,14 @@ public class ViewFDAJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblMedicine.getSelectedRow();
+        int selectedRow = tblFDA.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
             return;
         }
 
-        ArrayList<Medicine> mList = new ArrayList<>();
-        MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
-        Medicine m = mList.get(selectedRow);
-        new QualityControlJDialog(null, true, m).show();
-        populateTable();
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnViewFDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFDAActionPerformed

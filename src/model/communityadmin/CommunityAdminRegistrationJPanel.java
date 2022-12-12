@@ -4,6 +4,8 @@
  */
 package model.communityadmin;
 
+import model.main.MainJFrame;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +15,10 @@ public class CommunityAdminRegistrationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CommunityAdminRegistrationJPanel
      */
-    public CommunityAdminRegistrationJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public CommunityAdminRegistrationJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
     }
 
     /**
@@ -111,12 +115,12 @@ public class CommunityAdminRegistrationJPanel extends javax.swing.JPanel {
 
     private void btnPharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPharmacyActionPerformed
         // TODO add your handling code here:
-        splitPane.setRightComponent(new PharmacyFormJPanel(splitPane));
+        splitPane.setRightComponent(new ViewPharmacyJPanel(splitPane));
     }//GEN-LAST:event_btnPharmacyActionPerformed
 
     private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
         // TODO add your handling code here:
-        splitPane.setRightComponent(new HospitalFormJPanel(splitPane));
+        splitPane.setRightComponent(new ViewHospitalJPanel(splitPane));
     }//GEN-LAST:event_btnHospitalActionPerformed
 
 

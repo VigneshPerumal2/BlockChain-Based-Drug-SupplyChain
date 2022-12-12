@@ -4,6 +4,8 @@
  */
 package model.communityadmin;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +15,10 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewHospitalJPanel
      */
-    public ViewHospitalJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public ViewHospitalJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
     }
 
     /**
@@ -35,6 +39,7 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         lbllogo = new javax.swing.JLabel();
         lblIVHospital = new javax.swing.JLabel();
+        btnCreate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,31 +111,40 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
         lblIVHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIVHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/HospitalLogoV.jpg"))); // NOI18N
         add(lblIVHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, 310, 190));
+
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 110, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblMedicine.getSelectedRow();
+        int selectedRow = tblHospital.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
             return;
         }
 
-        ArrayList<Medicine> mList = new ArrayList<>();
-        MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
-        Medicine m = mList.get(selectedRow);
-        new QualityControlJDialog(null, true, m).show();
-        populateTable();
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnViewHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHospitalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewHospitalActionPerformed
 
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnCreateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnViewHospital;
     private javax.swing.Box.Filler filler1;

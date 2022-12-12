@@ -4,6 +4,9 @@
  */
 package model.hospital;
 
+import classes.Hospital;
+import model.main.MainJFrame;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +16,11 @@ public class HospitalSideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form HospitalSideJPanel
      */
-    public HospitalSideJPanel() {
+    Hospital hospital;
+    public HospitalSideJPanel(Hospital hospital) {
         initComponents();
+        this.hospital=hospital;
+        lblUserName.setText(hospital.getHospital_Name());
     }
 
     /**

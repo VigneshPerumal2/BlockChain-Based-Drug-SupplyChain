@@ -2,29 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
-package model.hospital;
+package model.pharmacy;
 
-import classes.Hospital;
-import classes.HospitalOrderBook;
 import classes.Medicine;
-import util.sql.Hospital_OrderBook_SqlQuery;
+import classes.Pharmacy;
+import classes.PharmacyOrderBook;
+import util.sql.Pharmacy_OrderBook_SqlQuery;
 
 /**
  *
  * @author sunayanashivanagi
  */
-public class HospitalJDialog extends javax.swing.JDialog {
+public class PharmacyJDialog extends javax.swing.JDialog {
 
     /**
      * Creates new form HospitalJDialog
      */
     private static Medicine m;
-    private static Hospital hospital;
-    public HospitalJDialog(java.awt.Frame parent, boolean modal,Medicine m,Hospital h) {
+    private static Pharmacy pharmacy;
+    public PharmacyJDialog(java.awt.Frame parent, boolean modal,Medicine m,Pharmacy h) {
         super(parent, modal);
         initComponents();
         this.m = m;
-        this.hospital = h;
+        this.pharmacy = h;
         lblCategory.setText(m.getMedicine_Category());
         lblDate.setText(String.valueOf(m.getDate_Of_Manufacture()));
         lblManufacturer.setText(m.getManufacturer_Name());
@@ -143,12 +143,12 @@ public class HospitalJDialog extends javax.swing.JDialog {
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
-        Hospital_OrderBook_SqlQuery msq = new Hospital_OrderBook_SqlQuery();
-        HospitalOrderBook hsb = new HospitalOrderBook();
-        hsb.setHospital_Id(hospital.getHospital_Id());
+        Pharmacy_OrderBook_SqlQuery msq = new Pharmacy_OrderBook_SqlQuery();
+        PharmacyOrderBook hsb = new  PharmacyOrderBook();
+        hsb.setPharmacy_Id(pharmacy.getPharmacy_Id());
         hsb.setMedicine_Id(m.getId());
         hsb.setStatus("Ordered");
-        msq.createHospitalOrderBook(hsb);
+        msq.createPharmacyOrderBook(hsb);
         setVisible(false);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
@@ -169,20 +169,21 @@ public class HospitalJDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HospitalJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PharmacyJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HospitalJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PharmacyJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HospitalJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PharmacyJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HospitalJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PharmacyJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                HospitalJDialog dialog = new HospitalJDialog(new javax.swing.JFrame(), true,m,hospital);
+                PharmacyJDialog dialog = new PharmacyJDialog(new javax.swing.JFrame(), true,m,pharmacy);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

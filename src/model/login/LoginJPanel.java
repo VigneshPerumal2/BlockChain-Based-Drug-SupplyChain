@@ -4,7 +4,9 @@
  */
 package model.login;
 
+import classes.Hospital;
 import classes.Manufacturer;
+import classes.Pharmacy;
 import javax.swing.JOptionPane;
 import model.FDA.FDAJPanel;
 import model.FDA.FDASideJPanel;
@@ -15,10 +17,14 @@ import model.hospital.HospitalSideJPanel;
 import model.ingredientsupplier.IngredientSupplierJPanel;
 import model.ingredientsupplier.IngredientSupplierSideJPanel;
 import model.manufacturer.ManufacturerSideJPanel;
+import model.pharmacy.PharmacyJPanel;
+import model.pharmacy.PharmacySideJPanel;
 import model.registration.RegistrationSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
+import util.sql.HospitalSqlQuery;
 import util.sql.ManufacturerSqlQuery;
+import util.sql.PharmacySqlQuery;
 
 /**
  *
@@ -166,13 +172,12 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         // TODO add your handling code here:
-        
+
         //Ingredient Supplier Login
         if (drpRole.getSelectedItem().equals("Ingredient Supplier")) {
             splitPane.setLeftComponent(new IngredientSupplierSideJPanel(splitPane));
             splitPane.setRightComponent(new IngredientSupplierJPanel(splitPane));
-        } 
-        //Manufacturer Login
+        } //Manufacturer Login
         else if (drpRole.getSelectedItem().equals("Manufacturer")) {
             ManufacturerSqlQuery msq = new ManufacturerSqlQuery();
             Manufacturer m = msq.validateManufacturer(txtEmailId.getText());
@@ -184,24 +189,48 @@ public class LoginJPanel extends javax.swing.JPanel {
                 valEmailId.setText("Enter valid mail id");
                 valPassword.setText("Enter valid password");
             }
+        } //Hospital Login
+        else if (drpRole.getSelectedItem().equals("Hospital")) {
+            HospitalSqlQuery msq = new HospitalSqlQuery();
+            Hospital m = msq.validateHospital(txtEmailId.getText());
             
-        //FDA Login    
+            if (m != null) {
+                splitPane.setLeftComponent(new HospitalSideJPanel(m));
+                splitPane.setRightComponent(new HospitalJPanel(m));
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "Invalid credentials, please enter correct details");
+                valEmailId.setText("Enter valid mail id");
+                valPassword.setText("Enter valid password");
+            }
+        }
+        
+        else if (drpRole.getSelectedItem().equals("Pharmacy")) {
+            PharmacySqlQuery msq = new PharmacySqlQuery();
+            Pharmacy m = msq.validatePharmacy(txtEmailId.getText());
+            
+            if (m != null) {
+                splitPane.setLeftComponent(new PharmacySideJPanel(m));
+                splitPane.setRightComponent(new PharmacyJPanel(m));
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "Invalid credentials, please enter correct details");
+                valEmailId.setText("Enter valid mail id");
+                valPassword.setText("Enter valid password");
+            }
+            
+
+            //FDA Login    
         } else if (drpRole.getSelectedItem().equals("FDA")) {
             splitPane.setLeftComponent(new FDASideJPanel(splitPane));
             splitPane.setRightComponent(new FDAJPanel(splitPane));
 
-        }
-        
-        //Distributor Login    
-         else if (drpRole.getSelectedItem().equals("Distributor")) {
+        } //Distributor Login    
+        else if (drpRole.getSelectedItem().equals("Distributor")) {
             splitPane.setLeftComponent(new DistributorSideJPanel(splitPane));
             splitPane.setRightComponent(new DistributorJPanel());
-        }
-        
-        //Hospital Login    
-         else if (drpRole.getSelectedItem().equals("Hospital")) {
-            splitPane.setLeftComponent(new HospitalSideJPanel());
-            splitPane.setRightComponent(new HospitalJPanel());
         }
 
 

@@ -4,6 +4,9 @@
  */
 package model.pharmacy;
 
+import classes.Pharmacy;
+import model.main.MainJFrame;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +16,11 @@ public class PharmacySideJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PharmacySideJPanel
      */
-    public PharmacySideJPanel() {
+    Pharmacy p;
+    public PharmacySideJPanel(Pharmacy p) {
         initComponents();
+        this.p=p;
+        lblUserName.setText(p.getPharmacy_Name());
     }
 
     /**

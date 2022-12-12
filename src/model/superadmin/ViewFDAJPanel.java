@@ -26,19 +26,118 @@ public class ViewFDAJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblFDA = new javax.swing.JTable();
+        lblViewHFDA = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
+        btnViewFDA = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
+        lbllogo = new javax.swing.JLabel();
+        lblViewFDA = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblFDA.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Board Name", "City", "Country", "Email Id", "Password", "Phone  Number"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblFDA);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 760, 520));
+
+        lblViewHFDA.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        lblViewHFDA.setForeground(new java.awt.Color(153, 153, 153));
+        lblViewHFDA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblViewHFDA.setText("VIEW FDA DETAILS");
+        add(lblViewHFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 760, 60));
+
+        btnDelete.setBackground(new java.awt.Color(204, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 160, 110, 30));
+
+        btnViewFDA.setBackground(new java.awt.Color(0, 153, 255));
+        btnViewFDA.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        btnViewFDA.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewFDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnViewFDA.setText("VIEW");
+        btnViewFDA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewFDAActionPerformed(evt);
+            }
+        });
+        add(btnViewFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 110, 30));
+        add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
+        add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
+
+        lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
+
+        lblViewFDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/FDAView.jpg"))); // NOI18N
+        add(lblViewFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 290, 200));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblMedicine.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
+
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        Medicine m = mList.get(selectedRow);
+        new QualityControlJDialog(null, true, m).show();
+        populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnViewFDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewFDAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewFDAActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnViewFDA;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblViewFDA;
+    private javax.swing.JLabel lblViewHFDA;
+    private javax.swing.JLabel lbllogo;
+    private javax.swing.JTable tblFDA;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,12 +31,7 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         imgfactory = new javax.swing.JLabel();
-        lblPatient = new javax.swing.JLabel();
-        btnPatient = new javax.swing.JButton();
         lblRoleHeading = new javax.swing.JLabel();
-        imgDoctor = new javax.swing.JLabel();
-        lblPatient1 = new javax.swing.JLabel();
-        btnDoctor = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
         lblBack = new javax.swing.JLabel();
@@ -69,45 +64,11 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         imgfactory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Account.png"))); // NOI18N
         add(imgfactory, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 80, 60));
 
-        lblPatient.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblPatient.setForeground(new java.awt.Color(255, 255, 255));
-        lblPatient.setText("Patient");
-        add(lblPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
-
-        btnPatient.setBackground(new java.awt.Color(0, 0, 153));
-        btnPatient.setForeground(new java.awt.Color(255, 0, 153));
-        btnPatient.setBorder(null);
-        btnPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatientActionPerformed(evt);
-            }
-        });
-        add(btnPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 120, 130));
-
         lblRoleHeading.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         lblRoleHeading.setForeground(new java.awt.Color(102, 102, 102));
         lblRoleHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRoleHeading.setText("Choose Role");
         add(lblRoleHeading, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 230, 50));
-
-        imgDoctor.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        imgDoctor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Doctor.png"))); // NOI18N
-        add(imgDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 80, 60));
-
-        lblPatient1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblPatient1.setForeground(new java.awt.Color(255, 255, 255));
-        lblPatient1.setText("Doctor");
-        add(lblPatient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, -1, -1));
-
-        btnDoctor.setBackground(new java.awt.Color(0, 153, 153));
-        btnDoctor.setForeground(new java.awt.Color(255, 0, 153));
-        btnDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoctorActionPerformed(evt);
-            }
-        });
-        add(btnDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 120, 130));
         add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 710, -1, 90));
         add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 70, -1));
 
@@ -126,18 +87,18 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
         imgingsupplier.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         imgingsupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgingsupplier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Lab Items.png"))); // NOI18N
-        add(imgingsupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 80, 60));
+        add(imgingsupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 80, 60));
 
         lblSupplier.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblSupplier.setForeground(new java.awt.Color(255, 255, 255));
         lblSupplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSupplier.setText("Supplier");
-        add(lblSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 370, 110, -1));
+        add(lblSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 110, -1));
 
         lblIngredient.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblIngredient.setForeground(new java.awt.Color(255, 255, 255));
         lblIngredient.setText("Ingredient");
-        add(lblIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, -1, -1));
+        add(lblIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
         btnIngSupplier.setBackground(new java.awt.Color(255, 204, 51));
         btnIngSupplier.setForeground(new java.awt.Color(255, 0, 153));
@@ -147,17 +108,17 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
                 btnIngSupplierActionPerformed(evt);
             }
         });
-        add(btnIngSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 120, 130));
+        add(btnIngSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 120, 130));
 
         imgManufacturer.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         imgManufacturer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgManufacturer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Factory.png"))); // NOI18N
-        add(imgManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 80, 60));
+        add(imgManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 80, 60));
 
         lblManufacturer.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblManufacturer.setForeground(new java.awt.Color(255, 255, 255));
         lblManufacturer.setText("Manufacturer");
-        add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
+        add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
 
         btnManufacturer.setBackground(new java.awt.Color(204, 102, 0));
         btnManufacturer.setForeground(new java.awt.Color(255, 0, 153));
@@ -167,18 +128,18 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
                 btnManufacturerActionPerformed(evt);
             }
         });
-        add(btnManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 120, 130));
+        add(btnManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 120, 130));
 
         imgFDA.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         imgFDA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgFDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Licence.png"))); // NOI18N
-        add(imgFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 80, 60));
+        add(imgFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 80, 60));
 
         lblFDA.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblFDA.setForeground(new java.awt.Color(255, 255, 255));
         lblFDA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFDA.setText("FDA");
-        add(lblFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, 120, -1));
+        add(lblFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 120, -1));
 
         btnFDA.setBackground(new java.awt.Color(0, 153, 51));
         btnFDA.setForeground(new java.awt.Color(255, 0, 153));
@@ -188,17 +149,17 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
                 btnFDAActionPerformed(evt);
             }
         });
-        add(btnFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 120, 130));
+        add(btnFDA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 120, 130));
 
         imgDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         imgDistributor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgDistributor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Truck.png"))); // NOI18N
-        add(imgDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 80, 60));
+        add(imgDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 80, 60));
 
         lblDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblDistributor.setForeground(new java.awt.Color(255, 255, 255));
         lblDistributor.setText("Distributor");
-        add(lblDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, -1, -1));
+        add(lblDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, -1, -1));
 
         btnDistributor.setBackground(new java.awt.Color(153, 153, 255));
         btnDistributor.setForeground(new java.awt.Color(255, 0, 153));
@@ -208,18 +169,18 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
                 btnDistributorActionPerformed(evt);
             }
         });
-        add(btnDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 120, 130));
+        add(btnDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 120, 130));
 
         imgPharmacy.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         imgPharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgPharmacy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Pharmacy Shop.png"))); // NOI18N
-        add(imgPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 640, 80, 60));
+        add(imgPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 610, 80, 60));
 
         lblPharmacy.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblPharmacy.setForeground(new java.awt.Color(255, 255, 255));
         lblPharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPharmacy.setText("Pharmacy");
-        add(lblPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 700, 110, -1));
+        add(lblPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 110, -1));
 
         btnPharmacy.setBackground(new java.awt.Color(153, 204, 255));
         btnPharmacy.setForeground(new java.awt.Color(255, 0, 153));
@@ -229,18 +190,18 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
                 btnPharmacyActionPerformed(evt);
             }
         });
-        add(btnPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, 120, 130));
+        add(btnPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 120, 130));
 
         imgHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         imgHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Hospital 3.png"))); // NOI18N
-        add(imgHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 80, 60));
+        add(imgHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, 80, 60));
 
         lblHospital.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblHospital.setForeground(new java.awt.Color(255, 255, 255));
         lblHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHospital.setText("Hospital");
-        add(lblHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 700, 120, -1));
+        add(lblHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 670, 120, -1));
 
         btnHospital.setBackground(new java.awt.Color(255, 51, 102));
         btnHospital.setForeground(new java.awt.Color(255, 0, 153));
@@ -250,18 +211,8 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
                 btnHospitalActionPerformed(evt);
             }
         });
-        add(btnHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 620, 120, 130));
+        add(btnHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, 120, 130));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientActionPerformed
-        // TODO add your handling code here:
-        splitPane.setRightComponent(new PatientRegFormJPanel(splitPane));
-    }//GEN-LAST:event_btnPatientActionPerformed
-
-    private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
-        // TODO add your handling code here:
-        splitPane.setRightComponent(new DoctorRegFormJPanel(splitPane));
-    }//GEN-LAST:event_btnDoctorActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -302,17 +253,14 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDistributor;
-    private javax.swing.JButton btnDoctor;
     private javax.swing.JButton btnFDA;
     private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnIngSupplier;
     private javax.swing.JButton btnManufacturer;
-    private javax.swing.JButton btnPatient;
     private javax.swing.JButton btnPharmacy;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel imgDistributor;
-    private javax.swing.JLabel imgDoctor;
     private javax.swing.JLabel imgFDA;
     private javax.swing.JLabel imgHospital;
     private javax.swing.JLabel imgManufacturer;
@@ -325,8 +273,6 @@ public class RegistrationSideJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblHospital;
     private javax.swing.JLabel lblIngredient;
     private javax.swing.JLabel lblManufacturer;
-    private javax.swing.JLabel lblPatient;
-    private javax.swing.JLabel lblPatient1;
     private javax.swing.JLabel lblPharmacy;
     private javax.swing.JLabel lblRoleHeading;
     private javax.swing.JLabel lblSupplier;

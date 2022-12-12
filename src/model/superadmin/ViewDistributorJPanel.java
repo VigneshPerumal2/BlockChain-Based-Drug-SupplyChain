@@ -26,19 +26,119 @@ public class ViewDistributorJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblD = new javax.swing.JTable();
+        lblViewDistributor = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
+        btnViewD = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
+        lbllogo = new javax.swing.JLabel();
+        lblIDView = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblD.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "Location", "Transport", "Date", "Price", "Email Id", "Password", "PhoneNumber"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblD);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 760, 520));
+
+        lblViewDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        lblViewDistributor.setForeground(new java.awt.Color(153, 153, 153));
+        lblViewDistributor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblViewDistributor.setText("VIEW DISTRIBUTOR");
+        add(lblViewDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 760, 60));
+
+        btnDelete.setBackground(new java.awt.Color(204, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Remove.png"))); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 160, 110, 30));
+
+        btnViewD.setBackground(new java.awt.Color(0, 153, 255));
+        btnViewD.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        btnViewD.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnViewD.setText("VIEW");
+        btnViewD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDActionPerformed(evt);
+            }
+        });
+        add(btnViewD, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 110, 30));
+        add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
+        add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
+
+        lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
+
+        lblIDView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIDView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/DistributorLogoV.jpg"))); // NOI18N
+        add(lblIDView, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, 310, 190));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblMedicine.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
+
+        ArrayList<Medicine> mList = new ArrayList<>();
+        MedicineSqlQuery msq = new MedicineSqlQuery();
+        mList = msq.readAllMedicine();
+        Medicine m = mList.get(selectedRow);
+        new QualityControlJDialog(null, true, m).show();
+        populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnViewDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnViewD;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblIDView;
+    private javax.swing.JLabel lblViewDistributor;
+    private javax.swing.JLabel lbllogo;
+    private javax.swing.JTable tblD;
     // End of variables declaration//GEN-END:variables
 }

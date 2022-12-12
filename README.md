@@ -116,7 +116,8 @@ A community admin in the medical field is a person who manages and maintains a c
 
 ## **Object Diagram**
 
-![AVS Pharmacy_ObjectDiagram](https://user-images.githubusercontent.com/37552813/206938852-17ed777a-6691-429d-a591-b2df3886338a.jpeg)
+![AVS Pharmacy - Page 5](https://user-images.githubusercontent.com/37552813/206961779-119787b9-c50e-431f-8165-a5f12c1e87f8.jpeg)
+
 
 
 

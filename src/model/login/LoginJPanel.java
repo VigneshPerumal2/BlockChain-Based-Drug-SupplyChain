@@ -4,9 +4,7 @@
  */
 package model.login;
 
-import classes.Hospital;
 import classes.Manufacturer;
-import classes.Pharmacy;
 import javax.swing.JOptionPane;
 import model.FDA.FDAJPanel;
 import model.FDA.FDASideJPanel;
@@ -20,6 +18,7 @@ import model.manufacturer.ManufacturerSideJPanel;
 import model.pharmacy.PharmacyJPanel;
 import model.pharmacy.PharmacySideJPanel;
 import model.registration.RegistrationSideJPanel;
+import model.superadmin.SuperAdminSideJPanel;
 import util.extras.JHintPasswordTextField;
 import util.extras.JHintTextField;
 import util.sql.HospitalSqlQuery;
@@ -193,7 +192,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         else if (drpRole.getSelectedItem().equals("Hospital")) {
             HospitalSqlQuery msq = new HospitalSqlQuery();
             Hospital m = msq.validateHospital(txtEmailId.getText());
-            
+
             if (m != null) {
                 splitPane.setLeftComponent(new HospitalSideJPanel(m));
                 splitPane.setRightComponent(new HospitalJPanel(m));
@@ -205,11 +204,11 @@ public class LoginJPanel extends javax.swing.JPanel {
                 valPassword.setText("Enter valid password");
             }
         }
-        
+
         else if (drpRole.getSelectedItem().equals("Pharmacy")) {
             PharmacySqlQuery msq = new PharmacySqlQuery();
             Pharmacy m = msq.validatePharmacy(txtEmailId.getText());
-            
+
             if (m != null) {
                 splitPane.setLeftComponent(new PharmacySideJPanel(m));
                 splitPane.setRightComponent(new PharmacyJPanel(m));
@@ -222,15 +221,21 @@ public class LoginJPanel extends javax.swing.JPanel {
             }
             
 
-            //FDA Login    
+            //FDA Login
         } else if (drpRole.getSelectedItem().equals("FDA")) {
             splitPane.setLeftComponent(new FDASideJPanel(splitPane));
             splitPane.setRightComponent(new FDAJPanel(splitPane));
 
-        } //Distributor Login    
+        } //Distributor Login
         else if (drpRole.getSelectedItem().equals("Distributor")) {
             splitPane.setLeftComponent(new DistributorSideJPanel(splitPane));
             splitPane.setRightComponent(new DistributorJPanel());
+        }
+        
+        //Hospital Login    
+         else if (drpRole.getSelectedItem().equals("Hospital")) {
+            splitPane.setLeftComponent(new HospitalSideJPanel());
+            splitPane.setRightComponent(new HospitalJPanel());
         }
 
 

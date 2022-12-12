@@ -76,9 +76,9 @@ public class DistributorJPanel extends javax.swing.JPanel {
         lbllogo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblMedicine = new javax.swing.JTable();
-        btnNewOrder = new javax.swing.JButton();
-        btnViewManufacturer = new javax.swing.JButton();
-        btnViewCategory = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnChart1 = new javax.swing.JButton();
+        btnChart2 = new javax.swing.JButton();
         Pharmacy_Orders = new javax.swing.JPanel();
         lbllogo1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -151,33 +151,42 @@ public class DistributorJPanel extends javax.swing.JPanel {
 
         Inventory.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
 
-        btnNewOrder.setBackground(new java.awt.Color(0, 153, 255));
-        btnNewOrder.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnNewOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnNewOrder.setText("VIEW");
-        btnNewOrder.addActionListener(new java.awt.event.ActionListener() {
+        btnView.setBackground(new java.awt.Color(0, 153, 255));
+        btnView.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnView.setForeground(new java.awt.Color(255, 255, 255));
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnView.setText("VIEW");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewOrderActionPerformed(evt);
+                btnViewActionPerformed(evt);
             }
         });
-        Inventory.add(btnNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
+        Inventory.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 120, 34));
 
-        btnViewManufacturer.setText("View Manufacturer");
-        btnViewManufacturer.addActionListener(new java.awt.event.ActionListener() {
+        btnChart1.setBackground(new java.awt.Color(255, 102, 102));
+        btnChart1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnChart1.setForeground(new java.awt.Color(255, 255, 255));
+        btnChart1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Chart.png"))); // NOI18N
+        btnChart1.setText("CHART1");
+        btnChart1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewManufacturerActionPerformed(evt);
+                btnChart1ActionPerformed(evt);
             }
         });
-        Inventory.add(btnViewManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 590, -1, -1));
+        Inventory.add(btnChart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 580, 120, 34));
 
-        btnViewCategory.setText("View Category");
-        btnViewCategory.addActionListener(new java.awt.event.ActionListener() {
+        btnChart2.setBackground(new java.awt.Color(255, 153, 0));
+        btnChart2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnChart2.setForeground(new java.awt.Color(255, 255, 255));
+        btnChart2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Chart.png"))); // NOI18N
+        btnChart2.setText("CHART2");
+        btnChart2.setToolTipText("");
+        btnChart2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewCategoryActionPerformed(evt);
+                btnChart2ActionPerformed(evt);
             }
         });
-        Inventory.add(btnViewCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 590, -1, -1));
+        Inventory.add(btnChart2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 580, 120, 34));
 
         PanelInventoryM.addTab("Inventory", Inventory);
 
@@ -313,7 +322,7 @@ public class DistributorJPanel extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrderActionPerformed
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblMedicine.getSelectedRow() ;
 
@@ -328,23 +337,7 @@ public class DistributorJPanel extends javax.swing.JPanel {
         Medicine m = mList.get(selectedRow);
         new DistributorJDialog(null,true,m).show();
         populateTable();
-    }//GEN-LAST:event_btnNewOrderActionPerformed
-
-    private void btnViewCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCategoryActionPerformed
-        // TODO add your handling code here:
-        JFreeChart chart = ChartFactory.createPieChart("Categories", this.categoryDataset, true, true, false);
-        ChartFrame frame = new ChartFrame("Pie Chart", chart);
-        frame.setVisible(true);
-        frame.setSize(450, 450);
-    }//GEN-LAST:event_btnViewCategoryActionPerformed
-
-    private void btnViewManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewManufacturerActionPerformed
-        // TODO add your handling code here:
-        JFreeChart chart = ChartFactory.createPieChart("Manufacturers", this.manfDataset, true, true, false);
-        ChartFrame frame = new ChartFrame("Pie Chart", chart);
-        frame.setVisible(true);
-        frame.setSize(450, 450);
-    }//GEN-LAST:event_btnViewManufacturerActionPerformed
+    }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnNewOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrder1ActionPerformed
         // TODO add your handling code here:
@@ -353,6 +346,22 @@ public class DistributorJPanel extends javax.swing.JPanel {
     private void btnNewOrder2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrder2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNewOrder2ActionPerformed
+
+    private void btnChart1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChart1ActionPerformed
+        // TODO add your handling code here:
+        JFreeChart chart = ChartFactory.createPieChart("Manufacturers", this.manfDataset, true, true, false);
+        ChartFrame frame = new ChartFrame("Pie Chart", chart);
+        frame.setVisible(true);
+        frame.setSize(450, 450);
+    }//GEN-LAST:event_btnChart1ActionPerformed
+
+    private void btnChart2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChart2ActionPerformed
+        // TODO add your handling code here:
+        JFreeChart chart = ChartFactory.createPieChart("Categories", this.categoryDataset, true, true, false);
+        ChartFrame frame = new ChartFrame("Pie Chart", chart);
+        frame.setVisible(true);
+        frame.setSize(450, 450);
+    }//GEN-LAST:event_btnChart2ActionPerformed
     private void populateTable() {
         ArrayList<Medicine> mList =  new  ArrayList<>();
         MedicineSqlQuery msq = new MedicineSqlQuery();
@@ -380,11 +389,11 @@ public class DistributorJPanel extends javax.swing.JPanel {
     private javax.swing.JTabbedPane PanelInventoryM;
     private javax.swing.JPanel Pharmacy_Orders;
     private javax.swing.JPanel Pharmacy_Orders1;
-    private javax.swing.JButton btnNewOrder;
+    private javax.swing.JButton btnChart1;
+    private javax.swing.JButton btnChart2;
     private javax.swing.JButton btnNewOrder1;
     private javax.swing.JButton btnNewOrder2;
-    private javax.swing.JButton btnViewCategory;
-    private javax.swing.JButton btnViewManufacturer;
+    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;

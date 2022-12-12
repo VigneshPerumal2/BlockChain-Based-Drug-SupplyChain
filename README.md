@@ -62,6 +62,14 @@ Packaging in the pharmaceutical industry refers to the materials and processes u
 
 It is not uncommon for pharmaceutical companies to have a Quality and Compliance (Q&C) department, which is responsible for ensuring that the company's drugs and other medical products meet all relevant quality and regulatory standards. This department typically works closely with other departments in the company, such as Research and Development (R&D) and Manufacturing, to ensure that all aspects of the company's operations are in compliance with relevant laws and regulations. The Q&C department may also be responsible for conducting internal audits and inspections to identify any areas where the company's processes may be falling short, and for developing and implementing plans to address any issues that are identified. The goal of the Q&C department is to help the company produce safe and effective drugs that meet the highest standards of quality.
 
+## **LAB TESTING**
+
+Lab testing in medicine typically involves analyzing samples of blood, urine, or other bodily fluids or tissues in a laboratory setting. This may be done to diagnose a medical condition, monitor the effectiveness of treatment, or screen for certain diseases. A tracking system is used to keep track of the samples being tested, the test results, and other relevant information. This can help ensure that the lab testing is accurate and efficient, and that patients receive timely and appropriate care.
+
+## **SHIPPING**
+
+In the medical field, shipping typically refers to the transportation of medical supplies, equipment, and other materials between different locations. This may include shipping items between healthcare facilities, such as hospitals and clinics, or between a healthcare facility and a manufacturer or supplier. A tracking system is used to monitor and manage the shipping process, including the movement of items, their location, and any delays or issues that may arise. This can help ensure that the necessary items are delivered in a timely and efficient manner, and that they are properly accounted for and tracked.
+
 
 # **ROLES**
 
@@ -93,9 +101,11 @@ A pharmacy in medicine tracking system is a system that is used to track and man
 
 A hospital in medicine tracking system is a system that is used to track and manage the medications that are administered to patients in a hospital setting. The system typically includes a database of information about the medications, including their dosages, potential side effects, and interactions with other drugs. This information is used to help healthcare providers ensure that patients are receiving the correct medications and dosages, and to alert them to any potential risks or interactions. The system may also include features such as automatic refill reminders and alerts for expired medications. Overall, a hospital in medicine tracking system can help to improve the safety and effectiveness of medication management in a hospital setting.
 
-## **PATIENT**
+## **COMMUNITY ADMIN**
 
-A patient in medicine tracking system is a system that is used to track and manage the medications that are prescribed to individual patients. The system typically includes a database of information about the patient's medications, including their dosages, potential side effects, and interactions with other drugs. This information is used to help patients and their caregivers ensure that they are taking the correct medications and dosages, and to alert them to any potential risks or interactions. The system may also include features such as automatic refill reminders and alerts for expired medications. Overall, a patient in medicine tracking system can help to improve the safety and effectiveness of medication management for individual patients.
+A community admin in the medical field is a person who manages and maintains a community or forum related to medicine. They may be responsible for moderating discussions, answering questions, and providing information on medical topics. As a system administrator, they may also be responsible for managing and maintaining the technical aspects of the community or forum, such as its website or software.
+
+
 
 
 # **UML Diagrams**
@@ -106,14 +116,22 @@ A patient in medicine tracking system is a system that is used to track and mana
 
 ## **Object Diagram**
 
-![AVS Pharmacy_ObjectDiagram](https://user-images.githubusercontent.com/37552813/206938852-17ed777a-6691-429d-a591-b2df3886338a.jpeg)
+![AVS Pharmacy - Page 5](https://user-images.githubusercontent.com/37552813/206961779-119787b9-c50e-431f-8165-a5f12c1e87f8.jpeg)
+
 
 
 
 # **Flowcharts**
 
+### **FLOWCHART FOR MEDICINE TRACKING SYSTEM**
+
+
+![AVS Pharmacy - Flowchart (1)](https://user-images.githubusercontent.com/37552813/206944957-b498f8a2-1c05-4f01-b014-641e8ff0497b.jpeg)
+
+
   
 ![Flowchart-Manufacturer](https://user-images.githubusercontent.com/37552813/204705936-60337fb8-ae2d-455d-bbc2-95b5cac904e1.jpeg)
+
 
 
 ![Flowchart-Patient](https://user-images.githubusercontent.com/37552813/204705952-4e3e2310-3e1e-4d5a-a651-da3073aa667e.jpeg)

@@ -61,7 +61,7 @@ public class CommunityAdminSideJPanel extends javax.swing.JPanel {
                 btnLogoutActionPerformed(evt);
             }
         });
-        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 520, 160, 40));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 140, 40));
 
         imgCommunityAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCommunityAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/CommunityAdmin.jpg"))); // NOI18N
@@ -71,11 +71,11 @@ public class CommunityAdminSideJPanel extends javax.swing.JPanel {
         lblGIF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/WelcomeIS.gif"))); // NOI18N
         add(lblGIF, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 280));
 
-        btnRegister.setBackground(new java.awt.Color(0, 51, 153));
+        btnRegister.setBackground(new java.awt.Color(0, 153, 255));
         btnRegister.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Add User Male.png"))); // NOI18N
-        btnRegister.setText("View");
+        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnRegister.setText("VIEW");
         btnRegister.setBorder(null);
         btnRegister.setBorderPainted(false);
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class CommunityAdminSideJPanel extends javax.swing.JPanel {
                 btnRegisterActionPerformed(evt);
             }
         });
-        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 160, 40));
+        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 140, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed

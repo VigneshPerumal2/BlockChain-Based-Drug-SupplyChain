@@ -77,7 +77,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="520" width="160" height="40"/>
+          <AbsoluteConstraints x="120" y="460" width="140" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -110,7 +110,7 @@
     <Component class="javax.swing.JButton" name="btnRegister">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="33" red="0" type="rgb"/>
+          <Color blue="ff" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Helvetica Neue" size="14" style="1"/>
@@ -119,9 +119,9 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/util/images/Add User Male.png"/>
+          <Image iconType="3" name="/util/images/Eye.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="View"/>
+        <Property name="text" type="java.lang.String" value="VIEW"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -132,7 +132,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="400" width="160" height="40"/>
+          <AbsoluteConstraints x="120" y="370" width="140" height="40"/>
         </Constraint>
       </Constraints>
     </Component>

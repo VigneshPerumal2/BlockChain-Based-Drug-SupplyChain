@@ -118,7 +118,11 @@ public class ViewPharmacyJPanel extends javax.swing.JPanel {
         lblIVPharmacy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/PharmacyLogoV.jpg"))); // NOI18N
         add(lblIVPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, 310, 180));
 
-        btnCreate.setText("Create");
+        btnCreate.setBackground(new java.awt.Color(0, 153, 51));
+        btnCreate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Plus(3).png"))); // NOI18N
+        btnCreate.setText("CREATE");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);

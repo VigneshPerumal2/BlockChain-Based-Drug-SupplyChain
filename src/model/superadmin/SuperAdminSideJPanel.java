@@ -36,7 +36,6 @@ public class SuperAdminSideJPanel extends javax.swing.JPanel {
         imgPharmacy = new javax.swing.JLabel();
         lblGIF = new javax.swing.JLabel();
         btnRegister = new javax.swing.JButton();
-        btnAdminView = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +61,7 @@ public class SuperAdminSideJPanel extends javax.swing.JPanel {
                 btnLogoutActionPerformed(evt);
             }
         });
-        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 520, 160, 40));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 160, 40));
 
         imgPharmacy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/SuperAdmin.jpg"))); // NOI18N
         add(imgPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 400, 200));
@@ -75,7 +74,7 @@ public class SuperAdminSideJPanel extends javax.swing.JPanel {
         btnRegister.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Add User Male.png"))); // NOI18N
-        btnRegister.setText("REGISTER");
+        btnRegister.setText("Manage ");
         btnRegister.setBorder(null);
         btnRegister.setBorderPainted(false);
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -83,19 +82,7 @@ public class SuperAdminSideJPanel extends javax.swing.JPanel {
                 btnRegisterActionPerformed(evt);
             }
         });
-        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 160, 40));
-
-        btnAdminView.setBackground(new java.awt.Color(0, 153, 255));
-        btnAdminView.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnAdminView.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdminView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnAdminView.setText("VIEW");
-        btnAdminView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdminViewActionPerformed(evt);
-            }
-        });
-        add(btnAdminView, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 160, 40));
+        add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 160, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -105,19 +92,11 @@ public class SuperAdminSideJPanel extends javax.swing.JPanel {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        splitPane.setLeftComponent(new SuperAdminRegistrationJPanel(splitPane));
+        splitPane.setLeftComponent(new SuperAdminRolesSideJPanel(splitPane));
     }//GEN-LAST:event_btnRegisterActionPerformed
-
-    private void btnAdminViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminViewActionPerformed
-        // TODO add your handling code here:
-        
-
-       
-    }//GEN-LAST:event_btnAdminViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdminView;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel imgPharmacy;

@@ -83,16 +83,17 @@ public class IngredientSupplierSqlQuery {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
-                String name = resultSet.getString(1);
-                String category = resultSet.getString(2);
-                String location = resultSet.getString(3);
-                Date date = resultSet.getDate(4);
-                String emailID = resultSet.getString(5);
-                String phoneNo = resultSet.getString(6);
-                String password = resultSet.getString(7);
+                int id  = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String category = resultSet.getString(3);
+                String location = resultSet.getString(4);
+                Date date = resultSet.getDate(5);
+                String emailID = resultSet.getString(6);
+                String phoneNo = resultSet.getString(7);
+                String password = resultSet.getString(8);
 
                 IngredientSupplier obj = new IngredientSupplier();
+                obj.setSupplier_Id(id);
                 obj.setSupplier_Name(name);
                 obj.setSupplier_Category(category);
                 obj.setSupplier_Location(location);
@@ -167,7 +168,7 @@ public class IngredientSupplierSqlQuery {
      */
     public int updateIngredientSupplier(IngredientSupplier ingredientSupplier) {
         int result = 0;
-        String SQL_UPDATE_INGREDIENT_SUPPLIER = "UPDATE INGREDIENT_SUPPLIER SET Supplier_Name = ? ,Supplier_Category = ? ,Supplier_Location = ?,Supplier_Date_Of_Establishment = ? ,Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
+        String SQL_UPDATE_INGREDIENT_SUPPLIER = "UPDATE INGREDIENT_SUPPLIER SET Supplier_Name = ? ,Supplier_Category = ? ,Supplier_Location = ?,Supplier_Date_Of_Establishment = ? ,Email_Id = ?,Phone_No = ?,Password = ? WHERE Supplier_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_INGREDIENT_SUPPLIER)) {
 
@@ -178,6 +179,7 @@ public class IngredientSupplierSqlQuery {
             preparedStatement.setString(5, ingredientSupplier.getEmail_Id());
             preparedStatement.setString(6, ingredientSupplier.getPhone_No());
             preparedStatement.setString(7, ingredientSupplier.getPassword());
+             preparedStatement.setInt(8, ingredientSupplier.getSupplier_Id());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -198,17 +200,11 @@ public class IngredientSupplierSqlQuery {
      */
     public int deleteIngredientSupplier(IngredientSupplier ingredientSupplier) {
         int result = 0;
-        String SQL_DELETE_INGREDIENT_SUPPLIER = "DELETE FROM IngredientSupplier WHERE Email_Id = ? ";
+        String SQL_DELETE_INGREDIENT_SUPPLIER = "DELETE FROM INGREDIENT_SUPPLIER WHERE Supplier_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_INGREDIENT_SUPPLIER)) {
 
-            preparedStatement.setString(1, ingredientSupplier.getSupplier_Name());
-            preparedStatement.setString(2, ingredientSupplier.getSupplier_Category());
-            preparedStatement.setString(3, ingredientSupplier.getSupplier_Location());
-            preparedStatement.setDate(4,ingredientSupplier.getSupplier_Date_Of_Establishment());
-            preparedStatement.setString(5, ingredientSupplier.getEmail_Id());
-            preparedStatement.setString(6, ingredientSupplier.getPhone_No());
-            preparedStatement.setString(7, ingredientSupplier.getPassword());
+            preparedStatement.setInt(1, ingredientSupplier.getSupplier_Id());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);

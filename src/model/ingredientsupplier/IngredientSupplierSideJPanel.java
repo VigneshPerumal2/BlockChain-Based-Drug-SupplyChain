@@ -16,9 +16,11 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
      * Creates new form IngredientSupplierSideJPanel
      */
     javax.swing.JSplitPane splitPane;
+    
     public IngredientSupplierSideJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane=splitPane;
+        
     }
 
     /**
@@ -55,7 +57,7 @@ public class IngredientSupplierSideJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SUNAINA");
+        jLabel1.setText("Welcome");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));

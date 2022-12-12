@@ -141,7 +141,7 @@ public class LicensingJPanel extends javax.swing.JPanel {
     private void populateTable() {
         ArrayList<Medicine> mList =  new  ArrayList<>();
         MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
+        mList = msq.readAllMedicinebyMName(manufacturer.getManufacturer_Name());
         
         DefaultTableModel model =(DefaultTableModel) tblMedicine.getModel();
         model.setRowCount(0);

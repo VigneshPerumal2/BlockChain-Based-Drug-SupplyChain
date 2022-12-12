@@ -108,7 +108,7 @@ public class ManufacturerSideJPanel extends javax.swing.JPanel {
             splitPane.setRightComponent(new LicensingJPanel(manufacturer));
         }
         else if(drpDepartment.getSelectedItem().equals("Packaging")){
-            splitPane.setRightComponent(new PackagingJPanel(splitPane));
+            splitPane.setRightComponent(new PackagingJPanel(splitPane,manufacturer));
         }
     }//GEN-LAST:event_drpDepartmentActionPerformed
 

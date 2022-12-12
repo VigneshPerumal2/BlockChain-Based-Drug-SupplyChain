@@ -69,9 +69,16 @@ public class ViewPharmacyJPanel extends javax.swing.JPanel {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane2.setViewportView(tblPharmacy);
@@ -193,7 +200,7 @@ public class ViewPharmacyJPanel extends javax.swing.JPanel {
             row[2] = e.getPharmacy_Inventory_Size();
             row[3] = e.getEmail_Id();
             row[4] = e.getPassword();
-            row[5] = e.getPassword();
+            row[5] = e.getPhone_No();
             
             model.addRow(row);
             

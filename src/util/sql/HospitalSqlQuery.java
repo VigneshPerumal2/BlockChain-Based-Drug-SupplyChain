@@ -82,6 +82,8 @@ public class HospitalSqlQuery {
                 String password = resultSet.getString(7);
 
                 Hospital obj = new Hospital();
+                
+                obj.setHospital_Id(id);
                 obj.setHospital_Name(name);
                 obj.setHospital_Location(location);
                 obj.setHospital_Speciality(speciality);
@@ -153,7 +155,7 @@ public class HospitalSqlQuery {
      */
     public int updateHospital(Hospital hospital) {
         int result = 0;
-        String SQL_UPDATE_HOSPITAL = "UPDATE HOSPITAL SET Hospital_Name = ? ,Hospital_Location = ? ,Hospital_Speciality = ? , Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
+        String SQL_UPDATE_HOSPITAL = "UPDATE HOSPITAL SET Hospital_Name = ? ,Hospital_Location = ? ,Hospital_Speciality = ? , Email_Id = ?,Phone_No = ?,Password = ? WHERE Hospital_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_HOSPITAL)) {
 
@@ -163,6 +165,7 @@ public class HospitalSqlQuery {
             preparedStatement.setString(4, hospital.getEmail_Id());
             preparedStatement.setString(5, hospital.getPhone_No());
             preparedStatement.setString(6, hospital.getPassword());
+            preparedStatement.setInt(7, hospital.getHospital_Id());
         
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -182,16 +185,11 @@ public class HospitalSqlQuery {
      */
     public int deleteHospital(Hospital hospital) {
         int result = 0;
-        String SQL_DELETE_HOSPITAL = "DELETE FROM Hospital WHERE Email_Id = ? ";
+        String SQL_DELETE_HOSPITAL = "DELETE FROM Hospital WHERE Hospital_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_HOSPITAL)) {
 
-            preparedStatement.setString(1, hospital.getHospital_Name());
-            preparedStatement.setString(2, hospital.getHospital_Location());
-            preparedStatement.setString(3, hospital.getHospital_Speciality());
-            preparedStatement.setString(4, hospital.getEmail_Id());
-            preparedStatement.setString(5, hospital.getPhone_No());
-            preparedStatement.setString(6, hospital.getPassword());
+            preparedStatement.setInt(1,hospital.getHospital_Id());
         
             System.out.println("Prepared Statement ->" + preparedStatement);
 

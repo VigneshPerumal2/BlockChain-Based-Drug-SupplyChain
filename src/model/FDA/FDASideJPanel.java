@@ -56,8 +56,8 @@ public class FDASideJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SUNAINA");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 340, 400, 40));
+        jLabel1.setText("Welcome");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 340, 410, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));
         btnLogout.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N

@@ -4,7 +4,9 @@
  */
 package model.distributor;
 
+import classes.HospitalOrderBook;
 import classes.Medicine;
+import classes.PharmacyOrderBook;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
@@ -13,7 +15,9 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
+import util.sql.Hospital_OrderBook_SqlQuery;
 import util.sql.MedicineSqlQuery;
+import util.sql.Pharmacy_OrderBook_SqlQuery;
 
 /**
  *
@@ -30,6 +34,8 @@ public class DistributorJPanel extends javax.swing.JPanel {
     public DistributorJPanel() {
         initComponents();
         populateTable();
+        populatePharmacyOrdersTable();
+        populateHospitalOrdersTable();
         this.manfDataset = new DefaultPieDataset();
         this.categoryDataset = new DefaultPieDataset();
         ArrayList<Medicine> mList = new ArrayList<>();
@@ -44,14 +50,14 @@ public class DistributorJPanel extends javax.swing.JPanel {
                 manufacturerMap.put(m.getManufacturer_Name(),old+1);
             }
             else{
-                manufacturerMap.put(m.getManufacturer_Name(),0);
+                manufacturerMap.put(m.getManufacturer_Name(),1);
             }
             if(categoryMap.containsKey(m.getMedicine_Category())){
                 int old= categoryMap.get(m.getMedicine_Category());
                 categoryMap.put(m.getMedicine_Category(),old+1);
             }
             else{
-                categoryMap.put(m.getMedicine_Category(),0);
+                categoryMap.put(m.getMedicine_Category(),1);
             }
         }
         manufacturerMap.forEach((k,v)->this.manfDataset.setValue(k,v));
@@ -83,12 +89,11 @@ public class DistributorJPanel extends javax.swing.JPanel {
         lbllogo1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblPharmacyOrder = new javax.swing.JTable();
-        btnNewOrder1 = new javax.swing.JButton();
         Pharmacy_Orders1 = new javax.swing.JPanel();
         lbllogo2 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tblHospitalOrder = new javax.swing.JTable();
         btnNewOrder2 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblHospitalOrder = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,20 +205,20 @@ public class DistributorJPanel extends javax.swing.JPanel {
 
         tblPharmacyOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Medicine Name", "Medicine Category", "Pharmacy Name", "Manufacturer Name", "Medicine Status"
+                "Medicine Id", "Pharmacy Id", "Medicine Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -228,18 +233,6 @@ public class DistributorJPanel extends javax.swing.JPanel {
 
         Pharmacy_Orders.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
 
-        btnNewOrder1.setBackground(new java.awt.Color(0, 153, 255));
-        btnNewOrder1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnNewOrder1.setForeground(new java.awt.Color(255, 255, 255));
-        btnNewOrder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnNewOrder1.setText("VIEW");
-        btnNewOrder1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewOrder1ActionPerformed(evt);
-            }
-        });
-        Pharmacy_Orders.add(btnNewOrder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
-
         PanelInventoryM.addTab("Pharmacy Orders", Pharmacy_Orders);
 
         Pharmacy_Orders1.setBackground(new java.awt.Color(255, 255, 255));
@@ -249,36 +242,6 @@ public class DistributorJPanel extends javax.swing.JPanel {
         lbllogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         Pharmacy_Orders1.add(lbllogo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 608, 110, 70));
-
-        tblHospitalOrder.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Medicine Name", "Medicine Category", "Hospital Name", "Manufacturer Name", "Medicine Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(tblHospitalOrder);
-
-        Pharmacy_Orders1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
 
         btnNewOrder2.setBackground(new java.awt.Color(0, 153, 255));
         btnNewOrder2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -291,6 +254,36 @@ public class DistributorJPanel extends javax.swing.JPanel {
             }
         });
         Pharmacy_Orders1.add(btnNewOrder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 120, 34));
+
+        tblHospitalOrder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Medicine Id", "Hospital Id", "Medicine Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tblHospitalOrder);
+
+        Pharmacy_Orders1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 114, 764, 440));
 
         PanelInventoryM.addTab("Hospital Orders", Pharmacy_Orders1);
 
@@ -337,11 +330,9 @@ public class DistributorJPanel extends javax.swing.JPanel {
         Medicine m = mList.get(selectedRow);
         new DistributorJDialog(null,true,m).show();
         populateTable();
+        populatePharmacyOrdersTable();
+        populateHospitalOrdersTable();
     }//GEN-LAST:event_btnViewActionPerformed
-
-    private void btnNewOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrder1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNewOrder1ActionPerformed
 
     private void btnNewOrder2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrder2ActionPerformed
         // TODO add your handling code here:
@@ -383,6 +374,45 @@ public class DistributorJPanel extends javax.swing.JPanel {
             
         }
     }
+    private void populatePharmacyOrdersTable() {
+        ArrayList<PharmacyOrderBook> mList =  new  ArrayList<>();
+        Pharmacy_OrderBook_SqlQuery msq = new Pharmacy_OrderBook_SqlQuery();
+        mList = msq.readAllPharmacyOrderBook();
+        
+        DefaultTableModel model =(DefaultTableModel) tblPharmacyOrder.getModel();
+        model.setRowCount(0);
+        
+        for(PharmacyOrderBook e: mList){
+            Object row[]=new Object[10];
+            row[0] = e.getMedicine_Id();
+            row[1] = e.getPharmacy_Id();
+            row[2] = e.getStatus();
+            
+            
+            model.addRow(row);
+            
+        }
+    }
+    private void populateHospitalOrdersTable() {
+        ArrayList<HospitalOrderBook> mList =  new  ArrayList<>();
+        Hospital_OrderBook_SqlQuery msq = new Hospital_OrderBook_SqlQuery();
+        mList = msq.readAllHospitalOrderBook();
+        
+        DefaultTableModel model =(DefaultTableModel) tblHospitalOrder.getModel();
+        model.setRowCount(0);
+        
+        for(HospitalOrderBook e: mList){
+            Object row[]=new Object[10];
+            row[0] = e.getMedicine_Id();
+            row[1] = e.getHospital_Id();
+            row[2] = e.getStatus();
+            
+            
+            model.addRow(row);
+            
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Inventory;
@@ -391,14 +421,13 @@ public class DistributorJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel Pharmacy_Orders1;
     private javax.swing.JButton btnChart1;
     private javax.swing.JButton btnChart2;
-    private javax.swing.JButton btnNewOrder1;
     private javax.swing.JButton btnNewOrder2;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lblOrderTable;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JLabel lbllogo1;

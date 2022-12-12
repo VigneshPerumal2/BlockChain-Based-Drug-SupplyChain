@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package model.registration;
+package model.communityadmin;
 
 import classes.Hospital;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.registration.*;
 import model.sendmail.EmailUtil;
 import util.sql.HospitalSqlQuery;
 
@@ -15,18 +16,27 @@ import util.sql.HospitalSqlQuery;
  *
  * @author sunayanashivanagi
  */
-public class HospitalFormJPanel extends javax.swing.JPanel {
+public class UpdateHospitalFormJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form HospitalFormJPanel
      */
     private boolean validation;
     javax.swing.JSplitPane splitPane;
-    public HospitalFormJPanel(javax.swing.JSplitPane splitPane) {
+    Hospital h;
+    public UpdateHospitalFormJPanel(javax.swing.JSplitPane splitPane,Hospital h) {
         initComponents();
         this.splitPane=splitPane;
-        
+        this.h=h;
         formReset();
+        txtName.setText(h.getHospital_Name());
+        txtLocation.setText(h.getHospital_Location());
+        txtSpeciality.setText(h.getHospital_Speciality());
+        txtEmailId.setText(h.getEmail_Id());
+        txtPassword.setText(h.getPassword());
+        txtPhoneNumber.setText(h.getPhone_No());
+        
+        
     }
 
     /**
@@ -72,7 +82,7 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
 
         lblDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblDistributor.setForeground(new java.awt.Color(0, 51, 153));
-        lblDistributor.setText("Enter Hospital Details");
+        lblDistributor.setText("Update Hospital Details");
         jPanel2.add(lblDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 540, 90));
 
         lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -321,7 +331,7 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
         
         
         //Fill he object using setter
-        
+        obj.setHospital_Id(h.getHospital_Id());
         obj.setHospital_Name(Hospital_Name);
         obj.setHospital_Location(Hospital_Location);
         obj.setHospital_Speciality(Hospital_Speciality);
@@ -332,11 +342,11 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
         if (validation()) {
             EmailUtil a = new EmailUtil();
             try {
-                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Hospital account created successfully !");
+//                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Hospital account created successfully !");
             } catch (Exception ex) {
                 Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
-            result = sql.createHospital(obj);        
+            result = sql.updateHospital(obj);        
         }
         if (result == 1) {
             formReset();        

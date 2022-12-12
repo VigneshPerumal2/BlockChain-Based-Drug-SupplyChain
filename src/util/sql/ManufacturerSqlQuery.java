@@ -80,14 +80,15 @@ public class ManufacturerSqlQuery {
                 
                 int id = resultSet.getInt(1);
                 String name = resultSet.getString(2);
-                String location = resultSet.getString(3);
-                String medicine_type = resultSet.getString(4);
+                String medicine_type = resultSet.getString(3);
+                String location = resultSet.getString(4);
                 Date doe = resultSet.getDate(5);
                 String emailID = resultSet.getString(6);
                 String phoneNo = resultSet.getString(7);
                 String password = resultSet.getString(8);
 
                 Manufacturer obj = new Manufacturer();
+                obj.setManufacturer_Id(id);
                 obj.setManufacturer_Name(name);
                 obj.setManufacturer_Location(location);
                 obj.setType_Of_Medicine(medicine_type);
@@ -157,7 +158,7 @@ public class ManufacturerSqlQuery {
      */
     public int updateManufacturer(Manufacturer manufacturer) {
         int result = 0;
-        String SQL_UPDATE_MANUFACTURER = "UPDATE MANUFACTURER SET Manufacturer_Name = ? ,Manufacturer_Location = ?, Type_Of_Medicine = ? ,Manufacturer_Date_Of_Establishment = ?,Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
+        String SQL_UPDATE_MANUFACTURER = "UPDATE MANUFACTURER SET Manufacturer_Name = ? ,Manufacturer_Location = ?, Type_Of_Medicine = ? ,Manufacturer_Date_Of_Establishment = ?,Email_Id = ?,Phone_No = ?,Password = ? WHERE Manufacturer_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_MANUFACTURER)) {
 
@@ -168,6 +169,7 @@ public class ManufacturerSqlQuery {
             preparedStatement.setString(5, manufacturer.getEmail_Id());
             preparedStatement.setString(6, manufacturer.getPhone_No());
             preparedStatement.setString(7, manufacturer.getPassword());
+             preparedStatement.setInt(8, manufacturer.getManufacturer_Id());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -202,5 +204,29 @@ public class ManufacturerSqlQuery {
             return id;
         }
     }
+    
+    /**
+     *
+     * @return int Delete Pharmacy Function
+     */
+    public int deletePharmacy(Manufacturer manufacturer) {
+        int result = 0;
+        String SQL_DELETE_PHARMACY = "DELETE FROM MANUFACTURER WHERE Manufacturer_Id = ? ";
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_PHARMACY)) {
+
+            preparedStatement.setInt(1, manufacturer.getManufacturer_Id());
+        
+            System.out.println("Prepared Statement ->" + preparedStatement);
+
+            int row = preparedStatement.executeUpdate();
+            result = row;
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+        }
+        return result;
+    }  
 
 }

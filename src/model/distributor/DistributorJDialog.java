@@ -4,7 +4,6 @@
  */
 package model.distributor;
 
-import model.manufacturer.*;
 import classes.Medicine;
 import util.sql.MedicineSqlQuery;
 
@@ -121,13 +120,13 @@ public class DistributorJDialog extends javax.swing.JDialog {
         btnAccept.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Approval.png"))); // NOI18N
-        btnAccept.setText("ACCEPT");
+        btnAccept.setText("AVAILABLE");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 30));
+        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 130, 30));
 
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Manufacturer - ");
@@ -164,7 +163,7 @@ public class DistributorJDialog extends javax.swing.JDialog {
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
         MedicineSqlQuery msq = new MedicineSqlQuery();
-        m.setMedicine_Status("Licensing");
+        m.setMedicine_Status("Available");
         msq.updateMedicine(m);
         setVisible(false);
     }//GEN-LAST:event_btnAcceptActionPerformed

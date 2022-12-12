@@ -120,13 +120,13 @@ public class IndgJDialog extends javax.swing.JDialog {
         btnAccept.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Approval.png"))); // NOI18N
-        btnAccept.setText("ACCEPT");
+        btnAccept.setText("SUPPLY INGREDIENTS");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 30));
+        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 200, 30));
 
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Manufacturer - ");

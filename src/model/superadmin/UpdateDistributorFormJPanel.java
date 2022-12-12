@@ -2,31 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package model.registration;
+package model.superadmin;
 
-import classes.Hospital;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import classes.Distributor;
+import java.sql.Date;
 import javax.swing.JOptionPane;
-import model.sendmail.EmailUtil;
-import util.sql.HospitalSqlQuery;
+import model.registration.*;
+import util.sql.DistributorSqlQuery;
 
 /**
  *
  * @author sunayanashivanagi
  */
-public class HospitalFormJPanel extends javax.swing.JPanel {
+public class UpdateDistributorFormJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form HospitalFormJPanel
+     * Creates new form DistributorFormJPanel
      */
     private boolean validation;
     javax.swing.JSplitPane splitPane;
-    public HospitalFormJPanel(javax.swing.JSplitPane splitPane) {
+    Distributor d;
+    public UpdateDistributorFormJPanel(javax.swing.JSplitPane splitPane,Distributor d) {
         initComponents();
-        this.splitPane=splitPane;
-        
+        this.splitPane = splitPane;
+        this.d=d;
         formReset();
+        txtName.setText(d.getDistributor_Name());
+        txtLocation.setText(d.getDistributor_Location());
+        comboboxModeOfTransport.setSelectedItem(d.getDistributor_Mode_Of_Transportation());
+        datechooserDateOfEst.setDate(d.getDistributor_Date_Of_Establishment());
+        txtPrice.setText(String.valueOf(d.getDistributor_Price()));
+        txtEmailId.setText(d.getEmail_Id());
+        txtPassword.setText(d.getPassword());
+        txtPhoneNumber.setText(d.getPhone_No());
+        
     }
 
     /**
@@ -43,27 +52,31 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         valName = new javax.swing.JLabel();
-        txtSpeciality = new javax.swing.JTextField();
-        lblSpeciality = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
+        txtPrice = new javax.swing.JTextField();
+        valPrice = new javax.swing.JLabel();
+        lblModeOfTransport = new javax.swing.JLabel();
+        lblDateofEst = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         btnReset = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
         lbllogo = new javax.swing.JLabel();
+        comboboxModeOfTransport = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         lblLocation = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         valLocation = new javax.swing.JLabel();
-        valSpeciality = new javax.swing.JLabel();
         lblEmailId = new javax.swing.JLabel();
-        txtEmailId = new javax.swing.JTextField();
         valEmailId = new javax.swing.JLabel();
+        txtEmailId = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         valPassword = new javax.swing.JLabel();
-        lblPhoneNumber = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
+        lblPhoneNumber = new javax.swing.JLabel();
         valPhoneNumber = new javax.swing.JLabel();
+        datechooserDateOfEst = new com.toedter.calendar.JDateChooser();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -72,36 +85,50 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
 
         lblDistributor.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblDistributor.setForeground(new java.awt.Color(0, 51, 153));
-        lblDistributor.setText("Enter Hospital Details");
-        jPanel2.add(lblDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 540, 90));
+        lblDistributor.setText("Enter Distributor Details");
+        jPanel2.add(lblDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 540, 90));
 
         lblName.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(102, 102, 102));
         lblName.setText("Name");
-        jPanel2.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 70, 30));
+        jPanel2.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 70, 30));
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
-        jPanel2.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 290, 30));
+        jPanel2.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 290, 30));
 
         valName.setForeground(new java.awt.Color(255, 61, 0));
         valName.setText("Please enter valid Name");
-        jPanel2.add(valName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 290, 20));
+        jPanel2.add(valName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 290, 20));
 
-        txtSpeciality.addActionListener(new java.awt.event.ActionListener() {
+        lblPrice.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblPrice.setForeground(new java.awt.Color(102, 102, 102));
+        lblPrice.setText("Price");
+        jPanel2.add(lblPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 120, 30));
+
+        txtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSpecialityActionPerformed(evt);
+                txtPriceActionPerformed(evt);
             }
         });
-        jPanel2.add(txtSpeciality, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 290, 30));
+        jPanel2.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, 290, 30));
 
-        lblSpeciality.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblSpeciality.setForeground(new java.awt.Color(102, 102, 102));
-        lblSpeciality.setText("Speciality");
-        jPanel2.add(lblSpeciality, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 170, 30));
+        valPrice.setForeground(new java.awt.Color(255, 61, 0));
+        valPrice.setText("Please enter valid Price");
+        jPanel2.add(valPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 290, 20));
+
+        lblModeOfTransport.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblModeOfTransport.setForeground(new java.awt.Color(102, 102, 102));
+        lblModeOfTransport.setText("Mode of Transport");
+        jPanel2.add(lblModeOfTransport, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 170, 30));
+
+        lblDateofEst.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblDateofEst.setForeground(new java.awt.Color(102, 102, 102));
+        lblDateofEst.setText("Date of Establishment");
+        jPanel2.add(lblDateofEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 200, 30));
         jPanel2.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
         jPanel2.add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
 
@@ -116,7 +143,7 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
                 btnResetActionPerformed(evt);
             }
         });
-        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 700, 160, 40));
+        jPanel2.add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 690, 160, 40));
 
         btnsubmit.setBackground(new java.awt.Color(0, 153, 0));
         btnsubmit.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -129,161 +156,160 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
                 btnsubmitActionPerformed(evt);
             }
         });
-        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 700, 160, 40));
+        jPanel2.add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 690, 160, 40));
 
         lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
         jPanel2.add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
 
+        comboboxModeOfTransport.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Road", "Sea", "Aerial", " " }));
+        comboboxModeOfTransport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboboxModeOfTransportActionPerformed(evt);
+            }
+        });
+        jPanel2.add(comboboxModeOfTransport, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 290, 30));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Hospital.jpg"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 390, 440));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Distributor.jpg"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 390, 440));
 
         lblLocation.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblLocation.setForeground(new java.awt.Color(102, 102, 102));
         lblLocation.setText("Location");
-        jPanel2.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 120, 30));
+        jPanel2.add(lblLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 120, 30));
 
         txtLocation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLocationActionPerformed(evt);
             }
         });
-        jPanel2.add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 290, 30));
+        jPanel2.add(txtLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 290, 30));
 
         valLocation.setForeground(new java.awt.Color(255, 61, 0));
         valLocation.setText("Please enter valid Location");
-        jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 290, 20));
-
-        valSpeciality.setForeground(new java.awt.Color(255, 61, 0));
-        valSpeciality.setText("Please enter valid Speciality");
-        jPanel2.add(valSpeciality, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 290, 20));
+        jPanel2.add(valLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 290, 20));
 
         lblEmailId.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblEmailId.setForeground(new java.awt.Color(102, 102, 102));
         lblEmailId.setText("Email Id");
-        jPanel2.add(lblEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 70, 30));
+        jPanel2.add(lblEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, 70, 30));
+
+        valEmailId.setForeground(new java.awt.Color(255, 61, 0));
+        valEmailId.setText("Please enter valid Email Id");
+        jPanel2.add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, 290, 20));
 
         txtEmailId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailIdActionPerformed(evt);
             }
         });
-        jPanel2.add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 290, 30));
-
-        valEmailId.setForeground(new java.awt.Color(255, 61, 0));
-        valEmailId.setText("Please enter valid Email Id");
-        jPanel2.add(valEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 290, 20));
+        jPanel2.add(txtEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 580, 290, 30));
 
         lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(102, 102, 102));
         lblPassword.setText("Password");
-        jPanel2.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, 110, 30));
-        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 290, 30));
+        jPanel2.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 110, 30));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 490, 290, 30));
 
         valPassword.setForeground(new java.awt.Color(255, 61, 0));
         valPassword.setText("Please enter valid Password");
-        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, 290, 20));
-
-        lblPhoneNumber.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        lblPhoneNumber.setForeground(new java.awt.Color(102, 102, 102));
-        lblPhoneNumber.setText("Phone Number");
-        jPanel2.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 580, 140, 30));
+        jPanel2.add(valPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, 290, 20));
 
         txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPhoneNumberActionPerformed(evt);
             }
         });
-        jPanel2.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 610, 290, 30));
+        jPanel2.add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 290, 30));
+
+        lblPhoneNumber.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblPhoneNumber.setForeground(new java.awt.Color(102, 102, 102));
+        lblPhoneNumber.setText("Phone Number");
+        jPanel2.add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 140, 30));
 
         valPhoneNumber.setForeground(new java.awt.Color(255, 61, 0));
         valPhoneNumber.setText("Please enter valid Phone Number");
-        jPanel2.add(valPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 640, 290, 20));
+        jPanel2.add(valPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, 290, 20));
+        jPanel2.add(datechooserDateOfEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 290, -1));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, -1));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtSpecialityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSpecialityActionPerformed
+    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSpecialityActionPerformed
+    }//GEN-LAST:event_txtPriceActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         formReset();
-        /**
-     * Form reset implementation
-     */
-    
-
     }//GEN-LAST:event_btnResetActionPerformed
-     private void formReset() 
-    {
+    private void formReset() {
 
         txtName.setText("");
         txtLocation.setText("");
-        txtSpeciality.setText("");
+        comboboxModeOfTransport.setSelectedItem("");
+        datechooserDateOfEst.setDate(null);
+        txtPrice.setText("");
         txtEmailId.setText("");
         txtPassword.setText("");
         txtPhoneNumber.setText("");
-        
+
         valName.setText("");
         valLocation.setText("");
-        valSpeciality.setText("");
+        valPrice.setText("");
         valEmailId.setText("");
         valPassword.setText("");
         valPhoneNumber.setText("");
-        
-        
+
     }
-    
-      /**
+
+    /**
      * Validation implementation
      *
      * @return
      */
+
     private boolean validation() {
         boolean validation = true;
-        
-        
+
         valName.setText("");
         valLocation.setText("");
-        valSpeciality.setText("");
+        valPrice.setText("");
         valEmailId.setText("");
         valPassword.setText("");
         valPhoneNumber.setText("");
-                
-        
-        String Hospital_Name = txtName.getText();
-        String Hospital_Location = txtLocation.getText();
-        String Hospital_Speciality = txtLocation.getText();
+
+        String Name = txtName.getText();
+        String Location = txtLocation.getText();
+        String Price = txtPrice.getText();
         String Email_Id = txtEmailId.getText();
         String Password = txtPassword.getText();
         String Phone_No = txtPhoneNumber.getText();
-       
 
-        System.out.println("Hospital Name->" + Hospital_Name);
+        System.out.println(" Name->" + Name);
 
         //Name Validation
-        if (Hospital_Name.length() <= 0) {
+        if (Name.length() <= 0) {
             valName.setText("Please Enter Name");
             validation = false;
         }
         //Location Validation
-        if (Hospital_Location.length() <= 0) {
+        if (Location.length() <= 0) {
             valLocation.setText("Please Enter Location");
             validation = false;
         }
-        //Speciality Validation
-        if (Hospital_Speciality.length() <= 0) {
-            valLocation.setText("Please Enter Location");
+        //Price Validation 
+        if (Price.length() <= 0) {
+            valLocation.setText("Please Enter Price");
             validation = false;
         }
-         //Email_Id Validation
+
+        //Email_Id Validation
         if (Email_Id.length() <= 0) {
             valEmailId.setText("Please Enter EmailId");
             validation = false;
@@ -301,53 +327,69 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
 
         return validation;
     }
+
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
-        //collecting values
-        String Hospital_Name = txtName.getText();
-        String Hospital_Location = txtLocation.getText();
-        String Hospital_Speciality = txtSpeciality.getText();
+        String Name = txtName.getText();
+        String Location = txtLocation.getText();
+        String modeOfTransport = "";
+        if (comboboxModeOfTransport.getSelectedIndex() == 0) {
+            modeOfTransport = "Road";
+        }
+        if (comboboxModeOfTransport.getSelectedIndex() == 1) {
+            modeOfTransport = "Sea";
+        }
+        if (comboboxModeOfTransport.getSelectedIndex() == 2) {
+            modeOfTransport = "Aerial";
+        }
+        System.out.println("Date from system ->" + datechooserDateOfEst.getDate());
+        Date Distributor_date = new java.sql.Date(datechooserDateOfEst.getDate().getTime());
+        int Price = Integer.parseInt(txtPrice.getText());
         String Email_Id = txtEmailId.getText();
         String Phone_No = txtPhoneNumber.getText();
         String Password = txtPassword.getText();
-        
+
         //Database Query Object
-        HospitalSqlQuery sql = new HospitalSqlQuery();
+        DistributorSqlQuery sql = new DistributorSqlQuery();
         int result = 0;
-        
-        
+
         //Create a patient object
-        Hospital obj = new Hospital();
-        
-        
+        Distributor obj = new Distributor();
+
         //Fill he object using setter
-        
-        obj.setHospital_Name(Hospital_Name);
-        obj.setHospital_Location(Hospital_Location);
-        obj.setHospital_Speciality(Hospital_Speciality);
+        obj.setDistributor_Id(d.getDistributor_Id());
+        obj.setDistributor_Name(Name);
+        obj.setDistributor_Location(Location);
+        obj.setDistributor_Date_Of_Establishment(Distributor_date);
+        obj.setDistributor_Mode_Of_Transportation(modeOfTransport);
+        obj.setDistributor_Price(Price);
         obj.setEmail_Id(Email_Id);
-        obj.setPassword(Password);
         obj.setPhone_No(Phone_No);
-        
+        obj.setPassword(Password);
+
         if (validation()) {
-            EmailUtil a = new EmailUtil();
-            try {
-                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Hospital account created successfully !");
-            } catch (Exception ex) {
-                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            result = sql.createHospital(obj);        
+//            testEmail a = new testEmail();
+//            try {
+//                a.sendMail(Email_Id,"AVS Pharmacy -  Account Creation","Distributor account created successfully !");
+//            } catch (Exception ex) {
+//                Logger.getLogger(PatientRegFormJPanel.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+            result = sql.updateDistributor(obj);
         }
         if (result == 1) {
-            formReset();        
+            formReset();
             splitPane.setRightComponent(new SuccessGifJPanel());
         } else {
             validation();
-            JOptionPane.showMessageDialog(this, "Hospital not created !");
+            JOptionPane.showMessageDialog(this, "Distributor not created !");
 
         }
 
     }//GEN-LAST:event_btnsubmitActionPerformed
+
+    private void comboboxModeOfTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxModeOfTransportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboboxModeOfTransportActionPerformed
 
     private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
         // TODO add your handling code here:
@@ -365,29 +407,34 @@ public class HospitalFormJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnsubmit;
+    private javax.swing.JComboBox<String> comboboxModeOfTransport;
+    private com.toedter.calendar.JDateChooser datechooserDateOfEst;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblDateofEst;
     private javax.swing.JLabel lblDistributor;
     private javax.swing.JLabel lblEmailId;
     private javax.swing.JLabel lblLocation;
+    private javax.swing.JLabel lblModeOfTransport;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPhoneNumber;
-    private javax.swing.JLabel lblSpeciality;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lbllogo;
     private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtSpeciality;
+    private javax.swing.JTextField txtPrice;
     private javax.swing.JLabel valEmailId;
     private javax.swing.JLabel valLocation;
     private javax.swing.JLabel valName;
     private javax.swing.JLabel valPassword;
     private javax.swing.JLabel valPhoneNumber;
-    private javax.swing.JLabel valSpeciality;
+    private javax.swing.JLabel valPrice;
     // End of variables declaration//GEN-END:variables
+
 }

@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS FDA
          FDA_City TEXT NOT NULL, 
          FDA_Country TEXT  NOT NULL,
          Email_Id TEXT  NOT NULL, 
+         Phone_no TEXT NOT NULL,
          Password TEXT  NOT NULL
          ); 
 
@@ -81,6 +82,7 @@ CREATE TABLE IF NOT EXISTS DISTRIBUTOR
          Distributor_Mode_Of_Transportation TEXT NOT NULL,
          Distributor_Price INTEGER NOT NULL,
          Email_Id TEXT  NOT NULL, 
+         Phone_no TEXT NOT NULL,
          Password TEXT  NOT NULL
          );       
  
@@ -160,4 +162,5 @@ select * from patient;
 select * from manufacturer;
 select * from INGREDIENT_SUPPLIER;
 select * from medicine;
+select * from Pharmacy;
 

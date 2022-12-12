@@ -30,7 +30,7 @@ public class DistributorSqlQuery {
      /**
      * Distributor Queries
      */
-    private static final String SQL_INSERT_DISTRIBUTOR = "INSERT INTO DISTRIBUTOR (Distributor_Name, Distributor_Location, Distributor_Date_Of_Establishment, Distributor_Mode_Of_Transportation, Distributor_Price,Email_Id,Phone_No,Password) VALUES (?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT_DISTRIBUTOR = "INSERT INTO DISTRIBUTOR (Distributor_Name, Distributor_Location, Distributor_Date_Of_Establishment, Distributor_Mode_Of_Transportation, Distributor_Price,Email_Id,Phone_no,Password) VALUES (?,?,?,?,?,?,?,?)";
     private static final String SQL_READ_DISTRIBUTOR = "SELECT * FROM DISTRIBUTOR";
     
     
@@ -78,17 +78,18 @@ public class DistributorSqlQuery {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
-                String name = resultSet.getString(1);
-                String location = resultSet.getString(2);
-                Date doe = resultSet.getDate(3);
-                String transportation = resultSet.getString(4);
-                int price = resultSet.getInt(5);
-                String emailID = resultSet.getString(6);
-                String phoneNo = resultSet.getString(7);
-                String password = resultSet.getString(8);
+                int id  = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                Date doe = resultSet.getDate(4);
+                String transportation = resultSet.getString(5);
+                int price = resultSet.getInt(6);
+                String emailID = resultSet.getString(7);
+                String phoneNo = resultSet.getString(8);
+                String password = resultSet.getString(9);
 
                 Distributor obj = new Distributor();
+                obj.setDistributor_Id(id);
                 obj.setDistributor_Name(name);
                 obj.setDistributor_Location(location);
                 obj.setDistributor_Date_Of_Establishment(doe);
@@ -116,7 +117,7 @@ public class DistributorSqlQuery {
      * Validate Distributor Function
      */
    public Distributor validateDistributor(String Email_Id) {
-        String query = "SELECT Password FROM DISTRIBUTOR WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        String query = "SELECT * FROM DISTRIBUTOR WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
         Distributor obj = null;
         try {
             Connection conn = DriverManager.getConnection(
@@ -164,7 +165,7 @@ public class DistributorSqlQuery {
      */
     public int updateDistributor(Distributor distributor) {
         int result = 0;
-        String SQL_UPDATE_DISTRIBUTOR = "UPDATE FDA SET Distributor_Name = ? ,Distributor_Location = ? ,Distributor_Date_Of_Establishment = ? ,Distributor_Mode_Of_Transportation = ?, Distributor_Price = ?, Email_Id = ?,Phone_No = ?,Password = ? WHERE Email_Id = ? ";
+        String SQL_UPDATE_DISTRIBUTOR = "UPDATE DISTRIBUTOR SET Distributor_Name = ? ,Distributor_Location = ? ,Distributor_Date_Of_Establishment = ? ,Distributor_Mode_Of_Transportation = ?, Distributor_Price = ?, Email_Id = ?,Phone_No = ?,Password = ? WHERE Distributor_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_DISTRIBUTOR)) {
 
@@ -176,6 +177,7 @@ public class DistributorSqlQuery {
             preparedStatement.setString(6, distributor.getEmail_Id());
             preparedStatement.setString(7, distributor.getPhone_No());
             preparedStatement.setString(8, distributor.getPassword());
+            preparedStatement.setInt(9, distributor.getDistributor_Id());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -196,18 +198,11 @@ public class DistributorSqlQuery {
      */
     public int deleteDistributor(Distributor distributor) {
         int result = 0;
-        String SQL_DELETE_DISTRIBUTOR = "DELETE FROM Distributor WHERE Email_Id = ? ";
+        String SQL_DELETE_DISTRIBUTOR = "DELETE FROM Distributor WHERE Distributor_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_DELETE_DISTRIBUTOR)) {
 
-            preparedStatement.setString(1, distributor.getDistributor_Name());
-            preparedStatement.setString(2, distributor.getDistributor_Location());
-            preparedStatement.setDate(3, distributor.getDistributor_Date_Of_Establishment());
-            preparedStatement.setString(4, distributor.getDistributor_Mode_Of_Transportation());
-            preparedStatement.setInt(5, distributor.getDistributor_Price());
-            preparedStatement.setString(6, distributor.getEmail_Id());
-            preparedStatement.setString(7, distributor.getPhone_No());
-            preparedStatement.setString(8, distributor.getPassword());
+            preparedStatement.setInt(1,distributor.getDistributor_Id());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 

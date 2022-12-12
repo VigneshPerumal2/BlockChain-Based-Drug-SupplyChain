@@ -102,14 +102,14 @@ public class Pharmacy_OrderBook_SqlQuery {
      */
     public int updatePharmacyOrderBook(PharmacyOrderBook pharmacyOrderBook) {
         int result = 0;
-        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "UPDATE PHARMACY SET Pharmacy_Order_Book_Id = ?,Medicine_Id = ?,Pharmacy_Id = ?, Status = ? WHERE Pharmacy_Order_Book_Id = ? ";
+        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "UPDATE PHARMACY_ORDER_BOOK SET Medicine_Id = ?,Pharmacy_Id = ?, Status = ? WHERE Pharmacy_Order_Book_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_PHARMACY_ORDER_BOOK)) {
 
-            preparedStatement.setInt(1, pharmacyOrderBook.getPharmacy_Order_Book_Id());
-            preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, pharmacyOrderBook.getPharmacy_Id());
-            preparedStatement.setString(4, pharmacyOrderBook.getStatus());
+            preparedStatement.setInt(4, pharmacyOrderBook.getPharmacy_Order_Book_Id());
+            preparedStatement.setInt(1, pharmacyOrderBook.getMedicine_Id());
+            preparedStatement.setInt(2, pharmacyOrderBook.getPharmacy_Id());
+            preparedStatement.setString(3, pharmacyOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -130,14 +130,11 @@ public class Pharmacy_OrderBook_SqlQuery {
      */
     public int deletePharmacyOrderBook(PharmacyOrderBook pharmacyOrderBook) {
         int result = 0;
-        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "DELETE PHARMACY WHERE Pharmacy_Order_Book_Id = ? ";
+        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "DELETE PHARMACY_ORDER_BOOK WHERE Pharmacy_Order_Book_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_PHARMACY_ORDER_BOOK)) {
 
             preparedStatement.setInt(1, pharmacyOrderBook.getPharmacy_Order_Book_Id());
-            preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, pharmacyOrderBook.getPharmacy_Id());
-            preparedStatement.setString(4, pharmacyOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);

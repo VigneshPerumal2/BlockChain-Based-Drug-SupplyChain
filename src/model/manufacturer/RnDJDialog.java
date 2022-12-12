@@ -56,6 +56,7 @@ public class RnDJDialog extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaIng = new javax.swing.JTextArea();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 5), new java.awt.Dimension(0, 5), new java.awt.Dimension(32767, 5));
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 0), new java.awt.Dimension(50, 32767));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 0));
@@ -120,13 +121,13 @@ public class RnDJDialog extends javax.swing.JDialog {
         btnAccept.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Approval.png"))); // NOI18N
-        btnAccept.setText("ACCEPT");
+        btnAccept.setText("ORDER");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 110, 30));
+        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 120, 30));
 
         jLabel9.setForeground(new java.awt.Color(102, 102, 102));
         jLabel9.setText("Manufacturer - ");
@@ -148,6 +149,7 @@ public class RnDJDialog extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 260, 110));
         getContentPane().add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 245, -1, 60));
+        getContentPane().add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 20, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -215,6 +217,7 @@ public class RnDJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnReject;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

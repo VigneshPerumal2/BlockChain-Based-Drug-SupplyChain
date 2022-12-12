@@ -5,22 +5,18 @@
 package model.superadmin;
 
 import model.main.MainJFrame;
-import model.registration.DistributorFormJPanel;
-import model.registration.FDAFormJPanel;
-import model.registration.IngredientSupplierFormJPanel;
-import model.registration.ManufacturerFormJPanel;
 
 /**
  *
  * @author sunayanashivanagi
  */
-public class SuperAdminRegistrationJPanel extends javax.swing.JPanel {
+public class SuperAdminRolesSideJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SuperAdminRegistrationJPanel
+     * Creates new form SuperAdminRolesSideJPanel
      */
     javax.swing.JSplitPane splitPane;
-    public SuperAdminRegistrationJPanel(javax.swing.JSplitPane splitPane) {
+    public SuperAdminRolesSideJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
         this.splitPane=splitPane;
     }
@@ -174,22 +170,22 @@ public class SuperAdminRegistrationJPanel extends javax.swing.JPanel {
 
     private void btnIngSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngSupplierActionPerformed
         // TODO add your handling code here:
-        splitPane.setRightComponent(new IngredientSupplierFormJPanel(splitPane));
+        splitPane.setRightComponent(new ViewIngredientSupplierJPanel(splitPane));
     }//GEN-LAST:event_btnIngSupplierActionPerformed
 
     private void btnManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManufacturerActionPerformed
         // TODO add your handling code here:
-        splitPane.setRightComponent(new ManufacturerFormJPanel(splitPane));
+        splitPane.setRightComponent(new ViewManufacturerJPanel(splitPane));
     }//GEN-LAST:event_btnManufacturerActionPerformed
 
     private void btnFDAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFDAActionPerformed
         // TODO add your handling code here:
-        splitPane.setRightComponent(new FDAFormJPanel(splitPane));
+        splitPane.setRightComponent(new ViewFDAJPanel(splitPane));
     }//GEN-LAST:event_btnFDAActionPerformed
 
     private void btnDistributorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDistributorActionPerformed
         // TODO add your handling code here:
-        splitPane.setRightComponent(new DistributorFormJPanel(splitPane));
+        splitPane.setRightComponent(new ViewDistributorJPanel(splitPane));
     }//GEN-LAST:event_btnDistributorActionPerformed
 
 

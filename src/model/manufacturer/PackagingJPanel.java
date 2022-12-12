@@ -4,6 +4,7 @@
  */
 package model.manufacturer;
 
+import classes.Manufacturer;
 import classes.Medicine;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -20,9 +21,11 @@ public class PackagingJPanel extends javax.swing.JPanel {
      * Creates new form PackagingJPanel
      */
     javax.swing.JSplitPane splitPane;
+    Manufacturer manufacturer;
     ArrayList<Medicine> mList = new ArrayList<>();
-    public PackagingJPanel(javax.swing.JSplitPane splitPane) {
+    public PackagingJPanel(javax.swing.JSplitPane splitPane,Manufacturer manufacturer) {
         initComponents();
+        this.manufacturer=manufacturer;
         populateTable();
         
         MedicineSqlQuery msq = new MedicineSqlQuery();
@@ -315,7 +318,7 @@ public class PackagingJPanel extends javax.swing.JPanel {
     private void populateTable() {
         ArrayList<Medicine> mList = new ArrayList<>();
         MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
+        mList = msq.readAllMedicinebyMName(manufacturer.getManufacturer_Name());
 
         DefaultTableModel model = (DefaultTableModel) tblMedicine.getModel();
         model.setRowCount(0);

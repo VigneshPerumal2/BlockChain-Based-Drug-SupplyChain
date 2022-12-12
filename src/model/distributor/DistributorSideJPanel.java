@@ -58,7 +58,7 @@ public class DistributorSideJPanel extends javax.swing.JPanel {
         lblUserName.setFont(new java.awt.Font("Helvetica Neue", 1, 36)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(0, 51, 153));
         lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserName.setText("SUNAINA");
+        lblUserName.setText("Welcome");
         jPanel1.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 400, 40));
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 51));

@@ -78,12 +78,12 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         spinUnit = new javax.swing.JSpinner();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaIngMed = new javax.swing.JTextArea();
-        spinShellLife = new javax.swing.JSpinner();
         btnAdd = new javax.swing.JButton();
         btnResetMed = new javax.swing.JButton();
         btnsubmitMed = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         dateDOM = new com.toedter.calendar.JDateChooser();
+        spinShellLife = new javax.swing.JSpinner();
 
         setBackground(new java.awt.Color(51, 153, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -252,9 +252,6 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
 
         panInventoryManagement.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 230, 180));
 
-        spinShellLife.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
-        panInventoryManagement.add(spinShellLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 80, 30));
-
         btnAdd.setBackground(new java.awt.Color(0, 153, 255));
         btnAdd.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
@@ -302,6 +299,9 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         panInventoryManagement.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 200, -1, -1));
         panInventoryManagement.add(dateDOM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 290, -1));
 
+        spinShellLife.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        panInventoryManagement.add(spinShellLife, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 90, 30));
+
         PanelInventoryM.addTab("Create Medicine", panInventoryManagement);
 
         add(PanelInventoryM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 800, 710));
@@ -318,7 +318,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
 
         ArrayList<Medicine> mList = new ArrayList<>();
         MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
+        mList = msq.readAllMedicinebyMName(manufacturer.getManufacturer_Name());
         Medicine m = mList.get(selectedRow);
         new RnDJDialog(null, true, m).show();
         populateTable();
@@ -361,6 +361,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
 
     private void btnResetMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetMedActionPerformed
         // TODO add your handling code here:
+        formReset();
     }//GEN-LAST:event_btnResetMedActionPerformed
 
     private void btnsubmitMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitMedActionPerformed
@@ -410,7 +411,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
         txtIng.setText("");
         comboCategoryMed.setSelectedIndex(1);
         dateDOM.setDate(null);
-        spinShellLife.setValue(0);
+        spinShellLife.setValue(1);
         spinUnit.setValue(0);
 
         valIngredients.setText("");
@@ -444,7 +445,7 @@ public class ResearchAndDevelopmentJPanel extends javax.swing.JPanel {
     private void populateTable() {
         ArrayList<Medicine> mList = new ArrayList<>();
         MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
+        mList = msq.readAllMedicinebyMName(manufacturer.getManufacturer_Name());
 
         DefaultTableModel model = (DefaultTableModel) tblMedicine.getModel();
         model.setRowCount(0);

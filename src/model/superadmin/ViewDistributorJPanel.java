@@ -4,7 +4,12 @@
  */
 package model.superadmin;
 
+import classes.Distributor;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.registration.DistributorFormJPanel;
+import util.sql.DistributorSqlQuery;
 
 /**
  *
@@ -15,8 +20,11 @@ public class ViewDistributorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewDistributorJPanel
      */
-    public ViewDistributorJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public ViewDistributorJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
+        populateTable();
     }
 
     /**
@@ -31,12 +39,13 @@ public class ViewDistributorJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblD = new javax.swing.JTable();
         lblViewDistributor = new javax.swing.JLabel();
-        btnDelete = new javax.swing.JButton();
-        btnViewD = new javax.swing.JButton();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 40), new java.awt.Dimension(0, 40), new java.awt.Dimension(32767, 40));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         lbllogo = new javax.swing.JLabel();
         lblIDView = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
+        btnViewPharmacy = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -60,9 +69,16 @@ public class ViewDistributorJPanel extends javax.swing.JPanel {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane2.setViewportView(tblD);
@@ -74,6 +90,16 @@ public class ViewDistributorJPanel extends javax.swing.JPanel {
         lblViewDistributor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblViewDistributor.setText("VIEW DISTRIBUTOR");
         add(lblViewDistributor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 760, 60));
+        add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
+        add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
+
+        lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
+        add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
+
+        lblIDView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIDView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/DistributorLogoV.jpg"))); // NOI18N
+        add(lblIDView, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, 310, 190));
 
         btnDelete.setBackground(new java.awt.Color(204, 0, 0));
         btnDelete.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
@@ -87,27 +113,29 @@ public class ViewDistributorJPanel extends javax.swing.JPanel {
         });
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 160, 110, 30));
 
-        btnViewD.setBackground(new java.awt.Color(0, 153, 255));
-        btnViewD.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        btnViewD.setForeground(new java.awt.Color(255, 255, 255));
-        btnViewD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
-        btnViewD.setText("VIEW");
-        btnViewD.addActionListener(new java.awt.event.ActionListener() {
+        btnViewPharmacy.setBackground(new java.awt.Color(0, 153, 255));
+        btnViewPharmacy.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        btnViewPharmacy.setForeground(new java.awt.Color(255, 255, 255));
+        btnViewPharmacy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Eye.png"))); // NOI18N
+        btnViewPharmacy.setText("VIEW");
+        btnViewPharmacy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDActionPerformed(evt);
+                btnViewPharmacyActionPerformed(evt);
             }
         });
-        add(btnViewD, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 110, 30));
-        add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 710, -1, 90));
-        add(filler2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 190, 0));
+        add(btnViewPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 110, 30));
 
-        lbllogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbllogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/AVSlogo.png"))); // NOI18N
-        add(lbllogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 730, 110, 70));
-
-        lblIDView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIDView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/DistributorLogoV.jpg"))); // NOI18N
-        add(lblIDView, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, 310, 190));
+        btnCreate.setBackground(new java.awt.Color(0, 153, 51));
+        btnCreate.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/Plus(3).png"))); // NOI18N
+        btnCreate.setText("CREATE");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 110, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -118,18 +146,68 @@ public class ViewDistributorJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
             return;
         }
+        ArrayList<Distributor> mList =  new  ArrayList<>();
+        DistributorSqlQuery msq = new DistributorSqlQuery();
+        mList = msq.readAllDistributor();
+        Distributor p = mList.get(selectedRow);
 
-        
+        msq.deleteDistributor(p);
+
+        populateTable();
+
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnViewDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDActionPerformed
+    private void btnViewPharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPharmacyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewDActionPerformed
+        int selectedRow = tblD.getSelectedRow();
 
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
+        ArrayList<Distributor> mList =  new  ArrayList<>();
+        DistributorSqlQuery msq = new DistributorSqlQuery();
+        mList = msq.readAllDistributor();
+        Distributor p = mList.get(selectedRow);
 
+        splitPane.setRightComponent(new UpdateDistributorFormJPanel(splitPane,p));
+        populateTable();
+    }//GEN-LAST:event_btnViewPharmacyActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        splitPane.setRightComponent(new DistributorFormJPanel(splitPane));
+        populateTable();
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+ private void populateTable() {
+         ArrayList<Distributor> mList =  new  ArrayList<>();
+        DistributorSqlQuery msq = new DistributorSqlQuery();
+        mList = msq.readAllDistributor();
+        
+        
+        DefaultTableModel model =(DefaultTableModel) tblD.getModel();
+        model.setRowCount(0);
+        
+        for(Distributor e: mList){
+            Object row[]=new Object[10];
+            row[0] = e.getDistributor_Name();
+            row[1] = e.getDistributor_Location();
+            row[2] = e.getDistributor_Mode_Of_Transportation();
+            row[3] = e.getDistributor_Date_Of_Establishment();
+            row[4] = e.getDistributor_Price();
+            row[5] = e.getEmail_Id();
+             row[6] = e.getPassword();
+              row[7] = e.getPhone_No();
+            
+            model.addRow(row);
+            
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnViewD;
+    private javax.swing.JButton btnViewPharmacy;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JScrollPane jScrollPane2;

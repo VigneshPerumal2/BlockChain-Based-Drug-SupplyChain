@@ -165,5 +165,49 @@ public class MedicineSqlQuery {
         }
         return result;
     }
+    
+    public ArrayList<Medicine> readAllMedicinebyMName(String mName) {
+        String SQL_READ_MEDICINE_BY_NAME = "SELECT * FROM MEDICINE WHERE Manufacturer_Name = ? ; ";
+        
+        ArrayList<Medicine> record = new ArrayList<>();
+        try ( Connection conn = DriverManager.getConnection(
+                URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_READ_MEDICINE_BY_NAME)) {
+
+            preparedStatement.setString(1, mName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String status = resultSet.getString(3);
+                String category = resultSet.getString(4);
+                Date dom = resultSet.getDate(5);
+                int shell_life = resultSet.getInt(6);
+                String manufacturer_name = resultSet.getString(7);
+                String Ingredients = resultSet.getString(8);
+
+                Medicine obj = new Medicine();
+                obj.setId(id);
+                obj.setIngredients(Ingredients);
+                obj.setMedicine_Name(name);
+                obj.setMedicine_Status(status);
+                obj.setMedicine_Category(category);
+                obj.setDate_Of_Manufacture(dom);
+                obj.setShell_Life(shell_life);
+                obj.setManufacturer_Name(manufacturer_name);
+
+                record.add(obj);
+                System.out.println(obj);
+            }
+
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+
+        }
+        return record;
+
+    }
+    
 
 }

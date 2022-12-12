@@ -19,8 +19,10 @@ public class SuperAdminRegistrationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SuperAdminRegistrationJPanel
      */
-    public SuperAdminRegistrationJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public SuperAdminRegistrationJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
     }
 
     /**

@@ -4,6 +4,7 @@
  */
 package model.pharmacy;
 
+import classes.Pharmacy;
 import model.main.MainJFrame;
 
 /**
@@ -16,9 +17,12 @@ public class PharmacySideJPanel extends javax.swing.JPanel {
      * Creates new form PharmacySideJPanel
      */
     javax.swing.JSplitPane splitPane;
-    public PharmacySideJPanel(javax.swing.JSplitPane splitPane) {
+    Pharmacy p;
+    public PharmacySideJPanel(javax.swing.JSplitPane splitPane,Pharmacy P) {
         initComponents();
         this.splitPane=splitPane;
+        this.p=P;
+        lblUserName.setText(this.p.getPharmacy_Name());
     }
 
     /**

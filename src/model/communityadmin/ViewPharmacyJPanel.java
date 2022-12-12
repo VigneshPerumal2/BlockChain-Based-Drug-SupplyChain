@@ -4,6 +4,13 @@
  */
 package model.communityadmin;
 
+import classes.Pharmacy;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.registration.PharmacyFormJPanel;
+import util.sql.PharmacySqlQuery;
+
 /**
  *
  * @author sunayanashivanagi
@@ -13,8 +20,11 @@ public class ViewPharmacyJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewPharmacyJPanel
      */
-    public ViewPharmacyJPanel() {
+    javax.swing.JSplitPane splitPane;
+    public ViewPharmacyJPanel(javax.swing.JSplitPane splitPane) {
         initComponents();
+        this.splitPane=splitPane;
+        populateTable();
     }
 
     /**
@@ -35,6 +45,7 @@ public class ViewPharmacyJPanel extends javax.swing.JPanel {
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 0), new java.awt.Dimension(40, 32767));
         lbllogo = new javax.swing.JLabel();
         lblIVPharmacy = new javax.swing.JLabel();
+        btnCreate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,7 +67,7 @@ public class ViewPharmacyJPanel extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -106,31 +117,86 @@ public class ViewPharmacyJPanel extends javax.swing.JPanel {
         lblIVPharmacy.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblIVPharmacy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/util/images/PharmacyLogoV.jpg"))); // NOI18N
         add(lblIVPharmacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, 310, 180));
+
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 110, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblMedicine.getSelectedRow();
+        int selectedRow = tblPharmacy.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
             return;
         }
-
-        ArrayList<Medicine> mList = new ArrayList<>();
-        MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
-        Medicine m = mList.get(selectedRow);
-        new QualityControlJDialog(null, true, m).show();
+        ArrayList<Pharmacy> mList =  new  ArrayList<>();
+        PharmacySqlQuery msq = new PharmacySqlQuery();
+        mList = msq.readAllPharmacy();
+        Pharmacy p = mList.get(selectedRow);
+        
+        msq.deletePharmacy(p);
+        
+        
+        
         populateTable();
+
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnViewPharmacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPharmacyActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblPharmacy.getSelectedRow();
+
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to edit");
+            return;
+        }
+         ArrayList<Pharmacy> mList =  new  ArrayList<>();
+        PharmacySqlQuery msq = new PharmacySqlQuery();
+        mList = msq.readAllPharmacy();
+        Pharmacy p = mList.get(selectedRow);
+        
+        splitPane.setRightComponent(new UpdatePharmacyFormJPanel(splitPane,p));
+         populateTable();
     }//GEN-LAST:event_btnViewPharmacyActionPerformed
 
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+        splitPane.setRightComponent(new PharmacyFormJPanel(splitPane));
+        populateTable();
+    }//GEN-LAST:event_btnCreateActionPerformed
 
+        private void populateTable() {
+        ArrayList<Pharmacy> mList =  new  ArrayList<>();
+        PharmacySqlQuery msq = new PharmacySqlQuery();
+        mList = msq.readAllPharmacy();
+        
+        
+        DefaultTableModel model =(DefaultTableModel) tblPharmacy.getModel();
+        model.setRowCount(0);
+        
+        for(Pharmacy e: mList){
+            System.out.println(e);
+            Object row[]=new Object[10];
+            row[0] = e.getPharmacy_Name();
+            row[1] = e.getPharmacy_Location();
+            row[2] = e.getPharmacy_Inventory_Size();
+            row[3] = e.getEmail_Id();
+            row[4] = e.getPassword();
+            row[5] = e.getPassword();
+            
+            model.addRow(row);
+            
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnViewPharmacy;
     private javax.swing.Box.Filler filler1;

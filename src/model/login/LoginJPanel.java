@@ -4,10 +4,13 @@
  */
 package model.login;
 
+import classes.Hospital;
 import classes.Manufacturer;
+import classes.Pharmacy;
 import javax.swing.JOptionPane;
 import model.FDA.FDAJPanel;
 import model.FDA.FDASideJPanel;
+import model.communityadmin.CommunityAdminSideJPanel;
 import model.distributor.DistributorJPanel;
 import model.distributor.DistributorSideJPanel;
 import model.hospital.HospitalJPanel;
@@ -210,7 +213,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             Pharmacy m = msq.validatePharmacy(txtEmailId.getText());
 
             if (m != null) {
-                splitPane.setLeftComponent(new PharmacySideJPanel(m));
+                splitPane.setLeftComponent(new PharmacySideJPanel(splitPane,m));
                 splitPane.setRightComponent(new PharmacyJPanel(m));
 
             } else {
@@ -231,12 +234,16 @@ public class LoginJPanel extends javax.swing.JPanel {
             splitPane.setLeftComponent(new DistributorSideJPanel(splitPane));
             splitPane.setRightComponent(new DistributorJPanel());
         }
-        
-        //Hospital Login    
-         else if (drpRole.getSelectedItem().equals("Hospital")) {
-            splitPane.setLeftComponent(new HospitalSideJPanel());
-            splitPane.setRightComponent(new HospitalJPanel());
+        //Super Admin Login
+        else if (drpRole.getSelectedItem().equals("Super Admin")) {
+            splitPane.setLeftComponent(new SuperAdminSideJPanel(splitPane));
         }
+        //Community Admin
+        else if (drpRole.getSelectedItem().equals("Community Admin")) {
+            splitPane.setLeftComponent(new CommunityAdminSideJPanel(splitPane));
+        }
+        
+       
 
 
     }//GEN-LAST:event_btnSignInActionPerformed

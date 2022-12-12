@@ -105,24 +105,14 @@ public class SuperAdminSideJPanel extends javax.swing.JPanel {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
-        splitPane.setLeftComponent(new SuperAdminRegistrationJPanel());
+        splitPane.setLeftComponent(new SuperAdminRegistrationJPanel(splitPane));
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnAdminViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminViewActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblMedicine.getSelectedRow();
+        
 
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to edit");
-            return;
-        }
-
-        ArrayList<Medicine> mList = new ArrayList<>();
-        MedicineSqlQuery msq = new MedicineSqlQuery();
-        mList = msq.readAllMedicine();
-        Medicine m = mList.get(selectedRow);
-        new IndgJDialog(null, true, m).show();
-        populateTable();
+       
     }//GEN-LAST:event_btnAdminViewActionPerformed
 
 

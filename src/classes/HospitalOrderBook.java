@@ -12,7 +12,6 @@ public class HospitalOrderBook {
     
     private int Hospital_Order_Book_Id;
     private int Medicine_Id;
-    private int Distributor_Id;
     private int Hospital_Id;
     private String Status;
 
@@ -40,13 +39,6 @@ public class HospitalOrderBook {
         this.Medicine_Id = Medicine_Id;
     }
 
-    public int getDistributor_Id() {
-        return Distributor_Id;
-    }
-
-    public void setDistributor_Id(int Distributor_Id) {
-        this.Distributor_Id = Distributor_Id;
-    }
 
     public int getHospital_Id() {
         return Hospital_Id;
@@ -58,13 +50,12 @@ public class HospitalOrderBook {
 
     @Override
     public String toString() {
-        return "HospitalOrderBook{" + "Hospital_Order_Book_Id=" + Hospital_Order_Book_Id + ", Medicine_Id=" + Medicine_Id + ", Distributor_Id=" + Distributor_Id + ", Hospital_Id=" + Hospital_Id + ", Status=" + Status + '}';
+        return "HospitalOrderBook{" + "Hospital_Order_Book_Id=" + Hospital_Order_Book_Id + ", Medicine_Id=" + Medicine_Id + ", Hospital_Id=" + Hospital_Id + ", Status=" + Status + '}';
     }
 
-    public HospitalOrderBook(int Hospital_Order_Book_Id, int Medicine_Id, int Distributor_Id, int Hospital_Id, String Status) {
+    public HospitalOrderBook(int Hospital_Order_Book_Id, int Medicine_Id, int Hospital_Id, String Status) {
         this.Hospital_Order_Book_Id = Hospital_Order_Book_Id;
         this.Medicine_Id = Medicine_Id;
-        this.Distributor_Id = Distributor_Id;
         this.Hospital_Id = Hospital_Id;
         this.Status = Status;
     }

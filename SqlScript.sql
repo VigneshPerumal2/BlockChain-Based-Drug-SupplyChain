@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS PHARMACY
          Pharmacy_Location TEXT NOT NULL, 
 		 Pharmacy_Inventory_Size INTEGER NOT NULL,
          Email_Id TEXT  NOT NULL, 
+         Phone_no TEXT NOT NULL,
          Password TEXT  NOT NULL
          );       
       
@@ -104,6 +105,7 @@ CREATE TABLE IF NOT EXISTS HOSPITAL
          Hospital_Location TEXT NOT NULL, 
 		 Hospital_Speciality TEXT NOT NULL,
          Email_Id TEXT  NOT NULL, 
+         Phone_no TEXT NOT NULL,
          Password TEXT  NOT NULL
          );       
  
@@ -126,10 +128,10 @@ CREATE TABLE IF NOT EXISTS PHARMACY_ORDER_BOOK
          ( 
          Pharmacy_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
 		 Medicine_Id INTEGER NOT NULL,
-         Distributor_Id INTEGER NOT NULL,
          Pharmacy_Id INTEGER NOT NULL,
+         Status TEXT NOT NULL,
          FOREIGN KEY(Medicine_Id) REFERENCES MEDICINE(Medicine_Id),
-         FOREIGN KEY(Distributor_Id) REFERENCES DISTRIBUTOR(Distributor_Id),
+         
          FOREIGN KEY(Pharmacy_Id) REFERENCES PHARMACY(Pharmacy_Id)
          );
 
@@ -138,10 +140,10 @@ CREATE TABLE IF NOT EXISTS HOSPITAL_ORDER_BOOK
          ( 
          Hospital_Order_Book_Id INTEGER PRIMARY KEY auto_increment,
 		 Medicine_Id INTEGER NOT NULL,
-         Distributor_Id INTEGER NOT NULL,
          Hospital_Id INTEGER NOT NULL,
+         Status TEXT NOT NULL,
          FOREIGN KEY(Medicine_Id) REFERENCES MEDICINE(Medicine_Id),
-         FOREIGN KEY(Distributor_Id) REFERENCES DISTRIBUTOR(Distributor_Id),
+         
          FOREIGN KEY(Hospital_Id) REFERENCES HOSPITAL(Hospital_Id)
          );
          

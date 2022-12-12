@@ -73,13 +73,13 @@ public class HospitalSqlQuery {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-
-                String name = resultSet.getString(1);
-                String location = resultSet.getString(2);
-                String speciality = resultSet.getString(3);
-                String emailID = resultSet.getString(4);
-                String phoneNo = resultSet.getString(5);
-                String password = resultSet.getString(6);
+                int id = resultSet.getInt(1);
+                String name = resultSet.getString(2);
+                String location = resultSet.getString(3);
+                String speciality = resultSet.getString(4);
+                String emailID = resultSet.getString(5);
+                String phoneNo = resultSet.getString(6);
+                String password = resultSet.getString(7);
 
                 Hospital obj = new Hospital();
                 obj.setHospital_Name(name);
@@ -107,7 +107,7 @@ public class HospitalSqlQuery {
      * Validate Hospital Function
      */
    public Hospital validateHospital(String Email_Id) {
-        String query = "SELECT Password FROM HOSPITAL WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
+        String query = "SELECT * FROM HOSPITAL WHERE Email_Id=" +"\""+Email_Id+"\""+";";  //get username
         Hospital obj = null;
         
         try {

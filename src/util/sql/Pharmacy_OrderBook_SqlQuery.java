@@ -28,7 +28,7 @@ public class Pharmacy_OrderBook_SqlQuery {
     /**
      * Pharmacy_Order_Book Queries
      */
-    private static final String SQL_INSERT_PHARMACY_ORDER_BOOK = "INSERT INTO PHARMACY_ORDER_BOOK (Pharmacy_Order_Book_Id, Medicine_Id, Distributor_Id, Pharmacy_Id, Status) VALUES (?,?,?,?,?)";
+    private static final String SQL_INSERT_PHARMACY_ORDER_BOOK = "INSERT INTO PHARMACY_ORDER_BOOK (Pharmacy_Order_Book_Id, Medicine_Id, Pharmacy_Id, Status) VALUES (?,?,?,?)";
     private static final String SQL_READ_PHARMACY_ORDER_BOOK = "SELECT * FROM PHARMACY_ORDER_BOOK";
     
     /**
@@ -42,9 +42,8 @@ public class Pharmacy_OrderBook_SqlQuery {
 
             preparedStatement.setInt(1, pharmacyOrderBook.getPharmacy_Order_Book_Id());
             preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, pharmacyOrderBook.getDistributor_Id());
-            preparedStatement.setInt(4, pharmacyOrderBook.getPharmacy_Id());
-            preparedStatement.setString(5, pharmacyOrderBook.getStatus());
+            preparedStatement.setInt(3, pharmacyOrderBook.getPharmacy_Id());
+            preparedStatement.setString(4, pharmacyOrderBook.getStatus());
 
             System.out.println("Prepared Statement ->" + preparedStatement);
 
@@ -74,15 +73,13 @@ public class Pharmacy_OrderBook_SqlQuery {
 
                 int pharm_ob_id = resultSet.getInt(1);
                 int medicine_id = resultSet.getInt(2);
-                int distributor_id = resultSet.getInt(3);
-                int pharm_id = resultSet.getInt(4);
-                String status = resultSet.getString(5);
+                int pharm_id = resultSet.getInt(3);
+                String status = resultSet.getString(4);
                
 
                 PharmacyOrderBook obj = new PharmacyOrderBook();
                 obj.setPharmacy_Order_Book_Id(pharm_ob_id);
                 obj.setMedicine_Id(medicine_id);
-                obj.setDistributor_Id(distributor_id);
                 obj.setPharmacy_Id(pharm_id);
                 obj.setStatus(status);
                 
@@ -105,15 +102,14 @@ public class Pharmacy_OrderBook_SqlQuery {
      */
     public int updatePharmacyOrderBook(PharmacyOrderBook pharmacyOrderBook) {
         int result = 0;
-        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "UPDATE PHARMACY SET Pharmacy_Order_Book_Id = ?,Medicine_Id = ?,Distributor_Id = ?, Pharmacy_Id = ?, Status = ? WHERE Pharmacy_Order_Book_Id = ? ";
+        String SQL_UPDATE_PHARMACY_ORDER_BOOK = "UPDATE PHARMACY SET Pharmacy_Order_Book_Id = ?,Medicine_Id = ?,Pharmacy_Id = ?, Status = ? WHERE Pharmacy_Order_Book_Id = ? ";
         try ( Connection conn = DriverManager.getConnection(
                 URL, USER, PASSWORD);  PreparedStatement preparedStatement = conn.prepareStatement(SQL_UPDATE_PHARMACY_ORDER_BOOK)) {
 
             preparedStatement.setInt(1, pharmacyOrderBook.getPharmacy_Order_Book_Id());
             preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, pharmacyOrderBook.getDistributor_Id());
-            preparedStatement.setInt(4, pharmacyOrderBook.getPharmacy_Id());
-            preparedStatement.setString(5, pharmacyOrderBook.getStatus());
+            preparedStatement.setInt(3, pharmacyOrderBook.getPharmacy_Id());
+            preparedStatement.setString(4, pharmacyOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -140,9 +136,8 @@ public class Pharmacy_OrderBook_SqlQuery {
 
             preparedStatement.setInt(1, pharmacyOrderBook.getPharmacy_Order_Book_Id());
             preparedStatement.setInt(2, pharmacyOrderBook.getMedicine_Id());
-            preparedStatement.setInt(3, pharmacyOrderBook.getDistributor_Id());
-            preparedStatement.setInt(4, pharmacyOrderBook.getPharmacy_Id());
-            preparedStatement.setString(5, pharmacyOrderBook.getStatus());
+            preparedStatement.setInt(3, pharmacyOrderBook.getPharmacy_Id());
+            preparedStatement.setString(4, pharmacyOrderBook.getStatus());
 
 
             System.out.println("Prepared Statement ->" + preparedStatement);
@@ -156,13 +151,7 @@ public class Pharmacy_OrderBook_SqlQuery {
         }
         return result;
     }
-    
-    
- 
-    
-    
-    
-    
+     
     
 }
 

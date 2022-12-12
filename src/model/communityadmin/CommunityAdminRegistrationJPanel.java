@@ -6,6 +6,10 @@ package model.communityadmin;
 
 import model.main.MainJFrame;
 
+import model.main.MainJFrame;
+import model.registration.HospitalFormJPanel;
+import model.registration.PharmacyFormJPanel;
+
 /**
  *
  * @author sunayanashivanagi
